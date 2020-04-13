@@ -21,28 +21,28 @@ namespace Engine
             switch (caseSwitch)
             {
                 case 1:
-                    return "C:\\Users\\User\\Source\\Repos\\byret\\Farmio\\images\\1.png";
+                    return "_1";
                     break;
                 case 2:
-                    return "C:\\Users\\User\\Source\\Repos\\byret\\Farmio\\images\\2.png";
+                    return "_2";
                     break;
                 case3:
-                    return "C:\\Users\\User\\Source\\Repos\\byret\\Farmio\\images\\3.png";
+                    return "_3";
                     break;
                 case4:
-                    return "C:\\Users\\User\\Source\\Repos\\byret\\Farmio\\images\\4.png";
+                    return "_4";
                     break;
                 case5:
-                    return "C:\\Users\\User\\Source\\Repos\\byret\\Farmio\\images\\5.png";
+                    return "_5";
                     break;
                 case6:
-                    return "C:\\Users\\User\\Source\\Repos\\byret\\Farmio\\images\\6.png";
+                    return "_6";
                     break;
                 case7:
-                    return "C:\\Users\\User\\Source\\Repos\\byret\\Farmio\\images\\7.png";
+                    return "_7";
                     break;
                 default:
-                    return "C:\\Users\\User\\Source\\Repos\\byret\\Farmio\\images\\8.png";
+                    return "_8";
                     break;
             }
         }
@@ -54,39 +54,27 @@ namespace Engine
             switch (caseSwitch)
             {
                 case 1:
-                    return "C:\\Users\\User\\Source\\Repos\\byret\\Farmio\\music\\purrple-cat-green-tea.wav";
+                    return "purrple_cat_green_tea";
                     break;
                 case 2:
-                    return "C:\\Users\\User\\Source\\Repos\\byret\\Farmio\\music\\soimanislander-behind-the-barn.wav";
+                    return "purrple_cat_spring_showers";
                     break;
                 case 3:
-                    return "C:\\Users\\User\\Source\\Repos\\byret\\Farmio\\music\\soimanislander-along-the-fjord.wav";
+                    return "purrple_cat_bloom";
                     break;
                 case 4:
-                    return "C:\\Users\\User\\Source\\Repos\\byret\\Farmio\\music\\purrple-cat-bloom.wav";
+                    return "soimanislander_along_the_fjord";
                     break;
                 case 5:
-                    return "C:\\Users\\User\\Source\\Repos\\byret\\Farmio\\music\\purrple-cat-spring-showers.wav"; 
+                    return "soimanislander_behind_the_barn"; 
                     break;
                 case 6:
-                    return "C:\\Users\\User\\Source\\Repos\\byret\\Farmio\\music\\vlad-gluschenko-springtime.wav";  // хз, наверное слишком резкий
+                    return "vlad_gluschenko_springtime";
                     break;
                 default:
-                    return "C:\\Users\\User\\Source\\Repos\\byret\\Farmio\\music\\vlad-gluschenko-its-been-a-while.wav";   // тоже резковат, но для стартового окна
-                                                                                                                          // вроде норм хд
+                    return "vlad_gluschenko_its_been_a_while";
                     break;
-                    //case5:
-                    //    return "C:\\Users\\User\\Source\\Repos\\byret\\Farmio\\images\\5.png";
-                    //    break;
-                    //case6:
-                    //    return "C:\\Users\\User\\Source\\Repos\\byret\\Farmio\\images\\6.png";
-                    //    break;
-                    //case7:
-                    //    return "C:\\Users\\User\\Source\\Repos\\byret\\Farmio\\images\\7.png";
-                    //    break;
-                    //default:
-                    //return "C:\\Users\\User\\Source\\Repos\\byret\\Farmio\\images\\8.png";
-                    //break;
+
             }
         }
     }
