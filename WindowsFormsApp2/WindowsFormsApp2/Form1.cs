@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 using Engine; 
 
@@ -43,11 +44,32 @@ namespace Farmio
         {
             this.Controls.Remove(pbStart);
             this.Controls.Remove(pictureBox1);
+            
+            //pbNameFon.Visible = true;
+           // pbName.Parent = labelName.Parent = pbNameOk.Parent = pbNameFon; :(
+            tbName.Visible = true;
+            labelName.Visible = true;
+            pbNameOk.Visible = true; 
+            pbName.Visible = true;
         }
 
         private void pbExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void pbNameOk_Click(object sender, EventArgs e)
+        {
+            string str = tbName.Text;
+            if (str!="")
+            {
+                _hero.Name = str;
+                this.Controls.Remove(pbName);
+                this.Controls.Remove(labelName);
+                this.Controls.Remove(tbName);
+                this.Controls.Remove(pbNameOk);
+
+            }
         }
     }
 }

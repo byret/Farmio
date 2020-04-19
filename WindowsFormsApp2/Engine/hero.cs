@@ -10,5 +10,8 @@ namespace Engine
     {
         public int Gold { get; set; }
         public int Level { get; set; }
+        public string Name { get; set; }
+        bool Gender { get; set; }
+
     }
 }

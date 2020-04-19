@@ -163,9 +163,29 @@ namespace WindowsFormsApp2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap nameent {
+            get {
+                object obj = ResourceManager.GetObject("nameent", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Nazwa {
             get {
                 object obj = ResourceManager.GetObject("Nazwa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap okbutname {
+            get {
+                object obj = ResourceManager.GetObject("okbutname", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
