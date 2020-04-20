@@ -193,6 +193,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::WindowsFormsApp2.Properties.Resources.grass6;
             this.pictureBox1.Location = new System.Drawing.Point(-1, -3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1300, 805);
@@ -211,7 +212,7 @@
             // 
             // pbFon
             // 
-            this.pbFon.BackColor = System.Drawing.Color.FromArgb(139, 211, 69);
+            this.pbFon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(211)))), ((int)(((byte)(69)))));
             this.pbFon.Location = new System.Drawing.Point(-1, -3);
             this.pbFon.Name = "pbFon";
             this.pbFon.Size = new System.Drawing.Size(1300, 805);
