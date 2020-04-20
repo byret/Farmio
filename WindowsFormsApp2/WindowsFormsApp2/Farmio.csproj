@@ -89,6 +89,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameMap.cs" />
     <Compile Include="Group.cs" />
     <Compile Include="ImageLayer.cs" />
     <Compile Include="ITmxLayer.cs" />

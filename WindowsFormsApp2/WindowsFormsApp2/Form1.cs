@@ -22,8 +22,10 @@ namespace Farmio
         public Farmio()
         {
             InitializeComponent();
-            pbFarmio.Parent = pbStart.Parent = pbLoad.Parent = pbExit.Parent = pictureBox1;
-            pbStart.Parent = pictureBox1;
+            GameMap map = new GameMap();
+            map.ArrayGen();
+            pbFon.Image = map.MapGen();
+            Parentize();
         
             System.IO.Stream str = (System.IO.Stream)global::WindowsFormsApp2.Properties.Resources.ResourceManager.GetObject(SomeFunctions.MusicRandomize());
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(str);
@@ -39,6 +41,11 @@ namespace Farmio
             lblEpoch.Text = _hero.Level.ToString();
         }
 
+        private void Parentize()
+        {
+            pbFarmio.Parent = pbStart.Parent = pbLoad.Parent = pbExit.Parent = pbStart.Parent = pictureBox1;
+            lblGold.Parent = lblEpoch.Parent = label1.Parent = label2.Parent = pbName.Parent = labelName.Parent = pbNameOk.Parent = pbFon;
+        }
 
         private void pbStart_Click(object sender, EventArgs e)
         {
@@ -64,6 +71,7 @@ namespace Farmio
             if (str!="")
             {
                 _hero.Name = str;
+                pbName.Parent = labelName.Parent = pbNameOk.Parent = null;
                 this.Controls.Remove(pbName);
                 this.Controls.Remove(labelName);
                 this.Controls.Remove(tbName);
@@ -71,5 +79,6 @@ namespace Farmio
 
             }
         }
+
     }
 }

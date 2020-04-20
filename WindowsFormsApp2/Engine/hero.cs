@@ -12,6 +12,8 @@ namespace Engine
         public int Level { get; set; }
         public string Name { get; set; }
         bool Gender { get; set; }
+        int x { get; set; }
+        int y { get; set; }
 
     }
 }

@@ -42,6 +42,7 @@
             this.pbFarmio = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbNameFon = new System.Windows.Forms.PictureBox();
+            this.pbFon = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbNameOk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
@@ -50,44 +51,49 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbFarmio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNameFon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFon)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Squarified", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Pixellari", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(22, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 20);
+            this.label1.Size = new System.Drawing.Size(66, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Złoto:";
             // 
             // lblGold
             // 
             this.lblGold.AutoSize = true;
-            this.lblGold.Font = new System.Drawing.Font("Squarified", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGold.Location = new System.Drawing.Point(80, 24);
+            this.lblGold.BackColor = System.Drawing.Color.Transparent;
+            this.lblGold.Font = new System.Drawing.Font("Pixellari", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGold.Location = new System.Drawing.Point(85, 24);
             this.lblGold.Name = "lblGold";
-            this.lblGold.Size = new System.Drawing.Size(0, 20);
+            this.lblGold.Size = new System.Drawing.Size(0, 21);
             this.lblGold.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Squarified", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Pixellari", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(22, 60);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 20);
+            this.label2.Size = new System.Drawing.Size(72, 21);
             this.label2.TabIndex = 3;
             this.label2.Text = "Epoka:";
             // 
             // lblEpoch
             // 
             this.lblEpoch.AutoSize = true;
-            this.lblEpoch.Font = new System.Drawing.Font("Squarified", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEpoch.BackColor = System.Drawing.Color.Transparent;
+            this.lblEpoch.Font = new System.Drawing.Font("Pixellari", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEpoch.Location = new System.Drawing.Point(93, 60);
             this.lblEpoch.Name = "lblEpoch";
-            this.lblEpoch.Size = new System.Drawing.Size(0, 20);
+            this.lblEpoch.Size = new System.Drawing.Size(0, 21);
             this.lblEpoch.TabIndex = 4;
             // 
             // labelName
@@ -187,7 +193,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(-3, -3);
+            this.pictureBox1.Location = new System.Drawing.Point(-1, -3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1300, 805);
             this.pictureBox1.TabIndex = 3;
@@ -202,6 +208,15 @@
             this.pbNameFon.TabIndex = 12;
             this.pbNameFon.TabStop = false;
             this.pbNameFon.Visible = false;
+            // 
+            // pbFon
+            // 
+            this.pbFon.BackColor = System.Drawing.Color.FromArgb(139, 211, 69);
+            this.pbFon.Location = new System.Drawing.Point(-1, -3);
+            this.pbFon.Name = "pbFon";
+            this.pbFon.Size = new System.Drawing.Size(1300, 805);
+            this.pbFon.TabIndex = 14;
+            this.pbFon.TabStop = false;
             // 
             // Farmio
             // 
@@ -222,6 +237,7 @@
             this.Controls.Add(this.pbNameFon);
             this.Controls.Add(this.lblEpoch);
             this.Controls.Add(this.lblGold);
+            this.Controls.Add(this.pbFon);
             this.Name = "Farmio";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pbNameOk)).EndInit();
@@ -232,6 +248,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbFarmio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNameFon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,6 +270,7 @@
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.PictureBox pbNameFon;
         private System.Windows.Forms.PictureBox pbNameOk;
+        private System.Windows.Forms.PictureBox pbFon;
     }
 }
 
