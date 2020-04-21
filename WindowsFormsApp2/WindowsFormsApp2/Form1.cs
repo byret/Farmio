@@ -18,15 +18,17 @@ namespace Farmio
     {
        
         private Hero _hero;
-
+        private int ClickX;
+        private int ClickY;
+        GameMap map = new GameMap();
+        bool start = false;
+        
         public Farmio()
         {
-            InitializeComponent();
-            GameMap map = new GameMap();
             map.ArrayGen();
+            InitializeComponent();
             pbFon.Image = map.MapGen();
             Parentize();
-        
             System.IO.Stream str = (System.IO.Stream)global::WindowsFormsApp2.Properties.Resources.ResourceManager.GetObject(SomeFunctions.MusicRandomize());
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(str);
             //player.Play();
@@ -76,9 +78,48 @@ namespace Farmio
                 this.Controls.Remove(labelName);
                 this.Controls.Remove(tbName);
                 this.Controls.Remove(pbNameOk);
+                start = true;
 
             }
         }
 
+        private void pbFon_Click(object sender, EventArgs e)
+        {
+                if (start)
+                {
+ 
+                MouseEventArgs me = (MouseEventArgs)e;
+                ClickX = me.X;
+                ClickY = me.Y;
+                string caseSwitch = map.formArray[ClickX, ClickY];
+
+                switch (caseSwitch)
+                {
+                    case "g":
+                    case "g1":
+                    case "g2":
+                    case "g3":
+                    case "g4":
+                    case "g5":
+                    case "g6":
+                    case "g7":
+                    case "g8":
+                        Console.WriteLine("zebrać nasiona");
+                        break;
+                    case "t1":
+                    case "t2":
+                    case "t3":
+                    Console.WriteLine("wyciąć drzewo");
+                    break;
+                    case "s1":
+                    case "s2":
+                    case "s3":
+                        Console.WriteLine("zdobyć kamień");
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
     }
 }

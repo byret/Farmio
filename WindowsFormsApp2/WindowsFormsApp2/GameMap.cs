@@ -11,7 +11,7 @@ namespace Farmio
     {
 
         public string[] array = new string[500];
-        public bool[,] formArray = new bool[1300,805];
+        public string[,] formArray = new string[1300,805];
         string str;
         Random random = new Random();
         public void ArrayGen()
@@ -21,7 +21,6 @@ namespace Farmio
                 //random.Next(1, max);
                 int caseSwitch = random.Next(1, 32);
                 //Console.WriteLine(caseSwitch);
-
                 switch (caseSwitch)
                 {
                     case 1:
@@ -88,7 +87,6 @@ namespace Farmio
                         str = "g";
                         break;
                 }
-                Console.WriteLine(str);
                      array[i] = str;
                 }
              }
@@ -118,68 +116,102 @@ namespace Farmio
             {
                 if (itm != "g" && itm != "g1" && itm != "g2" && itm != "g3" && itm != "g4" && itm != "g5" && itm != "g6" && itm != "g7" && itm != "g8")
                     continue;
+
                 int yr1 = random.Next(-49, 49);
-                
+
+                if (y + yr1 < 0)
+                    continue;
+                if (x > 1250)
+                {
+                    x = 0;
+                    int yr = random.Next(50, 150);
+                    y += yr; 
+                }
+                if (y+yr1 > 750)
+                    break;
+
                 // create the images!
                 if (itm == "g")
                 {
                     bm[img] = new Bitmap("grass1.png");
                     files[img] = new Bitmap(bm[img], 11, 8);
+                    for (int i = y + yr1; i <= y + yr1 + 8; i++)
+                        for (int j = x; j <= x + 11; j++)
+                            formArray[j, i] = "g";
                 }
 
                 if (itm == "g1")
                 {
                     bm[img] = new Bitmap("grass2.png");
                     files[img] = new Bitmap(bm[img], 10, 8);
+                    for (int i = y + yr1; i <= y + yr1 + 8; i++)
+                        for (int j = x; j <= x + 10; j++)
+                            formArray[j, i] = "g1";
                 }
 
                 if (itm == "g2")
                 {
                     bm[img] = new Bitmap("grass3.png");
                     files[img] = new Bitmap(bm[img], 16, 14);
+                    for (int i = y + yr1; i <= y + yr1 + 14; i++)
+                        for (int j = x; j <= x + 16; j++)
+                            formArray[j, i] = "g2";
                 }
 
                 if (itm == "g3")
                 {
                     bm[img] = new Bitmap("grass4.png");
                     files[img] = new Bitmap(bm[img], 13, 12);
+                    for (int i = y + yr1; i <= y + yr1 + 12; i++)
+                        for (int j = x; j <= x + 13; j++)
+                            formArray[j, i] = "g3";
                 }
 
                 if (itm == "g4")
                 {
                     bm[img] = new Bitmap("grass5.png");
                     files[img] = new Bitmap(bm[img], 10, 13);
+                    for (int i = y + yr1; i <= y + yr1 + 13; i++)
+                        for (int j = x; j <= x + 10; j++)
+                            formArray[j, i] = "g4";
                 }
 
                 if (itm == "g5")
                 {
                     bm[img] = new Bitmap("grass6.png");
                     files[img] = new Bitmap(bm[img], 12, 11);
+                    for (int i = y + yr1; i <= y + yr1 + 11; i++)
+                        for (int j = x; j <= x + 12; j++)
+                            formArray[j, i] = "g5";
                 }
 
                 if (itm == "g6")
                 {
                     bm[img] = new Bitmap("grass7.png");
                     files[img] = new Bitmap(bm[img], 13, 15);
+                    for (int i = y + yr1; i <= y + yr1 + 15; i++)
+                        for (int j = x; j <= x + 13; j++)
+                            formArray[j, i] = "g6";
                 }
 
                 if (itm == "g7")
                 {
                     bm[img] = new Bitmap("grass8.png");
                     files[img] = new Bitmap(bm[img], 15, 13);
+                    for (int i = y + yr1; i <= y + yr1 + 13; i++)
+                        for (int j = x; j <= x + 15; j++)
+                            formArray[j, i] = "g7";
                 }
 
                 if (itm == "g8")
                 {
                     bm[img] = new Bitmap("grass9.png");
                     files[img] = new Bitmap(bm[img], 25, 21);
+                    for (int i = y + yr1; i <= y + yr1 + 21; i++)
+                        for (int j = x; j <= x + 25; j++)
+                            formArray[j, i] = "g8";
                 }
 
-                if (itm == "t1")
-                {
-                    bm[img] = new Bitmap("tree1.png");
-                    files[img] = new Bitmap(bm[img], 64, 95);
-                }
 
                 //if (itm == "g9")
                 //{
@@ -228,21 +260,13 @@ namespace Farmio
                 {
                     g.DrawImage(files[img], new Point(x, y+yr1));
                 }
-               // int caseSwitch = random.Next(0, 1500);
-                img++;
 
+                img++;
 
                 int xr = random.Next(50, 150);
                 
-
                 x += xr;
 
-                if (img % 50 == 0)
-                {
-                    x = 0;
-                    int yr = random.Next(50, 150);
-                    y += yr; // 12 because that's how big the image is
-                }
             }
 
             x = 0; y = 0; img = -1;
@@ -255,33 +279,47 @@ namespace Farmio
 
                 x += xr;
 
-                if (img % 50 == 0)
+                int yr1 = random.Next(-10, 20);
+
+                if (y + yr1 < 0)
+                    continue;
+                if (x > 1250)
                 {
                     x = 0;
-                    int yr = random.Next(50, 130);
+                    int yr = random.Next(50, 150);
                     y += yr;
                 }
+                if (y + yr1 > 750)
+                    break;
 
                 if (itm != "s1" && itm != "s2" && itm != "s3")
                     continue;
-                int yr1 = random.Next(-10, 20);
-
+                
                 if (itm == "s1")
                 {
                     bm[img] = new Bitmap("stone1.png");
                     files[img] = new Bitmap(bm[img], 28, 16);
+                    for (int i = y + yr1; i <= y + yr1 + 16; i++)
+                        for (int j = x; j <= x + 28; j++)
+                            formArray[j, i] = "s1";
                 }
 
                 if (itm == "s2")
                 {
                     bm[img] = new Bitmap("stone2.png");
                     files[img] = new Bitmap(bm[img], 24, 16);
+                    for (int i = y + yr1; i <= y + yr1 + 16; i++)
+                        for (int j = x; j <= x + 24; j++)
+                            formArray[j, i] = "s2";
                 }
 
                 if (itm == "s3")
                 {
                     bm[img] = new Bitmap("stone3.png");
                     files[img] = new Bitmap(bm[img], 46, 39);
+                    for (int i = y + yr1; i <= y + yr1 + 39; i++)
+                        for (int j = x; j <= x + 46; j++)
+                            formArray[j, i] = "s3";
                 }
 
                 // now we add the image to the graphics engine
@@ -303,33 +341,47 @@ namespace Farmio
 
                 x += xr;
 
-                if (img % 50 == 0)
+                int yr1 = random.Next(-20, 20);
+
+                if (y + yr1 < 0)
+                    continue;
+                if (x > 1199)
                 {
                     x = 0;
-                    int yr = random.Next(50, 120);
+                    int yr = random.Next(50, 150);
                     y += yr;
                 }
+                if (y + yr1 > 704)
+                    break;
 
                 if (itm != "t1" && itm != "t2" && itm != "t3")
                     continue;
-                int yr1 = random.Next(-20, 20);
 
                 if (itm == "t1")
                 {
                     bm[img] = new Bitmap("tree1.png");
                     files[img] = new Bitmap(bm[img], 64, 95);
+                    for (int i = y + yr1; i <= y + yr1 + 95; i++)
+                        for (int j = x; j <= x + 64; j++)
+                            formArray[j, i] = "t1";
                 }
 
                 if (itm == "t2")
                 {
                     bm[img] = new Bitmap("tree2.png");
                     files[img] = new Bitmap(bm[img], 112, 96);
+                    for (int i = y + yr1; i <= y + yr1 + 96; i++)
+                        for (int j = x; j <= x + 112; j++)
+                            formArray[j, i] = "t2";
                 }
 
                 if (itm == "t3")
                 {
                     bm[img] = new Bitmap("tree3.png");
                     files[img] = new Bitmap(bm[img], 69, 111);
+                    for (int i = y + yr1; i <= y + yr1 + 111; i++)
+                        for (int j = x; j <= x + 69; j++)
+                            formArray[j, i] = "t3";
                 }
 
                 // now we add the image to the graphics engine
@@ -338,7 +390,6 @@ namespace Farmio
                     g.DrawImage(files[img], new Point(x, y + yr1));
                 }
 
-                Console.WriteLine(y);
             }
 
 
@@ -350,7 +401,7 @@ namespace Farmio
                 files[0] = new Bitmap(bm[0], 94, 87);
                 using (Graphics g = Graphics.FromImage(finalImage))
                 {
-                    g.DrawImage(files[0], new Point(500, 400));
+                    g.DrawImage(files[0], new Point(1500, 400));
                 }
             }
 

@@ -218,6 +218,7 @@
             this.pbFon.Size = new System.Drawing.Size(1300, 805);
             this.pbFon.TabIndex = 14;
             this.pbFon.TabStop = false;
+            this.pbFon.Click += new System.EventHandler(this.pbFon_Click);
             // 
             // Farmio
             // 
