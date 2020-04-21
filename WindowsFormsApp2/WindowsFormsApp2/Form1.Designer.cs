@@ -34,6 +34,9 @@
             this.lblEpoch = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
+            this.pbCutGrass = new System.Windows.Forms.PictureBox();
+            this.pbGetStone = new System.Windows.Forms.PictureBox();
+            this.pbCDTree = new System.Windows.Forms.PictureBox();
             this.pbNameOk = new System.Windows.Forms.PictureBox();
             this.pbName = new System.Windows.Forms.PictureBox();
             this.pbExit = new System.Windows.Forms.PictureBox();
@@ -43,6 +46,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbNameFon = new System.Windows.Forms.PictureBox();
             this.pbFon = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCutGrass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGetStone)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCDTree)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNameOk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
@@ -120,6 +126,43 @@
             this.tbName.Size = new System.Drawing.Size(224, 37);
             this.tbName.TabIndex = 11;
             this.tbName.Visible = false;
+            // 
+            // pbCutGrass
+            // 
+            this.pbCutGrass.BackColor = System.Drawing.Color.Transparent;
+            this.pbCutGrass.Image = global::WindowsFormsApp2.Properties.Resources.cutGrass;
+            this.pbCutGrass.Location = new System.Drawing.Point(12, 74);
+            this.pbCutGrass.Name = "pbCutGrass";
+            this.pbCutGrass.Size = new System.Drawing.Size(105, 18);
+            this.pbCutGrass.TabIndex = 17;
+            this.pbCutGrass.TabStop = false;
+            this.pbCutGrass.Visible = false;
+            this.pbCutGrass.Click += new System.EventHandler(this.pbCutGrass_Click);
+            // 
+            // pbGetStone
+            // 
+            this.pbGetStone.BackColor = System.Drawing.Color.Transparent;
+            this.pbGetStone.Image = global::WindowsFormsApp2.Properties.Resources.getStone;
+            this.pbGetStone.InitialImage = null;
+            this.pbGetStone.Location = new System.Drawing.Point(13, 49);
+            this.pbGetStone.Name = "pbGetStone";
+            this.pbGetStone.Size = new System.Drawing.Size(105, 18);
+            this.pbGetStone.TabIndex = 16;
+            this.pbGetStone.TabStop = false;
+            this.pbGetStone.Visible = false;
+            this.pbGetStone.Click += new System.EventHandler(this.pbGetStone_Click);
+            // 
+            // pbCDTree
+            // 
+            this.pbCDTree.BackColor = System.Drawing.Color.Transparent;
+            this.pbCDTree.Image = global::WindowsFormsApp2.Properties.Resources.cutDTree;
+            this.pbCDTree.Location = new System.Drawing.Point(12, 24);
+            this.pbCDTree.Name = "pbCDTree";
+            this.pbCDTree.Size = new System.Drawing.Size(107, 18);
+            this.pbCDTree.TabIndex = 15;
+            this.pbCDTree.TabStop = false;
+            this.pbCDTree.Visible = false;
+            this.pbCDTree.Click += new System.EventHandler(this.pbCDTree_Click);
             // 
             // pbNameOk
             // 
@@ -225,6 +268,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1300, 800);
+            this.Controls.Add(this.pbCutGrass);
+            this.Controls.Add(this.pbGetStone);
+            this.Controls.Add(this.pbCDTree);
             this.Controls.Add(this.pbNameOk);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.labelName);
@@ -242,6 +288,9 @@
             this.Controls.Add(this.pbFon);
             this.Name = "Farmio";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.pbCutGrass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGetStone)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCDTree)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNameOk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).EndInit();
@@ -273,6 +322,9 @@
         private System.Windows.Forms.PictureBox pbNameFon;
         private System.Windows.Forms.PictureBox pbNameOk;
         private System.Windows.Forms.PictureBox pbFon;
+        private System.Windows.Forms.PictureBox pbCDTree;
+        private System.Windows.Forms.PictureBox pbGetStone;
+        private System.Windows.Forms.PictureBox pbCutGrass;
     }
 }
 
