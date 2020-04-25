@@ -11,7 +11,7 @@ namespace Farmio
     {
 
         public string[] array = new string[500];
-        public string[,] formArray = new string[1300,805];
+        public string[,] formArray = new string[1499,999];
         string str;
         Random random = new Random();
         public void ArrayGen()
@@ -96,306 +96,161 @@ namespace Farmio
 
 
 
-        public Image MapGen()
+        public void MapGen()
         {
-            int x = 0, y = 0, img = 0;
-
-            Bitmap[] bm;
-            bm = new Bitmap[501];
-
-            Image[] files;
-            files = new Image[501];
-
-            List<Bitmap> images = new List<Bitmap>();
-            Bitmap bitmap;
-
-            Bitmap finalImage = new Bitmap(1300, 805);
+            int x = 0, y = 0;
 
             // grass
             foreach (string itm in array)
             {
-                if (itm != "g9" && itm != "g1" && itm != "g2" && itm != "g3" && itm != "g4" && itm != "g5" && itm != "g6" && itm != "g7" && itm != "g8")
+                if (itm == null)
                     continue;
 
+                int xr = random.Next(50, 100);
+
+                x += xr;
+
+                if (x > 1270)
+                {
+                    x = 0;
+                    int yr = random.Next(50, 100);
+                    y += yr;
+                }
                 int yr1 = random.Next(-49, 49);
+                if (y + yr1 > 680)
+                    break;
 
                 if (y + yr1 < 0)
                     continue;
-                if (x > 1250)
-                {
-                    x = 0;
-                    int yr = random.Next(50, 150);
-                    y += yr; 
-                }
-                if (y+yr1 > 750)
-                    break;
 
-                str = itm + x + "-" + (y + yr1);
-
-                // create the images!
+                str = itm + (x+xr) + "-" + (y + yr1);
+                string str1 = "." + str;
+                //Console.WriteLine(str);
+                // trawa
                 if (itm == "g1")
                 {
-                    bm[img] = new Bitmap("grass1.png");
-                    files[img] = new Bitmap(bm[img], 11, 8);
                     for (int i = y + yr1; i <= y + yr1 + 8; i++)
-                        for (int j = x; j <= x + 11; j++)
+                        for (int j = x + xr; j <= x + xr + 11; j++)
                             formArray[j, i] = str;
+                    formArray[x + xr, y + yr1] = str1;
                 }
 
-                if (itm == "g2")
+                else if (itm == "g2")
                 {
-                    bm[img] = new Bitmap("grass2.png");
-                    files[img] = new Bitmap(bm[img], 10, 8);
-                    for (int i = y + yr1; i <= y + yr1 + 8; i++)
-                        for (int j = x; j <= x + 10; j++)
+                    for (int i = y + yr1; i < y + yr1 + 8; i++)
+                        for (int j = x + xr; j < x + xr + 10; j++)
                             formArray[j, i] = str;
+                    formArray[x + xr, y + yr1] = str1;
                 }
 
-                if (itm == "g3")
+                else if (itm == "g3")
                 {
-                    bm[img] = new Bitmap("grass3.png");
-                    files[img] = new Bitmap(bm[img], 16, 14);
-                    for (int i = y + yr1; i <= y + yr1 + 14; i++)
-                        for (int j = x; j <= x + 16; j++)
+                    for (int i = y + yr1; i < y + yr1 + 14; i++)
+                        for (int j = x + xr; j < x + xr + 16; j++)
                             formArray[j, i] = str;
+                    formArray[x + xr, y + yr1] = str1;
                 }
 
-                if (itm == "g4")
+                else if (itm == "g4")
                 {
-                    bm[img] = new Bitmap("grass4.png");
-                    files[img] = new Bitmap(bm[img], 13, 12);
-                    for (int i = y + yr1; i <= y + yr1 + 12; i++)
-                        for (int j = x; j <= x + 13; j++)
+                    for (int i = y + yr1; i < y + yr1 + 12; i++)
+                        for (int j = x + xr; j < x + xr + 13; j++)
                             formArray[j, i] = str;
+                    formArray[x + xr, y + yr1] = str1;
                 }
 
-                if (itm == "g5")
+                else if (itm == "g5")
                 {
-                    bm[img] = new Bitmap("grass5.png");
-                    files[img] = new Bitmap(bm[img], 10, 13);
-                    for (int i = y + yr1; i <= y + yr1 + 13; i++)
-                        for (int j = x; j <= x + 10; j++)
+                    for (int i = y + yr1; i < y + yr1 + 13; i++)
+                        for (int j = x + xr; j < x + xr + 10; j++)
                             formArray[j, i] = str;
+                    formArray[x + xr, y + yr1] = str1;
                 }
 
-                if (itm == "g6")
+                else if (itm == "g6")
                 {
-                    bm[img] = new Bitmap("grass6.png");
-                    files[img] = new Bitmap(bm[img], 12, 11);
-                    for (int i = y + yr1; i <= y + yr1 + 11; i++)
-                        for (int j = x; j <= x + 12; j++)
+                    for (int i = y + yr1; i < y + yr1 + 11; i++)
+                        for (int j = x + xr; j < x + xr + 12; j++)
                             formArray[j, i] = str;
+                    formArray[x + xr, y + yr1] = str1;
                 }
 
-                if (itm == "g7")
+                else if (itm == "g7")
                 {
-                    bm[img] = new Bitmap("grass7.png");
-                    files[img] = new Bitmap(bm[img], 13, 15);
-                    for (int i = y + yr1; i <= y + yr1 + 15; i++)
-                        for (int j = x; j <= x + 13; j++)
+                    for (int i = y + yr1; i < y + yr1 + 15; i++)
+                        for (int j = x + xr; j < x + xr + 13; j++)
                             formArray[j, i] = str;
+                    formArray[x + xr, y + yr1] = str1;
                 }
 
-                if (itm == "g8")
+                else if (itm == "g8")
                 {
-                    bm[img] = new Bitmap("grass8.png");
-                    files[img] = new Bitmap(bm[img], 15, 13);
-                    for (int i = y + yr1; i <= y + yr1 + 13; i++)
-                        for (int j = x; j <= x + 15; j++)
+                 for (int i = y + yr1; i < y + yr1 + 13; i++)
+                        for (int j = x + xr; j < x + xr + 15; j++)
                             formArray[j, i] = str;
+                    formArray[x + xr, y + yr1] = str1;
                 }
 
-                if (itm == "g9")
+                else if (itm == "g9")
                 {
-                    bm[img] = new Bitmap("grass9.png");
-                    files[img] = new Bitmap(bm[img], 25, 21);
-                    for (int i = y + yr1; i <= y + yr1 + 21; i++)
-                        for (int j = x; j <= x + 25; j++)
+                for (int i = y + yr1; i < y + yr1 + 21; i++)
+                        for (int j = x + xr; j < x + xr + 25; j++)
                             formArray[j, i] = str;
+                    formArray[x + xr, y + yr1] = str1;
                 }
 
 
-                //if (itm == "g9")
-                //{
-                //    bm[img] = new Bitmap("grass9.png");
-                //    files[img] = new Bitmap(bm[img], 50, 50);
-                //}
-
-                //if (itm == "g10")
-                //{
-                //    bm[img] = new Bitmap("grass10.png");
-                //    files[img] = new Bitmap(bm[img], 50, 50);
-                //}
-
-                //if (itm == "g11")
-                //{
-                //    bm[img] = new Bitmap("grass11.png");
-                //    files[img] = new Bitmap(bm[img], 50, 50);
-                //}
-
-                //if (itm == "g12")
-                //{
-                //    bm[img] = new Bitmap("grass12.png");
-                //    files[img] = new Bitmap(bm[img], 50, 50);
-                //}
-
-                //if (itm == "g13")
-                //{
-                //    bm[img] = new Bitmap("grass13.png");
-                //    files[img] = new Bitmap(bm[img], 50, 50);
-                //}
-
-                //if (itm == "g14")
-                //{
-                //    bm[img] = new Bitmap("grass14.png");
-                //    files[img] = new Bitmap(bm[img], 50, 50);
-                //}
-
-                //if (itm == "g15")
-                //{
-                //    bm[img] = new Bitmap("grass15.png");
-                //    files[img] = new Bitmap(bm[img], 50, 50);
-                //}
-
-                // now we add the image to the graphics engine
-                using (Graphics g = Graphics.FromImage(finalImage))
+                else if (itm == "s1")
                 {
-                    g.DrawImage(files[img], new Point(x, y+yr1));
-                }
-
-                img++;
-
-                int xr = random.Next(50, 150);
-                
-                x += xr;
-
-            }
-
-            x = 0; y = 0; img = -1;
-            // strones
-            foreach (string itm in array)
-            {
-                int xr = random.Next(50, 130);
-
-                img++;
-
-                x += xr;
-
-                int yr1 = random.Next(-10, 20);
-
-                if (y + yr1 < 0)
-                    continue;
-                if (x > 1250)
-                {
-                    x = 0;
-                    int yr = random.Next(50, 150);
-                    y += yr;
-                }
-                if (y + yr1 > 750)
-                    break;
-
-                if (itm != "s1" && itm != "s2" && itm != "s3")
-                    continue;
-
-                str = itm + x + "-" + (y + yr1);
-
-                if (itm == "s1")
-                {
-                    bm[img] = new Bitmap("stone1.png");
-                    files[img] = new Bitmap(bm[img], 28, 16);
-                    for (int i = y + yr1; i <= y + yr1 + 16; i++)
-                        for (int j = x; j <= x + 28; j++)
+                    for (int i = y + yr1; i < y + yr1 + 16; i++)
+                        for (int j = x + xr; j < x + xr + 28; j++)
                             formArray[j, i] = str;
+                    formArray[x + xr, y + yr1] = str1;
                 }
 
-                if (itm == "s2")
+                else if (itm == "s2")
                 {
-                    bm[img] = new Bitmap("stone2.png");
-                    files[img] = new Bitmap(bm[img], 24, 16);
-                    for (int i = y + yr1; i <= y + yr1 + 16; i++)
-                        for (int j = x; j <= x + 24; j++)
+                    for (int i = y + yr1; i < y + yr1 + 16; i++)
+                        for (int j = x + xr; j < x + xr + 24; j++)
                             formArray[j, i] = str;
+                    formArray[x + xr, y + yr1] = str1;
                 }
 
-                if (itm == "s3")
+                else if (itm == "s3")
                 {
-                    bm[img] = new Bitmap("stone3.png");
-                    files[img] = new Bitmap(bm[img], 46, 39);
-                    for (int i = y + yr1; i <= y + yr1 + 39; i++)
-                        for (int j = x; j <= x + 46; j++)
+                    for (int i = y + yr1; i < y + yr1 + 39; i++)
+                        for (int j = x + xr; j < x + xr + 46; j++)
                             formArray[j, i] = str;
+                    formArray[x + xr, y + yr1] = str1;
                 }
 
-                // now we add the image to the graphics engine
-                using (Graphics g = Graphics.FromImage(finalImage))
+
+                else if (itm == "t1")
                 {
-                    g.DrawImage(files[img], new Point(x, y + yr1));
+                   for (int i = y + yr1; i < y + yr1 + 95; i++)
+                            for (int j = x + xr; j < x + xr + 64; j++)
+                                formArray[j, i] = str;
+                        formArray[x + xr, y + yr1] = str1;
+                   
                 }
-            }
 
-
-            x = 0; y = 0; img = -1;
-
-            // trees
-            foreach (string itm in array)
-            {
-                int xr = random.Next(50, 120);
-
-                img++;
-
-                x += xr;
-
-                int yr1 = random.Next(-20, 20);
-
-                if (y + yr1 < 0)
-                    continue;
-                if (x > 1190)
+                else if (itm == "t2")
                 {
-                    x = 0;
-                    int yr = random.Next(50, 150);
-                    y += yr;
+
+                     for (int i = y + yr1; i < y + yr1 + 96; i++)
+                            for (int j = x + xr; j < x + xr + 112; j++)
+                                formArray[j, i] = str;
+                        formArray[x + xr, y + yr1] = str1;
                 }
-                if (y + yr1 > 700)
-                    break;
 
-                if (itm != "t1" && itm != "t2" && itm != "t3")
-                    continue;
-
-                str = itm + x + "-" + (y + yr1);
-
-                if (itm == "t1")
+                else if (itm == "t3")
                 {
-                    bm[img] = new Bitmap("tree1.png");
-                    files[img] = new Bitmap(bm[img], 64, 95);
-                    for (int i = y + yr1; i <= y + yr1 + 95; i++)
-                        for (int j = x; j <= x + 64; j++)
-                            formArray[j, i] = str;
-             
+                        for (int i = y + yr1; i < y + yr1 + 111; i++)
+                            for (int j = x + xr; j < x + xr + 69; j++)
+                                formArray[j, i] = str;
+                        formArray[x + xr, y + yr1] = str1;
                 }
 
-                if (itm == "t2")
-                {
-                    bm[img] = new Bitmap("tree2.png");
-                    files[img] = new Bitmap(bm[img], 112, 96);
-                    for (int i = y + yr1; i <= y + yr1 + 96; i++)
-                        for (int j = x; j <= x + 112; j++)
-                            formArray[j, i] = str;
-                }
-
-                if (itm == "t3")
-                {
-                    bm[img] = new Bitmap("tree3.png");
-                    files[img] = new Bitmap(bm[img], 69, 111);
-                    for (int i = y + yr1; i <= y + yr1 + 111; i++)
-                        for (int j = x; j <= x + 69; j++)
-                            formArray[j, i] = str;
-                }
-
-                // now we add the image to the graphics engine
-                using (Graphics g = Graphics.FromImage(finalImage))
-                {
-                    g.DrawImage(files[img], new Point(x, y + yr1));
-                }
 
             }
 
@@ -403,67 +258,255 @@ namespace Farmio
             // buildings
             //TODO
 
-            {
-                bm[0] = new Bitmap("house1.png");
-                files[0] = new Bitmap(bm[0], 94, 87);
-                using (Graphics g = Graphics.FromImage(finalImage))
+
+        }
+
+        public Image MapCutGrass(int x, int y, int h, int w, GameMap map)
+        {
+            if (map.formArray[x, y] == null)
+                return map.DrawMap();
+            for (int i = y; i < y + h; i++)
+                for (int j = x; j <= x + w; j++)
+                    map.formArray[j, i] = null;
+            return map.DrawMap();
+        }
+
+        public Image MapGetStone(int x, int y, int h, int w, GameMap map)
+        {
+            if (map.formArray[x, y] == null)
+                return map.DrawMap();
+            for (int i = y; i < y + h; i++)
+                for (int j = x; j < x + w; j++)
+                    if (map.formArray[j, i].Substring(0,1) == "s" || map.formArray[j, i].Substring(0, 2) == ".s")
+                    map.formArray[j, i] = null;
+            return map.DrawMap();
+        }
+
+        public Image MapCutDTree(int x, int y, int h, int w, GameMap map)
+        {
+            if (map.formArray[x, y] == null)
+                return map.DrawMap();
+            string str = "";
+            if (h == 95)
+                str = "r1" + x + "-" + y;
+            else if (h == 111)
+                str = "r2" + x + "-" + y;
+            string str1 = "." + str;
+            string tmp;
+            Console.WriteLine(x + " " + w + ", " + y + " " + h);
+            map.formArray[x, y] = null;
+            for (int i = y; i < y + h; i++)
+                for (int j = x + 1; j < x + w; j++)
                 {
-                    g.DrawImage(files[0], new Point(1500, 400));
+                    if (map.formArray[j, i] != null)
+                    {
+
+                        tmp = map.formArray[j, i];
+                        if (tmp.Substring(0, 1) != "t")
+                            continue;
+                        map.formArray[j, i] = null ;
+                    }
                 }
-            }
-
-
-            return finalImage;
-
-
+            return map.DrawMap();
         }
 
-        public Image MapCutGrass(int x, int y, int h, int w, Bitmap im)
+        public Image DrawMap()
         {
-            for (int i = y; i <= y + h; i++)
-                for (int j = x; j <= x + w; j++)
-                    this.formArray[j, i] = null;
-            Bitmap bitmap = new Bitmap("justgreen.png");
-            Bitmap files = new Bitmap(bitmap, w, h);
-            Bitmap finalImage = new Bitmap(1300, 805);
-            finalImage = im;
-            using (Graphics g = Graphics.FromImage(finalImage))
-            {
-                g.DrawImage(files, new Point(x, y));
-            }
-            return finalImage;
-        }
+            int x = 0, y = 0, img = 0;
+           // Console.WriteLine("!!!");
+            Bitmap bm;
 
-        public Image MapGetStone(int x, int y, int h, int w, Bitmap im)
-        {
-            for (int i = y; i <= y + h; i++)
-                for (int j = x; j <= x + w; j++)
-                    this.formArray[j, i] = null;
-            Bitmap bitmap = new Bitmap("justgreen.png");
-            Bitmap files = new Bitmap(bitmap, w, h);
-            Bitmap finalImage = new Bitmap(1300, 805);
-            finalImage = im;
-            using (Graphics g = Graphics.FromImage(finalImage))
-            {
-                g.DrawImage(files, new Point(x, y));
-            }
-            return finalImage;
-        }
+            Image files = new Bitmap("justgreen.png");
 
-        public Image MapCutDTree(int x, int y, int h, int w, Bitmap im)
-        {
-            for (int i = y; i <= y + h; i++)
-                for (int j = x; j <= x + w; j++)
-                    this.formArray[j, i] = "t9";
-            string str = "t" + w + h + ".png";
-            Bitmap bitmap = new Bitmap(str);
-            Bitmap files = new Bitmap(bitmap, w, h);
+            Bitmap bitmap;
+
             Bitmap finalImage = new Bitmap(1300, 805);
-            finalImage = im;
-            using (Graphics g = Graphics.FromImage(finalImage))
-            {
-                g.DrawImage(files, new Point(x, y));
-            }
+
+            //// pni
+            //for (int i = 0; i < 805; i++)
+            //    for (int j = 0; j < 1300; j++)
+            //    {
+            //        if (formArray[j, i] == null)
+            //            continue;
+            //        int tmpj = j;
+            //        string str = formArray[j, i];
+            //        if (str.Substring(0, 2) == ".r" )
+            //        {
+            //            if (str.Substring(0, 3) == ".r1")
+            //            {
+            //                bm = new Bitmap("t6495.png");
+            //                files = new Bitmap(bm, 64, 95);
+            //                j += 63;
+            //            }
+            //            else if (str.Substring(0, 3) == ".r2")
+            //            {
+            //                bm = new Bitmap("t69111.png");
+            //                files = new Bitmap(bm, 69, 111);
+            //                j += 68;
+            //            }
+            //            using (Graphics g = Graphics.FromImage(finalImage))
+            //            {
+            //                g.DrawImage(files, new Point(tmpj, i));
+            //            }
+            //     }
+            //    }
+
+            // trawa
+            for (int i = 0; i < 805; i++)
+                for (int j = 0; j < 1300; j++)
+                {
+                    if (formArray[j, i] == null)
+                        continue;
+                    int tmpj = j;
+                    string str = formArray[j, i];
+                    //Console.WriteLine(str);
+                    if (str.Substring(0, 2) == ".g")
+                    {
+                        if (str.Substring(0, 3) == ".g1")
+                        {
+                            bm = new Bitmap("grass1.png");
+                            files = new Bitmap(bm, 11, 8);
+                            j += 10;
+                        }
+                    else if (str.Substring(0, 3) == ".g2")
+                        {
+                            bm = new Bitmap("grass2.png");
+                            files = new Bitmap(bm, 10, 8);
+                            j += 9;
+                        }
+                    else if (str.Substring(0, 3) == ".g3")
+                        {
+                            bm = new Bitmap("grass3.png");
+                            files = new Bitmap(bm, 16, 14);
+                            j += 15;
+                        }
+                    else if (str.Substring(0, 3) == ".g4")
+                        {
+                            bm = new Bitmap("grass4.png");
+                            files = new Bitmap(bm, 13, 12);
+                            j += 12;
+                        }
+                    else if (str.Substring(0, 3) == ".g5")
+                        {
+                            bm = new Bitmap("grass5.png");
+                            files = new Bitmap(bm, 10, 13);
+                            j += 9;
+                        }
+                    else if (str.Substring(0, 3) == ".g6")
+                        {
+                            bm = new Bitmap("grass6.png");
+                            files = new Bitmap(bm, 12, 11);
+                            j += 11;
+                        }
+                    else if (str.Substring(0, 3) == ".g7")
+                        {
+                            bm = new Bitmap("grass7.png");
+                            files = new Bitmap(bm, 13, 15);
+                            j += 12;
+                        }
+                    else if (str.Substring(0, 3) == ".g8")
+                        {
+                            bm = new Bitmap("grass8.png");
+                            files = new Bitmap(bm, 15, 13);
+                            j += 14;
+
+                        }
+                    else if (str.Substring(0, 3) == ".g9")
+                        {
+                            bm = new Bitmap("grass9.png");
+                            files = new Bitmap(bm, 25, 21);
+                            j += 24;
+                        }
+
+                        using (Graphics g = Graphics.FromImage(finalImage))
+                        {
+                            //Console.WriteLine(str);
+                            g.DrawImage(files, new Point(tmpj, i));
+                            //Console.WriteLine(str);
+                        }
+
+                        img++;
+                    }
+                }
+
+            // kamienie
+            for (int i = 0; i < 805; i++)
+                for (int j = 0; j < 1300; j++)
+                {
+                    if (formArray[j, i] == null)
+                        continue;
+                    int tmpj = j;
+                    string str = formArray[j, i];
+                    if (str.Substring(0, 2) == ".s")
+                    {
+                        if (str.Substring(0, 3) == ".s1")
+                        {
+                            bm = new Bitmap("stone1.png");
+                            files = new Bitmap(bm, 28, 16);
+                            j += 27;
+                        }
+                        else if (str.Substring(0, 3) == ".s2")
+                        {
+                            bm = new Bitmap("stone2.png");
+                            files = new Bitmap(bm, 24, 16);
+                            j += 23;
+                        }
+                        else if (str.Substring(0, 3) == ".s3")
+                        {
+                            bm = new Bitmap("stone3.png");
+                            files = new Bitmap(bm, 46, 39);
+                            j += 45;
+                        }
+
+                        using (Graphics g = Graphics.FromImage(finalImage))
+                        {
+                            //Console.WriteLine(str);
+                            g.DrawImage(files, new Point(tmpj, i));
+                            //Console.WriteLine(str);
+                        }
+
+                        img++;
+                    }
+                }
+
+            // drzewa
+            for (int i = 0; i < 805; i++)
+                for (int j = 0; j < 1300; j++)
+                {
+                    if (formArray[j, i] == null)
+                        continue;
+                    int tmpj = j;
+                    string str = formArray[j, i];
+                    if ((str.Substring(0, 2) == ".t"))
+                    {
+                        if (str.Substring(0, 3) == ".t1")
+                        {
+                            bm = new Bitmap("tree1.png");
+                            files = new Bitmap(bm, 64, 95);
+                            j += 63;
+                        }
+                        else if (str.Substring(0, 3) == ".t2")
+                        {
+                            bm = new Bitmap("tree2.png");
+                            files = new Bitmap(bm, 112, 96);
+                            j += 111;
+                        }
+                        else if (str.Substring(0, 3) == ".t3")
+                        {
+                            bm = new Bitmap("tree3.png");
+                            files = new Bitmap(bm, 69, 111);
+                            j += 68;
+                        }
+                        using (Graphics g = Graphics.FromImage(finalImage))
+                        {
+                            //Console.WriteLine(str);
+                            g.DrawImage(files, new Point(tmpj, i));
+                            //.WriteLine(str);
+                        }
+                        img++;
+                    }
+                }
+            //Console.WriteLine("...");
             return finalImage;
         }
 
