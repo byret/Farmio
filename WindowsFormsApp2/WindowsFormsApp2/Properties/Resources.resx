@@ -121,8 +121,8 @@
   <data name="grass4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\grass4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="stone2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\stone2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,20 +142,14 @@
   <data name="grass11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\grass1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tree3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\tree3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cutGrass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\cutGrass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="grass61" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\grass6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cutGrass" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\cutGrass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cutDTree1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\cutDTree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="justgreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\justgreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,11 +157,8 @@
   <data name="start" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\start.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="stone3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\stone3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="getStone1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\getStone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cutDTree1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\cutDTree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cutGrass1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\cutGrass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,17 +166,17 @@
   <data name="purrple_cat_spring_showers" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\purrple-cat-spring-showers.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="purrple_cat_bloom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\purrple-cat-bloom.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="stone3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\stone3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="stump2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\stump2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="soimanislander_along_the_fjord" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\soimanislander-along-the-fjord.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="stone2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\stone2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="getStone1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\getStone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="grass9" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\grass9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,11 +187,17 @@
   <data name="grass" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\grass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cutDStump" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\cutDStump.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="stone1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\stone1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="grass7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\grass7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="purrple_cat_bloom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\purrple-cat-bloom.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="house1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\house1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,17 +214,20 @@
   <data name="soimanislander_behind_the_barn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\soimanislander-behind-the-barn.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="grass8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\grass8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="getMushrooms" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\getMushrooms.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="grass51" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\grass5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="stump2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stump2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="grass3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\grass3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="tree1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\tree1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="okbutname" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\okbutname.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -244,6 +244,9 @@
   <data name="grass2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\grass2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="tree1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\tree1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="grass5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\grass5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -253,8 +256,11 @@
   <data name="grass21" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\grass2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="soimanislander_along_the_fjord" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\soimanislander-along-the-fjord.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tree3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\tree3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="grass8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\grass8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -280,7 +286,7 @@
   <data name="purrple_cat_green_tea" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\purrple-cat-green-tea.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="cutDStump" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\cutDStump.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="getMushroom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\getMushroom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

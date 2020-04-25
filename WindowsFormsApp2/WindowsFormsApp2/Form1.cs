@@ -50,7 +50,7 @@ namespace Farmio
         private void Parentize()
         {
             pbFarmio.Parent = pbStart.Parent = pbLoad.Parent = pbExit.Parent = pbStart.Parent = pictureBox1;
-            lblGold.Parent = lblEpoch.Parent = lblEnergy.Parent = label1.Parent = label2.Parent = label3.Parent = pbName.Parent = labelName.Parent = pbNameOk.Parent = pbCDTree.Parent = pbGetStone.Parent = pbCutGrass.Parent = pbCDStump.Parent = pbFon;
+            lblGold.Parent = lblEpoch.Parent = lblEnergy.Parent = label1.Parent = label2.Parent = label3.Parent = pbName.Parent = labelName.Parent = pbNameOk.Parent = pbCDTree.Parent = pbGetStone.Parent = pbCutGrass.Parent = pbCDStump.Parent = pbGetMushroom.Parent = pbGetMushrooms.Parent = pbFon;
             ///pbCDTree.BackgroundImage = pbFon.Image;
         }
 
@@ -99,46 +99,56 @@ namespace Farmio
                 {
                     int x = map.mapTab[ClickX, ClickY].X;
                     int y = map.mapTab[ClickX, ClickY].Y;
-                    if (map.mapTab[x, y] is Map.MapMainPoint.Grass)
+                    Map.MapMainPoint tmp = (Map.MapMainPoint)map.mapTab[x, y];
+                    if (tmp is Map.MapMainPoint.Grass)
                     {
                         pbCutGrass.Location = new Point(ClickX + 5, ClickY + 5);
                         pbCutGrass.Visible = true;
-                        pbCDTree.Visible = false;
-                        pbGetStone.Visible = false;
-                        pbCDStump.Visible = false;
+                        pbCDTree.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
                     }
 
-                    else if (map.mapTab[x, y] is Map.MapMainPoint.Stone)
+                    else if (tmp is Map.MapMainPoint.Stone)
                     {
                         pbGetStone.Location = new Point(ClickX + 5, ClickY + 5);
                         pbGetStone.Visible = true;
-                        pbCDTree.Visible = false;
-                        pbCutGrass.Visible = false;
-                        pbCDStump.Visible = false;
+                        pbCutGrass.Visible = pbCDTree.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
                     }
 
-                    else if (map.mapTab[x, y] is Map.MapMainPoint.Tree)
+                    else if (tmp is Map.MapMainPoint.Tree)
                     {
                         pbCDTree.Location = new Point(ClickX + 5, ClickY + 5);
                         pbCDTree.Visible = true;
-                        pbGetStone.Visible = false;
-                        pbCutGrass.Visible = false;
-                        pbCDStump.Visible = false;
+                        pbCutGrass.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
                     }
 
-                    else if (map.mapTab[x, y] is Map.MapMainPoint.Stump)
+                    else if (tmp is Map.MapMainPoint.Stump)
                     {
                         pbCDStump.Location = new Point(ClickX + 5, ClickY + 5);
                         pbCDStump.Visible = true;
-                        pbGetStone.Visible = false;
-                        pbCutGrass.Visible = false;
-                        pbCDTree.Visible = false;
+                        pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
+                    }
+
+                    else if (tmp is Map.MapMainPoint.Mushroom)
+                    {
+                        if (tmp.Name[2] == '1')
+                        {
+                            pbGetMushroom.Location = new Point(ClickX + 5, ClickY + 5);
+                            pbGetMushroom.Visible = true;
+                            pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushrooms.Visible = pbCDStump.Visible = false;
+                        }
+
+                        else
+                        {
+                            pbGetMushrooms.Location = new Point(ClickX + 5, ClickY + 5);
+                            pbGetMushrooms.Visible = true;
+                            pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushroom.Visible = pbCDStump.Visible = false;
+                        }
                     }
                 }
 
                 else
                 {
-                    pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbCDStump.Visible = false;
+                    pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
                 }
             }
         }
@@ -229,6 +239,58 @@ namespace Farmio
                 {
                     hero.Energy = EnergyTmp;
                     hero.addToInventory(tmp.DestroyStump(map));
+                    pbFon.Image = map.DrawMap();
+                    lblEnergy.Text = hero.Energy.ToString();
+                }
+            }
+        }
+
+        private void pbGetMushrooms_Click(object sender, EventArgs e)
+        {
+            pbGetMushrooms.Visible = false;
+            if (hero.Energy <= 0)
+                Console.WriteLine("Musisz cos zjesc i odpoczac :(");
+            else
+            {
+                int x = map.mapTab[ClickX, ClickY].X;
+                int y = map.mapTab[ClickX, ClickY].Y;
+                Map.MapMainPoint.Mushroom tmp = (Map.MapMainPoint.Mushroom)map.mapTab[x, y];
+                int EnergyTmp = hero.Energy;
+                EnergyTmp -= tmp.Weight;
+                if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
+                else
+                {
+                    hero.Energy = EnergyTmp;
+                    if (tmp.Name[1] == 'n')
+                        hero.addToInventory(tmp.DestroyMushroomNE(map));
+                    else
+                        hero.addToInventory(tmp.DestroyMushroom(map));
+                    pbFon.Image = map.DrawMap();
+                    lblEnergy.Text = hero.Energy.ToString();
+                }
+            }
+        }
+
+        private void pbGetMushroom_Click(object sender, EventArgs e)
+        {
+            pbGetMushroom.Visible = false;
+            if (hero.Energy <= 0)
+                Console.WriteLine("Musisz cos zjesc i odpoczac :(");
+            else
+            {
+                int x = map.mapTab[ClickX, ClickY].X;
+                int y = map.mapTab[ClickX, ClickY].Y;
+                Map.MapMainPoint.Mushroom tmp = (Map.MapMainPoint.Mushroom)map.mapTab[x, y];
+                int EnergyTmp = hero.Energy;
+                EnergyTmp -= tmp.Weight;
+                if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
+                else
+                {
+                    hero.Energy = EnergyTmp;
+                    if (tmp.Name[1] == 'n')
+                        hero.addToInventory(tmp.DestroyMushroomNE(map));
+                    else
+                        hero.addToInventory(tmp.DestroyMushroom(map));
                     pbFon.Image = map.DrawMap();
                     lblEnergy.Text = hero.Energy.ToString();
                 }

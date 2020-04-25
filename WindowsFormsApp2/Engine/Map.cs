@@ -85,23 +85,27 @@ namespace Engine
                     Collision = true;
                     map.Fill(x, y, Width, Height);
                     Random random = new Random();
-                    if (Width == 64)
+                    if (name[1] == '1')
+                        Weight = random.Next(9, 16);
+                    else if (name[1] == '3')
                         Weight = random.Next(8, 14);
-                    else if (Width == 69)
-                        Weight = random.Next(9, 19);
-                    else if (Width == 112)
+                    else if (name[1] == '2')
                         Weight = random.Next(25, 30);
+                    else if (name[1] == '4')
+                        Weight = random.Next(27, 33);
                 }
                 public Item.Wood DestroyTree(Map map)
                 {
                     Bitmap = null;
                     map.reFill(X, Y, Width, Height);
-                    if (Width == 64)
+                    if (Name[1] == '1')
                         map.MakeObjectRightHere(X, Y + 52, "p1", map);
-                    else if (Width == 69)
+                    else if (Name[1] == '3')
                         map.MakeObjectRightHere(X, Y + 68, "p2", map);
-                    else if (Width == 112)
+                    else if (Name[1] == '2')
                         map.MakeObjectRightHere(X, Y + 52, "p3", map);
+                    else if (Name[1] == '4')
+                        map.MakeObjectRightHere(X, Y + 68, "p4", map);
                     int numOfWood = Weight / 2;
                     Item.Wood wood = new Item.Wood(numOfWood);
                     return wood;
@@ -149,6 +153,8 @@ namespace Engine
                         Weight = random.Next(3, 5);
                     else if (name[1] == '3')
                         Weight = random.Next(8, 12);
+                    else if (name[1] == '4')
+                        Weight = random.Next(6, 10);
                 }
 
                 public Item.Wood DestroyStump(Map map)
@@ -160,6 +166,38 @@ namespace Engine
                     return wood;
                 }
             }
+
+            public class Mushroom : MapMainPoint
+            {
+                public Mushroom(int x, int y, string name, int Width, int Height, Bitmap bm, Map map)
+                    : base(x, y, name, Width, Height, bm)
+                {
+                    Collision = false;
+                    map.Fill(x, y, Width, Height);
+                    Weight = Name[2] - '0'; 
+                    Console.WriteLine(Weight);
+                }
+
+                public Item.MushroomEdible DestroyMushroom(Map map)
+                {
+                    Bitmap = null;
+                    map.reFill(X, Y, Width, Height);
+                    int numOfMushrooms = Weight;
+                    Item.MushroomEdible mushroom = new Item.MushroomEdible(numOfMushrooms);
+                    return mushroom;
+                }
+
+                public Item.MushroomNotEdible DestroyMushroomNE(Map map)
+                {
+                    Bitmap = null;
+                    map.reFill(X, Y, Width, Height);
+                    int numOfMushrooms = Weight;
+                    Item.MushroomNotEdible mushroom = new Item.MushroomNotEdible(numOfMushrooms);
+                    return mushroom;
+                }
+            }
+
+
 
         }
 
@@ -187,129 +225,195 @@ namespace Engine
         {
             int Width = 0, Height = 0;
             Bitmap bm = new Bitmap("justgreen.png"); ;
-            if (name == "t1")
+            if (name[0] == 't')
             {
-                Width = 64;
-                Height = 95;
-                bm = new Bitmap("tree1.png");
-            }
-            else if (name == "t2")
-            {
-                Width = 112;
-                Height = 96;
-                bm = new Bitmap("tree2.png");
+                if (name == "t1")
+                {
+                    Width = 64;
+                    Height = 95;
+                    bm = new Bitmap("tree1.png");
+                }
+                else if (name == "t2")
+                {
+                    Width = 112;
+                    Height = 96;
+                    bm = new Bitmap("tree2.png");
+                }
+
+                else if (name == "t3")
+                {
+                    Width = 69;
+                    Height = 111;
+                    bm = new Bitmap("tree3.png");
+                }
+
+                else if (name == "t4")
+                {
+                    Width = 117;
+                    Height = 111;
+                    bm = new Bitmap("tree4.png");
+                }
             }
 
-            else if (name == "t3")
+            else if (name[0] == 'g')
             {
-                Width = 69;
-                Height = 111;
-                bm = new Bitmap("tree3.png");
+                if (name == "g1")
+                {
+                    Width = 11;
+                    Height = 8;
+                    bm = new Bitmap("grass1.png");
+                }
+
+                else if (name == "g2")
+                {
+                    Width = 10;
+                    Height = 8;
+                    bm = new Bitmap("grass2.png");
+                }
+
+                else if (name == "g3")
+                {
+                    Width = 16;
+                    Height = 14;
+                    bm = new Bitmap("grass3.png");
+                }
+
+                else if (name == "g4")
+                {
+                    Width = 13;
+                    Height = 12;
+                    bm = new Bitmap("grass4.png");
+                }
+
+                else if (name == "g5")
+                {
+                    Width = 10;
+                    Height = 13;
+                    bm = new Bitmap("grass5.png");
+                }
+
+                else if (name == "g6")
+                {
+                    Width = 12;
+                    Height = 11;
+                    bm = new Bitmap("grass6.png");
+                }
+
+                else if (name == "g7")
+                {
+                    Width = 13;
+                    Height = 15;
+                    bm = new Bitmap("grass7.png");
+                }
+
+                else if (name == "g8")
+                {
+                    Width = 15;
+                    Height = 13;
+                    bm = new Bitmap("grass8.png");
+                }
+
+                else if (name == "g9")
+                {
+                    Width = 25;
+                    Height = 21;
+                    bm = new Bitmap("grass9.png");
+                }
             }
 
-            else if (name == "g1")
+            else if (name[0] == 's')
             {
-                Width = 11;
-                Height = 8;
-                bm = new Bitmap("grass1.png");
-            }
+                if (name == "s1")
+                {
+                    Width = 28;
+                    Height = 16;
+                    bm = new Bitmap("stone1.png");
+                }
 
-            else if (name == "g2")
-            {
-                Width = 10;
-                Height = 8;
-                bm = new Bitmap("grass2.png");
-            }
+                else if (name == "s2")
+                {
+                    Width = 24;
+                    Height = 16;
+                    bm = new Bitmap("stone2.png");
+                }
 
-            else if (name == "g3")
-            {
-                Width = 16;
-                Height = 14;
-                bm = new Bitmap("grass3.png");
-            }
+                else if (name == "s3")
+                {
+                    Width = 46;
+                    Height = 39;
+                    bm = new Bitmap("stone3.png");
+                }
 
-            else if (name == "g4")
-            {
-                Width = 13;
-                Height = 12;
-                bm = new Bitmap("grass4.png");
             }
-
-            else if (name == "g5")
+            
+            else if (name[0] == 'p')
             {
-                Width = 10;
-                Height = 13;
-                bm = new Bitmap("grass5.png");
+                if (name == "p1")
+                {
+                    Width = 64;
+                    Height = 43;
+                    bm = new Bitmap("stump1.png");
+                }
+
+                else if (name == "p2")
+                {
+                    Width = 69;
+                    Height = 43;
+                    bm = new Bitmap("stump2.png");
+                }
+
+                else if (name == "p3")
+                {
+                    Width = 112;
+                    Height = 44;
+                    bm = new Bitmap("stump3.png");
+                }
+
+                else if (name == "p4")
+                {
+                    Width = 117;
+                    Height = 43;
+                    bm = new Bitmap("stump4.png");
+                }
+
             }
-
-            else if (name == "g6")
+            else if (name[0] == 'm')
             {
-                Width = 12;
-                Height = 11;
-                bm = new Bitmap("grass6.png");
-            }
+                if (name == "me1")
+                {
+                    Width = 10;
+                    Height = 8;
+                    bm = new Bitmap("Mushroom1.png");
+                }
 
-            else if (name == "g7")
-            {
-                Width = 13;
-                Height = 15;
-                bm = new Bitmap("grass7.png");
-            }
+                else if (name == "me2")
+                {
+                    Width = 13;
+                    Height = 13;
+                    bm = new Bitmap("Mushroom2.png");
+                }
 
-            else if (name == "g8")
-            {
-                Width = 15;
-                Height = 13;
-                bm = new Bitmap("grass8.png");
-            }
+                else if (name == "me3")
+                {
+                    Width = 15;
+                    Height = 14;
+                    bm = new Bitmap("Mushroom3.png");
+                }
 
-            else if (name == "g9")
-            {
-                Width = 25;
-                Height = 21;
-                bm = new Bitmap("grass9.png");
-            }
 
-            else if (name == "s1")
-            {
-                Width = 28;
-                Height = 16;
-                bm = new Bitmap("stone1.png");
-            }
+                else if (name == "mn1")
+                {
+                    Width = 10;
+                    Height = 8;
+                    bm = new Bitmap("Mushroom4.png");
+                }
 
-            else if (name == "s2")
-            {
-                Width = 24;
-                Height = 16;
-                bm = new Bitmap("stone2.png");
-            }
-
-            else if (name == "s3")
-            {
-                Width = 46;
-                Height = 39;
-                bm = new Bitmap("stone3.png");
-            }
-
-            else if (name == "p1")
-            {
-                Width = 64;
-                Height = 43;
-                bm = new Bitmap("stump1.png");
-            }
-
-            else if (name == "p2")
-            {
-                Width = 69;
-                Height = 43;
-                bm = new Bitmap("stump2.png");
-            }
-
-            else if (name == "p3")
-            {
-                Width = 112;
-                Height = 44;
-                bm = new Bitmap("stump3.png");
+                else if(name == "mn2")
+                {
+                    Width = 13;
+                    Height = 13;
+                    bm = new Bitmap("Mushroom5.png");
+                }
             }
 
             bool isFree = true;
@@ -322,7 +426,7 @@ namespace Engine
                             break;
                         }
             if (isFree)
-                {
+            {
                     if (name[0] == 't')
                          map.mapTab[x, y] = new MapMainPoint.Tree(x, y, name, Width, Height, bm, map);
                     else if (name[0] == 'g')
@@ -331,7 +435,9 @@ namespace Engine
                         map.mapTab[x, y] = new MapMainPoint.Stone(x, y, name, Width, Height, bm, map);
                     else if (name[0] == 'p')
                         map.mapTab[x, y] = new MapMainPoint.Stump(x, y, name, Width, Height, bm, map);
-            }
+                    else if (name[0] == 'm')
+                        map.mapTab[x, y] = new MapMainPoint.Mushroom(x, y, name, Width, Height, bm, map);
+             }
                 
             else
                 map.mapTab[x, y] = null;
@@ -346,7 +452,7 @@ namespace Engine
             int x = 0, y = 0;
             int index = 1;
             bool isFree;
-            while (true)   /// trawa
+            while (true)
             {
                 isFree = true;
                 int xr = random.Next(50, 100);
@@ -354,7 +460,7 @@ namespace Engine
                 int yr = random.Next(-49, 49);
                 if (x > 1270)
                 {
-                    x = 0;
+                    x = random.Next(0, 50);
                     yr = random.Next(50, 100);
                     y += yr;
                 }
@@ -364,8 +470,7 @@ namespace Engine
                 if (y + yr > 750)
                     break;
 
-                //index = random.Next(1, 4);
-                int caseSwitch = random.Next(1, 9);
+                int caseSwitch = random.Next(1, 10);
                 switch (caseSwitch)
                 {
                     case 1:
@@ -378,21 +483,28 @@ namespace Engine
                     case 5:
                     case 6:
                         str = "t";
-                        int caseSwitch2 = random.Next(1, 8);
+                        int caseSwitch2 = random.Next(1, 13);
                         switch (caseSwitch2)
                         {
                             case 1:
                             case 2:
                             case 3:
+                            case 4:
+                            case 5:
                                 index = 1;
                                 break;
-                            case 4:
+                            case 6:
                                 index = 2;
                                 break;
-                            case 5:
-                            case 6:
                             case 7:
+                            case 8:
+                            case 9:
+                            case 10:
+                            case 11:
                                 index = 3;
+                                break;
+                            case 12:
+                                index = 4;
                                 break;
                         }
                         break;
@@ -401,7 +513,24 @@ namespace Engine
                         str = "s";
                         index = random.Next(1, 4);
                         break;
-                }
+                    case 9:
+                        int caseSwitch3 = random.Next(1, 4);
+                        switch (caseSwitch3)
+                        {
+                            case 1:
+                            case 2:
+                                str = "me";
+                                index = random.Next(1, 4);
+                                break;
+                            case 3:
+                                str = "mn";
+                                index = random.Next(1, 3);
+                                break;
+                        }
+                        break;
+
+                    }
+
                 str += index;
                 MakeObjectRightHere(x, y + yr, str, map);
             }

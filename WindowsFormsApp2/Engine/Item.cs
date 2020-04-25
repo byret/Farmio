@@ -51,6 +51,35 @@ namespace Engine
                 NamePlural = "Kamienie";
             }
         }
+
+        public class Food : Item
+        {
+            public Food(int number)
+                : base(number)
+            {
+
+            }
+        }
+
+        public class MushroomEdible : Food
+        {
+            public MushroomEdible(int number)
+                : base(number)
+            {
+                Name = "Grzyb";
+                NamePlural = "Grzyby";
+            }
+        }
+
+        public class MushroomNotEdible : Food
+        {
+            public MushroomNotEdible(int number)
+                : base(number)
+            {
+                Name = "Grzyb trujący";
+                NamePlural = "Trujące grzyby";
+            }
+        }
     }
 
 }

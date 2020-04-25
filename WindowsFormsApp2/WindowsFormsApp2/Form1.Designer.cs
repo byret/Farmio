@@ -36,6 +36,8 @@
             this.tbName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblEnergy = new System.Windows.Forms.Label();
+            this.pbGetMushroom = new System.Windows.Forms.PictureBox();
+            this.pbGetMushrooms = new System.Windows.Forms.PictureBox();
             this.pbCDStump = new System.Windows.Forms.PictureBox();
             this.pbCutGrass = new System.Windows.Forms.PictureBox();
             this.pbGetStone = new System.Windows.Forms.PictureBox();
@@ -49,6 +51,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbNameFon = new System.Windows.Forms.PictureBox();
             this.pbFon = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGetMushroom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGetMushrooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCDStump)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCutGrass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGetStone)).BeginInit();
@@ -150,6 +154,30 @@
             this.lblEnergy.Name = "lblEnergy";
             this.lblEnergy.Size = new System.Drawing.Size(100, 23);
             this.lblEnergy.TabIndex = 0;
+            // 
+            // pbGetMushroom
+            // 
+            this.pbGetMushroom.BackColor = System.Drawing.Color.Transparent;
+            this.pbGetMushroom.Image = global::WindowsFormsApp2.Properties.Resources.getMushroom;
+            this.pbGetMushroom.Location = new System.Drawing.Point(906, 79);
+            this.pbGetMushroom.Name = "pbGetMushroom";
+            this.pbGetMushroom.Size = new System.Drawing.Size(105, 17);
+            this.pbGetMushroom.TabIndex = 21;
+            this.pbGetMushroom.TabStop = false;
+            this.pbGetMushroom.Visible = false;
+            this.pbGetMushroom.Click += new System.EventHandler(this.pbGetMushroom_Click);
+            // 
+            // pbGetMushrooms
+            // 
+            this.pbGetMushrooms.BackColor = System.Drawing.Color.Transparent;
+            this.pbGetMushrooms.Image = global::WindowsFormsApp2.Properties.Resources.getMushrooms;
+            this.pbGetMushrooms.Location = new System.Drawing.Point(906, 61);
+            this.pbGetMushrooms.Name = "pbGetMushrooms";
+            this.pbGetMushrooms.Size = new System.Drawing.Size(105, 20);
+            this.pbGetMushrooms.TabIndex = 20;
+            this.pbGetMushrooms.TabStop = false;
+            this.pbGetMushrooms.Visible = false;
+            this.pbGetMushrooms.Click += new System.EventHandler(this.pbGetMushrooms_Click);
             // 
             // pbCDStump
             // 
@@ -304,6 +332,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1300, 800);
+            this.Controls.Add(this.pbGetMushroom);
+            this.Controls.Add(this.pbGetMushrooms);
             this.Controls.Add(this.pbCDStump);
             this.Controls.Add(this.lblEnergy);
             this.Controls.Add(this.label3);
@@ -327,6 +357,8 @@
             this.Controls.Add(this.pbFon);
             this.Name = "Farmio";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.pbGetMushroom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGetMushrooms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCDStump)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCutGrass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGetStone)).EndInit();
@@ -368,6 +400,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblEnergy;
         private System.Windows.Forms.PictureBox pbCDStump;
+        private System.Windows.Forms.PictureBox pbGetMushrooms;
+        private System.Windows.Forms.PictureBox pbGetMushroom;
     }
 }
 
