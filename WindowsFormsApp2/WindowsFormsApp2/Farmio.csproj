@@ -89,7 +89,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="GameMap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -244,6 +243,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\t69111.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stump1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stump2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\stump3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\cutDStump.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MonoGame.Framework.WindowsDX.3.7.1.189\build\MonoGame.Framework.WindowsDX.targets" Condition="Exists('..\packages\MonoGame.Framework.WindowsDX.3.7.1.189\build\MonoGame.Framework.WindowsDX.targets')" />

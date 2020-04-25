@@ -143,6 +143,16 @@ namespace WindowsFormsApp2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cutDStump {
+            get {
+                object obj = ResourceManager.GetObject("cutDStump", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cutDTree {
             get {
                 object obj = ResourceManager.GetObject("cutDTree", resourceCulture);
@@ -518,9 +528,9 @@ namespace WindowsFormsApp2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap t6495 {
+        internal static System.Drawing.Bitmap stump1 {
             get {
-                object obj = ResourceManager.GetObject("t6495", resourceCulture);
+                object obj = ResourceManager.GetObject("stump1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -528,9 +538,19 @@ namespace WindowsFormsApp2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap t69111 {
+        internal static System.Drawing.Bitmap stump2 {
             get {
-                object obj = ResourceManager.GetObject("t69111", resourceCulture);
+                object obj = ResourceManager.GetObject("stump2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap stump3 {
+            get {
+                object obj = ResourceManager.GetObject("stump3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

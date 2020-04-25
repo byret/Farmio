@@ -34,6 +34,9 @@
             this.lblEpoch = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblEnergy = new System.Windows.Forms.Label();
+            this.pbCDStump = new System.Windows.Forms.PictureBox();
             this.pbCutGrass = new System.Windows.Forms.PictureBox();
             this.pbGetStone = new System.Windows.Forms.PictureBox();
             this.pbCDTree = new System.Windows.Forms.PictureBox();
@@ -46,6 +49,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbNameFon = new System.Windows.Forms.PictureBox();
             this.pbFon = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCDStump)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCutGrass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGetStone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCDTree)).BeginInit();
@@ -127,11 +131,43 @@
             this.tbName.TabIndex = 11;
             this.tbName.Visible = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Pixellari", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(22, 97);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 21);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Energia:";
+            // 
+            // lblEnergy
+            // 
+            this.lblEnergy.BackColor = System.Drawing.Color.Transparent;
+            this.lblEnergy.Font = new System.Drawing.Font("Pixellari", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnergy.Location = new System.Drawing.Point(106, 97);
+            this.lblEnergy.Name = "lblEnergy";
+            this.lblEnergy.Size = new System.Drawing.Size(100, 23);
+            this.lblEnergy.TabIndex = 0;
+            // 
+            // pbCDStump
+            // 
+            this.pbCDStump.BackColor = System.Drawing.Color.Transparent;
+            this.pbCDStump.Image = global::WindowsFormsApp2.Properties.Resources.cutDStump;
+            this.pbCDStump.Location = new System.Drawing.Point(906, 45);
+            this.pbCDStump.Name = "pbCDStump";
+            this.pbCDStump.Size = new System.Drawing.Size(116, 20);
+            this.pbCDStump.TabIndex = 19;
+            this.pbCDStump.TabStop = false;
+            this.pbCDStump.Visible = false;
+            this.pbCDStump.Click += new System.EventHandler(this.pbCDStump_Click);
+            // 
             // pbCutGrass
             // 
             this.pbCutGrass.BackColor = System.Drawing.Color.Transparent;
             this.pbCutGrass.Image = global::WindowsFormsApp2.Properties.Resources.cutGrass;
-            this.pbCutGrass.Location = new System.Drawing.Point(12, 74);
+            this.pbCutGrass.Location = new System.Drawing.Point(906, 27);
             this.pbCutGrass.Name = "pbCutGrass";
             this.pbCutGrass.Size = new System.Drawing.Size(105, 18);
             this.pbCutGrass.TabIndex = 17;
@@ -144,7 +180,7 @@
             this.pbGetStone.BackColor = System.Drawing.Color.Transparent;
             this.pbGetStone.Image = global::WindowsFormsApp2.Properties.Resources.getStone;
             this.pbGetStone.InitialImage = null;
-            this.pbGetStone.Location = new System.Drawing.Point(13, 49);
+            this.pbGetStone.Location = new System.Drawing.Point(906, 12);
             this.pbGetStone.Name = "pbGetStone";
             this.pbGetStone.Size = new System.Drawing.Size(105, 18);
             this.pbGetStone.TabIndex = 16;
@@ -156,7 +192,7 @@
             // 
             this.pbCDTree.BackColor = System.Drawing.Color.Transparent;
             this.pbCDTree.Image = global::WindowsFormsApp2.Properties.Resources.cutDTree;
-            this.pbCDTree.Location = new System.Drawing.Point(12, 24);
+            this.pbCDTree.Location = new System.Drawing.Point(906, -3);
             this.pbCDTree.Name = "pbCDTree";
             this.pbCDTree.Size = new System.Drawing.Size(107, 18);
             this.pbCDTree.TabIndex = 15;
@@ -237,7 +273,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::WindowsFormsApp2.Properties.Resources.grass6;
-            this.pictureBox1.Location = new System.Drawing.Point(-1, -3);
+            this.pictureBox1.Location = new System.Drawing.Point(-2, -3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1300, 805);
             this.pictureBox1.TabIndex = 3;
@@ -256,7 +292,7 @@
             // pbFon
             // 
             this.pbFon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(211)))), ((int)(((byte)(69)))));
-            this.pbFon.Location = new System.Drawing.Point(-1, -3);
+            this.pbFon.Location = new System.Drawing.Point(-2, -3);
             this.pbFon.Name = "pbFon";
             this.pbFon.Size = new System.Drawing.Size(1300, 805);
             this.pbFon.TabIndex = 14;
@@ -268,6 +304,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1300, 800);
+            this.Controls.Add(this.pbCDStump);
+            this.Controls.Add(this.lblEnergy);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.pbCutGrass);
             this.Controls.Add(this.pbGetStone);
             this.Controls.Add(this.pbCDTree);
@@ -288,6 +327,7 @@
             this.Controls.Add(this.pbFon);
             this.Name = "Farmio";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.pbCDStump)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCutGrass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGetStone)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCDTree)).EndInit();
@@ -325,6 +365,9 @@
         private System.Windows.Forms.PictureBox pbCDTree;
         private System.Windows.Forms.PictureBox pbGetStone;
         private System.Windows.Forms.PictureBox pbCutGrass;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblEnergy;
+        private System.Windows.Forms.PictureBox pbCDStump;
     }
 }
 

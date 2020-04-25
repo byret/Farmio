@@ -32,72 +32,132 @@ namespace Engine
         public class MapMainPoint : MapPoint    // najbardziej górny z lewej strony 
         {                                      // czyli punkt o najmniejszych X i Y danego obiektu 
             public string Name { get; set; }
-            public int ID { get; set; }
+            //public int ID { get; set; }
             public int Width { get; set; }
             public int Height { get; set; }
-
+            public int Weight { get; set; }
             public Bitmap Bitmap;
             public Item loot { get; set; }
             public int LootMax { get; set; }
             public int LootMin { get; set; }
             bool Collision { get; set; }
-            public MapMainPoint(int x, int y, string name, int width, int height, Bitmap bm, int id)
+            public MapMainPoint(int x, int y, string name, int width, int height, Bitmap bm)
                 : base(x, y)
             {
-                ID = id;
                 Name = name;
                 X = x;
                 Y = y;
                 Width = width;
                 Height = height;
-                Bitmap = bm;
+                Bitmap = bm;              
             }
 
             public class Grass : MapMainPoint
             {
-                public Grass(int x, int y, string name, int Width, int Height, Bitmap bm, int id, Map map)
-                    : base(x, y, name, Width, Height, bm, id)
+                public Grass(int x, int y, string name, int Width, int Height, Bitmap bm, Map map)
+                    : base(x, y, name, Width, Height, bm)
                 {
                     Collision = false;
                     map.Fill(x, y, Width, Height);
+                    Random random = new Random();
+                    if (name == "g9")
+                        Weight = random.Next(3, 4);
+                    else
+                        Weight = random.Next(1, 2);
                 }
 
-                public void DestroyGrass(Map map)
+                public Item.Seed DestroyGrass(Map map)
                 {
                     Bitmap = null;
                     map.reFill(X, Y, Width, Height);
+                    int numOfSeeds = Weight*2;
+                    Item.Seed seed = new Item.Seed(numOfSeeds);
+                    return seed;
                 }
             }
 
             public class Tree : MapMainPoint
             {
-                public Tree(int x, int y, string name, int Width, int Height, Bitmap bm, int id, Map map)
-                    : base(x, y, name, Width, Height, bm, id)
+                
+                public Tree(int x, int y, string name, int Width, int Height, Bitmap bm, Map map)
+                    : base(x, y, name, Width, Height, bm)
                 {
                     Collision = true;
                     map.Fill(x, y, Width, Height);
+                    Random random = new Random();
+                    if (Width == 64)
+                        Weight = random.Next(8, 14);
+                    else if (Width == 69)
+                        Weight = random.Next(9, 19);
+                    else if (Width == 112)
+                        Weight = random.Next(25, 30);
                 }
-
-                public void DestroyTree(Map map)
+                public Item.Wood DestroyTree(Map map)
                 {
                     Bitmap = null;
                     map.reFill(X, Y, Width, Height);
+                    if (Width == 64)
+                        map.MakeObjectRightHere(X, Y + 52, "p1", map);
+                    else if (Width == 69)
+                        map.MakeObjectRightHere(X, Y + 68, "p2", map);
+                    else if (Width == 112)
+                        map.MakeObjectRightHere(X, Y + 52, "p3", map);
+                    int numOfWood = Weight / 2;
+                    Item.Wood wood = new Item.Wood(numOfWood);
+                    return wood;
+
                 }
             }
 
             public class Stone : MapMainPoint
             {
-                public Stone(int x, int y, string name, int Width, int Height, Bitmap bm, int id, Map map)
-                    : base(x, y, name, Width, Height, bm, id)
+                public Stone(int x, int y, string name, int Width, int Height, Bitmap bm, Map map)
+                    : base(x, y, name, Width, Height, bm)
                 {
                     Collision = true;
                     map.Fill(x, y, Width, Height);
+                    Random random = new Random();
+                    if (Width == 28)
+                        Weight = random.Next(8, 14);
+                    else if (Width == 24)
+                        Weight = random.Next(9, 19);
+                    else if (Width == 46)
+                        Weight = random.Next(25, 30);
                 }
 
-                public void DestroyStone(Map map)
+                public Item.Stone DestroyStone(Map map)
                 {
                     Bitmap = null;
                     map.reFill(X, Y, Width, Height);
+                    int numOfStones = Weight / 3;
+                    Item.Stone stone = new Item.Stone(numOfStones);
+                    return stone;
+                }
+            }
+
+            public class Stump : MapMainPoint   // 'p'
+            {
+                public Stump(int x, int y, string name, int Width, int Height, Bitmap bm, Map map)
+                    : base(x, y, name, Width, Height, bm)
+                {
+                    Collision = true;
+                    map.Fill(x, y, Width, Height);
+                    Random random = new Random();
+                    if (name[1] == '1')
+                        Weight = random.Next(4, 6);
+                    else if (name[1] == '2')
+                        Weight = random.Next(3, 5);
+                    else if (name[1] == '3')
+                        Weight = random.Next(8, 12);
+                }
+
+                public Item.Wood DestroyStump(Map map)
+                {
+                    Bitmap = null;
+                    map.reFill(X, Y, Width, Height);
+                    int numOfWood = Weight / 2;
+                    Item.Wood wood = new Item.Wood(numOfWood);
+                    return wood;
                 }
             }
 
@@ -123,7 +183,7 @@ namespace Engine
                         mapTab[j, i] = null;
         }
 
-        public void MakeObjectRightHere(int x, int y, string name, int iid, Map map)
+        public void MakeObjectRightHere(int x, int y, string name, Map map)
         {
             int Width = 0, Height = 0;
             Bitmap bm = new Bitmap("justgreen.png"); ;
@@ -231,6 +291,26 @@ namespace Engine
                 bm = new Bitmap("stone3.png");
             }
 
+            else if (name == "p1")
+            {
+                Width = 64;
+                Height = 43;
+                bm = new Bitmap("stump1.png");
+            }
+
+            else if (name == "p2")
+            {
+                Width = 69;
+                Height = 43;
+                bm = new Bitmap("stump2.png");
+            }
+
+            else if (name == "p3")
+            {
+                Width = 112;
+                Height = 44;
+                bm = new Bitmap("stump3.png");
+            }
 
             bool isFree = true;
             for (int i = y; i <= y + Height; i++)
@@ -244,11 +324,13 @@ namespace Engine
             if (isFree)
                 {
                     if (name[0] == 't')
-                         map.mapTab[x, y] = new MapMainPoint.Tree(x, y, name, Width, Height, bm, iid, map);
+                         map.mapTab[x, y] = new MapMainPoint.Tree(x, y, name, Width, Height, bm, map);
                     else if (name[0] == 'g')
-                        map.mapTab[x, y] = new MapMainPoint.Grass(x, y, name, Width, Height, bm, iid, map);
+                        map.mapTab[x, y] = new MapMainPoint.Grass(x, y, name, Width, Height, bm, map);
                     else if (name[0] == 's')
-                        map.mapTab[x, y] = new MapMainPoint.Stone(x, y, name, Width, Height, bm, iid, map);
+                        map.mapTab[x, y] = new MapMainPoint.Stone(x, y, name, Width, Height, bm, map);
+                    else if (name[0] == 'p')
+                        map.mapTab[x, y] = new MapMainPoint.Stump(x, y, name, Width, Height, bm, map);
             }
                 
             else
@@ -296,7 +378,23 @@ namespace Engine
                     case 5:
                     case 6:
                         str = "t";
-                        index = random.Next(1, 4);
+                        int caseSwitch2 = random.Next(1, 8);
+                        switch (caseSwitch2)
+                        {
+                            case 1:
+                            case 2:
+                            case 3:
+                                index = 1;
+                                break;
+                            case 4:
+                                index = 2;
+                                break;
+                            case 5:
+                            case 6:
+                            case 7:
+                                index = 3;
+                                break;
+                        }
                         break;
                     case 7:
                     case 8:
@@ -305,10 +403,7 @@ namespace Engine
                         break;
                 }
                 str += index;
-                id = x.ToString();
-                id = id + (y + yr).ToString();
-                int iid = Int32.Parse(id);
-                MakeObjectRightHere(x, y + yr, str, iid, map);
+                MakeObjectRightHere(x, y + yr, str, map);
             }
 
         }

@@ -17,7 +17,7 @@ namespace Farmio
     public partial class Farmio : Form
     {
        
-        private Hero _hero;
+        private Hero hero;
         private int ClickX;
         private int ClickY;
     //    GameMap map = new GameMap();
@@ -38,17 +38,19 @@ namespace Farmio
             player.PlayLooping();
 
             pictureBox1.Image = (Bitmap)global::WindowsFormsApp2.Properties.Resources.ResourceManager.GetObject(SomeFunctions.MainPictureRandomize());
-            _hero = new Hero();
-            _hero.Gold = 0;
-            _hero.Level = 1;
-            lblGold.Text = _hero.Gold.ToString();
-            lblEpoch.Text = _hero.Level.ToString();
+            hero = new Hero();
+            hero.Gold = 0;
+            hero.Level = 1;
+            hero.Energy = 200;
+            lblGold.Text = hero.Gold.ToString();
+            lblEpoch.Text = hero.Level.ToString();
+            lblEnergy.Text = hero.Energy.ToString();
         }
 
         private void Parentize()
         {
             pbFarmio.Parent = pbStart.Parent = pbLoad.Parent = pbExit.Parent = pbStart.Parent = pictureBox1;
-            lblGold.Parent = lblEpoch.Parent = label1.Parent = label2.Parent = pbName.Parent = labelName.Parent = pbNameOk.Parent = pbCDTree.Parent = pbGetStone.Parent = pbCutGrass.Parent = pbFon;
+            lblGold.Parent = lblEpoch.Parent = lblEnergy.Parent = label1.Parent = label2.Parent = label3.Parent = pbName.Parent = labelName.Parent = pbNameOk.Parent = pbCDTree.Parent = pbGetStone.Parent = pbCutGrass.Parent = pbCDStump.Parent = pbFon;
             ///pbCDTree.BackgroundImage = pbFon.Image;
         }
 
@@ -75,7 +77,7 @@ namespace Farmio
             str = tbName.Text;
             if (str!="")
             {
-                _hero.Name = str;
+                hero.Name = str;
                 pbName.Parent = labelName.Parent = pbNameOk.Parent = null;
                 this.Controls.Remove(pbName);
                 this.Controls.Remove(labelName);
@@ -103,6 +105,7 @@ namespace Farmio
                         pbCutGrass.Visible = true;
                         pbCDTree.Visible = false;
                         pbGetStone.Visible = false;
+                        pbCDStump.Visible = false;
                     }
 
                     else if (map.mapTab[x, y] is Map.MapMainPoint.Stone)
@@ -111,6 +114,7 @@ namespace Farmio
                         pbGetStone.Visible = true;
                         pbCDTree.Visible = false;
                         pbCutGrass.Visible = false;
+                        pbCDStump.Visible = false;
                     }
 
                     else if (map.mapTab[x, y] is Map.MapMainPoint.Tree)
@@ -119,14 +123,22 @@ namespace Farmio
                         pbCDTree.Visible = true;
                         pbGetStone.Visible = false;
                         pbCutGrass.Visible = false;
+                        pbCDStump.Visible = false;
+                    }
+
+                    else if (map.mapTab[x, y] is Map.MapMainPoint.Stump)
+                    {
+                        pbCDStump.Location = new Point(ClickX + 5, ClickY + 5);
+                        pbCDStump.Visible = true;
+                        pbGetStone.Visible = false;
+                        pbCutGrass.Visible = false;
+                        pbCDTree.Visible = false;
                     }
                 }
 
                 else
                 {
-                    pbCutGrass.Visible = false;
-                    pbCDTree.Visible = false;
-                    pbGetStone.Visible = false;
+                    pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbCDStump.Visible = false;
                 }
             }
         }
@@ -134,32 +146,93 @@ namespace Farmio
         private void pbCDTree_Click(object sender, EventArgs e)
         {
             pbCDTree.Visible = false;
-            int x = map.mapTab[ClickX, ClickY].X;
-            int y = map.mapTab[ClickX, ClickY].Y;
-            Map.MapMainPoint.Tree tmp = (Map.MapMainPoint.Tree)map.mapTab[x, y];
-            tmp.DestroyTree(map);
-            pbFon.Image = map.DrawMap();
+            if (hero.Energy <= 0)
+                Console.WriteLine("Musisz cos zjesc i odpoczac :(");
+            else
+            {
+                int x = map.mapTab[ClickX, ClickY].X;
+                int y = map.mapTab[ClickX, ClickY].Y;
+                Map.MapMainPoint.Tree tmp = (Map.MapMainPoint.Tree)map.mapTab[x, y];
+                int EnergyTmp = hero.Energy;
+                EnergyTmp -= tmp.Weight;
+                if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
+                else
+                {
+                    hero.Energy = EnergyTmp;
+                    hero.addToInventory(tmp.DestroyTree(map));
+                    pbFon.Image = map.DrawMap();
+                    lblEnergy.Text = hero.Energy.ToString();
+                }
+            }
         }
 
         private void pbGetStone_Click(object sender, EventArgs e)
         {
             pbGetStone.Visible = false;
-            int x = map.mapTab[ClickX, ClickY].X;
-            int y = map.mapTab[ClickX, ClickY].Y;
-            Map.MapMainPoint.Stone tmp = (Map.MapMainPoint.Stone)map.mapTab[x, y];
-            tmp.DestroyStone(map);
-            pbFon.Image = map.DrawMap();
+            if (hero.Energy <= 0)
+                Console.WriteLine("Musisz cos zjesc i odpoczac :(");
+            else
+            {
+                int x = map.mapTab[ClickX, ClickY].X;
+                int y = map.mapTab[ClickX, ClickY].Y;
+                Map.MapMainPoint.Stone tmp = (Map.MapMainPoint.Stone)map.mapTab[x, y];
+                int EnergyTmp = hero.Energy;
+                EnergyTmp -= tmp.Weight;
+                if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
+                else
+                {
+                    hero.Energy = EnergyTmp;
+                    hero.addToInventory(tmp.DestroyStone(map));
+                    pbFon.Image = map.DrawMap();
+                    lblEnergy.Text = hero.Energy.ToString();
+                }
+            }
         }
 
         private void pbCutGrass_Click(object sender, EventArgs e)
         {
             pbCutGrass.Visible = false;
-            int x = map.mapTab[ClickX, ClickY].X;
-            int y = map.mapTab[ClickX, ClickY].Y;
-            Map.MapMainPoint.Grass tmp = (Map.MapMainPoint.Grass)map.mapTab[x, y];
-            tmp.DestroyGrass(map);
-            pbFon.Image = map.DrawMap();
+            if (hero.Energy <= 0)
+                Console.WriteLine("Musisz cos zjesc i odpoczac :(");
+            else
+            {
+                int x = map.mapTab[ClickX, ClickY].X;
+                int y = map.mapTab[ClickX, ClickY].Y;
+                Map.MapMainPoint.Grass tmp = (Map.MapMainPoint.Grass)map.mapTab[x, y];
+                int EnergyTmp = hero.Energy;
+                EnergyTmp -= tmp.Weight;
+                if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
+                else
+                {
+                    hero.Energy = EnergyTmp;
+                    hero.addToInventory(tmp.DestroyGrass(map));
+                    pbFon.Image = map.DrawMap();
+                    lblEnergy.Text = hero.Energy.ToString();
+                }
+            }
         }
 
+        private void pbCDStump_Click(object sender, EventArgs e)
+        {
+            pbCDStump.Visible = false;
+            if (hero.Energy <= 0)
+                Console.WriteLine("Musisz cos zjesc i odpoczac :(");
+            else
+            {
+                int x = map.mapTab[ClickX, ClickY].X;
+                int y = map.mapTab[ClickX, ClickY].Y;
+                Map.MapMainPoint.Stump tmp = (Map.MapMainPoint.Stump)map.mapTab[x, y];
+                int EnergyTmp = hero.Energy;
+                EnergyTmp -= tmp.Weight;
+                if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
+                else
+                {
+                    hero.Energy = EnergyTmp;
+                    hero.addToInventory(tmp.DestroyStump(map));
+                    pbFon.Image = map.DrawMap();
+                    lblEnergy.Text = hero.Energy.ToString();
+                }
+            }
+        }
     }
 }
