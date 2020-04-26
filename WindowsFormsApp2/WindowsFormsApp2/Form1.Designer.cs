@@ -51,6 +51,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbNameFon = new System.Windows.Forms.PictureBox();
             this.pbFon = new System.Windows.Forms.PictureBox();
+            this.pbHero = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbGetMushroom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGetMushrooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCDStump)).BeginInit();
@@ -66,6 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNameFon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHero)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -134,6 +136,7 @@
             this.tbName.Size = new System.Drawing.Size(224, 37);
             this.tbName.TabIndex = 11;
             this.tbName.Visible = false;
+            this.tbName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbName_KeyDown);
             // 
             // label3
             // 
@@ -325,13 +328,23 @@
             this.pbFon.Size = new System.Drawing.Size(1300, 805);
             this.pbFon.TabIndex = 14;
             this.pbFon.TabStop = false;
-            this.pbFon.Click += new System.EventHandler(this.pbFon_Click);
+            this.pbFon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbFon_Click);
+            // 
+            // pbHero
+            // 
+            this.pbHero.BackColor = System.Drawing.Color.Transparent;
+            this.pbHero.Location = new System.Drawing.Point(191, 60);
+            this.pbHero.Name = "pbHero";
+            this.pbHero.Size = new System.Drawing.Size(32, 36);
+            this.pbHero.TabIndex = 22;
+            this.pbHero.TabStop = false;
             // 
             // Farmio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1300, 800);
+            this.Controls.Add(this.pbHero);
             this.Controls.Add(this.pbGetMushroom);
             this.Controls.Add(this.pbGetMushrooms);
             this.Controls.Add(this.pbCDStump);
@@ -356,7 +369,8 @@
             this.Controls.Add(this.lblGold);
             this.Controls.Add(this.pbFon);
             this.Name = "Farmio";
-            this.Text = "Form1";
+            this.Text = "Farmio";
+            //this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pbGetMushroom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGetMushrooms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCDStump)).EndInit();
@@ -372,6 +386,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNameFon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHero)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -402,6 +417,7 @@
         private System.Windows.Forms.PictureBox pbCDStump;
         private System.Windows.Forms.PictureBox pbGetMushrooms;
         private System.Windows.Forms.PictureBox pbGetMushroom;
+        private System.Windows.Forms.PictureBox pbHero;
     }
 }
 

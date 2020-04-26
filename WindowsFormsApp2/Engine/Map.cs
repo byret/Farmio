@@ -94,6 +94,7 @@ namespace Engine
                     else if (name[1] == '4')
                         Weight = random.Next(27, 33);
                 }
+
                 public Item.Wood DestroyTree(Map map)
                 {
                     Bitmap = null;
@@ -224,7 +225,7 @@ namespace Engine
         public void MakeObjectRightHere(int x, int y, string name, Map map)
         {
             int Width = 0, Height = 0;
-            Bitmap bm = new Bitmap("justgreen.png"); ;
+            Bitmap bm = new Bitmap("justgreen.png");
             if (name[0] == 't')
             {
                 if (name == "t1")
@@ -562,10 +563,6 @@ namespace Engine
 
             return finalImage;
         }
-
-
-
-       
 
 
     }

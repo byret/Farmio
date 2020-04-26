@@ -17,10 +17,6 @@ namespace Engine
         public Item(int number)
         {
             Number = number;
-           // ID = id;
-            //Name = name;
-            //NamePlural = namePlural;
-            //LevelRequired = levelRequired;
         }
 
         public class Seed : Item
