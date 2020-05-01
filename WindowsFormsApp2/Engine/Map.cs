@@ -10,6 +10,8 @@ namespace Engine
     
     public class Map
     {
+
+        public Bitmap Trees = new Bitmap(1300, 805);
         public MapPoint[,] mapTab = new MapPoint [1600,900];
 
         // każdy "zajęty" punkt na mapie
@@ -18,11 +20,13 @@ namespace Engine
         {
             public int X;       // wskazują na MainPoint,
             public int Y;       // do którego należą
+            public bool Collision;
 
-            public MapPoint(int x, int y)
+            public MapPoint(int x, int y, bool collision = false)
             {
                 X = x;
                 Y = y;
+                Collision = collision;
             }
 
            
@@ -40,9 +44,8 @@ namespace Engine
             public Item loot { get; set; }
             public int LootMax { get; set; }
             public int LootMin { get; set; }
-            bool Collision { get; set; }
-            public MapMainPoint(int x, int y, string name, int width, int height, Bitmap bm)
-                : base(x, y)
+            public MapMainPoint(int x, int y, string name, int width, int height, Bitmap bm, bool Collision = false)
+                : base(x, y, Collision)
             {
                 Name = name;
                 X = x;
@@ -57,8 +60,7 @@ namespace Engine
                 public Grass(int x, int y, string name, int Width, int Height, Bitmap bm, Map map)
                     : base(x, y, name, Width, Height, bm)
                 {
-                    Collision = false;
-                    map.Fill(x, y, Width, Height);
+                    map.Fill(x, y, Width, Height, 0, 0, 0, 0);
                     Random random = new Random();
                     if (name == "g9")
                         Weight = random.Next(3, 4);
@@ -82,17 +84,27 @@ namespace Engine
                 public Tree(int x, int y, string name, int Width, int Height, Bitmap bm, Map map)
                     : base(x, y, name, Width, Height, bm)
                 {
-                    Collision = true;
-                    map.Fill(x, y, Width, Height);
                     Random random = new Random();
                     if (name[1] == '1')
+                    {
                         Weight = random.Next(9, 16);
-                    else if (name[1] == '3')
-                        Weight = random.Next(8, 14);
+                        map.Fill(x, y, Width, Height, 0, 41, 53, 74);
+                    }
                     else if (name[1] == '2')
-                        Weight = random.Next(25, 30);
+                    {
+                        Weight = random.Next(25,30);
+                        map.Fill(x, y, Width, Height, 0, 96, 53, 74);
+                    }
+                    else if (name[1] == '3')
+                    {
+                        Weight = random.Next(8, 14);
+                        map.Fill(x, y, Width, Height, 0, 28, 68, 92);
+                    }
                     else if (name[1] == '4')
+                    {
                         Weight = random.Next(27, 33);
+                        map.Fill(x, y, Width, Height, 0, 89, 68, 92);
+                    }
                 }
 
                 public Item.Wood DestroyTree(Map map)
@@ -118,16 +130,24 @@ namespace Engine
             {
                 public Stone(int x, int y, string name, int Width, int Height, Bitmap bm, Map map)
                     : base(x, y, name, Width, Height, bm)
-                {
-                    Collision = true;
-                    map.Fill(x, y, Width, Height);
+                {                    
                     Random random = new Random();
                     if (Width == 28)
+                    {
                         Weight = random.Next(8, 14);
+                        map.Fill(x, y, Width, Height, 5, 21, 0, 12);
+                    }
                     else if (Width == 24)
+                    {
                         Weight = random.Next(9, 19);
+                        map.Fill(x, y, Width, Height, 4, 19, 0, 14);
+                    }
                     else if (Width == 46)
+                    {
                         Weight = random.Next(25, 30);
+                        map.Fill(x, y, Width, Height, 9, 37, 0, 29);
+                    }
+                        
                 }
 
                 public Item.Stone DestroyStone(Map map)
@@ -145,17 +165,27 @@ namespace Engine
                 public Stump(int x, int y, string name, int Width, int Height, Bitmap bm, Map map)
                     : base(x, y, name, Width, Height, bm)
                 {
-                    Collision = true;
-                    map.Fill(x, y, Width, Height);
                     Random random = new Random();
                     if (name[1] == '1')
+                    {
                         Weight = random.Next(4, 6);
+                        map.Fill(x, y, Width, Height, 21, 44, 0, 22);
+                    }
                     else if (name[1] == '2')
+                    {
                         Weight = random.Next(3, 5);
+                        map.Fill(x, y, Width, Height, 26, 45, 5, 24);
+                    }
                     else if (name[1] == '3')
+                    {
                         Weight = random.Next(8, 12);
+                        map.Fill(x, y, Width, Height, 21, 92, 0, 22);
+                    }
                     else if (name[1] == '4')
+                    {
                         Weight = random.Next(6, 10);
+                        map.Fill(x, y, Width, Height, 26, 93, 5, 24);
+                    }
                 }
 
                 public Item.Wood DestroyStump(Map map)
@@ -173,8 +203,7 @@ namespace Engine
                 public Mushroom(int x, int y, string name, int Width, int Height, Bitmap bm, Map map)
                     : base(x, y, name, Width, Height, bm)
                 {
-                    Collision = false;
-                    map.Fill(x, y, Width, Height);
+                    map.Fill(x, y, Width, Height, 0, 0, 0, 0);
                     Weight = Name[2] - '0'; 
                     Console.WriteLine(Weight);
                 }
@@ -198,11 +227,26 @@ namespace Engine
                 }
             }
 
+            public class Building : MapMainPoint   // 'p'
+            {
+                public Building(int x, int y, string name, int Width, int Height, Bitmap bm, Map map)
+                    : base(x, y, name, Width, Height, bm)
+                {
+                    map.Fill(x, y, Width, Height, 0, 94, 0, 84);                   
+                }
+
+                public void DestroyBuilding(Map map)
+                {
+                    Bitmap = null;
+                    map.reFill(X, Y, Width, Height);                   
+                }
+            }
+
 
 
         }
 
-        public void Fill(int x, int y, int w, int h)
+        public void Fill(int x, int y, int w, int h, int cleft, int cright, int ctop, int cbottom)
         {
             for (int i = y; i <= y + h; i++)
                 for (int j = x; j <= x + w; j++)
@@ -212,6 +256,12 @@ namespace Engine
                             mapTab[j, i] = null;
                         mapTab[j, i] = new MapPoint(x, y);
                     }
+            for (int i = y + ctop; i < y + cbottom; i++)
+                for (int j = x + cleft; j < x + cright; j++)
+                {              
+                    if (mapTab[j, i] != null)
+                        mapTab[j, i].Collision = true;
+                }
         }
 
         public void reFill(int x, int y, int w, int h)
@@ -346,7 +396,7 @@ namespace Engine
                 }
 
             }
-            
+
             else if (name[0] == 'p')
             {
                 if (name == "p1")
@@ -409,13 +459,24 @@ namespace Engine
                     bm = new Bitmap("Mushroom4.png");
                 }
 
-                else if(name == "mn2")
+                else if (name == "mn2")
                 {
                     Width = 13;
                     Height = 13;
                     bm = new Bitmap("Mushroom5.png");
                 }
             }
+
+            else if (name[0] == 'b')
+            {
+                if (name == "bh1")
+                {
+                    Width = 94;
+                    Height = 87;
+                    bm = new Bitmap("house1.png");
+                }
+            }
+ 
 
             bool isFree = true;
             for (int i = y; i <= y + Height; i++)
@@ -438,7 +499,9 @@ namespace Engine
                         map.mapTab[x, y] = new MapMainPoint.Stump(x, y, name, Width, Height, bm, map);
                     else if (name[0] == 'm')
                         map.mapTab[x, y] = new MapMainPoint.Mushroom(x, y, name, Width, Height, bm, map);
-             }
+                    else if (name[0] == 'b')
+                        map.mapTab[x, y] = new MapMainPoint.Building(x, y, name, Width, Height, bm, map);
+            }
                 
             else
                 map.mapTab[x, y] = null;
@@ -451,6 +514,10 @@ namespace Engine
             string id;
             Random random = new Random();
             int x = 0, y = 0;
+            int xh = random.Next(50, 1270);
+            int yh = random.Next(0, 750);
+
+            MakeObjectRightHere(xh, yh, "bh1", map);
             int index = 1;
             bool isFree;
             while (true)
@@ -545,7 +612,7 @@ namespace Engine
             Image files = new Bitmap("justgreen.png");
             Bitmap bitmap;
             Bitmap finalImage = new Bitmap(1300, 805);
-            
+            Image TreeFiles = (Image)Trees;
 
             foreach(MapPoint obj in this.mapTab)
             {
@@ -557,11 +624,95 @@ namespace Engine
                         using (Graphics g = Graphics.FromImage(finalImage))
                         {
                             g.DrawImage(files, new Point(tmp.X, tmp.Y));
+                        }
+                    if (tmp is MapMainPoint.Tree)
+                    {
+                        using (Graphics g = Graphics.FromImage(TreeFiles))
+                        {
+                            g.DrawImage(files, new Point(tmp.X, tmp.Y));
+                        }
                     }
+
                 }
             }
 
+            Trees = (Bitmap)TreeFiles;
             return finalImage;
+        }
+
+        public bool isFree (int x, int y, char dir)
+        {
+            int step = 5;
+            if (dir == 's')
+            {
+                for (int j = x; j < x + 18; j++)
+                    for (int i = y; i <= y + step+ 25; i++)
+                {
+                    if (this.mapTab[j, i] != null)
+                    {
+                        if (this.mapTab[j, i].Collision == true)
+                        {
+                            Console.WriteLine("false");
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }
+
+            else if (dir == 'a')
+            {
+                for (int j = y + 6; j < y + 27; j++)
+                    for (int i = x - step; i <= x; i++)
+                    {
+                    if (this.mapTab[i, j] != null)
+                    {
+                        if (this.mapTab[i, j].Collision == true)
+                        {
+                            Console.WriteLine("false");
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }
+
+            else if (dir == 'd')
+            {
+                for (int j = y + 6; j < y + 27; j++)
+                    for (int i = x + 7; i <= x + step + 6; i++)
+                    {
+                        if (i > 0 && j > 0)
+                        if (this.mapTab[i, j] != null)
+                    {
+                        if (this.mapTab[i, j].Collision == true)
+                        {
+                            Console.WriteLine("false");
+                            return false;
+                        }
+                    }
+                    }
+                    return true;
+            }
+
+            else if (dir == 'w')
+            {
+                for (int j = x; j < x + 18; j++)
+                    for (int i = y + step + 25; i >= y ; i--)
+                {
+                    if (this.mapTab[j, i] != null)
+                    {
+                        if (this.mapTab[j, i].Collision == true)
+                        {
+                            Console.WriteLine("false");
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }
+
+            return true;
         }
 
 

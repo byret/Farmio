@@ -20,6 +20,8 @@
             base.Dispose(disposing);
         }
 
+
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -32,17 +34,18 @@
             this.lblGold = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblEpoch = new System.Windows.Forms.Label();
-            this.labelName = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblEnergy = new System.Windows.Forms.Label();
+            this.pbGLEF = new System.Windows.Forms.PictureBox();
+            this.pbNameOk = new System.Windows.Forms.PictureBox();
+            this.pbHero = new System.Windows.Forms.PictureBox();
             this.pbGetMushroom = new System.Windows.Forms.PictureBox();
             this.pbGetMushrooms = new System.Windows.Forms.PictureBox();
             this.pbCDStump = new System.Windows.Forms.PictureBox();
             this.pbCutGrass = new System.Windows.Forms.PictureBox();
             this.pbGetStone = new System.Windows.Forms.PictureBox();
             this.pbCDTree = new System.Windows.Forms.PictureBox();
-            this.pbNameOk = new System.Windows.Forms.PictureBox();
             this.pbName = new System.Windows.Forms.PictureBox();
             this.pbExit = new System.Windows.Forms.PictureBox();
             this.pbLoad = new System.Windows.Forms.PictureBox();
@@ -51,14 +54,15 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbNameFon = new System.Windows.Forms.PictureBox();
             this.pbFon = new System.Windows.Forms.PictureBox();
-            this.pbHero = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGLEF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNameOk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHero)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGetMushroom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGetMushrooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCDStump)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCutGrass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGetStone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCDTree)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNameOk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLoad)).BeginInit();
@@ -67,7 +71,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNameFon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHero)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -75,6 +78,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Pixellari", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
             this.label1.Location = new System.Drawing.Point(22, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 21);
@@ -86,6 +90,7 @@
             this.lblGold.AutoSize = true;
             this.lblGold.BackColor = System.Drawing.Color.Transparent;
             this.lblGold.Font = new System.Drawing.Font("Pixellari", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGold.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
             this.lblGold.Location = new System.Drawing.Point(85, 24);
             this.lblGold.Name = "lblGold";
             this.lblGold.Size = new System.Drawing.Size(0, 21);
@@ -96,6 +101,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Pixellari", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
             this.label2.Location = new System.Drawing.Point(22, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 21);
@@ -107,31 +113,16 @@
             this.lblEpoch.AutoSize = true;
             this.lblEpoch.BackColor = System.Drawing.Color.Transparent;
             this.lblEpoch.Font = new System.Drawing.Font("Pixellari", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEpoch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
             this.lblEpoch.Location = new System.Drawing.Point(93, 60);
             this.lblEpoch.Name = "lblEpoch";
             this.lblEpoch.Size = new System.Drawing.Size(0, 21);
             this.lblEpoch.TabIndex = 4;
             // 
-            // labelName
-            // 
-            this.labelName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelName.AutoSize = true;
-            this.labelName.BackColor = System.Drawing.Color.Transparent;
-            this.labelName.Font = new System.Drawing.Font("Pixellari", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelName.Location = new System.Drawing.Point(458, 235);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(362, 38);
-            this.labelName.TabIndex = 10;
-            this.labelName.Text = "Cześć, ekhm...\r\n zaraz, jak masz na imię, bohaterze?";
-            this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelName.Visible = false;
-            // 
             // tbName
             // 
             this.tbName.Font = new System.Drawing.Font("Pixellari", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbName.Location = new System.Drawing.Point(530, 285);
+            this.tbName.Location = new System.Drawing.Point(530, 248);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(224, 37);
             this.tbName.TabIndex = 11;
@@ -143,6 +134,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Pixellari", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
             this.label3.Location = new System.Drawing.Point(22, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 21);
@@ -153,10 +145,46 @@
             // 
             this.lblEnergy.BackColor = System.Drawing.Color.Transparent;
             this.lblEnergy.Font = new System.Drawing.Font("Pixellari", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnergy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
             this.lblEnergy.Location = new System.Drawing.Point(106, 97);
             this.lblEnergy.Name = "lblEnergy";
             this.lblEnergy.Size = new System.Drawing.Size(100, 23);
             this.lblEnergy.TabIndex = 0;
+            // 
+            // pbGLEF
+            // 
+            this.pbGLEF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(34)))), ((int)(((byte)(2)))));
+            this.pbGLEF.Image = global::WindowsFormsApp2.Properties.Resources.GLEFon;
+            this.pbGLEF.Location = new System.Drawing.Point(12, 12);
+            this.pbGLEF.Name = "pbGLEF";
+            this.pbGLEF.Size = new System.Drawing.Size(173, 138);
+            this.pbGLEF.TabIndex = 23;
+            this.pbGLEF.TabStop = false;
+            this.pbGLEF.Visible = false;
+            // 
+            // pbNameOk
+            // 
+            this.pbNameOk.AccessibleRole = System.Windows.Forms.AccessibleRole.ButtonMenu;
+            this.pbNameOk.BackColor = System.Drawing.Color.Transparent;
+            this.pbNameOk.BackgroundImage = global::WindowsFormsApp2.Properties.Resources.okbutname;
+            this.pbNameOk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbNameOk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbNameOk.Image = global::WindowsFormsApp2.Properties.Resources.okbutname;
+            this.pbNameOk.Location = new System.Drawing.Point(595, 297);
+            this.pbNameOk.Name = "pbNameOk";
+            this.pbNameOk.Size = new System.Drawing.Size(100, 50);
+            this.pbNameOk.TabIndex = 13;
+            this.pbNameOk.TabStop = false;
+            this.pbNameOk.Click += new System.EventHandler(this.pbNameOk_Click);
+            // 
+            // pbHero
+            // 
+            this.pbHero.Location = new System.Drawing.Point(0, 0);
+            this.pbHero.Name = "pbHero";
+            this.pbHero.Size = new System.Drawing.Size(100, 50);
+            this.pbHero.BackColor = System.Drawing.Color.Transparent;
+            this.pbHero.TabIndex = 25;
+            this.pbHero.TabStop = false;
             // 
             // pbGetMushroom
             // 
@@ -231,26 +259,13 @@
             this.pbCDTree.Visible = false;
             this.pbCDTree.Click += new System.EventHandler(this.pbCDTree_Click);
             // 
-            // pbNameOk
-            // 
-            this.pbNameOk.BackColor = System.Drawing.Color.Transparent;
-            this.pbNameOk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbNameOk.Image = global::WindowsFormsApp2.Properties.Resources.okbutname;
-            this.pbNameOk.Location = new System.Drawing.Point(594, 335);
-            this.pbNameOk.Name = "pbNameOk";
-            this.pbNameOk.Size = new System.Drawing.Size(100, 50);
-            this.pbNameOk.TabIndex = 13;
-            this.pbNameOk.TabStop = false;
-            this.pbNameOk.Visible = false;
-            this.pbNameOk.Click += new System.EventHandler(this.pbNameOk_Click);
-            // 
             // pbName
             // 
             this.pbName.BackColor = System.Drawing.Color.Transparent;
-            this.pbName.Image = global::WindowsFormsApp2.Properties.Resources.nameent;
-            this.pbName.Location = new System.Drawing.Point(334, 138);
+            this.pbName.Image = global::WindowsFormsApp2.Properties.Resources.nameent2;
+            this.pbName.Location = new System.Drawing.Point(396, 140);
             this.pbName.Name = "pbName";
-            this.pbName.Size = new System.Drawing.Size(596, 338);
+            this.pbName.Size = new System.Drawing.Size(486, 266);
             this.pbName.TabIndex = 9;
             this.pbName.TabStop = false;
             this.pbName.Visible = false;
@@ -304,7 +319,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::WindowsFormsApp2.Properties.Resources.grass6;
-            this.pictureBox1.Location = new System.Drawing.Point(-2, -3);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1300, 805);
             this.pictureBox1.TabIndex = 3;
@@ -323,39 +338,29 @@
             // pbFon
             // 
             this.pbFon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(211)))), ((int)(((byte)(69)))));
-            this.pbFon.Location = new System.Drawing.Point(-2, -3);
+            this.pbFon.Location = new System.Drawing.Point(0, -3);
             this.pbFon.Name = "pbFon";
             this.pbFon.Size = new System.Drawing.Size(1300, 805);
             this.pbFon.TabIndex = 14;
             this.pbFon.TabStop = false;
-            this.pbFon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbFon_Click);
-            // 
-            // pbHero
-            // 
-            this.pbHero.BackColor = System.Drawing.Color.Transparent;
-            this.pbHero.Location = new System.Drawing.Point(191, 60);
-            this.pbHero.Name = "pbHero";
-            this.pbHero.Size = new System.Drawing.Size(32, 36);
-            this.pbHero.TabIndex = 22;
-            this.pbHero.TabStop = false;
+            this.pbFon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbFon_MouseDown);
             // 
             // Farmio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1300, 800);
-            this.Controls.Add(this.pbHero);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.pbGLEF);
+            this.Controls.Add(this.pbNameOk);
             this.Controls.Add(this.pbGetMushroom);
             this.Controls.Add(this.pbGetMushrooms);
             this.Controls.Add(this.pbCDStump);
             this.Controls.Add(this.lblEnergy);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.pbCutGrass);
             this.Controls.Add(this.pbGetStone);
             this.Controls.Add(this.pbCDTree);
-            this.Controls.Add(this.pbNameOk);
             this.Controls.Add(this.tbName);
-            this.Controls.Add(this.labelName);
             this.Controls.Add(this.pbName);
             this.Controls.Add(this.pbExit);
             this.Controls.Add(this.pbLoad);
@@ -368,16 +373,19 @@
             this.Controls.Add(this.lblEpoch);
             this.Controls.Add(this.lblGold);
             this.Controls.Add(this.pbFon);
+            this.Controls.Add(this.pbHero);
             this.Name = "Farmio";
             this.Text = "Farmio";
-            //this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            ((System.ComponentModel.ISupportInitialize)(this.pbGLEF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNameOk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHero)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGetMushroom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGetMushrooms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCDStump)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCutGrass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGetStone)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCDTree)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNameOk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLoad)).EndInit();
@@ -386,7 +394,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNameFon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHero)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -404,7 +411,6 @@
         private System.Windows.Forms.PictureBox pbLoad;
         private System.Windows.Forms.PictureBox pbExit;
         private System.Windows.Forms.PictureBox pbName;
-        private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.PictureBox pbNameFon;
         private System.Windows.Forms.PictureBox pbNameOk;
@@ -418,6 +424,7 @@
         private System.Windows.Forms.PictureBox pbGetMushrooms;
         private System.Windows.Forms.PictureBox pbGetMushroom;
         private System.Windows.Forms.PictureBox pbHero;
+        private System.Windows.Forms.PictureBox pbGLEF;
     }
 }
 

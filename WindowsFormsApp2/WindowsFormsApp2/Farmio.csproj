@@ -82,6 +82,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomControl1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl1.Designer.cs">
+      <DependentUpon>CustomControl1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
       <CustomToolNamespace>Farmio</CustomToolNamespace>
@@ -91,6 +97,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CustomControl1.resx">
+      <DependentUpon>CustomControl1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -261,6 +270,99 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\getMushroom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nameent2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GLEFon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\51.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\stump1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\stump2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\stump4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\tree4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\tree11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Mushroom1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Mushroom2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Mushroom3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Mushroom4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Mushroom5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\grass10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\grass11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\grass12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\grass13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\grass14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\grass15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\1sprite1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\1sprite2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\1sprite3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\1sprite4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\1sprite5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\1sprite6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\1sprite7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\1sprite8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\1sprite9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\1sprite10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\1sprite11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\1sprite12.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MonoGame.Framework.WindowsDX.3.7.1.189\build\MonoGame.Framework.WindowsDX.targets" Condition="Exists('..\packages\MonoGame.Framework.WindowsDX.3.7.1.189\build\MonoGame.Framework.WindowsDX.targets')" />

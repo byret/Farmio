@@ -75,17 +75,6 @@ namespace Engine
                 this.x++;
         }
 
-        //public void MoveHere(int X, int Y)
-        //{
-        //    if (c == 'w')
-        //        this.y--;
-        //    else if (c == 's')
-        //        this.y++;
-        //    else if (c == 'a')
-        //        this.x--;
-        //    else if (c == 'd')
-        //        this.x++;
-        //}
 
     }
 }

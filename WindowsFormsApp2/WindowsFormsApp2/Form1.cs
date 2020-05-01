@@ -31,15 +31,19 @@ namespace Farmio
             hero = new Hero();
             hero.SetSprite(1);
             InitializeComponent();
-            pbHero.Image = (Image)hero.Sprite[4];
-            pbHero.Location = new Point(hero.x, hero.y);
+
+            //pbTrees.Visible = true;
 
             pbFon.Image = map.DrawMap();
+            //pbTrees.Image = map.Trees;
 
             Parentize();
+
+            pbHero.Image = (Image)hero.Sprite[4];
+            pbHero.Location = new Point(hero.x, hero.y);
             System.IO.Stream str = (System.IO.Stream)global::WindowsFormsApp2.Properties.Resources.ResourceManager.GetObject(SomeFunctions.MusicRandomize());
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer(str);
-            player.PlayLooping();
+            //System.Media.SoundPlayer player = new System.Media.SoundPlayer(str);
+            //player.PlayLooping();
 
             pictureBox1.Image = (Bitmap)global::WindowsFormsApp2.Properties.Resources.ResourceManager.GetObject(SomeFunctions.MainPictureRandomize());
             lblGold.Text = hero.Gold.ToString();
@@ -50,7 +54,47 @@ namespace Farmio
         private void Parentize()
         {
             pbFarmio.Parent = pbStart.Parent = pbLoad.Parent = pbExit.Parent = pbStart.Parent = pictureBox1;
-            pbHero.Parent = lblGold.Parent = lblEpoch.Parent = lblEnergy.Parent = label1.Parent = label2.Parent = label3.Parent = pbName.Parent = labelName.Parent = pbNameOk.Parent = pbCDTree.Parent = pbGetStone.Parent = pbCutGrass.Parent = pbCDStump.Parent = pbGetMushroom.Parent = pbGetMushrooms.Parent = pbFon;
+            pbName.Parent = pbCDTree.Parent = pbGetStone.Parent = pbCutGrass.Parent = pbCDStump.Parent = pbGetMushroom.Parent = pbGetMushrooms.Parent = pbNameOk.Parent = pbGLEF.Parent = pbFon;
+            lblGold.Parent = lblEpoch.Parent = lblEnergy.Parent = label1.Parent = label2.Parent = label3.Parent = pbGLEF;// = pbFon;
+            pbHero.Parent = pbFon;
+            //pbTrees.Parent = pbFon;
+            //pbFon;
+
+        }
+
+
+        public partial class TransparentPictureBox : PictureBox
+        {
+            public TransparentPictureBox()
+            {
+                this.BackColor = Color.Transparent;
+            }
+            protected override void OnPaint(PaintEventArgs e)
+            {
+                if (Parent != null && this.BackColor == Color.Transparent)
+                {
+                    using (var bmp = new Bitmap(Parent.Width, Parent.Height))
+                    {
+                        Parent.Controls.Cast<Control>()
+                              .Where(c => Parent.Controls.GetChildIndex(c) > Parent.Controls.GetChildIndex(this))
+                              .Where(c => c.Bounds.IntersectsWith(this.Bounds))
+                              .OrderByDescending(c => Parent.Controls.GetChildIndex(c))
+                              .ToList()
+                              .ForEach(c => c.DrawToBitmap(bmp, c.Bounds));
+
+                        e.Graphics.DrawImage(bmp, -Left, -Top);
+
+                    }
+                }
+                base.OnPaint(e);
+            }
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            string str = "";
+            Image imag = Image.FromFile(str);
+            e.Graphics.DrawImage(imag, new Point(0, 0));
         }
 
         private void pbStart_Click(object sender, EventArgs e)
@@ -60,10 +104,11 @@ namespace Farmio
 
             //pbNameFon.Visible = true;
             // pbName.Parent = labelName.Parent = pbNameOk.Parent = pbNameFon; :(
+            pbGLEF.Visible = true;
             tbName.Visible = true;
-            labelName.Visible = true;
             pbNameOk.Visible = true;
             pbName.Visible = true;
+            pbHero.Visible = true;
         }
 
         private void pbExit_Click(object sender, EventArgs e)
@@ -77,9 +122,8 @@ namespace Farmio
             if (str != "")
             {
                 hero.Name = str;
-                pbName.Parent = labelName.Parent = pbNameOk.Parent = null;
+                pbName.Parent = pbNameOk.Parent = null;
                 this.Controls.Remove(pbName);
-                this.Controls.Remove(labelName);
                 this.Controls.Remove(tbName);
                 this.Controls.Remove(pbNameOk);
                 start = true;
@@ -87,12 +131,8 @@ namespace Farmio
             }
         }
 
-        private void pbFon_KeyPress(object sender, KeyPressEventArgs e)
-        {
 
-        }
-
-        private void pbFon_Click(object sender, MouseEventArgs e)
+        private void pbFon_MouseDown(object sender, MouseEventArgs e)
         {
             if (start)
             {
@@ -172,6 +212,7 @@ namespace Farmio
                 if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
                 else
                 {
+                    HeroMoveHere(x, y);
                     hero.Energy = EnergyTmp;
                     hero.addToInventory(tmp.DestroyTree(map));
                     pbFon.Image = map.DrawMap();
@@ -195,6 +236,7 @@ namespace Farmio
                 if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
                 else
                 {
+                    HeroMoveHere(x, y);
                     hero.Energy = EnergyTmp;
                     hero.addToInventory(tmp.DestroyStone(map));
                     pbFon.Image = map.DrawMap();
@@ -218,6 +260,7 @@ namespace Farmio
                 if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
                 else
                 {
+                    HeroMoveHere(x, y);
                     hero.Energy = EnergyTmp;
                     hero.addToInventory(tmp.DestroyGrass(map));
                     pbFon.Image = map.DrawMap();
@@ -241,6 +284,7 @@ namespace Farmio
                 if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
                 else
                 {
+                    HeroMoveHere(x, y);
                     hero.Energy = EnergyTmp;
                     hero.addToInventory(tmp.DestroyStump(map));
                     pbFon.Image = map.DrawMap();
@@ -264,6 +308,7 @@ namespace Farmio
                 if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
                 else
                 {
+                    HeroMoveHere(x, y);
                     hero.Energy = EnergyTmp;
                     if (tmp.Name[1] == 'n')
                         hero.addToInventory(tmp.DestroyMushroomNE(map));
@@ -309,9 +354,8 @@ namespace Farmio
                 if (str != "")
                 {
                     hero.Name = str;
-                    pbName.Parent = labelName.Parent = pbNameOk.Parent = null;
+                    pbName.Parent = pbNameOk.Parent = null;
                     this.Controls.Remove(pbName);
-                    this.Controls.Remove(labelName);
                     this.Controls.Remove(tbName);
                     this.Controls.Remove(pbNameOk);
                     start = true;
@@ -320,179 +364,429 @@ namespace Farmio
             }
         }
 
-        private async void HeroMoveHere(int x, int y)
+        public async void HeroMoveHere(int x, int y)
         {
-            //pbHero.Visible = false;
+            //Console.Clear();
             int i = 0;
-            if (Math.Abs(hero.x - x) > Math.Abs(hero.y - y))
+            while (hero.x-x>5)
             {
-                while (Math.Abs(hero.x - x) / Math.Abs(hero.y - y) >= 1.5)
-                {
-                    if (hero.x > x)
-                    {
-                        if (i > 8 || i < 6)
-                            i = 6;
-                        pbHero.Image = hero.Sprite[i];
-                        hero.x -= 6;
-                        i++;
-                    }
-                    else
-                    {
-                        if (i > 10 || i < 9)
-                            i = 9;
-                        pbHero.Image = hero.Sprite[i];
-                        hero.x += 6;
-                        i++;
-                    }
-                    pbHero.Left = hero.x;
-                    await Task.Delay(40);
-                }
-                    
-
-                    while (Math.Abs(hero.y - y) > 6)
-                    {
-                        if (hero.y > y)
-                        {
-                            if (i > 2)
-                                i = 0;
-                            hero.y -= 6;
-                            pbHero.Image = hero.Sprite[i];
-                            i++;
-                        }
-                        else
-                        {
-                            if (i > 5 || i < 2)
-                                i = 3;
-                            pbHero.Image = hero.Sprite[i];
-                            hero.y += 6;
-                            i++;
-
-                        }
-                        pbHero.Top = hero.y;
-                        await Task.Delay(40);
-                    }
-
-                while (Math.Abs(hero.x - x) > 6)
-                {
-                    if (hero.x > x)
-                    {
-                        if (i > 8 || i < 6)
-                            i = 6;
-                        pbHero.Image = hero.Sprite[i];
-                        hero.x -= 6;
-                        i++;
-                    }
-                    else
-                    {
-                        if (i > 10 || i < 9)
-                            i = 9;
-                        pbHero.Image = hero.Sprite[i];
-                        hero.x += 6;
-                        i++;
-                    }
-                    pbHero.Left = hero.x;
-                    await Task.Delay(40);
-                }
+                if (!map.isFree(hero.x, hero.y, 'a'))
+                    break;
+                hero.x -= 5;
+                pbHero.Left = hero.x;
+                await Task.Delay(35);
             }
-
-            else
+            while (hero.x - x < -5)
             {
-                    while (Math.Abs(hero.y - y) / Math.Abs(hero.x - x) >= 1.5)
-                    {
-                        if (hero.y > y)
-                        {
-                            if (i > 2)
-                                i = 0;
-                            hero.y -= 6;
-                            pbHero.Image = hero.Sprite[i];
-                            i++;
-                        }
-                        else
-                        {
-                            if (i > 5 || i < 2)
-                                i = 3;
-                            pbHero.Image = hero.Sprite[i];
-                            hero.y += 6;
-                            i++;
-
-                        }
-                        pbHero.Top = hero.y;
-                        await Task.Delay(40);
-                    }
-
-                while (Math.Abs(hero.x - x) > 6)
-                {
-                    if (hero.x > x)
-                    {
-                        if (i > 8 || i < 6)
-                            i = 6;
-                        pbHero.Image = hero.Sprite[i];
-                        hero.x -= 6;
-                        i++;
-                    }
-                    else
-                    {
-                        if (i > 10 || i < 9)
-                            i = 9;
-                        pbHero.Image = hero.Sprite[i];
-                        hero.x += 6;
-                        i++;
-                    }
-                    pbHero.Left = hero.x;
-                    await Task.Delay(40);
-                }
-
-                while (Math.Abs(hero.y - y) > 6)
-                {
-                    if (hero.y > y)
-                    {
-                        if (i > 2)
-                            i = 0;
-                        hero.y -= 6;
-                        pbHero.Image = hero.Sprite[i];
-                        i++;
-                    }
-                    else
-                    {
-                        if (i > 5 || i < 2)
-                            i = 3;
-                        pbHero.Image = hero.Sprite[i];
-                        hero.y += 6;
-                        i++;
-
-                    }
-                    pbHero.Top = hero.y;
-                    await Task.Delay(40);
-                }
-
+                if (!map.isFree(hero.x, hero.y, 'd'))
+                    break;
+                hero.x += 5;
+                pbHero.Left = hero.x;
+                await Task.Delay(35);
             }
+            while (hero.y - y > 5)
+            {
+                if (!map.isFree(hero.x, hero.y, 'w'))
+                    break;
+                hero.y -= 5;
+                pbHero.Top = hero.y;
+                await Task.Delay(35);
+            }
+            while (hero.y - y < -5)
+            {
+                if (!map.isFree(hero.x, hero.y, 's'))
+                    break;
+                hero.y += 5;
+                pbHero.Top = hero.y;
+                await Task.Delay(35);
+            }
+            //if (Math.Abs(hero.x - x) > Math.Abs(hero.y - y))
+            //{
+            //    while ((hero.y - y != 0) && Math.Abs(hero.x - x) / Math.Abs(hero.y - y) >= 2 )
+            //    {
+            //        if (hero.x > x)
+            //        {
+            //            if (map.isFree(hero.x, hero.y, 'a'))
+            //            {
+            //                if (i > 8 || i < 6)
+            //                    i = 6;
 
-            Console.WriteLine("hi there");
+            //                pbHero.Image = hero.Sprite[i];
+            //                hero.x -= 5;
+            //                i++;
+            //            }
+            //            else
+            //            while (!map.isFree(hero.x, hero.y, 'a'))
+            //                {
+            //                if (hero.y > y)
+            //                {
+            //                    hero.y -= 25;
+            //                    pbHero.Image = hero.Sprite[0];
+            //                }
+            //                else
+            //                {
+            //                    hero.y += 25;
+            //                    pbHero.Image = hero.Sprite[3];
+            //                }
+            //                    pbHero.Top = hero.y;
+            //                }
+            //        }
+            //        else
+            //        {
+            //            if (map.isFree(hero.x, hero.y, 'd'))
+            //            {
+            //                if (i > 11 || i < 9)
+            //                    i = 9;
+            //                pbHero.Image = hero.Sprite[i];
+            //                hero.x += 5;
+            //                i++;
+
+            //            }
+
+            //            else
+            //            while (!map.isFree(hero.x, hero.y, 'd'))
+            //                {
+            //                if (hero.y > y)
+            //                {
+            //                    hero.y -= 25;
+            //                    pbHero.Image = hero.Sprite[0];
+            //                }
+            //                else
+            //                {
+            //                    hero.y += 25;
+            //                    pbHero.Image = hero.Sprite[3];
+            //                }
+            //                    pbHero.Top = hero.y;
+            //                }
+            //        }
+            //        pbHero.Left = hero.x;
+            //        await Task.Delay(35);
+            //    }
+
+
+            //    while (Math.Abs(hero.y - y) > 5)
+            //    {
+            //        if (hero.y > y)
+            //        {
+            //            if (map.isFree(hero.x, hero.y, 'w'))
+            //            {
+            //                if (i > 2)
+            //                    i = 0;
+            //                hero.y -= 5;
+            //                pbHero.Image = hero.Sprite[i];
+            //                i++;
+            //            }
+            //            else
+            //            while (!map.isFree(hero.x, hero.y, 'w'))
+            //                {
+            //                if (hero.x > x)
+            //                {
+            //                    hero.x -= 25;
+            //                    pbHero.Image = hero.Sprite[6];
+            //                }
+            //                else
+            //                {
+            //                    hero.x += 25;
+            //                    pbHero.Image = hero.Sprite[9];
+            //                }
+            //                    pbHero.Left = hero.x;
+            //                }
+            //        }
+            //        else
+            //        {
+            //            if (map.isFree(hero.x, hero.y, 's'))
+            //            {
+            //                if (i > 5 || i < 2)
+            //                    i = 3;
+            //                pbHero.Image = hero.Sprite[i];
+            //                hero.y += 5;
+            //                i++;
+            //            }
+            //            else
+            //            while (!map.isFree(hero.x, hero.y, 's'))
+            //                {
+            //                if (hero.x > x)
+            //                {
+            //                    hero.x -= 25;
+            //                    pbHero.Image = hero.Sprite[6];
+            //                }
+            //                else
+            //                {
+            //                    hero.x += 25;
+            //                    pbHero.Image = hero.Sprite[9];
+            //                }
+            //                    pbHero.Left = hero.x;
+            //                }
+            //        }
+            //        pbHero.Top = hero.y;
+            //        await Task.Delay(35);
+            //    }
+
+            //    while (Math.Abs(hero.x - x) > 5)
+            //    {
+            //        if (hero.x > x)
+            //        {
+            //            if (map.isFree(hero.x, hero.y, 'a'))
+            //            {
+            //                if (i > 8 || i < 6)
+            //                    i = 6;
+            //                pbHero.Image = hero.Sprite[i];
+            //                hero.x -= 5;
+            //                i++;
+            //            }
+            //            else
+            //            while (!map.isFree(hero.x, hero.y, 'a'))
+            //                {
+            //                if (hero.y > y)
+            //                {
+            //                    hero.y -= 25;
+            //                    pbHero.Image = hero.Sprite[0];
+            //                }
+            //                else
+            //                {
+            //                    hero.y += 25;
+            //                    pbHero.Image = hero.Sprite[3];
+            //                }
+            //                    pbHero.Top = hero.y;
+            //                }
+            //        }
+            //        else
+            //        {
+            //            if (map.isFree(hero.x, hero.y, 'd'))
+            //            {
+            //                if (i > 11 || i < 9)
+            //                    i = 9;
+            //                pbHero.Image = hero.Sprite[i];
+            //                hero.x += 5;
+            //                i++;
+            //            }
+            //            else
+            //            while (!(map.isFree(hero.x, hero.y, 'd')))
+            //            {
+            //                if (hero.y > y)
+            //                {
+            //                    hero.y -= 25;
+            //                    pbHero.Image = hero.Sprite[0];
+            //                }
+            //                else
+            //                {
+            //                    hero.y += 25;
+            //                    pbHero.Image = hero.Sprite[3];
+            //                }
+            //                    pbHero.Top = hero.y;
+            //                }
+            //        }
+            //        pbHero.Left = hero.x;
+            //        await Task.Delay(35);
+            //    }
+            //}
+
+            //else
+            //{
+            //    while (hero.x != x &&Math.Abs(hero.y - y) / Math.Abs(hero.x - x) >= 2 && (hero.x - x != 0))
+            //    {
+            //        if (hero.y > y)
+            //        {
+            //            if (map.isFree(hero.x, hero.y, 'w'))
+            //            {
+            //                if (i > 2)
+            //                    i = 0;
+            //                hero.y -= 5;
+            //                pbHero.Image = hero.Sprite[i];
+            //                i++;
+            //            }
+            //            else
+            //                while (!map.isFree(hero.x, hero.y, 'w'))
+            //                {
+            //                    if (hero.x > x)
+            //                    {
+            //                        hero.x -= 25;
+            //                        pbHero.Image = hero.Sprite[6];
+            //                    }
+            //                    else
+            //                    {
+            //                        hero.x += 25;
+            //                        pbHero.Image = hero.Sprite[9];
+            //                    }
+            //                    pbHero.Left = hero.x;
+            //                }
+            //        }
+            //        else
+            //        {
+            //            if (map.isFree(hero.x, hero.y, 's'))
+            //            {
+            //                if (i > 5 || i < 2)
+            //                    i = 3;
+            //                pbHero.Image = hero.Sprite[i];
+            //                hero.y += 5;
+            //                i++;
+            //            }
+            //            else
+            //                while (!map.isFree(hero.x, hero.y, 'w'))
+            //                {
+            //                    if (hero.x > x)
+            //                    {
+            //                        hero.x -= 25;
+            //                        pbHero.Image = hero.Sprite[6];
+            //                    }
+            //                    else
+            //                    {
+            //                        hero.x += 25;
+            //                        pbHero.Image = hero.Sprite[9];
+            //                    }
+            //                    pbHero.Left = hero.x;
+            //                }
+
+            //        }
+            //        pbHero.Top = hero.y;
+            //        await Task.Delay(35);
+            //    }
+
+            //    while (Math.Abs(hero.x - x) > 5)
+            //    {
+            //        if (hero.x > x)
+            //        {
+            //            if (map.isFree(hero.x, hero.y, 'a'))
+            //            {
+            //                if (i > 8 || i < 6)
+            //                    i = 6;
+            //                pbHero.Image = hero.Sprite[i];
+            //                hero.x -= 5;
+            //                i++;
+            //            }
+            //            else
+            //                while (!(map.isFree(hero.x, hero.y, 'd')))
+            //                {
+            //                    if (hero.y > y)
+            //                    {
+            //                        hero.y -= 25;
+            //                        pbHero.Image = hero.Sprite[0];
+            //                    }
+            //                    else
+            //                    {
+            //                        hero.y += 25;
+            //                        pbHero.Image = hero.Sprite[3];
+            //                    }
+            //                    pbHero.Top = hero.y;
+            //                }
+            //        }
+            //        else
+            //        {
+            //            if (map.isFree(hero.x, hero.y, 'd'))
+            //            {
+            //                if (i > 11 || i < 9)
+            //                    i = 9;
+            //                pbHero.Image = hero.Sprite[i];
+            //                hero.x += 5;
+            //                i++;
+            //            }
+            //            else
+            //                while (!(map.isFree(hero.x, hero.y, 'd')))
+            //                {
+            //                    if (hero.y > y)
+            //                    {
+            //                        hero.y -= 25;
+            //                        pbHero.Image = hero.Sprite[0];
+            //                    }
+            //                    else
+            //                    {
+            //                        hero.y += 25;
+            //                        pbHero.Image = hero.Sprite[3];
+            //                    }
+            //                    pbHero.Top = hero.y;
+            //                }
+            //        }
+            //        pbHero.Left = hero.x;
+            //        await Task.Delay(35);
+            //    }
+
+            //    while (Math.Abs(hero.y - y) > 5)
+            //    {
+            //        if (hero.y > y)
+            //        {
+            //            if (map.isFree(hero.x, hero.y, 'w'))
+            //            {
+            //                if (i > 2)
+            //                    i = 0;
+            //                hero.y -= 5;
+            //                pbHero.Image = hero.Sprite[i];
+            //                i++;
+            //            }
+            //            else
+            //                while (!map.isFree(hero.x, hero.y, 'w'))
+            //                {
+            //                    if (hero.x > x)
+            //                    {
+            //                        hero.x -= 25;
+            //                        pbHero.Image = hero.Sprite[6];
+            //                    }
+            //                    else
+            //                    {
+            //                        hero.x += 25;
+            //                        pbHero.Image = hero.Sprite[9];
+            //                    }
+            //                    pbHero.Left = hero.x;
+            //                }
+            //        }
+            //        else
+            //        {
+            //            if (map.isFree(hero.x, hero.y, 's'))
+            //            {
+            //                if (i > 5 || i < 2)
+            //                    i = 3;
+            //                pbHero.Image = hero.Sprite[i];
+            //                hero.y += 5;
+            //                i++;
+            //            }
+            //            else
+            //                while (!map.isFree(hero.x, hero.y, 'w'))
+            //                {
+            //                    if (hero.x > x)
+            //                    {
+            //                        hero.x -= 25;
+            //                        pbHero.Image = hero.Sprite[6];
+            //                    }
+            //                    else
+            //                    {
+            //                        hero.x += 25;
+            //                        pbHero.Image = hero.Sprite[9];
+            //                    }
+            //                    pbHero.Left = hero.x;
+            //                }
+            //        }
+            //        pbHero.Top = hero.y;
+            //        await Task.Delay(35);
+            //    }
+
+            //}
         }
-        //private void Form1_KeyDown(object sender, KeyEventArgs e)
-        //{
-        //    if (e.KeyCode == Keys.W)
-        //    {
-        //        hero.Move('w');
-        //    }
-        //    else if (e.KeyCode == Keys.A)
-        //    {
-        //        hero.Move('a');
-        //    }
-        //    else if (e.KeyCode == Keys.S)
-        //    {
-        //        hero.Move('s');
-        //    }
-        //    else if (e.KeyCode == Keys.D)
-        //    {
-        //        hero.Move('d');
-        //    }
-        //    else if (e.KeyCode == Keys.E)
-        //    {
-        //        hero.Move('e');
-        //    }
-        //    pbHero.Left = hero.x;
-        //    //pbHero.Top = hero.y;
-        //}
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+            {
+                if (e.KeyCode == Keys.W)
+                {
+                    hero.Move('w');
+                }
+                else if (e.KeyCode == Keys.A)
+                {
+                    hero.Move('a');
+                }
+                else if (e.KeyCode == Keys.S)
+                {
+                    hero.Move('s');
+                }
+                else if (e.KeyCode == Keys.D)
+                {
+                    hero.Move('d');
+                }
+                else if (e.KeyCode == Keys.E)
+                {
+                    hero.Move('e');
+                }
+                pbHero.Left = hero.x;
+                pbHero.Top = hero.y;
+            }
+
+
     }
 }
