@@ -76,6 +76,144 @@ namespace Engine
                 NamePlural = "Trujące grzyby";
             }
         }
+
+        public class Corn : Food
+        {
+            public Corn(int number)
+                : base(number)
+            {
+                Name = NamePlural = "Kukurydza";
+            }
+        }
+
+        public class Apple : Food
+        {
+            public Apple (int number)
+                : base(number)
+            {
+                Name = "Jabłko";
+                NamePlural = "Jabłka";
+            }
+        }
+
+        public class Potato : Food
+        {
+            public Potato (int number)
+                : base(number)
+            {
+                Name = "Ziemniak";
+                NamePlural = "Ziemniaki";
+            }
+        }
+
+        public class Rice : Food
+        {
+            public Rice (int number)
+                :base(number)
+            {
+                Name = NamePlural = "Ryż";
+            }
+        }
+
+        public class Cabbage : Food
+        {
+            public Cabbage (int number)
+                : base(number)
+            {
+                Name = "Kapusta";
+                NamePlural = "Kapusty";
+            }
+        }
+
+        public class Cucumber : Food
+        {
+            public Cucumber (int number)
+                : base(number)
+            {
+                Name = "Ogórek";
+                NamePlural = "Ogórki";
+            }
+        }
+
+        public class Tomato : Food
+        {
+            public Tomato (int number)
+                : base(number)
+            {
+                Name = "Pomidor";
+                NamePlural = "Pomidory";
+            }
+        }
+
+        public class Eggplant : Food
+        {
+            public Eggplant (int number)
+                : base(number)
+            {
+                Name = "Bakłażan";
+                NamePlural = "Bakłażany";
+            }
+        }
+
+        public class Watermelon : Food
+        {
+            public Watermelon (int number)
+                : base(number)
+            {
+                Name = "Arbuz";
+                NamePlural = "Arbuzy";
+            }
+        }
+
+        public class Pear : Food
+        {
+            public Pear (int number)
+                : base(number)
+            {
+                Name = "Gruszka";
+                NamePlural = "Gruszki";
+            }
+        }
+
+        public class Cherry : Food
+        {
+            public Cherry (int number)
+                : base(number)
+            {
+                Name = "Wiśnia";
+                NamePlural = "Wiśnie";
+            }
+        }
+
+        public class Pumpkin : Food
+        {
+            public Pumpkin (int number)
+                : base(number)
+            {
+                Name = "Dynia";
+                NamePlural = "Dynie";
+            }
+        }
+
+        public class Peach : Food
+        {
+            public Peach (int number)
+                : base(number)
+            {
+                Name = "Brzoskwinia";
+                NamePlural = "Brzoskwinie";
+            }
+        }
+
+        public class Fish : Food
+        {
+            public Fish (int number)
+                : base(number)
+            {
+                Name = "Ryba";
+                NamePlural = "Ryby";
+            }
+        }
     }
 
 }
