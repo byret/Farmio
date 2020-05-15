@@ -24,28 +24,31 @@ namespace Farmio
         Map map = new Map();
         bool start = false;
         string str;
+        System.Media.SoundPlayer player;
 
         public Farmio()
         {
             map.MapGeneration(map);
             hero = new Hero();
             hero.SetSprite(1);
+
             InitializeComponent();
 
-            //pbTrees.Visible = true;
+            System.Windows.Forms.Timer musicTimer = new System.Windows.Forms.Timer();
+            musicTimer.Interval = 300000; 
+            musicTimer.Tick += new EventHandler(musicTimer_Tick);
+            musicTimer.Start();
 
             pbFon.Image = map.DrawMap();
-            //pbTrees.Image = map.Trees;
 
             Parentize();
 
             pbHero.Image = (Image)hero.Sprite[4];
             pbHero.Location = new Point(hero.x, hero.y);
             System.IO.Stream str = (System.IO.Stream)global::WindowsFormsApp2.Properties.Resources.ResourceManager.GetObject(SomeFunctions.MusicRandomize());
-            //System.Media.SoundPlayer player = new System.Media.SoundPlayer(str);
-            //player.PlayLooping();
-
             pictureBox1.Image = (Bitmap)global::WindowsFormsApp2.Properties.Resources.ResourceManager.GetObject(SomeFunctions.MainPictureRandomize());
+            player = new System.Media.SoundPlayer(str);
+            player.Play();
             lblGold.Text = hero.Gold.ToString();
             lblEpoch.Text = hero.Level.ToString();
             lblEnergy.Text = hero.Energy.ToString();
@@ -57,11 +60,14 @@ namespace Farmio
             pbName.Parent = pbCDTree.Parent = pbGetStone.Parent = pbCutGrass.Parent = pbCDStump.Parent = pbGetMushroom.Parent = pbGetMushrooms.Parent = pbNameOk.Parent = pbGLEF.Parent = pbFon;
             lblGold.Parent = lblEpoch.Parent = lblEnergy.Parent = label1.Parent = label2.Parent = label3.Parent = pbGLEF;// = pbFon;
             pbHero.Parent = pbFon;
-            //pbTrees.Parent = pbFon;
-            //pbFon;
-
         }
 
+        void musicTimer_Tick(object sender, EventArgs e)
+        {
+            System.IO.Stream str = (System.IO.Stream)global::WindowsFormsApp2.Properties.Resources.ResourceManager.GetObject(SomeFunctions.MusicRandomize());
+            player = new System.Media.SoundPlayer(str);
+            player.Play();
+        }
 
         public partial class TransparentPictureBox : PictureBox
         {
@@ -83,7 +89,6 @@ namespace Farmio
                               .ForEach(c => c.DrawToBitmap(bmp, c.Bounds));
 
                         e.Graphics.DrawImage(bmp, -Left, -Top);
-
                     }
                 }
                 base.OnPaint(e);
@@ -101,9 +106,6 @@ namespace Farmio
         {
             this.Controls.Remove(pbStart);
             this.Controls.Remove(pictureBox1);
-
-            //pbNameFon.Visible = true;
-            // pbName.Parent = labelName.Parent = pbNameOk.Parent = pbNameFon; :(
             pbGLEF.Visible = true;
             tbName.Visible = true;
             pbNameOk.Visible = true;
@@ -127,7 +129,6 @@ namespace Farmio
                 this.Controls.Remove(tbName);
                 this.Controls.Remove(pbNameOk);
                 start = true;
-
             }
         }
 
@@ -197,7 +198,7 @@ namespace Farmio
             }
         }
 
-        private void pbCDTree_Click(object sender, EventArgs e)
+        private async void pbCDTree_Click(object sender, EventArgs e)
         {
             pbCDTree.Visible = false;
             if (hero.Energy <= 0)
@@ -212,7 +213,8 @@ namespace Farmio
                 if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
                 else
                 {
-                    HeroMoveHere(x, y);
+                    Task<int> longRunningTask = HeroMoveHere(x, y);
+                    int result = await longRunningTask;
                     hero.Energy = EnergyTmp;
                     hero.addToInventory(tmp.DestroyTree(map));
                     pbFon.Image = map.DrawMap();
@@ -221,7 +223,7 @@ namespace Farmio
             }
         }
 
-        private void pbGetStone_Click(object sender, EventArgs e)
+        private async void pbGetStone_Click(object sender, EventArgs e)
         {
             pbGetStone.Visible = false;
             if (hero.Energy <= 0)
@@ -236,7 +238,8 @@ namespace Farmio
                 if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
                 else
                 {
-                    HeroMoveHere(x, y);
+                    Task<int> longRunningTask = HeroMoveHere(x, y);
+                    int result = await longRunningTask;
                     hero.Energy = EnergyTmp;
                     hero.addToInventory(tmp.DestroyStone(map));
                     pbFon.Image = map.DrawMap();
@@ -245,7 +248,7 @@ namespace Farmio
             }
         }
 
-        private void pbCutGrass_Click(object sender, EventArgs e)
+        private async void pbCutGrass_Click(object sender, EventArgs e)
         {
             pbCutGrass.Visible = false;
             if (hero.Energy <= 0)
@@ -260,7 +263,8 @@ namespace Farmio
                 if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
                 else
                 {
-                    HeroMoveHere(x, y);
+                    Task<int> longRunningTask = HeroMoveHere(x, y);
+                    int result = await longRunningTask;
                     hero.Energy = EnergyTmp;
                     hero.addToInventory(tmp.DestroyGrass(map));
                     pbFon.Image = map.DrawMap();
@@ -269,7 +273,7 @@ namespace Farmio
             }
         }
 
-        private void pbCDStump_Click(object sender, EventArgs e)
+        private async void pbCDStump_Click(object sender, EventArgs e)
         {
             pbCDStump.Visible = false;
             if (hero.Energy <= 0)
@@ -284,7 +288,8 @@ namespace Farmio
                 if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
                 else
                 {
-                    HeroMoveHere(x, y);
+                    Task<int> longRunningTask = HeroMoveHere(x, y);
+                    int result = await longRunningTask;
                     hero.Energy = EnergyTmp;
                     hero.addToInventory(tmp.DestroyStump(map));
                     pbFon.Image = map.DrawMap();
@@ -293,7 +298,7 @@ namespace Farmio
             }
         }
 
-        private void pbGetMushrooms_Click(object sender, EventArgs e)
+        private async void pbGetMushrooms_Click(object sender, EventArgs e)
         {
             pbGetMushrooms.Visible = false;
             if (hero.Energy <= 0)
@@ -308,7 +313,9 @@ namespace Farmio
                 if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
                 else
                 {
-                    HeroMoveHere(x, y);
+                    Task<int> longRunningTask = HeroMoveHere(x, y);
+                    int result = await longRunningTask;
+
                     hero.Energy = EnergyTmp;
                     if (tmp.Name[1] == 'n')
                         hero.addToInventory(tmp.DestroyMushroomNE(map));
@@ -320,7 +327,7 @@ namespace Farmio
             }
         }
 
-        private void pbGetMushroom_Click(object sender, EventArgs e)
+        private async void pbGetMushroom_Click(object sender, EventArgs e)
         {
             pbGetMushroom.Visible = false;
             if (hero.Energy <= 0)
@@ -335,6 +342,8 @@ namespace Farmio
                 if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
                 else
                 {
+                    Task<int> longRunningTask = HeroMoveHere(x, y);
+                    int result = await longRunningTask;
                     hero.Energy = EnergyTmp;
                     if (tmp.Name[1] == 'n')
                         hero.addToInventory(tmp.DestroyMushroomNE(map));
@@ -364,42 +373,129 @@ namespace Farmio
             }
         }
 
-        public async void HeroMoveHere(int x, int y)
+        public async Task<int> HeroMoveHere(int x, int y)
         {
             //Console.Clear();
             int i = 0;
             while (hero.x-x>5)
             {
-                if (!map.isFree(hero.x, hero.y, 'a'))
-                    break;
-                hero.x -= 5;
+                while (!map.isFree(hero.x, hero.y, 'a'))
+                {
+                    int min1 = 0, min2 = 0;
+                    while(!map.isFree(hero.x, hero.y - min1, 'a'))
+                        min1++;
+                    while (!map.isFree(hero.x, hero.y + min2, 'a')) 
+                        min2++;
+                    int posY = hero.y;
+                    if (min1 > min2)
+                        while (hero.y < posY + min2)
+                        {
+                            hero.y += 5;
+                            pbHero.Top = hero.y;
+                            await Task.Delay(40);
+                        }    
+                    else
+                        while (hero.y > posY - min2)
+                        {
+                            hero.y -= 5;
+                            pbHero.Top = hero.y;
+                            await Task.Delay(40);
+                        }
+                }
+
+                    hero.x -= 5;
                 pbHero.Left = hero.x;
                 await Task.Delay(35);
             }
             while (hero.x - x < -5)
             {
-                if (!map.isFree(hero.x, hero.y, 'd'))
-                    break;
+                while (!map.isFree(hero.x, hero.y, 'd'))
+                {
+                    int min1 = 0, min2 = 0;
+                    while (!map.isFree(hero.x, hero.y - min1, 'd'))
+                        min1++;
+                    while (!map.isFree(hero.x, hero.y + min2, 'd'))
+                        min2++;
+                    int posY = hero.y;
+                    if (min1 > min2)
+                        while (hero.y < posY + min2)
+                        {
+                            hero.y += 5;
+                            pbHero.Top = hero.y;
+                            await Task.Delay(40);
+                        }
+                    else
+                        while (hero.y > posY - min2)
+                        {
+                            hero.y -= 5;
+                            pbHero.Top = hero.y;
+                            await Task.Delay(40);
+                        }
+                }
                 hero.x += 5;
                 pbHero.Left = hero.x;
                 await Task.Delay(35);
             }
             while (hero.y - y > 5)
             {
-                if (!map.isFree(hero.x, hero.y, 'w'))
-                    break;
+                while (!map.isFree(hero.x, hero.y, 'w'))
+                {
+                    int min1 = 0, min2 = 0;
+                    while (!map.isFree(hero.x - min1, hero.y, 'w'))
+                        min1++;
+                    while (!map.isFree(hero.x + min2, hero.y, 'w'))
+                        min2++;
+                    int posX = hero.x;
+                    if (min1 > min2)
+                        while (hero.x < posX + min2)
+                        {
+                            hero.x += 5;
+                            pbHero.Left = hero.x;
+                            await Task.Delay(40);
+                        }
+                    else
+                        while (hero.x > posX - min2)
+                        {
+                            hero.y -= 5;
+                            pbHero.Left = hero.x;
+                            await Task.Delay(40);
+                        }
+                }
                 hero.y -= 5;
                 pbHero.Top = hero.y;
                 await Task.Delay(35);
             }
             while (hero.y - y < -5)
             {
-                if (!map.isFree(hero.x, hero.y, 's'))
-                    break;
+                while (!map.isFree(hero.x, hero.y, 's'))
+                {
+                    int min1 = 0, min2 = 0;
+                    while (!map.isFree(hero.x - min1, hero.y, 's'))
+                        min1++;
+                    while (!map.isFree(hero.x + min2, hero.y, 's'))
+                        min2++;
+                    int posX = hero.x;
+                    if (min1 > min2)
+                        while (hero.x < posX + min2)
+                        {
+                            hero.x += 5;
+                            pbHero.Left = hero.x;
+                            await Task.Delay(40);
+                        }
+                    else
+                        while (hero.x > posX - min2)
+                        {
+                            hero.y -= 5;
+                            pbHero.Left = hero.x;
+                            await Task.Delay(40);
+                        }
+                }
                 hero.y += 5;
                 pbHero.Top = hero.y;
                 await Task.Delay(35);
             }
+
+            return 0;
             //if (Math.Abs(hero.x - x) > Math.Abs(hero.y - y))
             //{
             //    while ((hero.y - y != 0) && Math.Abs(hero.x - x) / Math.Abs(hero.y - y) >= 2 )

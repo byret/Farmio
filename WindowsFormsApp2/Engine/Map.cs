@@ -11,7 +11,7 @@ namespace Engine
     {
 
         public Bitmap Trees = new Bitmap(1300, 805);
-        public MapPoint[,] mapTab = new MapPoint [1600,900];
+        public MapPoint[,] mapTab = new MapPoint [1700,900];
 
         // każdy "zajęty" punkt na mapie
 
@@ -645,7 +645,7 @@ namespace Engine
             if (dir == 's')
             {
                 for (int j = x; j < x + 18; j++)
-                    for (int i = y; i <= y + step+ 25; i++)
+                    for (int i = y + 25; i <= y + step+ 25; i++)
                 {
                     if (this.mapTab[j, i] != null)
                     {
@@ -661,7 +661,7 @@ namespace Engine
 
             else if (dir == 'a')
             {
-                for (int j = y + 6; j < y + 27; j++)
+                for (int j = y + 15; j <= y + 25; j++)
                     for (int i = x - step; i <= x; i++)
                     {
                     if (this.mapTab[i, j] != null)
@@ -678,10 +678,10 @@ namespace Engine
 
             else if (dir == 'd')
             {
-                for (int j = y + 6; j < y + 27; j++)
-                    for (int i = x + 7; i <= x + step + 6; i++)
+                for (int j = y + 15; j <= y + 25; j++)
+                    for (int i = x + 7; i < x + step + 17; i++)
                     {
-                        if (i > 0 && j > 0)
+                        if (i > 0)
                         if (this.mapTab[i, j] != null)
                     {
                         if (this.mapTab[i, j].Collision == true)
@@ -690,15 +690,15 @@ namespace Engine
                             return false;
                         }
                     }
-                    }
+                 }
                     return true;
             }
 
             else if (dir == 'w')
             {
                 for (int j = x; j < x + 18; j++)
-                    for (int i = y + step + 25; i >= y ; i--)
-                {
+                    for (int i = y; i < y + step; i++)
+                    {
                     if (this.mapTab[j, i] != null)
                     {
                         if (this.mapTab[j, i].Collision == true)
