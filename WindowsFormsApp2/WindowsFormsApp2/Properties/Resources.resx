@@ -118,27 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="purrple_cat_spring_showers" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\purrple-cat-spring-showers.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="soimanislander_behind_the_barn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\soimanislander-behind-the-barn.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="purrple_cat_green_tea" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\purrple-cat-green-tea.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="vlad_gluschenko_springtime" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\vlad-gluschenko-springtime.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="purrple_cat_bloom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\purrple-cat-bloom.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="soimanislander_along_the_fjord" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\soimanislander-along-the-fjord.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="vlad_gluschenko_its_been_a_while" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\vlad-gluschenko-its-been-a-while.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="cutDStump" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cutDStump.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -366,5 +345,50 @@
   </data>
   <data name="_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="inventory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\inventory.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="purrple_cat_bloom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\purrple-cat-bloom.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="purrple_cat_green_tea" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\purrple-cat-green-tea.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="purrple_cat_spring_showers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\purrple-cat-spring-showers.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="soimanislander_along_the_fjord" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\soimanislander-along-the-fjord.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="soimanislander_behind_the_barn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\soimanislander-behind-the-barn.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="vlad_gluschenko_its_been_a_while" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vlad-gluschenko-its-been-a-while.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="vlad_gluschenko_springtime" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vlad-gluschenko-springtime.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chopping_wood" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chopping-wood.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="footsteps" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\footsteps.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="footsteps1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\footsteps.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="stone_hit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stone-hit.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cutting_grass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cutting-grass.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Inventory_Open" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Inventory-Open.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ItemThrowAway" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ItemThrowAway.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

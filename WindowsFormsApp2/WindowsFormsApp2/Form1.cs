@@ -8,8 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
-
-using Engine; 
+using Engine;
+using System.Media;
+using System.Windows.Media;
+using System.Runtime.CompilerServices;
+using System.Security.AccessControl;
 
 namespace Farmio
 
@@ -24,7 +27,10 @@ namespace Farmio
         Map map = new Map();
         bool start = false;
         string str;
-        System.Media.SoundPlayer player;
+        Task<int> longRunningTask;
+        List<Label> inventoryLabels = new List<Label>();
+        // System.Windowl
+
 
         public Farmio()
         {
@@ -33,51 +39,66 @@ namespace Farmio
             hero.SetSprite(1);
 
             InitializeComponent();
-
+            longRunningTask = HeroMoveHere(hero.x, hero.y, 0);
             System.Windows.Forms.Timer musicTimer = new System.Windows.Forms.Timer();
             musicTimer.Interval = 300000; 
             musicTimer.Tick += new EventHandler(musicTimer_Tick);
             musicTimer.Start();
 
+            inventoryLabels.Add(item1);
+            inventoryLabels.Add(item2);
+            inventoryLabels.Add(item3);
+            inventoryLabels.Add(item4);
+            inventoryLabels.Add(item5);
+            inventoryLabels.Add(lblNumOfItem1);
+            inventoryLabels.Add(lblNumOfItem2);
+            inventoryLabels.Add(lblNumOfItem3);
+            inventoryLabels.Add(lblNumOfItem4);
+            inventoryLabels.Add(lblNumOfItem5);
             pbFon.Image = map.DrawMap();
 
             Parentize();
 
             pbHero.Image = (Image)hero.Sprite[4];
             pbHero.Location = new Point(hero.x, hero.y);
-            System.IO.Stream str = (System.IO.Stream)global::WindowsFormsApp2.Properties.Resources.ResourceManager.GetObject(SomeFunctions.MusicRandomize());
             pictureBox1.Image = (Bitmap)global::WindowsFormsApp2.Properties.Resources.ResourceManager.GetObject(SomeFunctions.MainPictureRandomize());
-            player = new System.Media.SoundPlayer(str);
-            player.Play();
+            string startupPath = System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\", SomeFunctions.MusicRandomize()) ;
+            //SoundPlay(startupPath);
             lblGold.Text = hero.Gold.ToString();
             lblEpoch.Text = hero.Level.ToString();
             lblEnergy.Text = hero.Energy.ToString();
+
+        }
+
+        private void SoundPlay(string audioPath)
+        {
+            MediaPlayer myPlayer = new MediaPlayer();
+            myPlayer.Open(new System.Uri(audioPath));
+            myPlayer.Play();
         }
 
         private void Parentize()
         {
             pbFarmio.Parent = pbStart.Parent = pbLoad.Parent = pbExit.Parent = pbStart.Parent = pictureBox1;
-            pbName.Parent = pbCDTree.Parent = pbGetStone.Parent = pbCutGrass.Parent = pbCDStump.Parent = pbGetMushroom.Parent = pbGetMushrooms.Parent = pbNameOk.Parent = pbGLEF.Parent = pbFon;
-            lblGold.Parent = lblEpoch.Parent = lblEnergy.Parent = label1.Parent = label2.Parent = label3.Parent = pbGLEF;// = pbFon;
+            pbName.Parent = pbCDTree.Parent = pbGetStone.Parent = pbCutGrass.Parent = pbCDStump.Parent = pbGetMushroom.Parent = pbGetMushrooms.Parent = pbNameOk.Parent = pbGLEF.Parent = pbInventoryOpen.Parent =  pbFon;
+            lblInventory.Parent = lblGold.Parent = lblEpoch.Parent = lblEnergy.Parent = label1.Parent = label2.Parent = label3.Parent = pbGLEF;
             pbHero.Parent = pbFon;
         }
 
         void musicTimer_Tick(object sender, EventArgs e)
         {
-            System.IO.Stream str = (System.IO.Stream)global::WindowsFormsApp2.Properties.Resources.ResourceManager.GetObject(SomeFunctions.MusicRandomize());
-            player = new System.Media.SoundPlayer(str);
-            player.Play();
+            SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\", SomeFunctions.MusicRandomize()));
         }
 
         public partial class TransparentPictureBox : PictureBox
         {
             public TransparentPictureBox()
             {
-                this.BackColor = Color.Transparent;
+                this.BackColor = System.Drawing.Color.Transparent;
             }
             protected override void OnPaint(PaintEventArgs e)
             {
-                if (Parent != null && this.BackColor == Color.Transparent)
+                if (Parent != null && this.BackColor == System.Drawing.Color.Transparent)
                 {
                     using (var bmp = new Bitmap(Parent.Width, Parent.Height))
                     {
@@ -107,10 +128,12 @@ namespace Farmio
             this.Controls.Remove(pbStart);
             this.Controls.Remove(pictureBox1);
             pbGLEF.Visible = true;
+
             tbName.Visible = true;
             pbNameOk.Visible = true;
             pbName.Visible = true;
             pbHero.Visible = true;
+
         }
 
         private void pbExit_Click(object sender, EventArgs e)
@@ -135,7 +158,9 @@ namespace Farmio
 
         private void pbFon_MouseDown(object sender, MouseEventArgs e)
         {
-            if (start)
+            if (pbInventoryOpen.Visible)
+                InventoryClose();
+            else if (start && longRunningTask.IsCompleted)
             {
                 ClickX = e.X;
                 ClickY = e.Y;
@@ -193,10 +218,12 @@ namespace Farmio
                 else
                 {
                     pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
-                    HeroMoveHere(ClickX, ClickY);
+                    longRunningTask = HeroMoveHere(ClickX, ClickY, 0);
                 }
             }
         }
+        
+
 
         private async void pbCDTree_Click(object sender, EventArgs e)
         {
@@ -213,10 +240,13 @@ namespace Farmio
                 if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
                 else
                 {
-                    Task<int> longRunningTask = HeroMoveHere(x, y);
+                    longRunningTask = HeroMoveHere(x, y, 30);
                     int result = await longRunningTask;
+                    SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\chopping-wood.wav"));
+                    await Task.Delay(300);
                     hero.Energy = EnergyTmp;
                     hero.addToInventory(tmp.DestroyTree(map));
+                    
                     pbFon.Image = map.DrawMap();
                     lblEnergy.Text = hero.Energy.ToString();
                 }
@@ -238,8 +268,10 @@ namespace Farmio
                 if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
                 else
                 {
-                    Task<int> longRunningTask = HeroMoveHere(x, y);
+                    longRunningTask = HeroMoveHere(x, y, 10);
                     int result = await longRunningTask;
+                    SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\stone-hit.wav"));
+                    await Task.Delay(400);
                     hero.Energy = EnergyTmp;
                     hero.addToInventory(tmp.DestroyStone(map));
                     pbFon.Image = map.DrawMap();
@@ -263,8 +295,10 @@ namespace Farmio
                 if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
                 else
                 {
-                    Task<int> longRunningTask = HeroMoveHere(x, y);
+                    longRunningTask = HeroMoveHere(x, y, 0);
                     int result = await longRunningTask;
+                    SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\cutting-grass.wav"));
+                    await Task.Delay(200);
                     hero.Energy = EnergyTmp;
                     hero.addToInventory(tmp.DestroyGrass(map));
                     pbFon.Image = map.DrawMap();
@@ -288,7 +322,7 @@ namespace Farmio
                 if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
                 else
                 {
-                    Task<int> longRunningTask = HeroMoveHere(x, y);
+                    longRunningTask = HeroMoveHere(x, y, 0);
                     int result = await longRunningTask;
                     hero.Energy = EnergyTmp;
                     hero.addToInventory(tmp.DestroyStump(map));
@@ -313,7 +347,7 @@ namespace Farmio
                 if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
                 else
                 {
-                    Task<int> longRunningTask = HeroMoveHere(x, y);
+                    longRunningTask = HeroMoveHere(x, y, 0);
                     int result = await longRunningTask;
 
                     hero.Energy = EnergyTmp;
@@ -342,7 +376,7 @@ namespace Farmio
                 if (EnergyTmp < 0) Console.WriteLine("Musisz cos zjesc i odpoczac :(");
                 else
                 {
-                    Task<int> longRunningTask = HeroMoveHere(x, y);
+                    longRunningTask = HeroMoveHere(x, y, 0);
                     int result = await longRunningTask;
                     hero.Energy = EnergyTmp;
                     if (tmp.Name[1] == 'n')
@@ -373,23 +407,33 @@ namespace Farmio
             }
         }
 
-        public async Task<int> HeroMoveHere(int x, int y)
+        public async Task<int> HeroMoveHere(int x, int y, int xyplus)
         {
             //Console.Clear();
+            char c = ' ';
+            var player = new SoundPlayer(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\footsteps.wav")) ;
+            player.PlayLooping();
+            if (xyplus == 0)
+                xyplus = 5;
             int i = 0;
-            while (hero.x-x>5)
+            while (hero.x-x > xyplus)
             {
-                while (!map.isFree(hero.x, hero.y, 'a'))
+                c = 'a';
+                while (!map.isFree(hero.x, hero.y, c))
                 {
                     int min1 = 0, min2 = 0;
-                    while(!map.isFree(hero.x, hero.y - min1, 'a'))
+                    while(!map.isFree(hero.x, hero.y - min1, c))
                         min1++;
-                    while (!map.isFree(hero.x, hero.y + min2, 'a')) 
+                    while (!map.isFree(hero.x, hero.y + min2, c)) 
                         min2++;
                     int posY = hero.y;
                     if (min1 > min2)
                         while (hero.y < posY + min2)
                         {
+                            if (i > 5 || i < 2)
+                                i = 3;
+                            pbHero.Image = hero.Sprite[i];
+                            i++;
                             hero.y += 5;
                             pbHero.Top = hero.y;
                             await Task.Delay(40);
@@ -397,29 +441,41 @@ namespace Farmio
                     else
                         while (hero.y > posY - min2)
                         {
+                            if (i > 2)
+                                i = 0;
+                            pbHero.Image = hero.Sprite[i];
+                            i++;
                             hero.y -= 5;
                             pbHero.Top = hero.y;
                             await Task.Delay(40);
                         }
                 }
-
-                    hero.x -= 5;
+                if (i > 8 || i < 6)
+                    i = 6;
+                pbHero.Image = hero.Sprite[i];
+                i++;
+                hero.x -= 5;
                 pbHero.Left = hero.x;
                 await Task.Delay(35);
             }
-            while (hero.x - x < -5)
+            while (x - hero.x > xyplus)
             {
-                while (!map.isFree(hero.x, hero.y, 'd'))
+                c = 'd';
+                while (!map.isFree(hero.x, hero.y, c))
                 {
                     int min1 = 0, min2 = 0;
-                    while (!map.isFree(hero.x, hero.y - min1, 'd'))
+                    while (!map.isFree(hero.x, hero.y - min1, c))
                         min1++;
-                    while (!map.isFree(hero.x, hero.y + min2, 'd'))
+                    while (!map.isFree(hero.x, hero.y + min2, c))
                         min2++;
                     int posY = hero.y;
                     if (min1 > min2)
                         while (hero.y < posY + min2)
                         {
+                            if (i > 5 || i < 2)
+                                i = 3;
+                            pbHero.Image = hero.Sprite[i];
+                            i++;
                             hero.y += 5;
                             pbHero.Top = hero.y;
                             await Task.Delay(40);
@@ -427,28 +483,41 @@ namespace Farmio
                     else
                         while (hero.y > posY - min2)
                         {
+                            if (i > 2)
+                                i = 0;
+                            pbHero.Image = hero.Sprite[i];
+                            i++;
                             hero.y -= 5;
                             pbHero.Top = hero.y;
                             await Task.Delay(40);
                         }
                 }
+                if (i > 11 || i < 9)
+                    i = 9;
+                pbHero.Image = hero.Sprite[i];
+                i++;
                 hero.x += 5;
                 pbHero.Left = hero.x;
                 await Task.Delay(35);
             }
-            while (hero.y - y > 5)
+            while (hero.y - y > xyplus)
             {
-                while (!map.isFree(hero.x, hero.y, 'w'))
+                c = 'w';
+                while (!map.isFree(hero.x, hero.y, c))
                 {
                     int min1 = 0, min2 = 0;
-                    while (!map.isFree(hero.x - min1, hero.y, 'w'))
+                    while (!map.isFree(hero.x - min1, hero.y, c))
                         min1++;
-                    while (!map.isFree(hero.x + min2, hero.y, 'w'))
+                    while (!map.isFree(hero.x + min2, hero.y, c))
                         min2++;
                     int posX = hero.x;
                     if (min1 > min2)
                         while (hero.x < posX + min2)
                         {
+                            if (i > 11 || i < 9)
+                                i = 9;
+                            pbHero.Image = hero.Sprite[i];
+                            i++;
                             hero.x += 5;
                             pbHero.Left = hero.x;
                             await Task.Delay(40);
@@ -456,28 +525,41 @@ namespace Farmio
                     else
                         while (hero.x > posX - min2)
                         {
-                            hero.y -= 5;
+                            if (i > 8 || i < 6)
+                                i = 6;
+                            pbHero.Image = hero.Sprite[i];
+                            i++;
+                            hero.x -= 5;
                             pbHero.Left = hero.x;
                             await Task.Delay(40);
                         }
                 }
+                if (i > 2)
+                    i = 0;
+                pbHero.Image = hero.Sprite[i];
+                i++;
                 hero.y -= 5;
                 pbHero.Top = hero.y;
                 await Task.Delay(35);
             }
-            while (hero.y - y < -5)
+            while (y - hero.y > xyplus)
             {
-                while (!map.isFree(hero.x, hero.y, 's'))
+                c = 's';
+                while (!map.isFree(hero.x, hero.y, c))
                 {
                     int min1 = 0, min2 = 0;
-                    while (!map.isFree(hero.x - min1, hero.y, 's'))
+                    while (!map.isFree(hero.x - min1, hero.y, c))
                         min1++;
-                    while (!map.isFree(hero.x + min2, hero.y, 's'))
+                    while (!map.isFree(hero.x + min2, hero.y, c))
                         min2++;
                     int posX = hero.x;
                     if (min1 > min2)
                         while (hero.x < posX + min2)
                         {
+                            if (i > 11 || i < 9)
+                                i = 9;
+                            pbHero.Image = hero.Sprite[i];
+                            i++;
                             hero.x += 5;
                             pbHero.Left = hero.x;
                             await Task.Delay(40);
@@ -485,376 +567,34 @@ namespace Farmio
                     else
                         while (hero.x > posX - min2)
                         {
-                            hero.y -= 5;
+                            if (i > 8 || i < 6)
+                                i = 6;
+                            pbHero.Image = hero.Sprite[i];
+                            i++;
+                            hero.x -= 5;
                             pbHero.Left = hero.x;
                             await Task.Delay(40);
                         }
                 }
+                if (i > 5 || i < 2)
+                    i = 3;
+                pbHero.Image = hero.Sprite[i];
+                i++;
                 hero.y += 5;
                 pbHero.Top = hero.y;
                 await Task.Delay(35);
             }
-
+            if (c == 'w')
+                pbHero.Image = hero.Sprite[0];
+            else if (c == 's')
+                pbHero.Image = hero.Sprite[3];
+            else if (c == 'a')
+                pbHero.Image = hero.Sprite[6];
+            else if (c == 'd')
+                pbHero.Image = hero.Sprite[9];
+            player.Stop();
             return 0;
-            //if (Math.Abs(hero.x - x) > Math.Abs(hero.y - y))
-            //{
-            //    while ((hero.y - y != 0) && Math.Abs(hero.x - x) / Math.Abs(hero.y - y) >= 2 )
-            //    {
-            //        if (hero.x > x)
-            //        {
-            //            if (map.isFree(hero.x, hero.y, 'a'))
-            //            {
-            //                if (i > 8 || i < 6)
-            //                    i = 6;
 
-            //                pbHero.Image = hero.Sprite[i];
-            //                hero.x -= 5;
-            //                i++;
-            //            }
-            //            else
-            //            while (!map.isFree(hero.x, hero.y, 'a'))
-            //                {
-            //                if (hero.y > y)
-            //                {
-            //                    hero.y -= 25;
-            //                    pbHero.Image = hero.Sprite[0];
-            //                }
-            //                else
-            //                {
-            //                    hero.y += 25;
-            //                    pbHero.Image = hero.Sprite[3];
-            //                }
-            //                    pbHero.Top = hero.y;
-            //                }
-            //        }
-            //        else
-            //        {
-            //            if (map.isFree(hero.x, hero.y, 'd'))
-            //            {
-            //                if (i > 11 || i < 9)
-            //                    i = 9;
-            //                pbHero.Image = hero.Sprite[i];
-            //                hero.x += 5;
-            //                i++;
-
-            //            }
-
-            //            else
-            //            while (!map.isFree(hero.x, hero.y, 'd'))
-            //                {
-            //                if (hero.y > y)
-            //                {
-            //                    hero.y -= 25;
-            //                    pbHero.Image = hero.Sprite[0];
-            //                }
-            //                else
-            //                {
-            //                    hero.y += 25;
-            //                    pbHero.Image = hero.Sprite[3];
-            //                }
-            //                    pbHero.Top = hero.y;
-            //                }
-            //        }
-            //        pbHero.Left = hero.x;
-            //        await Task.Delay(35);
-            //    }
-
-
-            //    while (Math.Abs(hero.y - y) > 5)
-            //    {
-            //        if (hero.y > y)
-            //        {
-            //            if (map.isFree(hero.x, hero.y, 'w'))
-            //            {
-            //                if (i > 2)
-            //                    i = 0;
-            //                hero.y -= 5;
-            //                pbHero.Image = hero.Sprite[i];
-            //                i++;
-            //            }
-            //            else
-            //            while (!map.isFree(hero.x, hero.y, 'w'))
-            //                {
-            //                if (hero.x > x)
-            //                {
-            //                    hero.x -= 25;
-            //                    pbHero.Image = hero.Sprite[6];
-            //                }
-            //                else
-            //                {
-            //                    hero.x += 25;
-            //                    pbHero.Image = hero.Sprite[9];
-            //                }
-            //                    pbHero.Left = hero.x;
-            //                }
-            //        }
-            //        else
-            //        {
-            //            if (map.isFree(hero.x, hero.y, 's'))
-            //            {
-            //                if (i > 5 || i < 2)
-            //                    i = 3;
-            //                pbHero.Image = hero.Sprite[i];
-            //                hero.y += 5;
-            //                i++;
-            //            }
-            //            else
-            //            while (!map.isFree(hero.x, hero.y, 's'))
-            //                {
-            //                if (hero.x > x)
-            //                {
-            //                    hero.x -= 25;
-            //                    pbHero.Image = hero.Sprite[6];
-            //                }
-            //                else
-            //                {
-            //                    hero.x += 25;
-            //                    pbHero.Image = hero.Sprite[9];
-            //                }
-            //                    pbHero.Left = hero.x;
-            //                }
-            //        }
-            //        pbHero.Top = hero.y;
-            //        await Task.Delay(35);
-            //    }
-
-            //    while (Math.Abs(hero.x - x) > 5)
-            //    {
-            //        if (hero.x > x)
-            //        {
-            //            if (map.isFree(hero.x, hero.y, 'a'))
-            //            {
-            //                if (i > 8 || i < 6)
-            //                    i = 6;
-            //                pbHero.Image = hero.Sprite[i];
-            //                hero.x -= 5;
-            //                i++;
-            //            }
-            //            else
-            //            while (!map.isFree(hero.x, hero.y, 'a'))
-            //                {
-            //                if (hero.y > y)
-            //                {
-            //                    hero.y -= 25;
-            //                    pbHero.Image = hero.Sprite[0];
-            //                }
-            //                else
-            //                {
-            //                    hero.y += 25;
-            //                    pbHero.Image = hero.Sprite[3];
-            //                }
-            //                    pbHero.Top = hero.y;
-            //                }
-            //        }
-            //        else
-            //        {
-            //            if (map.isFree(hero.x, hero.y, 'd'))
-            //            {
-            //                if (i > 11 || i < 9)
-            //                    i = 9;
-            //                pbHero.Image = hero.Sprite[i];
-            //                hero.x += 5;
-            //                i++;
-            //            }
-            //            else
-            //            while (!(map.isFree(hero.x, hero.y, 'd')))
-            //            {
-            //                if (hero.y > y)
-            //                {
-            //                    hero.y -= 25;
-            //                    pbHero.Image = hero.Sprite[0];
-            //                }
-            //                else
-            //                {
-            //                    hero.y += 25;
-            //                    pbHero.Image = hero.Sprite[3];
-            //                }
-            //                    pbHero.Top = hero.y;
-            //                }
-            //        }
-            //        pbHero.Left = hero.x;
-            //        await Task.Delay(35);
-            //    }
-            //}
-
-            //else
-            //{
-            //    while (hero.x != x &&Math.Abs(hero.y - y) / Math.Abs(hero.x - x) >= 2 && (hero.x - x != 0))
-            //    {
-            //        if (hero.y > y)
-            //        {
-            //            if (map.isFree(hero.x, hero.y, 'w'))
-            //            {
-            //                if (i > 2)
-            //                    i = 0;
-            //                hero.y -= 5;
-            //                pbHero.Image = hero.Sprite[i];
-            //                i++;
-            //            }
-            //            else
-            //                while (!map.isFree(hero.x, hero.y, 'w'))
-            //                {
-            //                    if (hero.x > x)
-            //                    {
-            //                        hero.x -= 25;
-            //                        pbHero.Image = hero.Sprite[6];
-            //                    }
-            //                    else
-            //                    {
-            //                        hero.x += 25;
-            //                        pbHero.Image = hero.Sprite[9];
-            //                    }
-            //                    pbHero.Left = hero.x;
-            //                }
-            //        }
-            //        else
-            //        {
-            //            if (map.isFree(hero.x, hero.y, 's'))
-            //            {
-            //                if (i > 5 || i < 2)
-            //                    i = 3;
-            //                pbHero.Image = hero.Sprite[i];
-            //                hero.y += 5;
-            //                i++;
-            //            }
-            //            else
-            //                while (!map.isFree(hero.x, hero.y, 'w'))
-            //                {
-            //                    if (hero.x > x)
-            //                    {
-            //                        hero.x -= 25;
-            //                        pbHero.Image = hero.Sprite[6];
-            //                    }
-            //                    else
-            //                    {
-            //                        hero.x += 25;
-            //                        pbHero.Image = hero.Sprite[9];
-            //                    }
-            //                    pbHero.Left = hero.x;
-            //                }
-
-            //        }
-            //        pbHero.Top = hero.y;
-            //        await Task.Delay(35);
-            //    }
-
-            //    while (Math.Abs(hero.x - x) > 5)
-            //    {
-            //        if (hero.x > x)
-            //        {
-            //            if (map.isFree(hero.x, hero.y, 'a'))
-            //            {
-            //                if (i > 8 || i < 6)
-            //                    i = 6;
-            //                pbHero.Image = hero.Sprite[i];
-            //                hero.x -= 5;
-            //                i++;
-            //            }
-            //            else
-            //                while (!(map.isFree(hero.x, hero.y, 'd')))
-            //                {
-            //                    if (hero.y > y)
-            //                    {
-            //                        hero.y -= 25;
-            //                        pbHero.Image = hero.Sprite[0];
-            //                    }
-            //                    else
-            //                    {
-            //                        hero.y += 25;
-            //                        pbHero.Image = hero.Sprite[3];
-            //                    }
-            //                    pbHero.Top = hero.y;
-            //                }
-            //        }
-            //        else
-            //        {
-            //            if (map.isFree(hero.x, hero.y, 'd'))
-            //            {
-            //                if (i > 11 || i < 9)
-            //                    i = 9;
-            //                pbHero.Image = hero.Sprite[i];
-            //                hero.x += 5;
-            //                i++;
-            //            }
-            //            else
-            //                while (!(map.isFree(hero.x, hero.y, 'd')))
-            //                {
-            //                    if (hero.y > y)
-            //                    {
-            //                        hero.y -= 25;
-            //                        pbHero.Image = hero.Sprite[0];
-            //                    }
-            //                    else
-            //                    {
-            //                        hero.y += 25;
-            //                        pbHero.Image = hero.Sprite[3];
-            //                    }
-            //                    pbHero.Top = hero.y;
-            //                }
-            //        }
-            //        pbHero.Left = hero.x;
-            //        await Task.Delay(35);
-            //    }
-
-            //    while (Math.Abs(hero.y - y) > 5)
-            //    {
-            //        if (hero.y > y)
-            //        {
-            //            if (map.isFree(hero.x, hero.y, 'w'))
-            //            {
-            //                if (i > 2)
-            //                    i = 0;
-            //                hero.y -= 5;
-            //                pbHero.Image = hero.Sprite[i];
-            //                i++;
-            //            }
-            //            else
-            //                while (!map.isFree(hero.x, hero.y, 'w'))
-            //                {
-            //                    if (hero.x > x)
-            //                    {
-            //                        hero.x -= 25;
-            //                        pbHero.Image = hero.Sprite[6];
-            //                    }
-            //                    else
-            //                    {
-            //                        hero.x += 25;
-            //                        pbHero.Image = hero.Sprite[9];
-            //                    }
-            //                    pbHero.Left = hero.x;
-            //                }
-            //        }
-            //        else
-            //        {
-            //            if (map.isFree(hero.x, hero.y, 's'))
-            //            {
-            //                if (i > 5 || i < 2)
-            //                    i = 3;
-            //                pbHero.Image = hero.Sprite[i];
-            //                hero.y += 5;
-            //                i++;
-            //            }
-            //            else
-            //                while (!map.isFree(hero.x, hero.y, 'w'))
-            //                {
-            //                    if (hero.x > x)
-            //                    {
-            //                        hero.x -= 25;
-            //                        pbHero.Image = hero.Sprite[6];
-            //                    }
-            //                    else
-            //                    {
-            //                        hero.x += 25;
-            //                        pbHero.Image = hero.Sprite[9];
-            //                    }
-            //                    pbHero.Left = hero.x;
-            //                }
-            //        }
-            //        pbHero.Top = hero.y;
-            //        await Task.Delay(35);
-            //    }
-
-            //}
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -883,6 +623,58 @@ namespace Farmio
                 pbHero.Top = hero.y;
             }
 
+        private void lblInventory_Click(object sender, EventArgs e)
+        {
+            SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\inventory.wav"));
+            InventoryLoad();
+        }
 
+        private void InventoryLoad()
+        {
+            pbInventoryOpen.Visible = true;
+            int i = 0;
+            foreach (Item item in hero.Inventory)
+            {
+                if (item.Number == 0)
+                    continue;
+                item1ThrowAway.Visible = true;
+                if (item.Number == 1)
+                    inventoryLabels[i].Text = item.Name;
+                else
+                    inventoryLabels[i].Text = item.NamePlural;
+                inventoryLabels[i].Visible = true;
+                inventoryLabels[i + 5].Text = " " + item.Number.ToString();
+                inventoryLabels[i + 5].BringToFront();
+
+                i++;
+                if (i > 4)
+                    break;
+            }
+        }
+
+        private void InventoryClose()
+        {
+            pbInventoryOpen.Visible = false; int i;
+            for (i = 0; i < 5; i++)
+                inventoryLabels[i].Visible = false;
+            for (i = 5; i < 10; i++)
+                inventoryLabels[i].SendToBack();
+        }
+
+        private void item1ThrowAway_Click(object sender, EventArgs e)
+        {
+            foreach (Item item in hero.Inventory)
+            {
+                if (item.Name == inventoryLabels[0].Text || item.NamePlural == inventoryLabels[0].Text)
+                    item.Number--;
+                if (item.Number == 0)
+                {
+                    hero.Inventory.Remove(item);
+                    InventoryClose();
+                }
+                InventoryLoad();
+                break;
+            }
+        }
     }
 }

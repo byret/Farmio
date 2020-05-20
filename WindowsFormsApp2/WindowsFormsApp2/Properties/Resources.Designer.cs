@@ -271,6 +271,15 @@ namespace WindowsFormsApp2.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream chopping_wood {
+            get {
+                return ResourceManager.GetStream("chopping_wood", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap cutDStump {
@@ -301,6 +310,15 @@ namespace WindowsFormsApp2.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream cutting_grass {
+            get {
+                return ResourceManager.GetStream("cutting_grass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap exit {
@@ -327,6 +345,24 @@ namespace WindowsFormsApp2.Properties {
             get {
                 object obj = ResourceManager.GetObject("Farmio", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream footsteps {
+            get {
+                return ResourceManager.GetStream("footsteps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream footsteps1 {
+            get {
+                return ResourceManager.GetStream("footsteps1", resourceCulture);
             }
         }
         
@@ -466,6 +502,35 @@ namespace WindowsFormsApp2.Properties {
         internal static System.Drawing.Bitmap house1 {
             get {
                 object obj = ResourceManager.GetObject("house1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream inventory {
+            get {
+                return ResourceManager.GetStream("inventory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Inventory_Open {
+            get {
+                object obj = ResourceManager.GetObject("Inventory_Open", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ItemThrowAway {
+            get {
+                object obj = ResourceManager.GetObject("ItemThrowAway", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -752,6 +817,15 @@ namespace WindowsFormsApp2.Properties {
             get {
                 object obj = ResourceManager.GetObject("start1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream stone_hit {
+            get {
+                return ResourceManager.GetStream("stone_hit", resourceCulture);
             }
         }
         

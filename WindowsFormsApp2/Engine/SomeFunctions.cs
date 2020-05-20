@@ -54,25 +54,25 @@ namespace Engine
             switch (caseSwitch)
             {
                 case 1:
-                    return "purrple_cat_green_tea";
+                    return "purrple-cat-green-tea.wav";
                     break;
                 case 2:
-                    return "purrple_cat_spring_showers";
+                    return "purrple-cat-spring-showers.wav";
                     break;
                 case 3:
-                    return "purrple_cat_bloom";
+                    return "purrple-cat-bloom.wav";
                     break;
                 case 4:
-                    return "soimanislander_along_the_fjord";
+                    return "soimanislander-along-the-fjord.wav";
                     break;
                 case 5:
-                    return "soimanislander_behind_the_barn"; 
+                    return "soimanislander-behind-the-barn.wav"; 
                     break;
                 case 6:
-                    return "vlad_gluschenko_springtime";
+                    return "vlad-gluschenko-springtime.wav";
                     break;
                 default:
-                    return "vlad_gluschenko_its_been_a_while";
+                    return "vlad-gluschenko-its-been-a-while.wav";
                     break;
 
             }
