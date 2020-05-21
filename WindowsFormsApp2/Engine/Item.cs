@@ -13,20 +13,12 @@ namespace Engine
         public string NamePlural { get; set; }
         //public int LevelRequired { get; set; }
         public int Number { get; set; }
+        public bool IsUsable;
 
         public Item(int number)
         {
             Number = number;
-        }
-
-        public class Seed : Item
-        {
-            public Seed(int number)
-                : base(number)
-            {
-                Name = "Nasienie";
-                NamePlural = "Nasiona";
-            }
+            IsUsable = false;
         }
 
         public class Wood : Item
@@ -50,18 +42,30 @@ namespace Engine
 
         public class Food : Item
         {
+            public int Energy; 
             public Food(int number)
                 : base(number)
             {
-
+                IsUsable = true;
             }
         }
 
+        public class Seed : Food
+        {
+            public Seed(int number)
+                : base(number)
+            {
+                Energy = 1;
+                Name = "Nasienie";
+                NamePlural = "Nasiona";
+            }
+        }
         public class MushroomEdible : Food
         {
             public MushroomEdible(int number)
                 : base(number)
             {
+                Energy = 10;
                 Name = "Grzyb";
                 NamePlural = "Grzyby";
             }
@@ -72,8 +76,9 @@ namespace Engine
             public MushroomNotEdible(int number)
                 : base(number)
             {
-                Name = "Grzyb trujący";
-                NamePlural = "Trujące grzyby";
+                Energy = -195;
+                Name = "Trując. grz.";
+                NamePlural = "Trując. grz.";
             }
         }
 

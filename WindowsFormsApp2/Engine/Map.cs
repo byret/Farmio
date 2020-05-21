@@ -204,7 +204,6 @@ namespace Engine
                 {
                     map.Fill(x, y, Width, Height, 0, 0, 0, 0);
                     Weight = Name[2] - '0'; 
-                    Console.WriteLine(Weight);
                 }
 
                 public Item.MushroomEdible DestroyMushroom(Map map)
@@ -513,8 +512,8 @@ namespace Engine
             string id;
             Random random = new Random();
             int x = 0, y = 0;
-            int xh = random.Next(50, 1270);
-            int yh = random.Next(0, 750);
+            int xh = random.Next(400, 900);
+            int yh = random.Next(300, 450);
 
             MakeObjectRightHere(xh, yh, "bh1", map);
             int index = 1;
@@ -646,16 +645,10 @@ namespace Engine
             {
                 for (int j = x; j < x + 18; j++)
                     for (int i = y + 25; i <= y + step+ 25; i++)
-                {
-                    if (this.mapTab[j, i] != null)
-                    {
-                        if (this.mapTab[j, i].Collision == true)
-                        {
-                            Console.WriteLine("false");
-                            return false;
-                        }
-                    }
-                }
+                        if (this.mapTab[j, i] != null)
+                            if (this.mapTab[j, i].Collision == true)
+                                return false;
+                    
                 return true;
             }
 
@@ -663,16 +656,9 @@ namespace Engine
             {
                 for (int j = y + 15; j <= y + 25; j++)
                     for (int i = x - step; i <= x; i++)
-                    {
-                    if (this.mapTab[i, j] != null)
-                    {
-                        if (this.mapTab[i, j].Collision == true)
-                        {
-                            Console.WriteLine("false");
-                            return false;
-                        }
-                    }
-                }
+                        if (this.mapTab[i, j] != null)
+                            if (this.mapTab[i, j].Collision == true)
+                                return false;
                 return true;
             }
 
@@ -680,40 +666,24 @@ namespace Engine
             {
                 for (int j = y + 15; j <= y + 25; j++)
                     for (int i = x + 7; i < x + step + 17; i++)
-                    {
                         if (i > 0)
-                        if (this.mapTab[i, j] != null)
-                    {
-                        if (this.mapTab[i, j].Collision == true)
-                        {
-                            Console.WriteLine("false");
-                            return false;
-                        }
-                    }
-                 }
-                    return true;
+                            if (this.mapTab[i, j] != null)
+                                if (this.mapTab[i, j].Collision == true)
+                                    return false;
+                return true;
             }
 
             else if (dir == 'w')
             {
                 for (int j = x; j < x + 18; j++)
                     for (int i = y; i < y + step; i++)
-                    {
-                    if (this.mapTab[j, i] != null)
-                    {
-                        if (this.mapTab[j, i].Collision == true)
-                        {
-                            Console.WriteLine("false");
-                            return false;
-                        }
-                    }
-                }
+                        if (this.mapTab[j, i] != null)
+                            if (this.mapTab[j, i].Collision == true)
+                                return false;
                 return true;
             }
 
             return true;
         }
-
-
     }
 }

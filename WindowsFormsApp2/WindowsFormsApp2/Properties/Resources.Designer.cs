@@ -280,6 +280,15 @@ namespace WindowsFormsApp2.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream crunch {
+            get {
+                return ResourceManager.GetStream("crunch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap cutDStump {
@@ -402,6 +411,16 @@ namespace WindowsFormsApp2.Properties {
         internal static System.Drawing.Bitmap GLEFon {
             get {
                 object obj = ResourceManager.GetObject("GLEFon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap goToSleep {
+            get {
+                object obj = ResourceManager.GetObject("goToSleep", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -862,6 +881,16 @@ namespace WindowsFormsApp2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap storage {
+            get {
+                object obj = ResourceManager.GetObject("storage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap stump1 {
             get {
                 object obj = ResourceManager.GetObject("stump1", resourceCulture);
@@ -940,6 +969,16 @@ namespace WindowsFormsApp2.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UseIcon {
+            get {
+                object obj = ResourceManager.GetObject("UseIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream vlad_gluschenko_its_been_a_while {
@@ -954,6 +993,26 @@ namespace WindowsFormsApp2.Properties {
         internal static System.IO.UnmanagedMemoryStream vlad_gluschenko_springtime {
             get {
                 return ResourceManager.GetStream("vlad_gluschenko_springtime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap window1 {
+            get {
+                object obj = ResourceManager.GetObject("window1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap window2 {
+            get {
+                object obj = ResourceManager.GetObject("window2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

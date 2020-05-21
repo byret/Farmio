@@ -16,6 +16,7 @@ namespace Engine
         public bool Gender { get; set; }
         public int x { get; set; }
         public int y { get; set; }
+        public int Saturation { get; set; }
 
         public Bitmap [] Sprite = new Bitmap [12];
 
@@ -28,6 +29,7 @@ namespace Engine
             Energy = 200;
             x = 700;
             y = 300;
+            Saturation = 50;
         }
         public void SetSprite (int i)
         {
@@ -35,7 +37,6 @@ namespace Engine
             for (int j = 0; j < 12; j++)
             {
                 str = i + "sprite" + (j + 1) + ".png";
-                Console.WriteLine(str);
                 Bitmap bm = new Bitmap(str);
                 Sprite[j] = bm;
             }
@@ -49,17 +50,12 @@ namespace Engine
                 {
                     isInInventory = true;
                     it.Number = it.Number + item.Number;
-                    Console.WriteLine(item.GetType() + " " + it.Number);
                     break;
                 }
             }
 
             if (!isInInventory)
-            {
                 Inventory.Add(item);
-                Console.WriteLine("hi there :) ");
-                Console.WriteLine(item.GetType() + " " + item.Number);
-            }
         }
 
         public void Move (char c)
