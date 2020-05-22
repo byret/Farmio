@@ -373,11 +373,8 @@
   <data name="chopping_wood" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chopping-wood.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="footsteps" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\footsteps.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="footsteps1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\footsteps.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\footsteps1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="stone_hit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stone-hit.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

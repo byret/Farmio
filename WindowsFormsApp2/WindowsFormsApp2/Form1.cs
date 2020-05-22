@@ -54,7 +54,6 @@ namespace Farmio
             musicTimer.Start();
             TimeOfDayTimer.Interval = 7500;
             TimeOfDayTimer.Tick += new EventHandler(TimeOfDayTimer_Tick);
-            TimeOfDayTimer.Start();
 
             inventoryLabels.Add(item1);
             inventoryLabels.Add(item2);
@@ -426,6 +425,7 @@ namespace Farmio
                 this.Controls.Remove(tbName);
                 this.Controls.Remove(pbNameOk);
                 start = true;
+                TimeOfDayTimer.Start();
             }
         }
 
@@ -694,11 +694,30 @@ namespace Farmio
         {
             //Console.Clear();
             char c = ' ';
-            var player = new SoundPlayer(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\footsteps.wav"));
-            player.PlayLooping();
+            SoundPlayer player = new SoundPlayer(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\footsteps1.wav"));
             if (xyplus == 0)
                 xyplus = 5;
             int i = 0;
+            int n = 0;
+            if (hero.Energy < 10 || hero.Saturation > 95)
+            {
+                n = 35;
+                player = new SoundPlayer(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\footsteps2.wav"));
+            }
+                
+            else if (hero.Energy < 25 || hero.Saturation > 90)
+            {
+                n = 20;
+                player = new SoundPlayer(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\footsteps3.wav"));
+            }
+                
+            else if (hero.Energy < 50)
+            {
+                n = 10;
+                player = new SoundPlayer(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\footsteps4.wav"));
+            }
+                
+            player.PlayLooping();
             while (hero.x - x > xyplus)
             {
                 c = 'a';
@@ -719,7 +738,7 @@ namespace Farmio
                             i++;
                             hero.y += 5;
                             pbHero.Top = hero.y;
-                            await Task.Delay(40);
+                            await Task.Delay(35 + n);
                         }
                     else
                         while (hero.y > posY - min2)
@@ -730,7 +749,7 @@ namespace Farmio
                             i++;
                             hero.y -= 5;
                             pbHero.Top = hero.y;
-                            await Task.Delay(40);
+                            await Task.Delay(35 + n);
                         }
                 }
                 if (i > 8 || i < 6)
@@ -739,7 +758,7 @@ namespace Farmio
                 i++;
                 hero.x -= 5;
                 pbHero.Left = hero.x;
-                await Task.Delay(35);
+                await Task.Delay(35 + n);
             }
             while (x - hero.x > xyplus)
             {
@@ -761,7 +780,7 @@ namespace Farmio
                             i++;
                             hero.y += 5;
                             pbHero.Top = hero.y;
-                            await Task.Delay(40);
+                            await Task.Delay(35 + n);
                         }
                     else
                         while (hero.y > posY - min2)
@@ -772,7 +791,7 @@ namespace Farmio
                             i++;
                             hero.y -= 5;
                             pbHero.Top = hero.y;
-                            await Task.Delay(40);
+                            await Task.Delay(35 + n);
                         }
                 }
                 if (i > 11 || i < 9)
@@ -781,7 +800,7 @@ namespace Farmio
                 i++;
                 hero.x += 5;
                 pbHero.Left = hero.x;
-                await Task.Delay(35);
+                await Task.Delay(35 + n);
             }
             while (hero.y - y > xyplus)
             {
@@ -803,7 +822,7 @@ namespace Farmio
                             i++;
                             hero.x += 5;
                             pbHero.Left = hero.x;
-                            await Task.Delay(40);
+                            await Task.Delay(35 + n);
                         }
                     else
                         while (hero.x > posX - min2)
@@ -814,7 +833,7 @@ namespace Farmio
                             i++;
                             hero.x -= 5;
                             pbHero.Left = hero.x;
-                            await Task.Delay(40);
+                            await Task.Delay(35 + n);
                         }
                 }
                 if (i > 2)
@@ -823,7 +842,7 @@ namespace Farmio
                 i++;
                 hero.y -= 5;
                 pbHero.Top = hero.y;
-                await Task.Delay(35);
+                await Task.Delay(35 + n);
             }
             while (y - hero.y > xyplus)
             {
@@ -845,7 +864,7 @@ namespace Farmio
                             i++;
                             hero.x += 5;
                             pbHero.Left = hero.x;
-                            await Task.Delay(40);
+                            await Task.Delay(35 + n);
                         }
                     else
                         while (hero.x > posX - min2)
@@ -856,7 +875,7 @@ namespace Farmio
                             i++;
                             hero.x -= 5;
                             pbHero.Left = hero.x;
-                            await Task.Delay(40);
+                            await Task.Delay(35 + n);
                         }
                 }
                 if (i > 5 || i < 2)
@@ -865,7 +884,7 @@ namespace Farmio
                 i++;
                 hero.y += 5;
                 pbHero.Top = hero.y;
-                await Task.Delay(35);
+                await Task.Delay(35 + n);
             }
             if (c == 'w')
                 pbHero.Image = hero.Sprite[0];
@@ -1104,6 +1123,8 @@ namespace Farmio
                     Window.Image = windows[i];
                     await Task.Delay(80);
                 }
+                map.MapUpdate(map);
+                pbFon.Image = map.DrawMap();
                 for (int i = 19; i >= 0; i--)
                 {
                     Window.Image = windows[i];
@@ -1118,6 +1139,33 @@ namespace Farmio
             hour = 8;
             minutes = 0;
             TimeOfDayTimer.Start();
+        }
+
+        private void lblEnergy_TextChanged(object sender, EventArgs e)
+        {
+            string tmp = lblEnergy.Text.Substring(0, lblEnergy.Text.IndexOf("/"));
+            int x;
+            if (int.TryParse(tmp, out x))
+            {
+                x = Convert.ToInt32(tmp);
+            }
+            if (x < 11)
+                lblEnergy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(32)))), ((int)(((byte)(20)))));
+            else 
+                lblEnergy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+        }
+        private void lblSaturation_TextChanged(object sender, EventArgs e)
+        {
+            string tmp = lblSaturation.Text.Substring(0, lblSaturation.Text.IndexOf("/"));
+            int x;
+            if (int.TryParse(tmp, out x))
+            {
+                x = Convert.ToInt32(tmp);
+            }
+            if (x < 6)
+                lblSaturation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(32)))), ((int)(((byte)(20)))));
+            else 
+                lblSaturation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
         }
     }
 }

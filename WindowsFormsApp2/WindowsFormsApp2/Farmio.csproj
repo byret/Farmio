@@ -407,11 +407,6 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\footsteps.wav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\chopping-wood.wav" />
   </ItemGroup>
   <ItemGroup>

@@ -43,19 +43,22 @@ namespace Engine
         }
         public void addToInventory (Item item)
         {
-            bool isInInventory = false;
-            foreach (Item it in Inventory)
+            if (item.Number > 0)
             {
-                if (it.GetType() == item.GetType())
+                bool isInInventory = false;
+                foreach (Item it in Inventory)
                 {
-                    isInInventory = true;
-                    it.Number = it.Number + item.Number;
-                    break;
+                    if (it.GetType() == item.GetType())
+                    {
+                        isInInventory = true;
+                        it.Number = it.Number + item.Number;
+                        break;
+                    }
                 }
-            }
 
-            if (!isInInventory)
-                Inventory.Add(item);
+                if (!isInInventory)
+                    Inventory.Add(item);
+            }
         }
 
         public void Move (char c)

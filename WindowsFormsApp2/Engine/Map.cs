@@ -72,7 +72,36 @@ namespace Engine
                     Bitmap = null;
                     map.reFill(X, Y, Width, Height);
                     int numOfSeeds = Weight*2;
-                    Item.Seed seed = new Item.Seed(numOfSeeds);
+                    Random random = new Random();
+                    int caseSwitch = random.Next(1, 15);
+                    Item.Seed seed;
+                    switch (caseSwitch)
+                    {
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 4:
+                        case 5:
+                            seed = new Item.Seed.WheatSeed(numOfSeeds);
+                            break;
+                        case 6:
+                        case 7:
+                            seed = new Item.Seed.CornSeed(numOfSeeds);
+                            break;
+                        case 8:
+                            seed = new Item.Seed.CarrotSeed(numOfSeeds);
+                            break;
+                        case 9:
+                            seed = new Item.Seed.CucumberSeed(numOfSeeds);
+                            break;
+                        case 10:
+                            seed = new Item.Seed.PumpkinSeed(numOfSeeds/2);
+                            break;
+
+                        default:               
+                            seed = new Item.Seed(0);
+                            break;
+                    }
                     return seed;
                 }
             }
@@ -599,6 +628,119 @@ namespace Engine
 
                 str += index;
                 MakeObjectRightHere(x, y + yr, str, map);
+            }
+
+        }
+
+        public void MapUpdate(Map map)
+        {
+            string str = "";
+            string id;
+            Random random = new Random();
+            int x = 0, y = 0;
+            int index = 1;
+            bool Gen;
+            while (true)
+            {
+                Gen = true;
+                int xr = random.Next(50, 100);
+                x += xr;
+                int yr = random.Next(-49, 49);
+                if (x > 1270)
+                {
+                    x = random.Next(0, 50);
+                    yr = random.Next(50, 100);
+                    y += yr;
+                }
+                if (y + yr < 0)
+                    continue;
+
+                if (y + yr > 750)
+                    break;
+
+                int caseSwitch = random.Next(1, 200);
+                switch (caseSwitch)
+                {
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                    case 9:
+                    case 10:
+                        str = "g";
+                        index = random.Next(1, 10);
+                        break;
+                    case 11:
+                    case 12:
+                    case 13:
+                        str = "t";
+                        int caseSwitch2 = random.Next(1, 13);
+                        switch (caseSwitch2)
+                        {
+                            case 1:
+                            case 2:
+                            case 3:
+                            case 4:
+                            case 5:
+                                index = 1;
+                                break;
+                            case 6:
+                                index = 2;
+                                break;
+                            case 7:
+                            case 8:
+                            case 9:
+                            case 10:
+                            case 11:
+                                index = 3;
+                                break;
+                            case 12:
+                                index = 4;
+                                break;
+                        }
+                        break;
+                    case 14:
+                        str = "s";
+                        index = random.Next(1, 4);
+                        break;
+                    case 15:
+                    case 16:
+                    case 17:
+                    case 18:
+                    case 19:
+                    case 20:
+                    case 21:
+                    case 22:
+                    case 23:
+                        int caseSwitch3 = random.Next(1, 4);
+                        switch (caseSwitch3)
+                        {
+                            case 1:
+                            case 2:
+                                str = "me";
+                                index = random.Next(1, 4);
+                                break;
+                            case 3:
+                                str = "mn";
+                                index = random.Next(1, 3);
+                                break;
+                        }
+                        break;
+                    default:
+                        Gen = false;
+                        break;
+
+                }
+
+                if (Gen)
+                {
+                    str += index;
+                    MakeObjectRightHere(x, y + yr, str, map);
+                }
             }
 
         }

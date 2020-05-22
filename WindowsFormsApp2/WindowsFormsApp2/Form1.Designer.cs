@@ -198,6 +198,7 @@
             this.lblEnergy.Name = "lblEnergy";
             this.lblEnergy.Size = new System.Drawing.Size(100, 23);
             this.lblEnergy.TabIndex = 0;
+            this.lblEnergy.TextChanged += new System.EventHandler(this.lblEnergy_TextChanged);
             // 
             // label4
             // 
@@ -220,6 +221,7 @@
             this.lblSaturation.Name = "lblSaturation";
             this.lblSaturation.Size = new System.Drawing.Size(100, 23);
             this.lblSaturation.TabIndex = 0;
+            this.lblSaturation.TextChanged += new System.EventHandler(this.lblSaturation_TextChanged);
             // 
             // label5
             // 
@@ -316,7 +318,7 @@
             // item1
             // 
             this.item1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
-            this.item1.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.item1.Font = new System.Drawing.Font("Pixellari", 9F);
             this.item1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
             this.item1.Location = new System.Drawing.Point(44, 192);
             this.item1.Name = "item1";
@@ -329,7 +331,7 @@
             // item2
             // 
             this.item2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
-            this.item2.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.item2.Font = new System.Drawing.Font("Pixellari", 9F);
             this.item2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
             this.item2.Location = new System.Drawing.Point(44, 237);
             this.item2.Name = "item2";
@@ -342,7 +344,7 @@
             // item3
             // 
             this.item3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
-            this.item3.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.item3.Font = new System.Drawing.Font("Pixellari", 9F);
             this.item3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
             this.item3.Location = new System.Drawing.Point(44, 285);
             this.item3.Name = "item3";
@@ -355,7 +357,7 @@
             // item4
             // 
             this.item4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
-            this.item4.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.item4.Font = new System.Drawing.Font("Pixellari", 9F);
             this.item4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
             this.item4.Location = new System.Drawing.Point(44, 337);
             this.item4.Name = "item4";
@@ -368,7 +370,7 @@
             // item5
             // 
             this.item5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
-            this.item5.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.item5.Font = new System.Drawing.Font("Pixellari", 9F);
             this.item5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
             this.item5.Location = new System.Drawing.Point(44, 383);
             this.item5.Name = "item5";
@@ -768,7 +770,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::WindowsFormsApp2.Properties.Resources.grass6;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(0, -3);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1317, 834);

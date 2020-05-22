@@ -49,17 +49,6 @@ namespace Engine
                 IsUsable = true;
             }
         }
-
-        public class Seed : Food
-        {
-            public Seed(int number)
-                : base(number)
-            {
-                Energy = 1;
-                Name = "Nasienie";
-                NamePlural = "Nasiona";
-            }
-        }
         public class MushroomEdible : Food
         {
             public MushroomEdible(int number)
@@ -93,7 +82,7 @@ namespace Engine
 
         public class Apple : Food
         {
-            public Apple (int number)
+            public Apple(int number)
                 : base(number)
             {
                 Name = "Jabłko";
@@ -103,7 +92,7 @@ namespace Engine
 
         public class Potato : Food
         {
-            public Potato (int number)
+            public Potato(int number)
                 : base(number)
             {
                 Name = "Ziemniak";
@@ -113,8 +102,8 @@ namespace Engine
 
         public class Rice : Food
         {
-            public Rice (int number)
-                :base(number)
+            public Rice(int number)
+                : base(number)
             {
                 Name = NamePlural = "Ryż";
             }
@@ -122,7 +111,7 @@ namespace Engine
 
         public class Cabbage : Food
         {
-            public Cabbage (int number)
+            public Cabbage(int number)
                 : base(number)
             {
                 Name = "Kapusta";
@@ -132,7 +121,7 @@ namespace Engine
 
         public class Cucumber : Food
         {
-            public Cucumber (int number)
+            public Cucumber(int number)
                 : base(number)
             {
                 Name = "Ogórek";
@@ -142,7 +131,7 @@ namespace Engine
 
         public class Tomato : Food
         {
-            public Tomato (int number)
+            public Tomato(int number)
                 : base(number)
             {
                 Name = "Pomidor";
@@ -152,7 +141,7 @@ namespace Engine
 
         public class Eggplant : Food
         {
-            public Eggplant (int number)
+            public Eggplant(int number)
                 : base(number)
             {
                 Name = "Bakłażan";
@@ -162,7 +151,7 @@ namespace Engine
 
         public class Watermelon : Food
         {
-            public Watermelon (int number)
+            public Watermelon(int number)
                 : base(number)
             {
                 Name = "Arbuz";
@@ -172,7 +161,7 @@ namespace Engine
 
         public class Pear : Food
         {
-            public Pear (int number)
+            public Pear(int number)
                 : base(number)
             {
                 Name = "Gruszka";
@@ -182,7 +171,7 @@ namespace Engine
 
         public class Cherry : Food
         {
-            public Cherry (int number)
+            public Cherry(int number)
                 : base(number)
             {
                 Name = "Wiśnia";
@@ -192,7 +181,7 @@ namespace Engine
 
         public class Pumpkin : Food
         {
-            public Pumpkin (int number)
+            public Pumpkin(int number)
                 : base(number)
             {
                 Name = "Dynia";
@@ -202,7 +191,7 @@ namespace Engine
 
         public class Peach : Food
         {
-            public Peach (int number)
+            public Peach(int number)
                 : base(number)
             {
                 Name = "Brzoskwinia";
@@ -212,11 +201,82 @@ namespace Engine
 
         public class Fish : Food
         {
-            public Fish (int number)
+            public Fish(int number)
                 : base(number)
             {
                 Name = "Ryba";
                 NamePlural = "Ryby";
+            }
+        }
+
+        public class Seed : Food
+        {
+            public Seed(int number)
+                : base(number)
+            {
+                Energy = 1;
+            }
+        }
+        
+        public class WheatSeed : Seed
+        {
+            public WheatSeed(int number)
+                : base(number)
+            {
+                Name = "Ziarno pszenicy";
+                NamePlural = "Ziarna pszenicy";
+            }
+        }
+
+        public class CornSeed : Seed
+        {
+            public CornSeed(int number)
+                : base(number)
+            {
+                Name = "Ziarno kukurydzy";
+                NamePlural = "Ziarna kukurydzy";
+                Energy = 2;
+            }
+        }
+
+        public class CarrotSeed : Seed
+        {
+            public CarrotSeed(int number)
+                : base(number)
+            {
+                Name = "Nasienie marchwi";
+                NamePlural = "Nasiona marchwi";
+            }
+        }
+
+        public class CucumberSeed : Seed
+        {
+            public CucumberSeed(int number)
+                : base(number)
+            {
+                Name = "Nasienie ogórka";
+                NamePlural = "Nasiona ogórka";
+            }
+        }
+
+        public class PumpkinSeed : Seed
+        {
+            public PumpkinSeed(int number)
+                : base(number)
+            {
+                Name = "Nasienie dyni";
+                NamePlural = "Nasiona dyni";
+                Energy = 2;
+            }
+        }
+
+        public class AppleSeed : Seed
+        {
+            public AppleSeed(int number)
+                : base(number)
+            {
+                Name = "Nasienie jabłka";
+                NamePlural = "Nasiona jabłka";
             }
         }
     }
