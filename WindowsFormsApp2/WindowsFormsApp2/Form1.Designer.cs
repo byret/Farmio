@@ -252,7 +252,7 @@
             this.lblInventory.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblInventory.Font = new System.Drawing.Font("Pixellari", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInventory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
-            this.lblInventory.Location = new System.Drawing.Point(22, 140);
+            this.lblInventory.Location = new System.Drawing.Point(27, 140);
             this.lblInventory.Name = "lblInventory";
             this.lblInventory.Size = new System.Drawing.Size(107, 21);
             this.lblInventory.TabIndex = 27;

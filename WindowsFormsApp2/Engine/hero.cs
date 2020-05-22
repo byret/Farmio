@@ -36,8 +36,8 @@ namespace Engine
             string str;
             for (int j = 0; j < 12; j++)
             {
-                str = i + "sprite" + (j + 1) + ".png";
-                Bitmap bm = new Bitmap(str);
+
+                Bitmap bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources", (i + "sprite" + (j + 1) + ".png"))); 
                 Sprite[j] = bm;
             }
         }

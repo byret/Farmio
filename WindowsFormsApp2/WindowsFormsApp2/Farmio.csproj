@@ -260,9 +260,9 @@
     <None Include="Resources\house1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\justgreen.png">
+    <EmbeddedResource Include="Resources\justgreen.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\load.png" />

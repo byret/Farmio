@@ -302,34 +302,35 @@ namespace Engine
         public void MakeObjectRightHere(int x, int y, string name, Map map)
         {
             int Width = 0, Height = 0;
-            Bitmap bm = new Bitmap("justgreen.png");
+            Bitmap bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\justgreen.png"));
+            //Console.Writeline()
             if (name[0] == 't')
             {
                 if (name == "t1")
                 {
                     Width = 64;
                     Height = 95;
-                    bm = new Bitmap("tree1.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\tree1.png"));
                 }
                 else if (name == "t2")
                 {
                     Width = 112;
                     Height = 96;
-                    bm = new Bitmap("tree2.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\tree2.png"));
                 }
 
                 else if (name == "t3")
                 {
                     Width = 69;
                     Height = 111;
-                    bm = new Bitmap("tree3.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\tree3.png"));
                 }
 
                 else if (name == "t4")
                 {
                     Width = 117;
                     Height = 111;
-                    bm = new Bitmap("tree4.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\tree4.png"));
                 }
             }
 
@@ -339,63 +340,63 @@ namespace Engine
                 {
                     Width = 11;
                     Height = 8;
-                    bm = new Bitmap("grass1.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\grass1.png"));
                 }
 
                 else if (name == "g2")
                 {
                     Width = 10;
                     Height = 8;
-                    bm = new Bitmap("grass2.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\grass2.png"));
                 }
 
                 else if (name == "g3")
                 {
                     Width = 16;
                     Height = 14;
-                    bm = new Bitmap("grass3.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\grass3.png"));
                 }
 
                 else if (name == "g4")
                 {
                     Width = 13;
                     Height = 12;
-                    bm = new Bitmap("grass4.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\grass4.png"));
                 }
 
                 else if (name == "g5")
                 {
                     Width = 10;
                     Height = 13;
-                    bm = new Bitmap("grass5.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\grass5.png"));
                 }
 
                 else if (name == "g6")
                 {
                     Width = 12;
                     Height = 11;
-                    bm = new Bitmap("grass6.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\grass6.png"));
                 }
 
                 else if (name == "g7")
                 {
                     Width = 13;
                     Height = 15;
-                    bm = new Bitmap("grass7.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\grass7.png"));
                 }
 
                 else if (name == "g8")
                 {
                     Width = 15;
                     Height = 13;
-                    bm = new Bitmap("grass8.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\grass8.png"));
                 }
 
                 else if (name == "g9")
                 {
                     Width = 25;
                     Height = 21;
-                    bm = new Bitmap("grass9.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\grass9.png"));
                 }
             }
 
@@ -405,21 +406,21 @@ namespace Engine
                 {
                     Width = 28;
                     Height = 16;
-                    bm = new Bitmap("stone1.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\stone1.png"));
                 }
 
                 else if (name == "s2")
                 {
                     Width = 24;
                     Height = 16;
-                    bm = new Bitmap("stone2.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\stone2.png"));
                 }
 
                 else if (name == "s3")
                 {
                     Width = 46;
                     Height = 39;
-                    bm = new Bitmap("stone3.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\stone3.png"));
                 }
 
             }
@@ -430,28 +431,28 @@ namespace Engine
                 {
                     Width = 64;
                     Height = 43;
-                    bm = new Bitmap("stump1.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\stump1.png"));
                 }
 
                 else if (name == "p2")
                 {
                     Width = 69;
                     Height = 43;
-                    bm = new Bitmap("stump2.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\stump2.png"));
                 }
 
                 else if (name == "p3")
                 {
                     Width = 112;
                     Height = 44;
-                    bm = new Bitmap("stump3.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\stump3.png"));
                 }
 
                 else if (name == "p4")
                 {
                     Width = 117;
                     Height = 43;
-                    bm = new Bitmap("stump4.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\stump4.png"));
                 }
 
             }
@@ -461,21 +462,21 @@ namespace Engine
                 {
                     Width = 10;
                     Height = 8;
-                    bm = new Bitmap("Mushroom1.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\Mushroom1.png"));
                 }
 
                 else if (name == "me2")
                 {
                     Width = 13;
                     Height = 13;
-                    bm = new Bitmap("Mushroom2.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\Mushroom2.png"));
                 }
 
                 else if (name == "me3")
                 {
                     Width = 15;
                     Height = 14;
-                    bm = new Bitmap("Mushroom3.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\Mushroom3.png"));
                 }
 
 
@@ -483,14 +484,14 @@ namespace Engine
                 {
                     Width = 10;
                     Height = 8;
-                    bm = new Bitmap("Mushroom4.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\Mushroom4.png"));
                 }
 
                 else if (name == "mn2")
                 {
                     Width = 13;
                     Height = 13;
-                    bm = new Bitmap("Mushroom5.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\Mushroom5.png"));
                 }
             }
 
@@ -500,7 +501,7 @@ namespace Engine
                 {
                     Width = 94;
                     Height = 87;
-                    bm = new Bitmap("house1.png");
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\house1.png"));
                 }
             }
  
@@ -749,7 +750,7 @@ namespace Engine
         {
   
             Bitmap bm;
-            Image files = new Bitmap("justgreen.png");
+            Image files = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\justgreen.png"));
             Bitmap bitmap;
             Bitmap finalImage = new Bitmap(1300, 805);
             Image TreeFiles = (Image)Trees;
