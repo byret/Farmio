@@ -21,6 +21,7 @@ namespace Engine
         public Bitmap [] Sprite = new Bitmap [12];
 
         public List<Item> Inventory = new List<Item>();
+        public int NumOfItemsInInventory;
 
         public Hero()
         {
@@ -30,6 +31,7 @@ namespace Engine
             x = 700;
             y = 300;
             Saturation = 50;
+            NumOfItemsInInventory = 0;
         }
         public void SetSprite (int i)
         {
@@ -41,7 +43,7 @@ namespace Engine
                 Sprite[j] = bm;
             }
         }
-        public void addToInventory (Item item)
+        public int addToInventory (Item item)
         {
             if (item.Number > 0)
             {
@@ -57,8 +59,17 @@ namespace Engine
                 }
 
                 if (!isInInventory)
-                    Inventory.Add(item);
+                {
+                    if (NumOfItemsInInventory < 5)
+                    {
+                        NumOfItemsInInventory++;
+                        Inventory.Add(item);
+                    }
+                    else return 1000;
+                }
             }
+
+            return item.Number;
         }
 
         public void Move (char c)

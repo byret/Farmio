@@ -30,11 +30,13 @@ namespace Farmio
         string str;
         Task<int> longRunningTask;
         List<Label> inventoryLabels = new List<Label>();
+        List<Label> storageLabels = new List<Label>();
         List<PictureBox> inventoryIcons = new List<PictureBox>();
         List<Image> windows = new List<Image>();
         int hour;
         int minutes;
         System.Windows.Forms.Timer TimeOfDayTimer = new System.Windows.Forms.Timer();
+        System.Windows.Forms.Timer InventoryPlusTimer = new System.Windows.Forms.Timer();
         int windowFrame = 0;
 
 
@@ -52,6 +54,8 @@ namespace Farmio
             musicTimer.Interval = 300000;
             musicTimer.Tick += new EventHandler(musicTimer_Tick);
             musicTimer.Start();
+            InventoryPlusTimer.Interval = 1000;
+            InventoryPlusTimer.Tick += new EventHandler(InventoryPlusTimer_Tick);
             TimeOfDayTimer.Interval = 7500;
             TimeOfDayTimer.Tick += new EventHandler(TimeOfDayTimer_Tick);
 
@@ -75,6 +79,16 @@ namespace Farmio
             inventoryIcons.Add(useIcon3);
             inventoryIcons.Add(useIcon4);
             inventoryIcons.Add(useIcon5);
+            storageLabels.Add(lblStorageItem1);
+            storageLabels.Add(lblStorageItem2);
+            storageLabels.Add(lblStorageItem3);
+            storageLabels.Add(lblStorageItem4);
+            storageLabels.Add(lblStorageItem5);
+            storageLabels.Add(lblStorageItem6);
+            storageLabels.Add(lblStorageItem7);
+            storageLabels.Add(lblStorageItem8);
+            storageLabels.Add(lblStorageItem9);
+            storageLabels.Add(lblStorageItem10);
             pbFon.Image = map.DrawMap();
 
             for (int i = 1; i <= 20; i++)
@@ -106,9 +120,12 @@ namespace Farmio
         {
             pbFarmio.Parent = pbStart.Parent = pbLoad.Parent = pbExit.Parent = pbStart.Parent = pictureBox1;
             pbName.Parent = pbCDTree.Parent = pbGetStone.Parent = pbCutGrass.Parent = pbCDStump.Parent = pbGetMushroom.Parent = pbGetMushrooms.Parent = pbStorage.Parent = pbGoToSleep.Parent = pbNameOk.Parent = pbGLEF.Parent = pbInventoryOpen.Parent = pbFon;
-            lblInventory.Parent = lblGold.Parent = lblEpoch.Parent = lblEnergy.Parent = lblSaturation.Parent = lblHour.Parent = label1.Parent = label2.Parent = label3.Parent = label4.Parent = label5.Parent = pbGLEF;
+            lblInventory.Parent = lblGold.Parent = lblEpoch.Parent = lblEnergy.Parent = lblSaturation.Parent = lblHour.Parent = label1.Parent = label2.Parent = label3.Parent = label4.Parent = label5.Parent = lblInventoryPlus.Parent = pbGLEF;
             Window.Parent = pbFon;
             pbHero.Parent = Window;
+
+            foreach (Label label in storageLabels)
+                label.Parent = pbStorageIsOpen;
         }
 
         void musicTimer_Tick(object sender, EventArgs e)
@@ -528,8 +545,7 @@ namespace Farmio
                     SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\chopping-wood.wav"));
                     await Task.Delay(300);
                     hero.Energy = EnergyTmp;
-                    hero.addToInventory(tmp.DestroyTree(map));
-
+                    lblInventoryPlus.Text = '+' + hero.addToInventory(tmp.DestroyTree(map)).ToString();
                     pbFon.Image = map.DrawMap();
                     lblEnergy.Text = hero.Energy.ToString() + "/200";
                 }
@@ -556,7 +572,7 @@ namespace Farmio
                     SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\stone-hit.wav"));
                     await Task.Delay(400);
                     hero.Energy = EnergyTmp;
-                    hero.addToInventory(tmp.DestroyStone(map));
+                    lblInventoryPlus.Text = '+' + hero.addToInventory(tmp.DestroyStone(map)).ToString();
                     pbFon.Image = map.DrawMap();
                     lblEnergy.Text = hero.Energy.ToString() + "/200";
                 }
@@ -583,7 +599,7 @@ namespace Farmio
                     SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\cutting-grass.wav"));
                     await Task.Delay(200);
                     hero.Energy = EnergyTmp;
-                    hero.addToInventory(tmp.DestroyGrass(map));
+                    lblInventoryPlus.Text = '+' + hero.addToInventory(tmp.DestroyGrass(map)).ToString();
                     pbFon.Image = map.DrawMap();
                     lblEnergy.Text = hero.Energy.ToString() + "/200";
                 }
@@ -608,7 +624,7 @@ namespace Farmio
                     longRunningTask = HeroMoveHere(x, y, 0);
                     int result = await longRunningTask;
                     hero.Energy = EnergyTmp;
-                    hero.addToInventory(tmp.DestroyStump(map));
+                    lblInventoryPlus.Text = '+' + hero.addToInventory(tmp.DestroyStump(map)).ToString();
                     pbFon.Image = map.DrawMap();
                     lblEnergy.Text = hero.Energy.ToString() + "/200";
                 }
@@ -635,9 +651,9 @@ namespace Farmio
 
                     hero.Energy = EnergyTmp;
                     if (tmp.Name[1] == 'n')
-                        hero.addToInventory(tmp.DestroyMushroomNE(map));
+                        lblInventoryPlus.Text = '+' + hero.addToInventory(tmp.DestroyMushroomNE(map)).ToString();
                     else
-                        hero.addToInventory(tmp.DestroyMushroom(map));
+                        lblInventoryPlus.Text = '+' + hero.addToInventory(tmp.DestroyMushroom(map)).ToString();
                     pbFon.Image = map.DrawMap();
                     lblEnergy.Text = hero.Energy.ToString() + "/200";
                 }
@@ -663,9 +679,9 @@ namespace Farmio
                     int result = await longRunningTask;
                     hero.Energy = EnergyTmp;
                     if (tmp.Name[1] == 'n')
-                        hero.addToInventory(tmp.DestroyMushroomNE(map));
+                        lblInventoryPlus.Text = '+' + hero.addToInventory(tmp.DestroyMushroomNE(map)).ToString();
                     else
-                        hero.addToInventory(tmp.DestroyMushroom(map));
+                        lblInventoryPlus.Text = '+' + hero.addToInventory(tmp.DestroyMushroom(map)).ToString();
                     pbFon.Image = map.DrawMap();
                     lblEnergy.Text = hero.Energy.ToString() + "/200";
                 }
@@ -1001,6 +1017,7 @@ namespace Farmio
                     if (item.Number == 0)
                     {
                         hero.Inventory.Remove(item);
+                        hero.NumOfItemsInInventory--;
                         InventoryClose();
                     }
                     InventoryLoad();
@@ -1016,7 +1033,8 @@ namespace Farmio
                     hero.Energy = 5;
                 else hero.Energy = 0;
                 SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\crunch.wav"));
-                Window.Image = Image.FromFile(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\window2.png"));
+                windowFrame++; 
+                Window.Image = windows[windowFrame];   
             }
             else
             {
@@ -1035,64 +1053,38 @@ namespace Farmio
 
         private void useIcon1_Click(object sender, EventArgs e)
         {
-            foreach (Item item in hero.Inventory)
-            {
-                if (item.Name == inventoryLabels[0].Text || item.NamePlural == inventoryLabels[0].Text)
-                {
-                    if (item is Item.Food)
-                        Eat((Item.Food)item, 0);
-                    break;
-                }
-            }
+            UseIconClick(0);
         }
 
         private void useIcon2_Click(object sender, EventArgs e)
         {
-            foreach (Item item in hero.Inventory)
-            {
-                if (item.Name == inventoryLabels[1].Text || item.NamePlural == inventoryLabels[1].Text)
-                {
-                    if (item is Item.Food)
-                        Eat((Item.Food)item, 1);
-                    break;
-                }
-            }
+            UseIconClick(1);
         }
 
         private void useIcon3_Click(object sender, EventArgs e)
         {
-            foreach (Item item in hero.Inventory)
-            {
-                if (item.Name == inventoryLabels[2].Text || item.NamePlural == inventoryLabels[2].Text)
-                {
-                    if (item is Item.Food)
-                        Eat((Item.Food)item, 2);
-                    break;
-                }
-            }
+            UseIconClick(2);
         }
 
         private void useIcon4_Click(object sender, EventArgs e)
         {
-            foreach (Item item in hero.Inventory)
-            {
-                if (item.Name == inventoryLabels[3].Text || item.NamePlural == inventoryLabels[3].Text)
-                {
-                    if (item is Item.Food)
-                        Eat((Item.Food)item, 3);
-                    break;
-                }
-            }
+            UseIconClick(3);
         }
 
         private void useIcon5_Click(object sender, EventArgs e)
         {
+            UseIconClick(4);
+        }
+
+        private void UseIconClick (int i)
+        {
+
             foreach (Item item in hero.Inventory)
             {
-                if (item.Name == inventoryLabels[4].Text || item.NamePlural == inventoryLabels[4].Text)
+                if (item.Name == inventoryLabels[i].Text || item.NamePlural == inventoryLabels[i].Text)
                 {
                     if (item is Item.Food)
-                        Eat((Item.Food)item, 4);
+                        Eat((Item.Food)item, i);
                     break;
                 }
             }
@@ -1167,5 +1159,54 @@ namespace Farmio
             else 
                 lblSaturation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
         }
+
+        private void lblInventoryPlus_TextChanged(object sender, EventArgs e)
+        {
+            if (lblInventoryPlus.Text != "+1000" && lblInventoryPlus.Text != "+0")
+                lblInventoryPlus.Visible = true;
+            else if (lblInventoryPlus.Text == "+1000")
+            {
+                lblInventory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(32)))), ((int)(((byte)(20)))));
+                InventoryPlusTimer.Interval = 3000;
+            }
+                
+            InventoryPlusTimer.Start();
+        }
+
+        void InventoryPlusTimer_Tick(object sender, EventArgs e)
+        {
+            if (lblInventory.ForeColor == System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(32)))), ((int)(((byte)(20))))))
+            {
+                lblInventory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+                InventoryPlusTimer.Interval = 1000;
+            }
+            else
+                lblInventoryPlus.Visible = false;
+
+            InventoryPlusTimer.Stop();
+        }
+
+        private async void pbStorage_Click(object sender, EventArgs e)
+        {
+            pbGoToSleep.Visible = false;
+            pbStorage.Visible = false;
+            int x = map.mapTab[ClickX, ClickY].X + 48;
+            int y = map.mapTab[ClickX, ClickY].Y + 84;
+            longRunningTask = HeroMoveHere(x, y, 0);
+            int result = await longRunningTask;
+            StorageLoad();
+        }
+
+        private void StorageLoad()
+        {
+            InventoryLoad();
+            int i = 0;
+            pbStorageIsOpen.Visible = true;
+            foreach (Label label in storageLabels)
+            {
+
+            }
+        }
+
     }
 }

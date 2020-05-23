@@ -367,6 +367,33 @@ namespace WindowsFormsApp2.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream footsteps2 {
+            get {
+                return ResourceManager.GetStream("footsteps2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream footsteps3 {
+            get {
+                return ResourceManager.GetStream("footsteps3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream footsteps4 {
+            get {
+                return ResourceManager.GetStream("footsteps4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap getMushroom {
@@ -875,6 +902,16 @@ namespace WindowsFormsApp2.Properties {
         internal static System.Drawing.Bitmap storage {
             get {
                 object obj = ResourceManager.GetObject("storage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap storageInv {
+            get {
+                object obj = ResourceManager.GetObject("storageInv", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

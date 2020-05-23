@@ -373,9 +373,6 @@
   <data name="chopping_wood" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chopping-wood.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="footsteps1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\footsteps1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="stone_hit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stone-hit.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -405,5 +402,20 @@
   </data>
   <data name="window2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\window2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="footsteps1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\footsteps1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="footsteps2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\footsteps2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="footsteps3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\footsteps3.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="footsteps4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\footsteps4.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="storageInv" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\storageInv.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
