@@ -30,6 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Farmio));
             this.label1 = new System.Windows.Forms.Label();
             this.lblGold = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,6 +59,46 @@
             this.item4NumberOf = new System.Windows.Forms.Label();
             this.item5NumberOf = new System.Windows.Forms.Label();
             this.lblInventoryPlus = new System.Windows.Forms.Label();
+            this.lblStorageItem1 = new System.Windows.Forms.Label();
+            this.lblStorageItem3 = new System.Windows.Forms.Label();
+            this.lblStorageItem5 = new System.Windows.Forms.Label();
+            this.lblStorageItem7 = new System.Windows.Forms.Label();
+            this.lblStorageItem9 = new System.Windows.Forms.Label();
+            this.lblStorageItem2 = new System.Windows.Forms.Label();
+            this.lblStorageItem4 = new System.Windows.Forms.Label();
+            this.lblStorageItem6 = new System.Windows.Forms.Label();
+            this.lblStorageItem8 = new System.Windows.Forms.Label();
+            this.lblStorageItem10 = new System.Windows.Forms.Label();
+            this.StorageNumOfItem1 = new System.Windows.Forms.Label();
+            this.StorageNumOfItem3 = new System.Windows.Forms.Label();
+            this.StorageNumOfItem5 = new System.Windows.Forms.Label();
+            this.StorageNumOfItem7 = new System.Windows.Forms.Label();
+            this.StorageNumOfItem9 = new System.Windows.Forms.Label();
+            this.StorageNumOfItem10 = new System.Windows.Forms.Label();
+            this.StorageNumOfItem8 = new System.Windows.Forms.Label();
+            this.StorageNumOfItem6 = new System.Windows.Forms.Label();
+            this.StorageNumOfItem4 = new System.Windows.Forms.Label();
+            this.StorageNumOfItem2 = new System.Windows.Forms.Label();
+            this.pbStorageArrow010 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow08 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow06 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow04 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow02 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow10 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow8 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow6 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow4 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow2 = new System.Windows.Forms.PictureBox();
+            this.pbInventoryArrow05 = new System.Windows.Forms.PictureBox();
+            this.pbInventoryArrow04 = new System.Windows.Forms.PictureBox();
+            this.pbInventoryArrow03 = new System.Windows.Forms.PictureBox();
+            this.pbInventoryArrow02 = new System.Windows.Forms.PictureBox();
+            this.pbInventoryArrow01 = new System.Windows.Forms.PictureBox();
+            this.pbInventoryArrow5 = new System.Windows.Forms.PictureBox();
+            this.pbInventoryArrow4 = new System.Windows.Forms.PictureBox();
+            this.pbInventoryArrow3 = new System.Windows.Forms.PictureBox();
+            this.pbInventoryArrow2 = new System.Windows.Forms.PictureBox();
+            this.pbInventoryArrow1 = new System.Windows.Forms.PictureBox();
             this.pbStorageIsOpen = new System.Windows.Forms.PictureBox();
             this.pbGoToSleep = new System.Windows.Forms.PictureBox();
             this.pbStorage = new System.Windows.Forms.PictureBox();
@@ -90,16 +131,36 @@
             this.pbNameFon = new System.Windows.Forms.PictureBox();
             this.pbFon = new System.Windows.Forms.PictureBox();
             this.pbHero = new System.Windows.Forms.PictureBox();
-            this.lblStorageItem1 = new System.Windows.Forms.Label();
-            this.lblStorageItem3 = new System.Windows.Forms.Label();
-            this.lblStorageItem5 = new System.Windows.Forms.Label();
-            this.lblStorageItem7 = new System.Windows.Forms.Label();
-            this.lblStorageItem9 = new System.Windows.Forms.Label();
-            this.lblStorageItem2 = new System.Windows.Forms.Label();
-            this.lblStorageItem4 = new System.Windows.Forms.Label();
-            this.lblStorageItem6 = new System.Windows.Forms.Label();
-            this.lblStorageItem8 = new System.Windows.Forms.Label();
-            this.lblStorageItem10 = new System.Windows.Forms.Label();
+            this.pbStorageArrow01 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow1 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow03 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow3 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow05 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow5 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow07 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow7 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow09 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow9 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow010)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow08)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow06)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow04)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow02)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryArrow05)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryArrow04)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryArrow03)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryArrow02)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryArrow01)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryArrow5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryArrow4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryArrow3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryArrow2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryArrow1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStorageIsOpen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGoToSleep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStorage)).BeginInit();
@@ -132,6 +193,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbNameFon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHero)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow01)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow03)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow05)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow07)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow09)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow9)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -461,6 +532,506 @@
             this.lblInventoryPlus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblInventoryPlus.Visible = false;
             this.lblInventoryPlus.TextChanged += new System.EventHandler(this.lblInventoryPlus_TextChanged);
+            // 
+            // lblStorageItem1
+            // 
+            this.lblStorageItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(70)))), ((int)(((byte)(27)))));
+            this.lblStorageItem1.Font = new System.Drawing.Font("Pixellari", 10F);
+            this.lblStorageItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.lblStorageItem1.Location = new System.Drawing.Point(492, 188);
+            this.lblStorageItem1.Name = "lblStorageItem1";
+            this.lblStorageItem1.Size = new System.Drawing.Size(100, 42);
+            this.lblStorageItem1.TabIndex = 60;
+            this.lblStorageItem1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblStorageItem1.Visible = false;
+            // 
+            // lblStorageItem3
+            // 
+            this.lblStorageItem3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.lblStorageItem3.Font = new System.Drawing.Font("Pixellari", 11F);
+            this.lblStorageItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.lblStorageItem3.Location = new System.Drawing.Point(492, 234);
+            this.lblStorageItem3.Name = "lblStorageItem3";
+            this.lblStorageItem3.Size = new System.Drawing.Size(100, 41);
+            this.lblStorageItem3.TabIndex = 61;
+            this.lblStorageItem3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblStorageItem3.Visible = false;
+            // 
+            // lblStorageItem5
+            // 
+            this.lblStorageItem5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(70)))), ((int)(((byte)(27)))));
+            this.lblStorageItem5.Font = new System.Drawing.Font("Pixellari", 11F);
+            this.lblStorageItem5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.lblStorageItem5.Location = new System.Drawing.Point(492, 280);
+            this.lblStorageItem5.Name = "lblStorageItem5";
+            this.lblStorageItem5.Size = new System.Drawing.Size(100, 43);
+            this.lblStorageItem5.TabIndex = 62;
+            this.lblStorageItem5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblStorageItem5.Visible = false;
+            // 
+            // lblStorageItem7
+            // 
+            this.lblStorageItem7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.lblStorageItem7.Font = new System.Drawing.Font("Pixellari", 11F);
+            this.lblStorageItem7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.lblStorageItem7.Location = new System.Drawing.Point(492, 326);
+            this.lblStorageItem7.Name = "lblStorageItem7";
+            this.lblStorageItem7.Size = new System.Drawing.Size(100, 23);
+            this.lblStorageItem7.TabIndex = 63;
+            this.lblStorageItem7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblStorageItem7.Visible = false;
+            // 
+            // lblStorageItem9
+            // 
+            this.lblStorageItem9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(70)))), ((int)(((byte)(27)))));
+            this.lblStorageItem9.Font = new System.Drawing.Font("Pixellari", 11F);
+            this.lblStorageItem9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.lblStorageItem9.Location = new System.Drawing.Point(492, 372);
+            this.lblStorageItem9.Name = "lblStorageItem9";
+            this.lblStorageItem9.Size = new System.Drawing.Size(100, 23);
+            this.lblStorageItem9.TabIndex = 64;
+            this.lblStorageItem9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblStorageItem9.Visible = false;
+            // 
+            // lblStorageItem2
+            // 
+            this.lblStorageItem2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.lblStorageItem2.Font = new System.Drawing.Font("Pixellari", 11F);
+            this.lblStorageItem2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.lblStorageItem2.Location = new System.Drawing.Point(657, 188);
+            this.lblStorageItem2.Name = "lblStorageItem2";
+            this.lblStorageItem2.Size = new System.Drawing.Size(100, 42);
+            this.lblStorageItem2.TabIndex = 65;
+            this.lblStorageItem2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblStorageItem2.Visible = false;
+            // 
+            // lblStorageItem4
+            // 
+            this.lblStorageItem4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(70)))), ((int)(((byte)(27)))));
+            this.lblStorageItem4.Font = new System.Drawing.Font("Pixellari", 11F);
+            this.lblStorageItem4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.lblStorageItem4.Location = new System.Drawing.Point(657, 234);
+            this.lblStorageItem4.Name = "lblStorageItem4";
+            this.lblStorageItem4.Size = new System.Drawing.Size(100, 41);
+            this.lblStorageItem4.TabIndex = 66;
+            this.lblStorageItem4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblStorageItem4.Visible = false;
+            // 
+            // lblStorageItem6
+            // 
+            this.lblStorageItem6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.lblStorageItem6.Font = new System.Drawing.Font("Pixellari", 11F);
+            this.lblStorageItem6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.lblStorageItem6.Location = new System.Drawing.Point(657, 280);
+            this.lblStorageItem6.Name = "lblStorageItem6";
+            this.lblStorageItem6.Size = new System.Drawing.Size(100, 23);
+            this.lblStorageItem6.TabIndex = 67;
+            this.lblStorageItem6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblStorageItem6.Visible = false;
+            // 
+            // lblStorageItem8
+            // 
+            this.lblStorageItem8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(70)))), ((int)(((byte)(27)))));
+            this.lblStorageItem8.Font = new System.Drawing.Font("Pixellari", 11F);
+            this.lblStorageItem8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.lblStorageItem8.Location = new System.Drawing.Point(657, 326);
+            this.lblStorageItem8.Name = "lblStorageItem8";
+            this.lblStorageItem8.Size = new System.Drawing.Size(100, 23);
+            this.lblStorageItem8.TabIndex = 68;
+            this.lblStorageItem8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblStorageItem8.Visible = false;
+            // 
+            // lblStorageItem10
+            // 
+            this.lblStorageItem10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.lblStorageItem10.Font = new System.Drawing.Font("Pixellari", 11F);
+            this.lblStorageItem10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.lblStorageItem10.Location = new System.Drawing.Point(657, 372);
+            this.lblStorageItem10.Name = "lblStorageItem10";
+            this.lblStorageItem10.Size = new System.Drawing.Size(100, 23);
+            this.lblStorageItem10.TabIndex = 69;
+            this.lblStorageItem10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblStorageItem10.Visible = false;
+            // 
+            // StorageNumOfItem1
+            // 
+            this.StorageNumOfItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(70)))), ((int)(((byte)(27)))));
+            this.StorageNumOfItem1.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.StorageNumOfItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.StorageNumOfItem1.Location = new System.Drawing.Point(588, 199);
+            this.StorageNumOfItem1.Name = "StorageNumOfItem1";
+            this.StorageNumOfItem1.Size = new System.Drawing.Size(32, 22);
+            this.StorageNumOfItem1.TabIndex = 80;
+            this.StorageNumOfItem1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.StorageNumOfItem1.Visible = false;
+            // 
+            // StorageNumOfItem3
+            // 
+            this.StorageNumOfItem3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.StorageNumOfItem3.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.StorageNumOfItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.StorageNumOfItem3.Location = new System.Drawing.Point(588, 245);
+            this.StorageNumOfItem3.Name = "StorageNumOfItem3";
+            this.StorageNumOfItem3.Size = new System.Drawing.Size(32, 22);
+            this.StorageNumOfItem3.TabIndex = 81;
+            this.StorageNumOfItem3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.StorageNumOfItem3.Visible = false;
+            // 
+            // StorageNumOfItem5
+            // 
+            this.StorageNumOfItem5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(70)))), ((int)(((byte)(27)))));
+            this.StorageNumOfItem5.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.StorageNumOfItem5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.StorageNumOfItem5.Location = new System.Drawing.Point(588, 291);
+            this.StorageNumOfItem5.Name = "StorageNumOfItem5";
+            this.StorageNumOfItem5.Size = new System.Drawing.Size(32, 22);
+            this.StorageNumOfItem5.TabIndex = 82;
+            this.StorageNumOfItem5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.StorageNumOfItem5.Visible = false;
+            // 
+            // StorageNumOfItem7
+            // 
+            this.StorageNumOfItem7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.StorageNumOfItem7.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.StorageNumOfItem7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.StorageNumOfItem7.Location = new System.Drawing.Point(588, 337);
+            this.StorageNumOfItem7.Name = "StorageNumOfItem7";
+            this.StorageNumOfItem7.Size = new System.Drawing.Size(32, 22);
+            this.StorageNumOfItem7.TabIndex = 83;
+            this.StorageNumOfItem7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.StorageNumOfItem7.Visible = false;
+            // 
+            // StorageNumOfItem9
+            // 
+            this.StorageNumOfItem9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(70)))), ((int)(((byte)(27)))));
+            this.StorageNumOfItem9.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.StorageNumOfItem9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.StorageNumOfItem9.Location = new System.Drawing.Point(588, 383);
+            this.StorageNumOfItem9.Name = "StorageNumOfItem9";
+            this.StorageNumOfItem9.Size = new System.Drawing.Size(32, 22);
+            this.StorageNumOfItem9.TabIndex = 84;
+            this.StorageNumOfItem9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.StorageNumOfItem9.Visible = false;
+            // 
+            // StorageNumOfItem10
+            // 
+            this.StorageNumOfItem10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.StorageNumOfItem10.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.StorageNumOfItem10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.StorageNumOfItem10.Location = new System.Drawing.Point(626, 383);
+            this.StorageNumOfItem10.Name = "StorageNumOfItem10";
+            this.StorageNumOfItem10.Size = new System.Drawing.Size(32, 22);
+            this.StorageNumOfItem10.TabIndex = 85;
+            this.StorageNumOfItem10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.StorageNumOfItem10.Visible = false;
+            // 
+            // StorageNumOfItem8
+            // 
+            this.StorageNumOfItem8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(70)))), ((int)(((byte)(27)))));
+            this.StorageNumOfItem8.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.StorageNumOfItem8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.StorageNumOfItem8.Location = new System.Drawing.Point(626, 337);
+            this.StorageNumOfItem8.Name = "StorageNumOfItem8";
+            this.StorageNumOfItem8.Size = new System.Drawing.Size(32, 22);
+            this.StorageNumOfItem8.TabIndex = 86;
+            this.StorageNumOfItem8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.StorageNumOfItem8.Visible = false;
+            // 
+            // StorageNumOfItem6
+            // 
+            this.StorageNumOfItem6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.StorageNumOfItem6.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.StorageNumOfItem6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.StorageNumOfItem6.Location = new System.Drawing.Point(626, 291);
+            this.StorageNumOfItem6.Name = "StorageNumOfItem6";
+            this.StorageNumOfItem6.Size = new System.Drawing.Size(32, 22);
+            this.StorageNumOfItem6.TabIndex = 87;
+            this.StorageNumOfItem6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.StorageNumOfItem6.Visible = false;
+            // 
+            // StorageNumOfItem4
+            // 
+            this.StorageNumOfItem4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(70)))), ((int)(((byte)(27)))));
+            this.StorageNumOfItem4.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.StorageNumOfItem4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.StorageNumOfItem4.Location = new System.Drawing.Point(626, 245);
+            this.StorageNumOfItem4.Name = "StorageNumOfItem4";
+            this.StorageNumOfItem4.Size = new System.Drawing.Size(32, 22);
+            this.StorageNumOfItem4.TabIndex = 88;
+            this.StorageNumOfItem4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.StorageNumOfItem4.Visible = false;
+            // 
+            // StorageNumOfItem2
+            // 
+            this.StorageNumOfItem2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.StorageNumOfItem2.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.StorageNumOfItem2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.StorageNumOfItem2.Location = new System.Drawing.Point(626, 199);
+            this.StorageNumOfItem2.Name = "StorageNumOfItem2";
+            this.StorageNumOfItem2.Size = new System.Drawing.Size(32, 22);
+            this.StorageNumOfItem2.TabIndex = 89;
+            this.StorageNumOfItem2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.StorageNumOfItem2.Visible = false;
+            // 
+            // pbStorageArrow010
+            // 
+            this.pbStorageArrow010.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow010.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow010.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow0;
+            this.pbStorageArrow010.Location = new System.Drawing.Point(755, 385);
+            this.pbStorageArrow010.Name = "pbStorageArrow010";
+            this.pbStorageArrow010.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow010.TabIndex = 99;
+            this.pbStorageArrow010.TabStop = false;
+            this.pbStorageArrow010.Visible = false;
+            this.pbStorageArrow010.Click += new System.EventHandler(this.pbStorageArrow010_Click);
+            // 
+            // pbStorageArrow08
+            // 
+            this.pbStorageArrow08.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow08.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow08.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow0light;
+            this.pbStorageArrow08.Location = new System.Drawing.Point(755, 339);
+            this.pbStorageArrow08.Name = "pbStorageArrow08";
+            this.pbStorageArrow08.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow08.TabIndex = 98;
+            this.pbStorageArrow08.TabStop = false;
+            this.pbStorageArrow08.Visible = false;
+            this.pbStorageArrow08.Click += new System.EventHandler(this.pbStorageArrow08_Click);
+            // 
+            // pbStorageArrow06
+            // 
+            this.pbStorageArrow06.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow06.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow06.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow0;
+            this.pbStorageArrow06.Location = new System.Drawing.Point(755, 293);
+            this.pbStorageArrow06.Name = "pbStorageArrow06";
+            this.pbStorageArrow06.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow06.TabIndex = 97;
+            this.pbStorageArrow06.TabStop = false;
+            this.pbStorageArrow06.Visible = false;
+            this.pbStorageArrow06.Click += new System.EventHandler(this.pbStorageArrow06_Click);
+            // 
+            // pbStorageArrow04
+            // 
+            this.pbStorageArrow04.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow04.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow04.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow0light;
+            this.pbStorageArrow04.Location = new System.Drawing.Point(755, 247);
+            this.pbStorageArrow04.Name = "pbStorageArrow04";
+            this.pbStorageArrow04.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow04.TabIndex = 96;
+            this.pbStorageArrow04.TabStop = false;
+            this.pbStorageArrow04.Visible = false;
+            this.pbStorageArrow04.Click += new System.EventHandler(this.pbStorageArrow04_Click);
+            // 
+            // pbStorageArrow02
+            // 
+            this.pbStorageArrow02.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow02.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow02.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow0;
+            this.pbStorageArrow02.Location = new System.Drawing.Point(755, 201);
+            this.pbStorageArrow02.Name = "pbStorageArrow02";
+            this.pbStorageArrow02.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow02.TabIndex = 95;
+            this.pbStorageArrow02.TabStop = false;
+            this.pbStorageArrow02.Visible = false;
+            this.pbStorageArrow02.Click += new System.EventHandler(this.pbStorageArrow02_Click);
+            // 
+            // pbStorageArrow10
+            // 
+            this.pbStorageArrow10.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow10.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow;
+            this.pbStorageArrow10.Location = new System.Drawing.Point(772, 385);
+            this.pbStorageArrow10.Name = "pbStorageArrow10";
+            this.pbStorageArrow10.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow10.TabIndex = 94;
+            this.pbStorageArrow10.TabStop = false;
+            this.pbStorageArrow10.Visible = false;
+            this.pbStorageArrow10.Click += new System.EventHandler(this.pbStorageArrow10_Click);
+            // 
+            // pbStorageArrow8
+            // 
+            this.pbStorageArrow8.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow8.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow;
+            this.pbStorageArrow8.Location = new System.Drawing.Point(772, 339);
+            this.pbStorageArrow8.Name = "pbStorageArrow8";
+            this.pbStorageArrow8.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow8.TabIndex = 93;
+            this.pbStorageArrow8.TabStop = false;
+            this.pbStorageArrow8.Visible = false;
+            this.pbStorageArrow8.Click += new System.EventHandler(this.pbStorageArrow8_Click);
+            // 
+            // pbStorageArrow6
+            // 
+            this.pbStorageArrow6.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow6.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow;
+            this.pbStorageArrow6.Location = new System.Drawing.Point(772, 293);
+            this.pbStorageArrow6.Name = "pbStorageArrow6";
+            this.pbStorageArrow6.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow6.TabIndex = 92;
+            this.pbStorageArrow6.TabStop = false;
+            this.pbStorageArrow6.Visible = false;
+            this.pbStorageArrow6.Click += new System.EventHandler(this.pbStorageArrow6_Click);
+            // 
+            // pbStorageArrow4
+            // 
+            this.pbStorageArrow4.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow4.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrowlight;
+            this.pbStorageArrow4.Location = new System.Drawing.Point(772, 247);
+            this.pbStorageArrow4.Name = "pbStorageArrow4";
+            this.pbStorageArrow4.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow4.TabIndex = 91;
+            this.pbStorageArrow4.TabStop = false;
+            this.pbStorageArrow4.Visible = false;
+            this.pbStorageArrow4.Click += new System.EventHandler(this.pbStorageArrow4_Click);
+            // 
+            // pbStorageArrow2
+            // 
+            this.pbStorageArrow2.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow2.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow;
+            this.pbStorageArrow2.Location = new System.Drawing.Point(772, 201);
+            this.pbStorageArrow2.Name = "pbStorageArrow2";
+            this.pbStorageArrow2.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow2.TabIndex = 90;
+            this.pbStorageArrow2.TabStop = false;
+            this.pbStorageArrow2.Visible = false;
+            this.pbStorageArrow2.Click += new System.EventHandler(this.pbStorageArrow2_Click);
+            // 
+            // pbInventoryArrow05
+            // 
+            this.pbInventoryArrow05.BackColor = System.Drawing.Color.Transparent;
+            this.pbInventoryArrow05.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventoryArrow05.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow0;
+            this.pbInventoryArrow05.Location = new System.Drawing.Point(147, 387);
+            this.pbInventoryArrow05.Name = "pbInventoryArrow05";
+            this.pbInventoryArrow05.Size = new System.Drawing.Size(14, 14);
+            this.pbInventoryArrow05.TabIndex = 79;
+            this.pbInventoryArrow05.TabStop = false;
+            this.pbInventoryArrow05.Visible = false;
+            this.pbInventoryArrow05.Click += new System.EventHandler(this.pbInventoryArrow05_Click);
+            // 
+            // pbInventoryArrow04
+            // 
+            this.pbInventoryArrow04.BackColor = System.Drawing.Color.Transparent;
+            this.pbInventoryArrow04.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventoryArrow04.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow0;
+            this.pbInventoryArrow04.Location = new System.Drawing.Point(147, 339);
+            this.pbInventoryArrow04.Name = "pbInventoryArrow04";
+            this.pbInventoryArrow04.Size = new System.Drawing.Size(14, 14);
+            this.pbInventoryArrow04.TabIndex = 78;
+            this.pbInventoryArrow04.TabStop = false;
+            this.pbInventoryArrow04.Visible = false;
+            this.pbInventoryArrow04.Click += new System.EventHandler(this.pbInventoryArrow04_Click);
+            // 
+            // pbInventoryArrow03
+            // 
+            this.pbInventoryArrow03.BackColor = System.Drawing.Color.Transparent;
+            this.pbInventoryArrow03.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventoryArrow03.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow0;
+            this.pbInventoryArrow03.Location = new System.Drawing.Point(147, 286);
+            this.pbInventoryArrow03.Name = "pbInventoryArrow03";
+            this.pbInventoryArrow03.Size = new System.Drawing.Size(14, 14);
+            this.pbInventoryArrow03.TabIndex = 77;
+            this.pbInventoryArrow03.TabStop = false;
+            this.pbInventoryArrow03.Visible = false;
+            this.pbInventoryArrow03.Click += new System.EventHandler(this.pbInventoryArrow03_Click);
+            // 
+            // pbInventoryArrow02
+            // 
+            this.pbInventoryArrow02.BackColor = System.Drawing.Color.Transparent;
+            this.pbInventoryArrow02.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventoryArrow02.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow0;
+            this.pbInventoryArrow02.Location = new System.Drawing.Point(147, 196);
+            this.pbInventoryArrow02.Name = "pbInventoryArrow02";
+            this.pbInventoryArrow02.Size = new System.Drawing.Size(14, 14);
+            this.pbInventoryArrow02.TabIndex = 76;
+            this.pbInventoryArrow02.TabStop = false;
+            this.pbInventoryArrow02.Visible = false;
+            this.pbInventoryArrow02.Click += new System.EventHandler(this.pbInventoryArrow02_Click);
+            // 
+            // pbInventoryArrow01
+            // 
+            this.pbInventoryArrow01.BackColor = System.Drawing.Color.Transparent;
+            this.pbInventoryArrow01.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventoryArrow01.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow0;
+            this.pbInventoryArrow01.Location = new System.Drawing.Point(147, 196);
+            this.pbInventoryArrow01.Name = "pbInventoryArrow01";
+            this.pbInventoryArrow01.Size = new System.Drawing.Size(14, 14);
+            this.pbInventoryArrow01.TabIndex = 75;
+            this.pbInventoryArrow01.TabStop = false;
+            this.pbInventoryArrow01.Visible = false;
+            this.pbInventoryArrow01.Click += new System.EventHandler(this.pbInventoryArrow01_Click);
+            // 
+            // pbInventoryArrow5
+            // 
+            this.pbInventoryArrow5.BackColor = System.Drawing.Color.Transparent;
+            this.pbInventoryArrow5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventoryArrow5.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow;
+            this.pbInventoryArrow5.Location = new System.Drawing.Point(164, 387);
+            this.pbInventoryArrow5.Name = "pbInventoryArrow5";
+            this.pbInventoryArrow5.Size = new System.Drawing.Size(14, 14);
+            this.pbInventoryArrow5.TabIndex = 74;
+            this.pbInventoryArrow5.TabStop = false;
+            this.pbInventoryArrow5.Visible = false;
+            this.pbInventoryArrow5.Click += new System.EventHandler(this.pbInventoryArrow5_Click);
+            // 
+            // pbInventoryArrow4
+            // 
+            this.pbInventoryArrow4.BackColor = System.Drawing.Color.Transparent;
+            this.pbInventoryArrow4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventoryArrow4.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow;
+            this.pbInventoryArrow4.Location = new System.Drawing.Point(164, 339);
+            this.pbInventoryArrow4.Name = "pbInventoryArrow4";
+            this.pbInventoryArrow4.Size = new System.Drawing.Size(14, 14);
+            this.pbInventoryArrow4.TabIndex = 73;
+            this.pbInventoryArrow4.TabStop = false;
+            this.pbInventoryArrow4.Visible = false;
+            this.pbInventoryArrow4.Click += new System.EventHandler(this.pbInventoryArrow4_Click);
+            // 
+            // pbInventoryArrow3
+            // 
+            this.pbInventoryArrow3.BackColor = System.Drawing.Color.Transparent;
+            this.pbInventoryArrow3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventoryArrow3.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow;
+            this.pbInventoryArrow3.Location = new System.Drawing.Point(164, 286);
+            this.pbInventoryArrow3.Name = "pbInventoryArrow3";
+            this.pbInventoryArrow3.Size = new System.Drawing.Size(14, 14);
+            this.pbInventoryArrow3.TabIndex = 72;
+            this.pbInventoryArrow3.TabStop = false;
+            this.pbInventoryArrow3.Visible = false;
+            this.pbInventoryArrow3.Click += new System.EventHandler(this.pbInventoryArrow3_Click);
+            // 
+            // pbInventoryArrow2
+            // 
+            this.pbInventoryArrow2.BackColor = System.Drawing.Color.Transparent;
+            this.pbInventoryArrow2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventoryArrow2.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow;
+            this.pbInventoryArrow2.Location = new System.Drawing.Point(164, 240);
+            this.pbInventoryArrow2.Name = "pbInventoryArrow2";
+            this.pbInventoryArrow2.Size = new System.Drawing.Size(14, 14);
+            this.pbInventoryArrow2.TabIndex = 71;
+            this.pbInventoryArrow2.TabStop = false;
+            this.pbInventoryArrow2.Visible = false;
+            this.pbInventoryArrow2.Click += new System.EventHandler(this.pbInventoryArrow2_Click);
+            // 
+            // pbInventoryArrow1
+            // 
+            this.pbInventoryArrow1.BackColor = System.Drawing.Color.Transparent;
+            this.pbInventoryArrow1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventoryArrow1.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow;
+            this.pbInventoryArrow1.Location = new System.Drawing.Point(164, 196);
+            this.pbInventoryArrow1.Name = "pbInventoryArrow1";
+            this.pbInventoryArrow1.Size = new System.Drawing.Size(14, 14);
+            this.pbInventoryArrow1.TabIndex = 70;
+            this.pbInventoryArrow1.TabStop = false;
+            this.pbInventoryArrow1.Visible = false;
+            this.pbInventoryArrow1.Click += new System.EventHandler(this.pbInventoryArrow1_Click);
             // 
             // pbStorageIsOpen
             // 
@@ -843,141 +1414,172 @@
             this.pbHero.TabIndex = 25;
             this.pbHero.TabStop = false;
             // 
-            // lblStorageItem1
+            // pbStorageArrow01
             // 
-            this.lblStorageItem1.BackColor = System.Drawing.Color.Transparent;
-            this.lblStorageItem1.Font = new System.Drawing.Font("Pixellari", 9F);
-            this.lblStorageItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
-            this.lblStorageItem1.Location = new System.Drawing.Point(492, 195);
-            this.lblStorageItem1.Name = "lblStorageItem1";
-            this.lblStorageItem1.Size = new System.Drawing.Size(100, 23);
-            this.lblStorageItem1.TabIndex = 60;
-            this.lblStorageItem1.Text = "  ";
-            this.lblStorageItem1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblStorageItem1.Visible = false;
+            this.pbStorageArrow01.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow01.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow01.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow01.Image")));
+            this.pbStorageArrow01.Location = new System.Drawing.Point(477, 201);
+            this.pbStorageArrow01.Name = "pbStorageArrow01";
+            this.pbStorageArrow01.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow01.TabIndex = 101;
+            this.pbStorageArrow01.TabStop = false;
+            this.pbStorageArrow01.Visible = false;
+            this.pbStorageArrow01.Click += new System.EventHandler(this.pbStorageArrow01_Click);
             // 
-            // lblStorageItem3
+            // pbStorageArrow1
             // 
-            this.lblStorageItem3.BackColor = System.Drawing.Color.Transparent;
-            this.lblStorageItem3.Font = new System.Drawing.Font("Pixellari", 9F);
-            this.lblStorageItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
-            this.lblStorageItem3.Location = new System.Drawing.Point(492, 243);
-            this.lblStorageItem3.Name = "lblStorageItem3";
-            this.lblStorageItem3.Size = new System.Drawing.Size(100, 23);
-            this.lblStorageItem3.TabIndex = 61;
-            this.lblStorageItem3.Text = "  ";
-            this.lblStorageItem3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblStorageItem3.Visible = false;
+            this.pbStorageArrow1.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow1.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow1.Image")));
+            this.pbStorageArrow1.Location = new System.Drawing.Point(460, 201);
+            this.pbStorageArrow1.Name = "pbStorageArrow1";
+            this.pbStorageArrow1.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow1.TabIndex = 100;
+            this.pbStorageArrow1.TabStop = false;
+            this.pbStorageArrow1.Visible = false;
+            this.pbStorageArrow1.Click += new System.EventHandler(this.pbStorageArrow1_Click);
             // 
-            // lblStorageItem5
+            // pbStorageArrow03
             // 
-            this.lblStorageItem5.BackColor = System.Drawing.Color.Transparent;
-            this.lblStorageItem5.Font = new System.Drawing.Font("Pixellari", 9F);
-            this.lblStorageItem5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
-            this.lblStorageItem5.Location = new System.Drawing.Point(492, 287);
-            this.lblStorageItem5.Name = "lblStorageItem5";
-            this.lblStorageItem5.Size = new System.Drawing.Size(100, 23);
-            this.lblStorageItem5.TabIndex = 62;
-            this.lblStorageItem5.Text = "  ";
-            this.lblStorageItem5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblStorageItem5.Visible = false;
+            this.pbStorageArrow03.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow03.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow03.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow03.Image")));
+            this.pbStorageArrow03.Location = new System.Drawing.Point(477, 247);
+            this.pbStorageArrow03.Name = "pbStorageArrow03";
+            this.pbStorageArrow03.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow03.TabIndex = 103;
+            this.pbStorageArrow03.TabStop = false;
+            this.pbStorageArrow03.Visible = false;
+            this.pbStorageArrow03.Click += new System.EventHandler(this.pbStorageArrow03_Click);
             // 
-            // lblStorageItem7
+            // pbStorageArrow3
             // 
-            this.lblStorageItem7.BackColor = System.Drawing.Color.Transparent;
-            this.lblStorageItem7.Font = new System.Drawing.Font("Pixellari", 9F);
-            this.lblStorageItem7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
-            this.lblStorageItem7.Location = new System.Drawing.Point(492, 333);
-            this.lblStorageItem7.Name = "lblStorageItem7";
-            this.lblStorageItem7.Size = new System.Drawing.Size(100, 23);
-            this.lblStorageItem7.TabIndex = 63;
-            this.lblStorageItem7.Text = "  ";
-            this.lblStorageItem7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblStorageItem7.Visible = false;
+            this.pbStorageArrow3.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow3.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow3.Image")));
+            this.pbStorageArrow3.Location = new System.Drawing.Point(460, 247);
+            this.pbStorageArrow3.Name = "pbStorageArrow3";
+            this.pbStorageArrow3.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow3.TabIndex = 102;
+            this.pbStorageArrow3.TabStop = false;
+            this.pbStorageArrow3.Visible = false;
+            this.pbStorageArrow3.Click += new System.EventHandler(this.pbStorageArrow3_Click);
             // 
-            // lblStorageItem9
+            // pbStorageArrow05
             // 
-            this.lblStorageItem9.BackColor = System.Drawing.Color.Transparent;
-            this.lblStorageItem9.Font = new System.Drawing.Font("Pixellari", 9F);
-            this.lblStorageItem9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
-            this.lblStorageItem9.Location = new System.Drawing.Point(492, 378);
-            this.lblStorageItem9.Name = "lblStorageItem9";
-            this.lblStorageItem9.Size = new System.Drawing.Size(100, 23);
-            this.lblStorageItem9.TabIndex = 64;
-            this.lblStorageItem9.Text = "  ";
-            this.lblStorageItem9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblStorageItem9.Visible = false;
+            this.pbStorageArrow05.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow05.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow05.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow05.Image")));
+            this.pbStorageArrow05.Location = new System.Drawing.Point(477, 293);
+            this.pbStorageArrow05.Name = "pbStorageArrow05";
+            this.pbStorageArrow05.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow05.TabIndex = 105;
+            this.pbStorageArrow05.TabStop = false;
+            this.pbStorageArrow05.Visible = false;
+            this.pbStorageArrow05.Click += new System.EventHandler(this.pbStorageArrow05_Click);
             // 
-            // lblStorageItem2
+            // pbStorageArrow5
             // 
-            this.lblStorageItem2.BackColor = System.Drawing.Color.Transparent;
-            this.lblStorageItem2.Font = new System.Drawing.Font("Pixellari", 9F);
-            this.lblStorageItem2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
-            this.lblStorageItem2.Location = new System.Drawing.Point(657, 195);
-            this.lblStorageItem2.Name = "lblStorageItem2";
-            this.lblStorageItem2.Size = new System.Drawing.Size(100, 23);
-            this.lblStorageItem2.TabIndex = 65;
-            this.lblStorageItem2.Text = "  ";
-            this.lblStorageItem2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblStorageItem2.Visible = false;
+            this.pbStorageArrow5.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow5.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow5.Image")));
+            this.pbStorageArrow5.Location = new System.Drawing.Point(460, 293);
+            this.pbStorageArrow5.Name = "pbStorageArrow5";
+            this.pbStorageArrow5.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow5.TabIndex = 104;
+            this.pbStorageArrow5.TabStop = false;
+            this.pbStorageArrow5.Visible = false;
+            this.pbStorageArrow5.Click += new System.EventHandler(this.pbStorageArrow5_Click);
             // 
-            // lblStorageItem4
+            // pbStorageArrow07
             // 
-            this.lblStorageItem4.BackColor = System.Drawing.Color.Transparent;
-            this.lblStorageItem4.Font = new System.Drawing.Font("Pixellari", 9F);
-            this.lblStorageItem4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
-            this.lblStorageItem4.Location = new System.Drawing.Point(657, 243);
-            this.lblStorageItem4.Name = "lblStorageItem4";
-            this.lblStorageItem4.Size = new System.Drawing.Size(100, 23);
-            this.lblStorageItem4.TabIndex = 66;
-            this.lblStorageItem4.Text = "  ";
-            this.lblStorageItem4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblStorageItem4.Visible = false;
+            this.pbStorageArrow07.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow07.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow07.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow07.Image")));
+            this.pbStorageArrow07.Location = new System.Drawing.Point(477, 339);
+            this.pbStorageArrow07.Name = "pbStorageArrow07";
+            this.pbStorageArrow07.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow07.TabIndex = 107;
+            this.pbStorageArrow07.TabStop = false;
+            this.pbStorageArrow07.Visible = false;
+            this.pbStorageArrow07.Click += new System.EventHandler(this.pbStorageArrow07_Click);
             // 
-            // lblStorageItem6
+            // pbStorageArrow7
             // 
-            this.lblStorageItem6.BackColor = System.Drawing.Color.Transparent;
-            this.lblStorageItem6.Font = new System.Drawing.Font("Pixellari", 9F);
-            this.lblStorageItem6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
-            this.lblStorageItem6.Location = new System.Drawing.Point(657, 286);
-            this.lblStorageItem6.Name = "lblStorageItem6";
-            this.lblStorageItem6.Size = new System.Drawing.Size(100, 23);
-            this.lblStorageItem6.TabIndex = 67;
-            this.lblStorageItem6.Text = "  ";
-            this.lblStorageItem6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblStorageItem6.Visible = false;
+            this.pbStorageArrow7.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow7.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow7.Image")));
+            this.pbStorageArrow7.Location = new System.Drawing.Point(460, 339);
+            this.pbStorageArrow7.Name = "pbStorageArrow7";
+            this.pbStorageArrow7.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow7.TabIndex = 106;
+            this.pbStorageArrow7.TabStop = false;
+            this.pbStorageArrow7.Visible = false;
+            this.pbStorageArrow7.Click += new System.EventHandler(this.pbStorageArrow7_Click);
             // 
-            // lblStorageItem8
+            // pbStorageArrow09
             // 
-            this.lblStorageItem8.BackColor = System.Drawing.Color.Transparent;
-            this.lblStorageItem8.Font = new System.Drawing.Font("Pixellari", 9F);
-            this.lblStorageItem8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
-            this.lblStorageItem8.Location = new System.Drawing.Point(657, 333);
-            this.lblStorageItem8.Name = "lblStorageItem8";
-            this.lblStorageItem8.Size = new System.Drawing.Size(100, 23);
-            this.lblStorageItem8.TabIndex = 68;
-            this.lblStorageItem8.Text = "  ";
-            this.lblStorageItem8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblStorageItem8.Visible = false;
+            this.pbStorageArrow09.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow09.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow09.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow09.Image")));
+            this.pbStorageArrow09.Location = new System.Drawing.Point(477, 385);
+            this.pbStorageArrow09.Name = "pbStorageArrow09";
+            this.pbStorageArrow09.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow09.TabIndex = 109;
+            this.pbStorageArrow09.TabStop = false;
+            this.pbStorageArrow09.Visible = false;
+            this.pbStorageArrow09.Click += new System.EventHandler(this.pbStorageArrow09_Click);
             // 
-            // lblStorageItem10
+            // pbStorageArrow9
             // 
-            this.lblStorageItem10.BackColor = System.Drawing.Color.Transparent;
-            this.lblStorageItem10.Font = new System.Drawing.Font("Pixellari", 9F);
-            this.lblStorageItem10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
-            this.lblStorageItem10.Location = new System.Drawing.Point(657, 378);
-            this.lblStorageItem10.Name = "lblStorageItem10";
-            this.lblStorageItem10.Size = new System.Drawing.Size(100, 23);
-            this.lblStorageItem10.TabIndex = 69;
-            this.lblStorageItem10.Text = "  ";
-            this.lblStorageItem10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblStorageItem10.Visible = false;
+            this.pbStorageArrow9.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow9.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow9.Image")));
+            this.pbStorageArrow9.Location = new System.Drawing.Point(460, 385);
+            this.pbStorageArrow9.Name = "pbStorageArrow9";
+            this.pbStorageArrow9.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow9.TabIndex = 108;
+            this.pbStorageArrow9.TabStop = false;
+            this.pbStorageArrow9.Visible = false;
+            this.pbStorageArrow9.Click += new System.EventHandler(this.pbStorageArrow9_Click);
             // 
             // Farmio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1300, 800);
+            this.Controls.Add(this.pbStorageArrow09);
+            this.Controls.Add(this.pbStorageArrow9);
+            this.Controls.Add(this.pbStorageArrow07);
+            this.Controls.Add(this.pbStorageArrow7);
+            this.Controls.Add(this.pbStorageArrow05);
+            this.Controls.Add(this.pbStorageArrow5);
+            this.Controls.Add(this.pbStorageArrow03);
+            this.Controls.Add(this.pbStorageArrow3);
+            this.Controls.Add(this.pbStorageArrow01);
+            this.Controls.Add(this.pbStorageArrow1);
+            this.Controls.Add(this.pbStorageArrow010);
+            this.Controls.Add(this.pbStorageArrow08);
+            this.Controls.Add(this.pbStorageArrow06);
+            this.Controls.Add(this.pbStorageArrow04);
+            this.Controls.Add(this.pbStorageArrow02);
+            this.Controls.Add(this.pbStorageArrow10);
+            this.Controls.Add(this.pbStorageArrow8);
+            this.Controls.Add(this.pbStorageArrow6);
+            this.Controls.Add(this.pbStorageArrow4);
+            this.Controls.Add(this.pbStorageArrow2);
+            this.Controls.Add(this.StorageNumOfItem2);
+            this.Controls.Add(this.StorageNumOfItem4);
+            this.Controls.Add(this.StorageNumOfItem6);
+            this.Controls.Add(this.StorageNumOfItem8);
+            this.Controls.Add(this.StorageNumOfItem10);
+            this.Controls.Add(this.StorageNumOfItem9);
+            this.Controls.Add(this.StorageNumOfItem7);
+            this.Controls.Add(this.StorageNumOfItem5);
+            this.Controls.Add(this.StorageNumOfItem3);
+            this.Controls.Add(this.StorageNumOfItem1);
+            this.Controls.Add(this.lblStorageItem1);
             this.Controls.Add(this.lblStorageItem10);
             this.Controls.Add(this.lblStorageItem8);
             this.Controls.Add(this.lblStorageItem6);
@@ -987,7 +1589,16 @@
             this.Controls.Add(this.lblStorageItem7);
             this.Controls.Add(this.lblStorageItem5);
             this.Controls.Add(this.lblStorageItem3);
-            this.Controls.Add(this.lblStorageItem1);
+            this.Controls.Add(this.pbInventoryArrow05);
+            this.Controls.Add(this.pbInventoryArrow04);
+            this.Controls.Add(this.pbInventoryArrow03);
+            this.Controls.Add(this.pbInventoryArrow02);
+            this.Controls.Add(this.pbInventoryArrow01);
+            this.Controls.Add(this.pbInventoryArrow5);
+            this.Controls.Add(this.pbInventoryArrow4);
+            this.Controls.Add(this.pbInventoryArrow3);
+            this.Controls.Add(this.pbInventoryArrow2);
+            this.Controls.Add(this.pbInventoryArrow1);
             this.Controls.Add(this.pbStorageIsOpen);
             this.Controls.Add(this.lblInventoryPlus);
             this.Controls.Add(this.pbGoToSleep);
@@ -1051,6 +1662,26 @@
             this.Name = "Farmio";
             this.Text = "Farmio";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow010)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow08)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow06)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow04)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow02)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryArrow05)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryArrow04)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryArrow03)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryArrow02)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryArrow01)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryArrow5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryArrow4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryArrow3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryArrow2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryArrow1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStorageIsOpen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGoToSleep)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStorage)).EndInit();
@@ -1083,6 +1714,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbNameFon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHero)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow01)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow03)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow05)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow07)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow09)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow9)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1160,6 +1801,46 @@
         private System.Windows.Forms.Label lblStorageItem6;
         private System.Windows.Forms.Label lblStorageItem8;
         private System.Windows.Forms.Label lblStorageItem10;
+        private System.Windows.Forms.PictureBox pbInventoryArrow1;
+        private System.Windows.Forms.PictureBox pbInventoryArrow2;
+        private System.Windows.Forms.PictureBox pbInventoryArrow3;
+        private System.Windows.Forms.PictureBox pbInventoryArrow4;
+        private System.Windows.Forms.PictureBox pbInventoryArrow5;
+        private System.Windows.Forms.PictureBox pbInventoryArrow01;
+        private System.Windows.Forms.PictureBox pbInventoryArrow02;
+        private System.Windows.Forms.PictureBox pbInventoryArrow03;
+        private System.Windows.Forms.PictureBox pbInventoryArrow04;
+        private System.Windows.Forms.PictureBox pbInventoryArrow05;
+        private System.Windows.Forms.Label StorageNumOfItem1;
+        private System.Windows.Forms.Label StorageNumOfItem3;
+        private System.Windows.Forms.Label StorageNumOfItem5;
+        private System.Windows.Forms.Label StorageNumOfItem7;
+        private System.Windows.Forms.Label StorageNumOfItem9;
+        private System.Windows.Forms.Label StorageNumOfItem10;
+        private System.Windows.Forms.Label StorageNumOfItem8;
+        private System.Windows.Forms.Label StorageNumOfItem6;
+        private System.Windows.Forms.Label StorageNumOfItem4;
+        private System.Windows.Forms.Label StorageNumOfItem2;
+        private System.Windows.Forms.PictureBox pbStorageArrow2;
+        private System.Windows.Forms.PictureBox pbStorageArrow4;
+        private System.Windows.Forms.PictureBox pbStorageArrow6;
+        private System.Windows.Forms.PictureBox pbStorageArrow8;
+        private System.Windows.Forms.PictureBox pbStorageArrow10;
+        private System.Windows.Forms.PictureBox pbStorageArrow02;
+        private System.Windows.Forms.PictureBox pbStorageArrow04;
+        private System.Windows.Forms.PictureBox pbStorageArrow06;
+        private System.Windows.Forms.PictureBox pbStorageArrow08;
+        private System.Windows.Forms.PictureBox pbStorageArrow010;
+        private System.Windows.Forms.PictureBox pbStorageArrow01;
+        private System.Windows.Forms.PictureBox pbStorageArrow1;
+        private System.Windows.Forms.PictureBox pbStorageArrow03;
+        private System.Windows.Forms.PictureBox pbStorageArrow3;
+        private System.Windows.Forms.PictureBox pbStorageArrow05;
+        private System.Windows.Forms.PictureBox pbStorageArrow5;
+        private System.Windows.Forms.PictureBox pbStorageArrow07;
+        private System.Windows.Forms.PictureBox pbStorageArrow7;
+        private System.Windows.Forms.PictureBox pbStorageArrow09;
+        private System.Windows.Forms.PictureBox pbStorageArrow9;
     }
 }
 

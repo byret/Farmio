@@ -32,13 +32,15 @@ namespace Farmio
         List<Label> inventoryLabels = new List<Label>();
         List<Label> storageLabels = new List<Label>();
         List<PictureBox> inventoryIcons = new List<PictureBox>();
+        List<PictureBox> StorageIcons = new List<PictureBox>();
         List<Image> windows = new List<Image>();
         int hour;
         int minutes;
         System.Windows.Forms.Timer TimeOfDayTimer = new System.Windows.Forms.Timer();
         System.Windows.Forms.Timer InventoryPlusTimer = new System.Windows.Forms.Timer();
         int windowFrame = 0;
-
+        bool StorageIsOpen = false;
+        Map.MapMainPoint.Building BuildingToAddIn;
 
         public Farmio()
         {
@@ -79,6 +81,16 @@ namespace Farmio
             inventoryIcons.Add(useIcon3);
             inventoryIcons.Add(useIcon4);
             inventoryIcons.Add(useIcon5);
+            inventoryIcons.Add(pbInventoryArrow1);
+            inventoryIcons.Add(pbInventoryArrow2);
+            inventoryIcons.Add(pbInventoryArrow3);
+            inventoryIcons.Add(pbInventoryArrow4);
+            inventoryIcons.Add(pbInventoryArrow5);
+            inventoryIcons.Add(pbInventoryArrow01);
+            inventoryIcons.Add(pbInventoryArrow02);
+            inventoryIcons.Add(pbInventoryArrow03);
+            inventoryIcons.Add(pbInventoryArrow04);
+            inventoryIcons.Add(pbInventoryArrow05);
             storageLabels.Add(lblStorageItem1);
             storageLabels.Add(lblStorageItem2);
             storageLabels.Add(lblStorageItem3);
@@ -89,6 +101,36 @@ namespace Farmio
             storageLabels.Add(lblStorageItem8);
             storageLabels.Add(lblStorageItem9);
             storageLabels.Add(lblStorageItem10);
+            storageLabels.Add(StorageNumOfItem1);
+            storageLabels.Add(StorageNumOfItem2);
+            storageLabels.Add(StorageNumOfItem3);
+            storageLabels.Add(StorageNumOfItem4);
+            storageLabels.Add(StorageNumOfItem5);
+            storageLabels.Add(StorageNumOfItem6);
+            storageLabels.Add(StorageNumOfItem7);
+            storageLabels.Add(StorageNumOfItem8);
+            storageLabels.Add(StorageNumOfItem9);
+            storageLabels.Add(StorageNumOfItem10);
+            StorageIcons.Add(pbStorageArrow1);
+            StorageIcons.Add(pbStorageArrow2);
+            StorageIcons.Add(pbStorageArrow3);
+            StorageIcons.Add(pbStorageArrow4);
+            StorageIcons.Add(pbStorageArrow5);
+            StorageIcons.Add(pbStorageArrow6);
+            StorageIcons.Add(pbStorageArrow7);
+            StorageIcons.Add(pbStorageArrow8);
+            StorageIcons.Add(pbStorageArrow9);
+            StorageIcons.Add(pbStorageArrow10);
+            StorageIcons.Add(pbStorageArrow01);
+            StorageIcons.Add(pbStorageArrow02);
+            StorageIcons.Add(pbStorageArrow03);
+            StorageIcons.Add(pbStorageArrow04);
+            StorageIcons.Add(pbStorageArrow05);
+            StorageIcons.Add(pbStorageArrow06);
+            StorageIcons.Add(pbStorageArrow07);
+            StorageIcons.Add(pbStorageArrow08);
+            StorageIcons.Add(pbStorageArrow09);
+            StorageIcons.Add(pbStorageArrow010);
             pbFon.Image = map.DrawMap();
 
             for (int i = 1; i <= 20; i++)
@@ -124,8 +166,8 @@ namespace Farmio
             Window.Parent = pbFon;
             pbHero.Parent = Window;
 
-            foreach (Label label in storageLabels)
-                label.Parent = pbStorageIsOpen;
+            //foreach (Label label in storageLabels)
+               // label.Parent = pbStorageIsOpen;
         }
 
         void musicTimer_Tick(object sender, EventArgs e)
@@ -451,6 +493,8 @@ namespace Farmio
         {
             if (pbInventoryOpen.Visible)
                 InventoryClose();
+            if (pbStorageIsOpen.Visible)
+                StorageClose();
             else if (start && longRunningTask.IsCompleted)
             {
                 ClickX = e.X;
@@ -949,13 +993,13 @@ namespace Farmio
 
         private void InventoryLoad()
         {
+            InventoryClose();
             pbInventoryOpen.Visible = true;
             int i = 0;
             foreach (Item item in hero.Inventory)
             {
                 if (item.Number == 0)
                     continue;
-                item1ThrowAway.Visible = true;
                 if (item.Number == 1)
                     inventoryLabels[i].Text = item.Name;
                 else
@@ -963,9 +1007,17 @@ namespace Farmio
                 inventoryLabels[i].Visible = true;
                 inventoryLabels[i + 5].Text = " " + item.Number.ToString();
                 inventoryLabels[i + 5].Visible = true;
-                inventoryIcons[i].Visible = true;
-                if (item.IsUsable)
-                    inventoryIcons[i + 5].Visible = true;
+                if (!StorageIsOpen)
+                {
+                    inventoryIcons[i].Visible = true;
+                    if (item.IsUsable)
+                        inventoryIcons[i + 5].Visible = true;
+                }
+                else
+                {
+                    inventoryIcons[i + 10].Visible = true;
+                    inventoryIcons[i + 15].Visible = true;
+                }
 
                 i++;
                 if (i > 4)
@@ -984,47 +1036,52 @@ namespace Farmio
 
         private void item1ThrowAway_Click(object sender, EventArgs e)
         {
-            RemoveItem(0);
+            RemoveItemFromInventory(0, 1);
         }
 
         private void item2ThrowAway_Click(object sender, EventArgs e)
         {
-            RemoveItem(1);
+            RemoveItemFromInventory(1, 1);
         }
 
-        private void item3ThrowAway_Click(object sender, EventArgs e)
+            private void item3ThrowAway_Click(object sender, EventArgs e)
         {
-            RemoveItem(2);
+            RemoveItemFromInventory(2, 1);
         }
 
         private void item4ThrowAway_Click(object sender, EventArgs e)
         {
-            RemoveItem(3);
+            RemoveItemFromInventory(3, 1);
         }
 
         private void item5ThrowAway_Click(object sender, EventArgs e)
         {
-            RemoveItem(4);
+            RemoveItemFromInventory(4, 1);
         }
 
-        public void RemoveItem(int n)
+        public Item RemoveItemFromInventory(int n, int i)
         {
+            Item itemTmp2 = new Item();
             foreach (Item item in hero.Inventory)
             {
                 if (item.Name == inventoryLabels[n].Text || item.NamePlural == inventoryLabels[n].Text)
                 {
-                    item.Number--;
-                    if (item.Number == 0)
+                    item.Number -= i;
+                    if (item.Number <= 0)
                     {
                         hero.Inventory.Remove(item);
                         hero.NumOfItemsInInventory--;
-                        InventoryClose();
                     }
-                    InventoryLoad();
-                    break;
+                    InventoryLoad(); 
+                    object o = item.Clone();
+                    Item itemTmp = (Item)o;
+                    itemTmp.Number = i;
+                    return itemTmp;
                 }
             }
+            return itemTmp2;
         }
+
         public void Eat(Item.Food food, int n)
         {
             if (food.Energy < 0)
@@ -1048,8 +1105,8 @@ namespace Farmio
             }
             lblEnergy.Text = hero.Energy.ToString() + "/200";
             lblSaturation.Text = hero.Saturation.ToString() + "/100";
-            RemoveItem(n);
-        }
+            RemoveItemFromInventory(n, 1);
+            }
 
         private void useIcon1_Click(object sender, EventArgs e)
         {
@@ -1129,7 +1186,7 @@ namespace Farmio
                 hero.Energy = 200;
             lblEnergy.Text = hero.Energy.ToString() + "/200";
             hour = 8;
-            minutes = 0;
+            minutes = 15;
             TimeOfDayTimer.Start();
         }
 
@@ -1190,23 +1247,395 @@ namespace Farmio
         {
             pbGoToSleep.Visible = false;
             pbStorage.Visible = false;
-            int x = map.mapTab[ClickX, ClickY].X + 48;
-            int y = map.mapTab[ClickX, ClickY].Y + 84;
-            longRunningTask = HeroMoveHere(x, y, 0);
+            int x = map.mapTab[ClickX, ClickY].X;
+            int y = map.mapTab[ClickX, ClickY].Y;
+            longRunningTask = HeroMoveHere(x + 48, y + 84, 0);
             int result = await longRunningTask;
+            BuildingToAddIn = (Map.MapMainPoint.Building)map.mapTab[x, y];
             StorageLoad();
         }
 
         private void StorageLoad()
         {
-            InventoryLoad();
-            int i = 0;
+            StorageClose();
+            StorageIsOpen = true;
             pbStorageIsOpen.Visible = true;
+            int i = 0;
+            foreach (Item item in BuildingToAddIn.Storage)
+            {
+                if (item.Number == 0)
+                    continue;
+                StorageIcons[i].Visible = true;
+                StorageIcons[i].BringToFront();
+                StorageIcons[i + 10].Visible = true;
+                StorageIcons[i + 10].BringToFront();
+                storageLabels[i].Text = (item.Number == 1) ? item.Name : item.NamePlural;
+                storageLabels[i].Visible = true;
+                storageLabels[i].BringToFront();
+                storageLabels[i + 10].Text = item.Number.ToString();
+                storageLabels[i + 10].Visible = true;
+                storageLabels[i + 10].BringToFront();
+                i++;
+            }
+            InventoryLoad();
+
+        }
+        private void StorageClose()
+        {
+            StorageIsOpen = false;
+            int i = 0;
             foreach (Label label in storageLabels)
             {
-
+                Console.WriteLine(label.Text.Length);
+                if (label.Text.Length == 0)
+                    break;
+                StorageIcons[i].Visible = false;
+                StorageIcons[i + 10].Visible = false;
+                label.Visible = false;
+                storageLabels[i + 10].Visible = false;
+                i++;
             }
+
+            pbStorageIsOpen.Visible = false;
         }
 
+        private void AddToStorage(Item ItemToAdd)
+        {
+            if (ItemToAdd.Number != 0)
+                BuildingToAddIn.AddToStorage(ItemToAdd);
+            int i = 0;
+            foreach (Item item in BuildingToAddIn.Storage)
+            {
+                storageLabels[i].Text = (item.Number == 1) ? item.Name : item.NamePlural; 
+                i++;
+            }
+            StorageLoad();
+        }
+
+        private void pbInventoryArrow01_Click(object sender, EventArgs e)
+        {
+            if (!IsStorageFull(0, 1))
+                AddToStorage (RemoveItemFromInventory(0, 1));
+        }
+
+        private void pbInventoryArrow02_Click(object sender, EventArgs e)
+        {
+            if (!IsStorageFull(1, 1))
+                AddToStorage(RemoveItemFromInventory(1, 1));
+            }
+
+        private void pbInventoryArrow03_Click(object sender, EventArgs e)
+        {
+            if (!IsStorageFull(2, 1))
+                AddToStorage(RemoveItemFromInventory(2, 1));
+            }
+
+        private void pbInventoryArrow04_Click(object sender, EventArgs e)
+        {
+            if (!IsStorageFull(3, 1))
+                AddToStorage(RemoveItemFromInventory(3, 1));
+            }
+
+        private void pbInventoryArrow05_Click(object sender, EventArgs e)
+        {
+            if (!IsStorageFull(4, 1))
+                AddToStorage(RemoveItemFromInventory(4, 1));
+            }
+
+        private void pbInventoryArrow1_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(item1NumberOf.Text);
+            if (n > 10)
+                n = 10;
+
+            if (!IsStorageFull(0, n))
+                AddToStorage(RemoveItemFromInventory(0, n));
+            }
+
+        private void pbInventoryArrow2_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(item2NumberOf.Text);
+            if (n > 10)
+                n = 10;
+
+            if (!IsStorageFull(1, n))
+                AddToStorage(RemoveItemFromInventory(1, n));
+            }
+
+        private void pbInventoryArrow3_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(item3NumberOf.Text);
+            if (n > 10)
+                n = 10;
+
+            if (!IsStorageFull(2, n))
+                AddToStorage(RemoveItemFromInventory(2, n));
+            }
+
+        private void pbInventoryArrow4_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(item4NumberOf.Text);
+            if (n > 10)
+                n = 10;
+
+            if (!IsStorageFull(3, n))
+                AddToStorage(RemoveItemFromInventory(3, n));
+        }
+
+        private void pbInventoryArrow5_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(item5NumberOf.Text);
+            if (n > 10)
+                n = 10;
+
+            if (!IsStorageFull(4, n))
+                AddToStorage(RemoveItemFromInventory(4, n));
+        }
+
+        private bool IsStorageFull(int n, int i)
+        {
+            if (BuildingToAddIn.NumOfItemsInStorage < 10)
+                return false; 
+
+            foreach (Item item in BuildingToAddIn.Storage)
+                if (item.Name == inventoryLabels[n].Text || item.NamePlural == inventoryLabels[n].Text)
+                    if (item.Number < 99 - i)
+                        return false;
+            return true;
+        }
+
+        private bool IsInventoryFull(int n, int i)
+        {
+            if (hero.NumOfItemsInInventory < 5)
+                return false;
+
+            foreach (Item item in hero.Inventory)
+                if (item.Name == storageLabels[n].Text || item.NamePlural == storageLabels[n].Text)
+                    if (item.Number < 99 - i)
+                        return false;
+            return true;
+        }
+
+        private Item RemoveItemFromStorage(int n, int i)
+        {
+            Item itemTmp2 = new Item();
+            foreach (Item item in BuildingToAddIn.Storage)
+            {
+                if (item.Name == storageLabels[n].Text || item.NamePlural == storageLabels[n].Text)
+                {
+                    item.Number -= i;
+                    if (item.Number <= 0)
+                    {
+                        BuildingToAddIn.Storage.Remove(item);
+                        BuildingToAddIn.NumOfItemsInStorage--;
+                    }
+                    object o = item.Clone();
+                    Item itemTmp = (Item)o;
+                    itemTmp.Number = i;
+                    return itemTmp;
+                }
+            }
+            return itemTmp2;
+        }
+
+        private void pbStorageArrow01_Click(object sender, EventArgs e)
+        {
+            if (!IsInventoryFull(0, 1))
+                hero.addToInventory(RemoveItemFromStorage(0, 1));
+            InventoryLoad();
+            StorageLoad();
+        }
+
+        private void pbStorageArrow02_Click(object sender, EventArgs e)
+        {
+            if (!IsInventoryFull(1, 1))
+                hero.addToInventory(RemoveItemFromStorage(1, 1));
+            InventoryLoad();
+            StorageLoad();
+        }
+
+        private void pbStorageArrow03_Click(object sender, EventArgs e)
+        {
+            if (!IsInventoryFull(2, 1))
+                hero.addToInventory(RemoveItemFromStorage(2, 1));
+            InventoryLoad();
+            StorageLoad();
+        }
+
+        private void pbStorageArrow04_Click(object sender, EventArgs e)
+        {
+            if (!IsInventoryFull(3, 1))
+                hero.addToInventory(RemoveItemFromStorage(1, 1));
+            InventoryLoad();
+            StorageLoad();
+        }
+
+        private void pbStorageArrow05_Click(object sender, EventArgs e)
+        {
+            if (!IsInventoryFull(4, 1))
+                hero.addToInventory(RemoveItemFromStorage(4, 1));
+            InventoryLoad();
+            StorageLoad();
+        }
+
+        private void pbStorageArrow06_Click(object sender, EventArgs e)
+        {
+            if (!IsInventoryFull(5, 1))
+                hero.addToInventory(RemoveItemFromStorage(5, 1));
+            InventoryLoad();
+            StorageLoad();
+        }
+
+        private void pbStorageArrow07_Click(object sender, EventArgs e)
+        {
+            if (!IsInventoryFull(6, 1))
+                hero.addToInventory(RemoveItemFromStorage(6, 1));
+            InventoryLoad();
+            StorageLoad();
+        }
+
+        private void pbStorageArrow08_Click(object sender, EventArgs e)
+        {
+            if (!IsInventoryFull(7, 1))
+                hero.addToInventory(RemoveItemFromStorage(7, 1));
+            InventoryLoad();
+            StorageLoad();
+        }
+
+        private void pbStorageArrow09_Click(object sender, EventArgs e)
+        {
+            if (!IsInventoryFull(8, 1))
+                hero.addToInventory(RemoveItemFromStorage(8, 1));
+            InventoryLoad();
+            StorageLoad();
+        }
+
+        private void pbStorageArrow010_Click(object sender, EventArgs e)
+        {
+            if (!IsInventoryFull(9, 1))
+                hero.addToInventory(RemoveItemFromStorage(9, 1));
+            InventoryLoad();
+            StorageLoad();
+        }
+
+        private void pbStorageArrow1_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(StorageNumOfItem1.Text);
+            if (n > 10)
+                n = 10;
+
+            if (!IsInventoryFull(0, n))
+                hero.addToInventory(RemoveItemFromStorage(0, n));
+            InventoryLoad();
+            StorageLoad();
+        }
+
+        private void pbStorageArrow2_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(StorageNumOfItem2.Text);
+            if (n > 10)
+                n = 10;
+
+            if (!IsInventoryFull(1, n))
+                hero.addToInventory(RemoveItemFromStorage(1, n));
+            InventoryLoad();
+            StorageLoad();
+        }
+
+        private void pbStorageArrow3_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(StorageNumOfItem3.Text);
+            if (n > 10)
+                n = 10;
+
+            if (!IsInventoryFull(2, n))
+                hero.addToInventory(RemoveItemFromStorage(2, n));
+            InventoryLoad();
+            StorageLoad();
+        }
+
+        private void pbStorageArrow4_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(StorageNumOfItem4.Text);
+            if (n > 10)
+                n = 10;
+
+            if (!IsInventoryFull(3, n))
+                hero.addToInventory(RemoveItemFromStorage(3, n));
+            InventoryLoad();
+            StorageLoad();
+        }
+
+        private void pbStorageArrow5_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(StorageNumOfItem5.Text);
+            if (n > 10)
+                n = 10;
+
+            if (!IsInventoryFull(4, n))
+                hero.addToInventory(RemoveItemFromStorage(4, n));
+            InventoryLoad();
+            StorageLoad();
+        }
+
+        private void pbStorageArrow6_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(StorageNumOfItem6.Text);
+            if (n > 10)
+                n = 10;
+
+            if (!IsInventoryFull(5, n))
+                hero.addToInventory(RemoveItemFromStorage(5, n));
+            InventoryLoad();
+            StorageLoad();
+        }
+
+        private void pbStorageArrow7_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(StorageNumOfItem7.Text);
+            if (n > 10)
+                n = 10;
+
+            if (!IsInventoryFull(6, n))
+                hero.addToInventory(RemoveItemFromStorage(6, n));
+            InventoryLoad();
+            StorageLoad();
+        }
+
+        private void pbStorageArrow8_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(StorageNumOfItem8.Text);
+            if (n > 10)
+                n = 10;
+
+            if (!IsInventoryFull(7, n))
+                hero.addToInventory(RemoveItemFromStorage(7, n));
+            InventoryLoad();
+            StorageLoad();
+        }
+
+        private void pbStorageArrow9_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(StorageNumOfItem9.Text);
+            if (n > 10)
+                n = 10;
+
+            if (!IsInventoryFull(8, n))
+                hero.addToInventory(RemoveItemFromStorage(8, n));
+            InventoryLoad();
+            StorageLoad();
+        }
+
+        private void pbStorageArrow10_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(StorageNumOfItem10.Text);
+            if (n > 10)
+                n = 10;
+
+            if (!IsInventoryFull(9, n))
+                hero.addToInventory(RemoveItemFromStorage(9, n));
+            InventoryLoad();
+            StorageLoad();
+        }
     }
 }

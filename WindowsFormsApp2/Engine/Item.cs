@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Engine
 {
-    public class Item
+    public class Item : ICloneable
     {
      //   public int ID { get; set; }
         public string Name { get; set; }
@@ -15,9 +15,19 @@ namespace Engine
         public int Number { get; set; }
         public bool IsUsable;
 
-        public Item(int number)
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
+
+        public Item(int number = 0)
         {
             Number = number;
+            IsUsable = false;
+        }
+        public Item()
+        {
+            Number = 0;
             IsUsable = false;
         }
 

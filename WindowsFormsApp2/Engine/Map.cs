@@ -256,16 +256,45 @@ namespace Engine
 
             public class Building : MapMainPoint   // 'p'
             {
+                public List<Item> Storage = new List<Item>();
+                public int NumOfItemsInStorage;
                 public Building(int x, int y, string name, int Width, int Height, Bitmap bm, Map map)
                     : base(x, y, name, Width, Height, bm)
                 {
-                    map.Fill(x, y, Width, Height, 0, 94, 0, 84);                   
+                    map.Fill(x, y, Width, Height, 0, 94, 0, 84);
+                    NumOfItemsInStorage = 0;
                 }
 
                 public void DestroyBuilding(Map map)
                 {
                     Bitmap = null;
                     map.reFill(X, Y, Width, Height);                   
+                }
+
+                public int AddToStorage(Item item)
+                {
+                    bool isInStorage = false;
+                    foreach (Item it in this.Storage)
+                    {
+                        if (it.GetType() == item.GetType())
+                        {
+                            isInStorage = true;
+                            it.Number += item.Number;
+                            break;
+                        }
+                    }
+
+                    if (!isInStorage)
+                    {
+                        if (NumOfItemsInStorage < 10)
+                        {
+                            NumOfItemsInStorage++;
+                            Storage.Add(item);
+                        }
+                        else return 1000;
+                    }
+
+                    return 0;
                 }
             }
 
