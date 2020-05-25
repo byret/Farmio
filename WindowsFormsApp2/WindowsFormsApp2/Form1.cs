@@ -142,7 +142,7 @@ namespace Farmio
             pbHero.Image = (Image)hero.Sprite[4];
             pbHero.Location = new Point(hero.x, hero.y);
             pictureBox1.Image = (Bitmap)global::WindowsFormsApp2.Properties.Resources.ResourceManager.GetObject(SomeFunctions.MainPictureRandomize());
-            string startupPath = System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\", SomeFunctions.MusicRandomize());
+           // string startupPath = System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\", SomeFunctions.MusicRandomize());
             //SoundPlay(startupPath);
             lblGold.Text = hero.Gold.ToString();
             lblEpoch.Text = hero.Level.ToString();
