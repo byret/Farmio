@@ -165,9 +165,6 @@ namespace Farmio
             lblInventory.Parent = lblGold.Parent = lblEpoch.Parent = lblEnergy.Parent = lblSaturation.Parent = lblHour.Parent = label1.Parent = label2.Parent = label3.Parent = label4.Parent = label5.Parent = lblInventoryPlus.Parent = pbGLEF;
             Window.Parent = pbFon;
             pbHero.Parent = Window;
-
-            //foreach (Label label in storageLabels)
-               // label.Parent = pbStorageIsOpen;
         }
 
         void musicTimer_Tick(object sender, EventArgs e)
