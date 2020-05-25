@@ -31,6 +31,31 @@ namespace Engine
             IsUsable = false;
         }
 
+        public class CraftableItem : Item
+        {
+            public List<Item> ItemsNeededForCraft = new List<Item>();
+            public CraftableItem(int number)
+                : base(number)
+            {
+                
+            }
+                
+        }
+
+        public class Shovel : CraftableItem
+        {
+            public Shovel(int number)
+                : base(number)
+            {
+                Name = "Łopata";
+                NamePlural = "Łopaty";
+                Item.Wood Wood = new Item.Wood(3);
+                Item.Stone Stone = new Item.Stone(2);
+                ItemsNeededForCraft.Add(Wood);
+                ItemsNeededForCraft.Add(Stone);
+            }
+        }
+
         public class Wood : Item
         {
             public Wood(int number)
