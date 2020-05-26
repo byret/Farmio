@@ -79,6 +79,21 @@
             this.StorageNumOfItem6 = new System.Windows.Forms.Label();
             this.StorageNumOfItem4 = new System.Windows.Forms.Label();
             this.StorageNumOfItem2 = new System.Windows.Forms.Label();
+            this.pbInventoryAnvil1 = new System.Windows.Forms.PictureBox();
+            this.pbCraftingResult = new System.Windows.Forms.PictureBox();
+            this.pbCraftingArrow = new System.Windows.Forms.PictureBox();
+            this.pbCraftingTable = new System.Windows.Forms.PictureBox();
+            this.pbCraftSmth = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow09 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow9 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow07 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow7 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow05 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow5 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow03 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow3 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow01 = new System.Windows.Forms.PictureBox();
+            this.pbStorageArrow1 = new System.Windows.Forms.PictureBox();
             this.pbStorageArrow010 = new System.Windows.Forms.PictureBox();
             this.pbStorageArrow08 = new System.Windows.Forms.PictureBox();
             this.pbStorageArrow06 = new System.Windows.Forms.PictureBox();
@@ -131,16 +146,48 @@
             this.pbNameFon = new System.Windows.Forms.PictureBox();
             this.pbFon = new System.Windows.Forms.PictureBox();
             this.pbHero = new System.Windows.Forms.PictureBox();
-            this.pbStorageArrow01 = new System.Windows.Forms.PictureBox();
-            this.pbStorageArrow1 = new System.Windows.Forms.PictureBox();
-            this.pbStorageArrow03 = new System.Windows.Forms.PictureBox();
-            this.pbStorageArrow3 = new System.Windows.Forms.PictureBox();
-            this.pbStorageArrow05 = new System.Windows.Forms.PictureBox();
-            this.pbStorageArrow5 = new System.Windows.Forms.PictureBox();
-            this.pbStorageArrow07 = new System.Windows.Forms.PictureBox();
-            this.pbStorageArrow7 = new System.Windows.Forms.PictureBox();
-            this.pbStorageArrow09 = new System.Windows.Forms.PictureBox();
-            this.pbStorageArrow9 = new System.Windows.Forms.PictureBox();
+            this.pbInventoryAnvil2 = new System.Windows.Forms.PictureBox();
+            this.pbInventoryAnvil3 = new System.Windows.Forms.PictureBox();
+            this.pbInventoryAnvil4 = new System.Windows.Forms.PictureBox();
+            this.pbInventoryAnvil5 = new System.Windows.Forms.PictureBox();
+            this.pbStorageAnvil2 = new System.Windows.Forms.PictureBox();
+            this.pbStorageAnvil3 = new System.Windows.Forms.PictureBox();
+            this.pbStorageAnvil6 = new System.Windows.Forms.PictureBox();
+            this.pbStorageAnvil7 = new System.Windows.Forms.PictureBox();
+            this.pbStorageAnvil10 = new System.Windows.Forms.PictureBox();
+            this.pbStorageAnvil1 = new System.Windows.Forms.PictureBox();
+            this.pbStorageAnvil4 = new System.Windows.Forms.PictureBox();
+            this.pbStorageAnvil5 = new System.Windows.Forms.PictureBox();
+            this.pbStorageAnvil8 = new System.Windows.Forms.PictureBox();
+            this.pbStorageAnvil9 = new System.Windows.Forms.PictureBox();
+            this.lblCraftingItem1 = new System.Windows.Forms.Label();
+            this.lblCraftingItem4 = new System.Windows.Forms.Label();
+            this.lblCraftingItem2 = new System.Windows.Forms.Label();
+            this.lblCraftingItem3 = new System.Windows.Forms.Label();
+            this.pbCraftingItem1 = new System.Windows.Forms.PictureBox();
+            this.pbCraftingItem3 = new System.Windows.Forms.PictureBox();
+            this.pbCraftingItem2 = new System.Windows.Forms.PictureBox();
+            this.pbCraftingItem4 = new System.Windows.Forms.PictureBox();
+            this.CraftingNumOfItem1 = new System.Windows.Forms.Label();
+            this.CraftingNumOfItem2 = new System.Windows.Forms.Label();
+            this.CraftingNumOfItem3 = new System.Windows.Forms.Label();
+            this.CraftingNumOfItem4 = new System.Windows.Forms.Label();
+            this.lblCraftableItem = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingResult)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingArrow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftSmth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow09)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow07)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow05)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow03)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow01)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow010)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow08)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow06)).BeginInit();
@@ -193,16 +240,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbNameFon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHero)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow01)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow03)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow05)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow07)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow09)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -772,6 +827,191 @@
             this.StorageNumOfItem2.TabIndex = 89;
             this.StorageNumOfItem2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.StorageNumOfItem2.Visible = false;
+            // 
+            // pbInventoryAnvil1
+            // 
+            this.pbInventoryAnvil1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventoryAnvil1.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
+            this.pbInventoryAnvil1.Location = new System.Drawing.Point(150, 196);
+            this.pbInventoryAnvil1.Name = "pbInventoryAnvil1";
+            this.pbInventoryAnvil1.Size = new System.Drawing.Size(21, 14);
+            this.pbInventoryAnvil1.TabIndex = 114;
+            this.pbInventoryAnvil1.TabStop = false;
+            this.pbInventoryAnvil1.Visible = false;
+            this.pbInventoryAnvil1.Click += new System.EventHandler(this.pbInventoryAnvil1_Click);
+            // 
+            // pbCraftingResult
+            // 
+            this.pbCraftingResult.Image = global::WindowsFormsApp2.Properties.Resources.CraftingResult;
+            this.pbCraftingResult.Location = new System.Drawing.Point(539, 590);
+            this.pbCraftingResult.Name = "pbCraftingResult";
+            this.pbCraftingResult.Size = new System.Drawing.Size(170, 51);
+            this.pbCraftingResult.TabIndex = 113;
+            this.pbCraftingResult.TabStop = false;
+            this.pbCraftingResult.Visible = false;
+            // 
+            // pbCraftingArrow
+            // 
+            this.pbCraftingArrow.BackColor = System.Drawing.Color.Transparent;
+            this.pbCraftingArrow.Image = global::WindowsFormsApp2.Properties.Resources.CraftingArrow;
+            this.pbCraftingArrow.Location = new System.Drawing.Point(599, 534);
+            this.pbCraftingArrow.Name = "pbCraftingArrow";
+            this.pbCraftingArrow.Size = new System.Drawing.Size(50, 50);
+            this.pbCraftingArrow.TabIndex = 112;
+            this.pbCraftingArrow.TabStop = false;
+            this.pbCraftingArrow.Visible = false;
+            // 
+            // pbCraftingTable
+            // 
+            this.pbCraftingTable.Image = global::WindowsFormsApp2.Properties.Resources.Craft;
+            this.pbCraftingTable.Location = new System.Drawing.Point(455, 430);
+            this.pbCraftingTable.Name = "pbCraftingTable";
+            this.pbCraftingTable.Size = new System.Drawing.Size(336, 98);
+            this.pbCraftingTable.TabIndex = 111;
+            this.pbCraftingTable.TabStop = false;
+            this.pbCraftingTable.Visible = false;
+            // 
+            // pbCraftSmth
+            // 
+            this.pbCraftSmth.BackColor = System.Drawing.Color.Transparent;
+            this.pbCraftSmth.Image = global::WindowsFormsApp2.Properties.Resources.CraftSomething;
+            this.pbCraftSmth.Location = new System.Drawing.Point(906, 144);
+            this.pbCraftSmth.Name = "pbCraftSmth";
+            this.pbCraftSmth.Size = new System.Drawing.Size(131, 18);
+            this.pbCraftSmth.TabIndex = 110;
+            this.pbCraftSmth.TabStop = false;
+            this.pbCraftSmth.Visible = false;
+            this.pbCraftSmth.Click += new System.EventHandler(this.pbCraftSmth_Click);
+            // 
+            // pbStorageArrow09
+            // 
+            this.pbStorageArrow09.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow09.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow09.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow09.Image")));
+            this.pbStorageArrow09.Location = new System.Drawing.Point(477, 385);
+            this.pbStorageArrow09.Name = "pbStorageArrow09";
+            this.pbStorageArrow09.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow09.TabIndex = 109;
+            this.pbStorageArrow09.TabStop = false;
+            this.pbStorageArrow09.Visible = false;
+            this.pbStorageArrow09.Click += new System.EventHandler(this.pbStorageArrow09_Click);
+            // 
+            // pbStorageArrow9
+            // 
+            this.pbStorageArrow9.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow9.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow9.Image")));
+            this.pbStorageArrow9.Location = new System.Drawing.Point(460, 385);
+            this.pbStorageArrow9.Name = "pbStorageArrow9";
+            this.pbStorageArrow9.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow9.TabIndex = 108;
+            this.pbStorageArrow9.TabStop = false;
+            this.pbStorageArrow9.Visible = false;
+            this.pbStorageArrow9.Click += new System.EventHandler(this.pbStorageArrow9_Click);
+            // 
+            // pbStorageArrow07
+            // 
+            this.pbStorageArrow07.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow07.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow07.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow07.Image")));
+            this.pbStorageArrow07.Location = new System.Drawing.Point(477, 339);
+            this.pbStorageArrow07.Name = "pbStorageArrow07";
+            this.pbStorageArrow07.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow07.TabIndex = 107;
+            this.pbStorageArrow07.TabStop = false;
+            this.pbStorageArrow07.Visible = false;
+            this.pbStorageArrow07.Click += new System.EventHandler(this.pbStorageArrow07_Click);
+            // 
+            // pbStorageArrow7
+            // 
+            this.pbStorageArrow7.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow7.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow7.Image")));
+            this.pbStorageArrow7.Location = new System.Drawing.Point(460, 339);
+            this.pbStorageArrow7.Name = "pbStorageArrow7";
+            this.pbStorageArrow7.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow7.TabIndex = 106;
+            this.pbStorageArrow7.TabStop = false;
+            this.pbStorageArrow7.Visible = false;
+            this.pbStorageArrow7.Click += new System.EventHandler(this.pbStorageArrow7_Click);
+            // 
+            // pbStorageArrow05
+            // 
+            this.pbStorageArrow05.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow05.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow05.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow05.Image")));
+            this.pbStorageArrow05.Location = new System.Drawing.Point(477, 293);
+            this.pbStorageArrow05.Name = "pbStorageArrow05";
+            this.pbStorageArrow05.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow05.TabIndex = 105;
+            this.pbStorageArrow05.TabStop = false;
+            this.pbStorageArrow05.Visible = false;
+            this.pbStorageArrow05.Click += new System.EventHandler(this.pbStorageArrow05_Click);
+            // 
+            // pbStorageArrow5
+            // 
+            this.pbStorageArrow5.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow5.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow5.Image")));
+            this.pbStorageArrow5.Location = new System.Drawing.Point(460, 293);
+            this.pbStorageArrow5.Name = "pbStorageArrow5";
+            this.pbStorageArrow5.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow5.TabIndex = 104;
+            this.pbStorageArrow5.TabStop = false;
+            this.pbStorageArrow5.Visible = false;
+            this.pbStorageArrow5.Click += new System.EventHandler(this.pbStorageArrow5_Click);
+            // 
+            // pbStorageArrow03
+            // 
+            this.pbStorageArrow03.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow03.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow03.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow03.Image")));
+            this.pbStorageArrow03.Location = new System.Drawing.Point(477, 247);
+            this.pbStorageArrow03.Name = "pbStorageArrow03";
+            this.pbStorageArrow03.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow03.TabIndex = 103;
+            this.pbStorageArrow03.TabStop = false;
+            this.pbStorageArrow03.Visible = false;
+            this.pbStorageArrow03.Click += new System.EventHandler(this.pbStorageArrow03_Click);
+            // 
+            // pbStorageArrow3
+            // 
+            this.pbStorageArrow3.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow3.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow3.Image")));
+            this.pbStorageArrow3.Location = new System.Drawing.Point(460, 247);
+            this.pbStorageArrow3.Name = "pbStorageArrow3";
+            this.pbStorageArrow3.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow3.TabIndex = 102;
+            this.pbStorageArrow3.TabStop = false;
+            this.pbStorageArrow3.Visible = false;
+            this.pbStorageArrow3.Click += new System.EventHandler(this.pbStorageArrow3_Click);
+            // 
+            // pbStorageArrow01
+            // 
+            this.pbStorageArrow01.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow01.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow01.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow01.Image")));
+            this.pbStorageArrow01.Location = new System.Drawing.Point(477, 201);
+            this.pbStorageArrow01.Name = "pbStorageArrow01";
+            this.pbStorageArrow01.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow01.TabIndex = 101;
+            this.pbStorageArrow01.TabStop = false;
+            this.pbStorageArrow01.Visible = false;
+            this.pbStorageArrow01.Click += new System.EventHandler(this.pbStorageArrow01_Click);
+            // 
+            // pbStorageArrow1
+            // 
+            this.pbStorageArrow1.BackColor = System.Drawing.Color.Transparent;
+            this.pbStorageArrow1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageArrow1.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow1.Image")));
+            this.pbStorageArrow1.Location = new System.Drawing.Point(460, 201);
+            this.pbStorageArrow1.Name = "pbStorageArrow1";
+            this.pbStorageArrow1.Size = new System.Drawing.Size(14, 14);
+            this.pbStorageArrow1.TabIndex = 100;
+            this.pbStorageArrow1.TabStop = false;
+            this.pbStorageArrow1.Visible = false;
+            this.pbStorageArrow1.Click += new System.EventHandler(this.pbStorageArrow1_Click);
             // 
             // pbStorageArrow010
             // 
@@ -1414,141 +1654,371 @@
             this.pbHero.TabIndex = 25;
             this.pbHero.TabStop = false;
             // 
-            // pbStorageArrow01
+            // pbInventoryAnvil2
             // 
-            this.pbStorageArrow01.BackColor = System.Drawing.Color.Transparent;
-            this.pbStorageArrow01.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbStorageArrow01.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow01.Image")));
-            this.pbStorageArrow01.Location = new System.Drawing.Point(477, 201);
-            this.pbStorageArrow01.Name = "pbStorageArrow01";
-            this.pbStorageArrow01.Size = new System.Drawing.Size(14, 14);
-            this.pbStorageArrow01.TabIndex = 101;
-            this.pbStorageArrow01.TabStop = false;
-            this.pbStorageArrow01.Visible = false;
-            this.pbStorageArrow01.Click += new System.EventHandler(this.pbStorageArrow01_Click);
+            this.pbInventoryAnvil2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventoryAnvil2.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
+            this.pbInventoryAnvil2.Location = new System.Drawing.Point(150, 240);
+            this.pbInventoryAnvil2.Name = "pbInventoryAnvil2";
+            this.pbInventoryAnvil2.Size = new System.Drawing.Size(21, 14);
+            this.pbInventoryAnvil2.TabIndex = 115;
+            this.pbInventoryAnvil2.TabStop = false;
+            this.pbInventoryAnvil2.Visible = false;
+            this.pbInventoryAnvil2.Click += new System.EventHandler(this.pbInventoryAnvil2_Click);
             // 
-            // pbStorageArrow1
+            // pbInventoryAnvil3
             // 
-            this.pbStorageArrow1.BackColor = System.Drawing.Color.Transparent;
-            this.pbStorageArrow1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbStorageArrow1.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow1.Image")));
-            this.pbStorageArrow1.Location = new System.Drawing.Point(460, 201);
-            this.pbStorageArrow1.Name = "pbStorageArrow1";
-            this.pbStorageArrow1.Size = new System.Drawing.Size(14, 14);
-            this.pbStorageArrow1.TabIndex = 100;
-            this.pbStorageArrow1.TabStop = false;
-            this.pbStorageArrow1.Visible = false;
-            this.pbStorageArrow1.Click += new System.EventHandler(this.pbStorageArrow1_Click);
+            this.pbInventoryAnvil3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventoryAnvil3.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
+            this.pbInventoryAnvil3.Location = new System.Drawing.Point(150, 286);
+            this.pbInventoryAnvil3.Name = "pbInventoryAnvil3";
+            this.pbInventoryAnvil3.Size = new System.Drawing.Size(21, 14);
+            this.pbInventoryAnvil3.TabIndex = 116;
+            this.pbInventoryAnvil3.TabStop = false;
+            this.pbInventoryAnvil3.Visible = false;
+            this.pbInventoryAnvil3.Click += new System.EventHandler(this.pbInventoryAnvil3_Click);
             // 
-            // pbStorageArrow03
+            // pbInventoryAnvil4
             // 
-            this.pbStorageArrow03.BackColor = System.Drawing.Color.Transparent;
-            this.pbStorageArrow03.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbStorageArrow03.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow03.Image")));
-            this.pbStorageArrow03.Location = new System.Drawing.Point(477, 247);
-            this.pbStorageArrow03.Name = "pbStorageArrow03";
-            this.pbStorageArrow03.Size = new System.Drawing.Size(14, 14);
-            this.pbStorageArrow03.TabIndex = 103;
-            this.pbStorageArrow03.TabStop = false;
-            this.pbStorageArrow03.Visible = false;
-            this.pbStorageArrow03.Click += new System.EventHandler(this.pbStorageArrow03_Click);
+            this.pbInventoryAnvil4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventoryAnvil4.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
+            this.pbInventoryAnvil4.Location = new System.Drawing.Point(150, 339);
+            this.pbInventoryAnvil4.Name = "pbInventoryAnvil4";
+            this.pbInventoryAnvil4.Size = new System.Drawing.Size(21, 14);
+            this.pbInventoryAnvil4.TabIndex = 117;
+            this.pbInventoryAnvil4.TabStop = false;
+            this.pbInventoryAnvil4.Visible = false;
+            this.pbInventoryAnvil4.Click += new System.EventHandler(this.pbInventoryAnvil4_Click);
             // 
-            // pbStorageArrow3
+            // pbInventoryAnvil5
             // 
-            this.pbStorageArrow3.BackColor = System.Drawing.Color.Transparent;
-            this.pbStorageArrow3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbStorageArrow3.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow3.Image")));
-            this.pbStorageArrow3.Location = new System.Drawing.Point(460, 247);
-            this.pbStorageArrow3.Name = "pbStorageArrow3";
-            this.pbStorageArrow3.Size = new System.Drawing.Size(14, 14);
-            this.pbStorageArrow3.TabIndex = 102;
-            this.pbStorageArrow3.TabStop = false;
-            this.pbStorageArrow3.Visible = false;
-            this.pbStorageArrow3.Click += new System.EventHandler(this.pbStorageArrow3_Click);
+            this.pbInventoryAnvil5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventoryAnvil5.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
+            this.pbInventoryAnvil5.Location = new System.Drawing.Point(150, 387);
+            this.pbInventoryAnvil5.Name = "pbInventoryAnvil5";
+            this.pbInventoryAnvil5.Size = new System.Drawing.Size(21, 14);
+            this.pbInventoryAnvil5.TabIndex = 118;
+            this.pbInventoryAnvil5.TabStop = false;
+            this.pbInventoryAnvil5.Visible = false;
+            this.pbInventoryAnvil5.Click += new System.EventHandler(this.pbInventoryAnvil5_Click);
             // 
-            // pbStorageArrow05
+            // pbStorageAnvil2
             // 
-            this.pbStorageArrow05.BackColor = System.Drawing.Color.Transparent;
-            this.pbStorageArrow05.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbStorageArrow05.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow05.Image")));
-            this.pbStorageArrow05.Location = new System.Drawing.Point(477, 293);
-            this.pbStorageArrow05.Name = "pbStorageArrow05";
-            this.pbStorageArrow05.Size = new System.Drawing.Size(14, 14);
-            this.pbStorageArrow05.TabIndex = 105;
-            this.pbStorageArrow05.TabStop = false;
-            this.pbStorageArrow05.Visible = false;
-            this.pbStorageArrow05.Click += new System.EventHandler(this.pbStorageArrow05_Click);
+            this.pbStorageAnvil2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageAnvil2.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
+            this.pbStorageAnvil2.Location = new System.Drawing.Point(755, 201);
+            this.pbStorageAnvil2.Name = "pbStorageAnvil2";
+            this.pbStorageAnvil2.Size = new System.Drawing.Size(21, 14);
+            this.pbStorageAnvil2.TabIndex = 119;
+            this.pbStorageAnvil2.TabStop = false;
+            this.pbStorageAnvil2.Visible = false;
+            this.pbStorageAnvil2.Click += new System.EventHandler(this.pbStorageAnvil2_Click);
             // 
-            // pbStorageArrow5
+            // pbStorageAnvil3
             // 
-            this.pbStorageArrow5.BackColor = System.Drawing.Color.Transparent;
-            this.pbStorageArrow5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbStorageArrow5.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow5.Image")));
-            this.pbStorageArrow5.Location = new System.Drawing.Point(460, 293);
-            this.pbStorageArrow5.Name = "pbStorageArrow5";
-            this.pbStorageArrow5.Size = new System.Drawing.Size(14, 14);
-            this.pbStorageArrow5.TabIndex = 104;
-            this.pbStorageArrow5.TabStop = false;
-            this.pbStorageArrow5.Visible = false;
-            this.pbStorageArrow5.Click += new System.EventHandler(this.pbStorageArrow5_Click);
+            this.pbStorageAnvil3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageAnvil3.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
+            this.pbStorageAnvil3.Location = new System.Drawing.Point(470, 247);
+            this.pbStorageAnvil3.Name = "pbStorageAnvil3";
+            this.pbStorageAnvil3.Size = new System.Drawing.Size(21, 14);
+            this.pbStorageAnvil3.TabIndex = 120;
+            this.pbStorageAnvil3.TabStop = false;
+            this.pbStorageAnvil3.Visible = false;
+            this.pbStorageAnvil3.Click += new System.EventHandler(this.pbStorageAnvil3_Click);
             // 
-            // pbStorageArrow07
+            // pbStorageAnvil6
             // 
-            this.pbStorageArrow07.BackColor = System.Drawing.Color.Transparent;
-            this.pbStorageArrow07.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbStorageArrow07.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow07.Image")));
-            this.pbStorageArrow07.Location = new System.Drawing.Point(477, 339);
-            this.pbStorageArrow07.Name = "pbStorageArrow07";
-            this.pbStorageArrow07.Size = new System.Drawing.Size(14, 14);
-            this.pbStorageArrow07.TabIndex = 107;
-            this.pbStorageArrow07.TabStop = false;
-            this.pbStorageArrow07.Visible = false;
-            this.pbStorageArrow07.Click += new System.EventHandler(this.pbStorageArrow07_Click);
+            this.pbStorageAnvil6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageAnvil6.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
+            this.pbStorageAnvil6.Location = new System.Drawing.Point(755, 293);
+            this.pbStorageAnvil6.Name = "pbStorageAnvil6";
+            this.pbStorageAnvil6.Size = new System.Drawing.Size(21, 14);
+            this.pbStorageAnvil6.TabIndex = 121;
+            this.pbStorageAnvil6.TabStop = false;
+            this.pbStorageAnvil6.Visible = false;
+            this.pbStorageAnvil6.Click += new System.EventHandler(this.pbStorageAnvil6_Click);
             // 
-            // pbStorageArrow7
+            // pbStorageAnvil7
             // 
-            this.pbStorageArrow7.BackColor = System.Drawing.Color.Transparent;
-            this.pbStorageArrow7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbStorageArrow7.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow7.Image")));
-            this.pbStorageArrow7.Location = new System.Drawing.Point(460, 339);
-            this.pbStorageArrow7.Name = "pbStorageArrow7";
-            this.pbStorageArrow7.Size = new System.Drawing.Size(14, 14);
-            this.pbStorageArrow7.TabIndex = 106;
-            this.pbStorageArrow7.TabStop = false;
-            this.pbStorageArrow7.Visible = false;
-            this.pbStorageArrow7.Click += new System.EventHandler(this.pbStorageArrow7_Click);
+            this.pbStorageAnvil7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageAnvil7.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
+            this.pbStorageAnvil7.Location = new System.Drawing.Point(470, 339);
+            this.pbStorageAnvil7.Name = "pbStorageAnvil7";
+            this.pbStorageAnvil7.Size = new System.Drawing.Size(21, 14);
+            this.pbStorageAnvil7.TabIndex = 122;
+            this.pbStorageAnvil7.TabStop = false;
+            this.pbStorageAnvil7.Visible = false;
+            this.pbStorageAnvil7.Click += new System.EventHandler(this.pbStorageAnvil7_Click);
             // 
-            // pbStorageArrow09
+            // pbStorageAnvil10
             // 
-            this.pbStorageArrow09.BackColor = System.Drawing.Color.Transparent;
-            this.pbStorageArrow09.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbStorageArrow09.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow09.Image")));
-            this.pbStorageArrow09.Location = new System.Drawing.Point(477, 385);
-            this.pbStorageArrow09.Name = "pbStorageArrow09";
-            this.pbStorageArrow09.Size = new System.Drawing.Size(14, 14);
-            this.pbStorageArrow09.TabIndex = 109;
-            this.pbStorageArrow09.TabStop = false;
-            this.pbStorageArrow09.Visible = false;
-            this.pbStorageArrow09.Click += new System.EventHandler(this.pbStorageArrow09_Click);
+            this.pbStorageAnvil10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageAnvil10.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
+            this.pbStorageAnvil10.Location = new System.Drawing.Point(755, 385);
+            this.pbStorageAnvil10.Name = "pbStorageAnvil10";
+            this.pbStorageAnvil10.Size = new System.Drawing.Size(21, 14);
+            this.pbStorageAnvil10.TabIndex = 123;
+            this.pbStorageAnvil10.TabStop = false;
+            this.pbStorageAnvil10.Visible = false;
+            this.pbStorageAnvil10.Click += new System.EventHandler(this.pbStorageAnvil10_Click);
             // 
-            // pbStorageArrow9
+            // pbStorageAnvil1
             // 
-            this.pbStorageArrow9.BackColor = System.Drawing.Color.Transparent;
-            this.pbStorageArrow9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbStorageArrow9.Image = ((System.Drawing.Image)(resources.GetObject("pbStorageArrow9.Image")));
-            this.pbStorageArrow9.Location = new System.Drawing.Point(460, 385);
-            this.pbStorageArrow9.Name = "pbStorageArrow9";
-            this.pbStorageArrow9.Size = new System.Drawing.Size(14, 14);
-            this.pbStorageArrow9.TabIndex = 108;
-            this.pbStorageArrow9.TabStop = false;
-            this.pbStorageArrow9.Visible = false;
-            this.pbStorageArrow9.Click += new System.EventHandler(this.pbStorageArrow9_Click);
+            this.pbStorageAnvil1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageAnvil1.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil;
+            this.pbStorageAnvil1.Location = new System.Drawing.Point(470, 201);
+            this.pbStorageAnvil1.Name = "pbStorageAnvil1";
+            this.pbStorageAnvil1.Size = new System.Drawing.Size(21, 14);
+            this.pbStorageAnvil1.TabIndex = 124;
+            this.pbStorageAnvil1.TabStop = false;
+            this.pbStorageAnvil1.Visible = false;
+            this.pbStorageAnvil1.Click += new System.EventHandler(this.pbStorageAnvil1_Click);
+            // 
+            // pbStorageAnvil4
+            // 
+            this.pbStorageAnvil4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageAnvil4.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil;
+            this.pbStorageAnvil4.Location = new System.Drawing.Point(755, 247);
+            this.pbStorageAnvil4.Name = "pbStorageAnvil4";
+            this.pbStorageAnvil4.Size = new System.Drawing.Size(21, 14);
+            this.pbStorageAnvil4.TabIndex = 125;
+            this.pbStorageAnvil4.TabStop = false;
+            this.pbStorageAnvil4.Visible = false;
+            this.pbStorageAnvil4.Click += new System.EventHandler(this.pbStorageAnvil4_Click);
+            // 
+            // pbStorageAnvil5
+            // 
+            this.pbStorageAnvil5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageAnvil5.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil;
+            this.pbStorageAnvil5.Location = new System.Drawing.Point(470, 293);
+            this.pbStorageAnvil5.Name = "pbStorageAnvil5";
+            this.pbStorageAnvil5.Size = new System.Drawing.Size(21, 14);
+            this.pbStorageAnvil5.TabIndex = 126;
+            this.pbStorageAnvil5.TabStop = false;
+            this.pbStorageAnvil5.Visible = false;
+            this.pbStorageAnvil5.Click += new System.EventHandler(this.pbStorageAnvil5_Click);
+            // 
+            // pbStorageAnvil8
+            // 
+            this.pbStorageAnvil8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageAnvil8.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil;
+            this.pbStorageAnvil8.Location = new System.Drawing.Point(755, 337);
+            this.pbStorageAnvil8.Name = "pbStorageAnvil8";
+            this.pbStorageAnvil8.Size = new System.Drawing.Size(21, 14);
+            this.pbStorageAnvil8.TabIndex = 127;
+            this.pbStorageAnvil8.TabStop = false;
+            this.pbStorageAnvil8.Visible = false;
+            this.pbStorageAnvil8.Click += new System.EventHandler(this.pbStorageAnvil8_Click);
+            // 
+            // pbStorageAnvil9
+            // 
+            this.pbStorageAnvil9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageAnvil9.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil;
+            this.pbStorageAnvil9.Location = new System.Drawing.Point(470, 385);
+            this.pbStorageAnvil9.Name = "pbStorageAnvil9";
+            this.pbStorageAnvil9.Size = new System.Drawing.Size(21, 14);
+            this.pbStorageAnvil9.TabIndex = 128;
+            this.pbStorageAnvil9.TabStop = false;
+            this.pbStorageAnvil9.Visible = false;
+            this.pbStorageAnvil9.Click += new System.EventHandler(this.pbStorageAnvil9_Click);
+            // 
+            // lblCraftingItem1
+            // 
+            this.lblCraftingItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(70)))), ((int)(((byte)(27)))));
+            this.lblCraftingItem1.Font = new System.Drawing.Font("Pixellari", 10F);
+            this.lblCraftingItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.lblCraftingItem1.Location = new System.Drawing.Point(492, 436);
+            this.lblCraftingItem1.Name = "lblCraftingItem1";
+            this.lblCraftingItem1.Size = new System.Drawing.Size(100, 42);
+            this.lblCraftingItem1.TabIndex = 129;
+            this.lblCraftingItem1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCraftingItem1.Visible = false;
+            // 
+            // lblCraftingItem4
+            // 
+            this.lblCraftingItem4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(70)))), ((int)(((byte)(27)))));
+            this.lblCraftingItem4.Font = new System.Drawing.Font("Pixellari", 10F);
+            this.lblCraftingItem4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.lblCraftingItem4.Location = new System.Drawing.Point(657, 482);
+            this.lblCraftingItem4.Name = "lblCraftingItem4";
+            this.lblCraftingItem4.Size = new System.Drawing.Size(100, 42);
+            this.lblCraftingItem4.TabIndex = 130;
+            this.lblCraftingItem4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCraftingItem4.Visible = false;
+            // 
+            // lblCraftingItem2
+            // 
+            this.lblCraftingItem2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.lblCraftingItem2.Font = new System.Drawing.Font("Pixellari", 11F);
+            this.lblCraftingItem2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.lblCraftingItem2.Location = new System.Drawing.Point(657, 436);
+            this.lblCraftingItem2.Name = "lblCraftingItem2";
+            this.lblCraftingItem2.Size = new System.Drawing.Size(100, 42);
+            this.lblCraftingItem2.TabIndex = 131;
+            this.lblCraftingItem2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCraftingItem2.Visible = false;
+            // 
+            // lblCraftingItem3
+            // 
+            this.lblCraftingItem3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.lblCraftingItem3.Font = new System.Drawing.Font("Pixellari", 11F);
+            this.lblCraftingItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.lblCraftingItem3.Location = new System.Drawing.Point(492, 482);
+            this.lblCraftingItem3.Name = "lblCraftingItem3";
+            this.lblCraftingItem3.Size = new System.Drawing.Size(100, 42);
+            this.lblCraftingItem3.TabIndex = 132;
+            this.lblCraftingItem3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCraftingItem3.Visible = false;
+            // 
+            // pbCraftingItem1
+            // 
+            this.pbCraftingItem1.BackColor = System.Drawing.Color.Transparent;
+            this.pbCraftingItem1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbCraftingItem1.Image = ((System.Drawing.Image)(resources.GetObject("pbCraftingItem1.Image")));
+            this.pbCraftingItem1.Location = new System.Drawing.Point(460, 449);
+            this.pbCraftingItem1.Name = "pbCraftingItem1";
+            this.pbCraftingItem1.Size = new System.Drawing.Size(14, 14);
+            this.pbCraftingItem1.TabIndex = 133;
+            this.pbCraftingItem1.TabStop = false;
+            this.pbCraftingItem1.Visible = false;
+            this.pbCraftingItem1.Click += new System.EventHandler(this.pbCraftingItem1_Click);
+            // 
+            // pbCraftingItem3
+            // 
+            this.pbCraftingItem3.BackColor = System.Drawing.Color.Transparent;
+            this.pbCraftingItem3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbCraftingItem3.Image = ((System.Drawing.Image)(resources.GetObject("pbCraftingItem3.Image")));
+            this.pbCraftingItem3.Location = new System.Drawing.Point(460, 495);
+            this.pbCraftingItem3.Name = "pbCraftingItem3";
+            this.pbCraftingItem3.Size = new System.Drawing.Size(14, 14);
+            this.pbCraftingItem3.TabIndex = 134;
+            this.pbCraftingItem3.TabStop = false;
+            this.pbCraftingItem3.Visible = false;
+            this.pbCraftingItem3.Click += new System.EventHandler(this.pbCraftingItem3_Click);
+            // 
+            // pbCraftingItem2
+            // 
+            this.pbCraftingItem2.BackColor = System.Drawing.Color.Transparent;
+            this.pbCraftingItem2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbCraftingItem2.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow;
+            this.pbCraftingItem2.Location = new System.Drawing.Point(772, 449);
+            this.pbCraftingItem2.Name = "pbCraftingItem2";
+            this.pbCraftingItem2.Size = new System.Drawing.Size(14, 14);
+            this.pbCraftingItem2.TabIndex = 135;
+            this.pbCraftingItem2.TabStop = false;
+            this.pbCraftingItem2.Visible = false;
+            this.pbCraftingItem2.Click += new System.EventHandler(this.pbCraftingItem2_Click);
+            // 
+            // pbCraftingItem4
+            // 
+            this.pbCraftingItem4.BackColor = System.Drawing.Color.Transparent;
+            this.pbCraftingItem4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbCraftingItem4.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow;
+            this.pbCraftingItem4.Location = new System.Drawing.Point(772, 495);
+            this.pbCraftingItem4.Name = "pbCraftingItem4";
+            this.pbCraftingItem4.Size = new System.Drawing.Size(14, 14);
+            this.pbCraftingItem4.TabIndex = 136;
+            this.pbCraftingItem4.TabStop = false;
+            this.pbCraftingItem4.Visible = false;
+            this.pbCraftingItem4.Click += new System.EventHandler(this.pbCraftingItem4_Click);
+            // 
+            // CraftingNumOfItem1
+            // 
+            this.CraftingNumOfItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(70)))), ((int)(((byte)(27)))));
+            this.CraftingNumOfItem1.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.CraftingNumOfItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.CraftingNumOfItem1.Location = new System.Drawing.Point(588, 446);
+            this.CraftingNumOfItem1.Name = "CraftingNumOfItem1";
+            this.CraftingNumOfItem1.Size = new System.Drawing.Size(32, 22);
+            this.CraftingNumOfItem1.TabIndex = 137;
+            this.CraftingNumOfItem1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CraftingNumOfItem1.Visible = false;
+            // 
+            // CraftingNumOfItem2
+            // 
+            this.CraftingNumOfItem2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.CraftingNumOfItem2.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.CraftingNumOfItem2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.CraftingNumOfItem2.Location = new System.Drawing.Point(626, 446);
+            this.CraftingNumOfItem2.Name = "CraftingNumOfItem2";
+            this.CraftingNumOfItem2.Size = new System.Drawing.Size(32, 22);
+            this.CraftingNumOfItem2.TabIndex = 138;
+            this.CraftingNumOfItem2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CraftingNumOfItem2.Visible = false;
+            // 
+            // CraftingNumOfItem3
+            // 
+            this.CraftingNumOfItem3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.CraftingNumOfItem3.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.CraftingNumOfItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.CraftingNumOfItem3.Location = new System.Drawing.Point(588, 492);
+            this.CraftingNumOfItem3.Name = "CraftingNumOfItem3";
+            this.CraftingNumOfItem3.Size = new System.Drawing.Size(32, 22);
+            this.CraftingNumOfItem3.TabIndex = 139;
+            this.CraftingNumOfItem3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CraftingNumOfItem3.Visible = false;
+            // 
+            // CraftingNumOfItem4
+            // 
+            this.CraftingNumOfItem4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(70)))), ((int)(((byte)(27)))));
+            this.CraftingNumOfItem4.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.CraftingNumOfItem4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.CraftingNumOfItem4.Location = new System.Drawing.Point(626, 492);
+            this.CraftingNumOfItem4.Name = "CraftingNumOfItem4";
+            this.CraftingNumOfItem4.Size = new System.Drawing.Size(32, 22);
+            this.CraftingNumOfItem4.TabIndex = 140;
+            this.CraftingNumOfItem4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CraftingNumOfItem4.Visible = false;
+            // 
+            // lblCraftableItem
+            // 
+            this.lblCraftableItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.lblCraftableItem.Font = new System.Drawing.Font("Pixellari", 11F);
+            this.lblCraftableItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.lblCraftableItem.Location = new System.Drawing.Point(574, 596);
+            this.lblCraftableItem.Name = "lblCraftableItem";
+            this.lblCraftableItem.Size = new System.Drawing.Size(100, 42);
+            this.lblCraftableItem.TabIndex = 141;
+            this.lblCraftableItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCraftableItem.Visible = false;
             // 
             // Farmio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1300, 800);
+            this.Controls.Add(this.lblCraftableItem);
+            this.Controls.Add(this.CraftingNumOfItem4);
+            this.Controls.Add(this.CraftingNumOfItem3);
+            this.Controls.Add(this.CraftingNumOfItem2);
+            this.Controls.Add(this.CraftingNumOfItem1);
+            this.Controls.Add(this.pbCraftingItem4);
+            this.Controls.Add(this.pbCraftingItem2);
+            this.Controls.Add(this.pbCraftingItem3);
+            this.Controls.Add(this.pbCraftingItem1);
+            this.Controls.Add(this.lblCraftingItem3);
+            this.Controls.Add(this.lblCraftingItem2);
+            this.Controls.Add(this.lblCraftingItem4);
+            this.Controls.Add(this.lblCraftingItem1);
+            this.Controls.Add(this.pbStorageAnvil9);
+            this.Controls.Add(this.pbStorageAnvil8);
+            this.Controls.Add(this.pbStorageAnvil5);
+            this.Controls.Add(this.pbStorageAnvil4);
+            this.Controls.Add(this.pbStorageAnvil1);
+            this.Controls.Add(this.pbStorageAnvil10);
+            this.Controls.Add(this.pbStorageAnvil7);
+            this.Controls.Add(this.pbStorageAnvil6);
+            this.Controls.Add(this.pbStorageAnvil3);
+            this.Controls.Add(this.pbStorageAnvil2);
+            this.Controls.Add(this.pbInventoryAnvil5);
+            this.Controls.Add(this.pbInventoryAnvil4);
+            this.Controls.Add(this.pbInventoryAnvil3);
+            this.Controls.Add(this.pbInventoryAnvil2);
+            this.Controls.Add(this.pbInventoryAnvil1);
+            this.Controls.Add(this.pbCraftingResult);
+            this.Controls.Add(this.pbCraftingArrow);
+            this.Controls.Add(this.pbCraftingTable);
+            this.Controls.Add(this.pbCraftSmth);
             this.Controls.Add(this.pbStorageArrow09);
             this.Controls.Add(this.pbStorageArrow9);
             this.Controls.Add(this.pbStorageArrow07);
@@ -1662,6 +2132,21 @@
             this.Name = "Farmio";
             this.Text = "Farmio";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingResult)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingArrow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftSmth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow09)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow07)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow05)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow03)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow01)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow010)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow08)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow06)).EndInit();
@@ -1714,16 +2199,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbNameFon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHero)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow01)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow03)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow05)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow07)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow09)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageArrow9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1841,6 +2334,38 @@
         private System.Windows.Forms.PictureBox pbStorageArrow7;
         private System.Windows.Forms.PictureBox pbStorageArrow09;
         private System.Windows.Forms.PictureBox pbStorageArrow9;
+        private System.Windows.Forms.PictureBox pbCraftSmth;
+        private System.Windows.Forms.PictureBox pbCraftingTable;
+        private System.Windows.Forms.PictureBox pbCraftingArrow;
+        private System.Windows.Forms.PictureBox pbCraftingResult;
+        private System.Windows.Forms.PictureBox pbInventoryAnvil1;
+        private System.Windows.Forms.PictureBox pbInventoryAnvil2;
+        private System.Windows.Forms.PictureBox pbInventoryAnvil3;
+        private System.Windows.Forms.PictureBox pbInventoryAnvil4;
+        private System.Windows.Forms.PictureBox pbInventoryAnvil5;
+        private System.Windows.Forms.PictureBox pbStorageAnvil2;
+        private System.Windows.Forms.PictureBox pbStorageAnvil3;
+        private System.Windows.Forms.PictureBox pbStorageAnvil6;
+        private System.Windows.Forms.PictureBox pbStorageAnvil7;
+        private System.Windows.Forms.PictureBox pbStorageAnvil10;
+        private System.Windows.Forms.PictureBox pbStorageAnvil1;
+        private System.Windows.Forms.PictureBox pbStorageAnvil4;
+        private System.Windows.Forms.PictureBox pbStorageAnvil5;
+        private System.Windows.Forms.PictureBox pbStorageAnvil8;
+        private System.Windows.Forms.PictureBox pbStorageAnvil9;
+        private System.Windows.Forms.Label lblCraftingItem1;
+        private System.Windows.Forms.Label lblCraftingItem4;
+        private System.Windows.Forms.Label lblCraftingItem2;
+        private System.Windows.Forms.Label lblCraftingItem3;
+        private System.Windows.Forms.PictureBox pbCraftingItem1;
+        private System.Windows.Forms.PictureBox pbCraftingItem3;
+        private System.Windows.Forms.PictureBox pbCraftingItem2;
+        private System.Windows.Forms.PictureBox pbCraftingItem4;
+        private System.Windows.Forms.Label CraftingNumOfItem1;
+        private System.Windows.Forms.Label CraftingNumOfItem2;
+        private System.Windows.Forms.Label CraftingNumOfItem3;
+        private System.Windows.Forms.Label CraftingNumOfItem4;
+        private System.Windows.Forms.Label lblCraftableItem;
     }
 }
 

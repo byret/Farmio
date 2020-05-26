@@ -33,6 +33,8 @@ namespace Farmio
         List<Label> storageLabels = new List<Label>();
         List<PictureBox> inventoryIcons = new List<PictureBox>();
         List<PictureBox> StorageIcons = new List<PictureBox>();
+        List<PictureBox> CraftingIcons = new List<PictureBox>();
+        List<Label> CraftingLabels = new List<Label>();
         List<Image> windows = new List<Image>();
         int hour;
         int minutes;
@@ -40,7 +42,8 @@ namespace Farmio
         System.Windows.Forms.Timer InventoryPlusTimer = new System.Windows.Forms.Timer();
         int windowFrame = 0;
         bool StorageIsOpen = false;
-        Map.MapMainPoint.Building BuildingToAddIn;
+        bool Crafting = false;
+        Map.MapMainPoint.Building CurrentBuilding;
 
         public Farmio()
         {
@@ -91,6 +94,11 @@ namespace Farmio
             inventoryIcons.Add(pbInventoryArrow03);
             inventoryIcons.Add(pbInventoryArrow04);
             inventoryIcons.Add(pbInventoryArrow05);
+            inventoryIcons.Add(pbInventoryAnvil1);
+            inventoryIcons.Add(pbInventoryAnvil2);
+            inventoryIcons.Add(pbInventoryAnvil3);
+            inventoryIcons.Add(pbInventoryAnvil4);
+            inventoryIcons.Add(pbInventoryAnvil5);
             storageLabels.Add(lblStorageItem1);
             storageLabels.Add(lblStorageItem2);
             storageLabels.Add(lblStorageItem3);
@@ -131,6 +139,29 @@ namespace Farmio
             StorageIcons.Add(pbStorageArrow08);
             StorageIcons.Add(pbStorageArrow09);
             StorageIcons.Add(pbStorageArrow010);
+            StorageIcons.Add(pbStorageAnvil1);
+            StorageIcons.Add(pbStorageAnvil2);
+            StorageIcons.Add(pbStorageAnvil3);
+            StorageIcons.Add(pbStorageAnvil4);
+            StorageIcons.Add(pbStorageAnvil5);
+            StorageIcons.Add(pbStorageAnvil6);
+            StorageIcons.Add(pbStorageAnvil7);
+            StorageIcons.Add(pbStorageAnvil8);
+            StorageIcons.Add(pbStorageAnvil9);
+            StorageIcons.Add(pbStorageAnvil10);
+            CraftingIcons.Add(pbCraftingItem1);
+            CraftingIcons.Add(pbCraftingItem2);
+            CraftingIcons.Add(pbCraftingItem3);
+            CraftingIcons.Add(pbCraftingItem4);
+            CraftingLabels.Add(lblCraftingItem1);
+            lblCraftingItem4.Text = "!!!";
+            CraftingLabels.Add(lblCraftingItem2);
+            CraftingLabels.Add(lblCraftingItem3);
+            CraftingLabels.Add(lblCraftingItem4);
+            CraftingLabels.Add(CraftingNumOfItem1);
+            CraftingLabels.Add(CraftingNumOfItem2);
+            CraftingLabels.Add(CraftingNumOfItem3);
+            CraftingLabels.Add(CraftingNumOfItem4);
             pbFon.Image = map.DrawMap();
 
             for (int i = 1; i <= 20; i++)
@@ -161,7 +192,7 @@ namespace Farmio
         private void Parentize()
         {
             pbFarmio.Parent = pbStart.Parent = pbLoad.Parent = pbExit.Parent = pbStart.Parent = pictureBox1;
-            pbName.Parent = pbCDTree.Parent = pbGetStone.Parent = pbCutGrass.Parent = pbCDStump.Parent = pbGetMushroom.Parent = pbGetMushrooms.Parent = pbStorage.Parent = pbGoToSleep.Parent = pbNameOk.Parent = pbGLEF.Parent = pbInventoryOpen.Parent = pbFon;
+            pbName.Parent = pbCDTree.Parent = pbGetStone.Parent = pbCutGrass.Parent = pbCDStump.Parent = pbGetMushroom.Parent = pbGetMushrooms.Parent = pbStorage.Parent = pbGoToSleep.Parent = pbCraftSmth.Parent = pbNameOk.Parent = pbGLEF.Parent = pbInventoryOpen.Parent = pbCraftingArrow.Parent = pbFon;
             lblInventory.Parent = lblGold.Parent = lblEpoch.Parent = lblEnergy.Parent = lblSaturation.Parent = lblHour.Parent = label1.Parent = label2.Parent = label3.Parent = label4.Parent = label5.Parent = lblInventoryPlus.Parent = pbGLEF;
             Window.Parent = pbFon;
             pbHero.Parent = Window;
@@ -169,7 +200,7 @@ namespace Farmio
 
         void musicTimer_Tick(object sender, EventArgs e)
         {
-            SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\", SomeFunctions.MusicRandomize()));
+            //SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\", SomeFunctions.MusicRandomize()));
         }
 
         void TimeOfDayTimer_Tick(object sender, EventArgs e)
@@ -488,10 +519,13 @@ namespace Farmio
 
         private void Window_MouseDown(object sender, MouseEventArgs e)
         {
-            if (pbInventoryOpen.Visible)
+            if (Crafting)
+                CraftingClose();
+            else if (pbStorageIsOpen.Visible)
+                StorageClose(); 
+            else if (pbInventoryOpen.Visible)
                 InventoryClose();
-            if (pbStorageIsOpen.Visible)
-                StorageClose();
+
             else if (start && longRunningTask.IsCompleted)
             {
                 ClickX = e.X;
@@ -507,6 +541,8 @@ namespace Farmio
                         pbStorage.Visible = true;
                         pbGoToSleep.Location = new Point(ClickX + 5, ClickY + 5 + 19);
                         pbGoToSleep.Visible = true;
+                        pbCraftSmth.Visible = true;
+                        pbCraftSmth.Location = new Point(ClickX + 5, ClickY + 5 + 38);
                         pbCDTree.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
                     }
 
@@ -1004,16 +1040,20 @@ namespace Farmio
                 inventoryLabels[i].Visible = true;
                 inventoryLabels[i + 5].Text = " " + item.Number.ToString();
                 inventoryLabels[i + 5].Visible = true;
-                if (!StorageIsOpen)
+                if (!StorageIsOpen && !Crafting)
                 {
                     inventoryIcons[i].Visible = true;
                     if (item.IsUsable)
                         inventoryIcons[i + 5].Visible = true;
                 }
-                else
+                else if (StorageIsOpen && !Crafting)
                 {
                     inventoryIcons[i + 10].Visible = true;
                     inventoryIcons[i + 15].Visible = true;
+                }
+                else if (Crafting)
+                {
+                    inventoryIcons[i + 20].Visible = true;
                 }
 
                 i++;
@@ -1149,6 +1189,7 @@ namespace Farmio
             TimeOfDayTimer.Stop();
             pbGoToSleep.Visible = false;
             pbStorage.Visible = false;
+            pbCraftSmth.Visible = false;
             int x = map.mapTab[ClickX, ClickY].X + 48;
             int y = map.mapTab[ClickX, ClickY].Y + 84;
             longRunningTask = HeroMoveHere(x, y, 0);
@@ -1244,11 +1285,12 @@ namespace Farmio
         {
             pbGoToSleep.Visible = false;
             pbStorage.Visible = false;
+            pbCraftSmth.Visible = false;
             int x = map.mapTab[ClickX, ClickY].X;
             int y = map.mapTab[ClickX, ClickY].Y;
             longRunningTask = HeroMoveHere(x + 48, y + 84, 0);
             int result = await longRunningTask;
-            BuildingToAddIn = (Map.MapMainPoint.Building)map.mapTab[x, y];
+            CurrentBuilding = (Map.MapMainPoint.Building)map.mapTab[x, y];
             StorageLoad();
         }
 
@@ -1258,14 +1300,22 @@ namespace Farmio
             StorageIsOpen = true;
             pbStorageIsOpen.Visible = true;
             int i = 0;
-            foreach (Item item in BuildingToAddIn.Storage)
+            foreach (Item item in CurrentBuilding.Storage)
             {
                 if (item.Number == 0)
                     continue;
-                StorageIcons[i].Visible = true;
-                StorageIcons[i].BringToFront();
-                StorageIcons[i + 10].Visible = true;
-                StorageIcons[i + 10].BringToFront();
+                if (!Crafting)
+                {
+                    StorageIcons[i].Visible = true;
+                    StorageIcons[i].BringToFront();
+                    StorageIcons[i + 10].Visible = true;
+                    StorageIcons[i + 10].BringToFront();
+                }
+                else
+                {
+                    StorageIcons[i + 20].Visible = true;
+                    StorageIcons[i + 20].BringToFront();
+                }
                 storageLabels[i].Text = (item.Number == 1) ? item.Name : item.NamePlural;
                 storageLabels[i].Visible = true;
                 storageLabels[i].BringToFront();
@@ -1288,20 +1338,21 @@ namespace Farmio
                     break;
                 StorageIcons[i].Visible = false;
                 StorageIcons[i + 10].Visible = false;
+                StorageIcons[i + 20].Visible = false;
                 label.Visible = false;
                 storageLabels[i + 10].Visible = false;
                 i++;
             }
-
+            InventoryClose();
             pbStorageIsOpen.Visible = false;
         }
 
         private void AddToStorage(Item ItemToAdd)
         {
             if (ItemToAdd.Number != 0)
-                BuildingToAddIn.AddToStorage(ItemToAdd);
+                CurrentBuilding.AddToStorage(ItemToAdd);
             int i = 0;
-            foreach (Item item in BuildingToAddIn.Storage)
+            foreach (Item item in CurrentBuilding.Storage)
             {
                 storageLabels[i].Text = (item.Number == 1) ? item.Name : item.NamePlural; 
                 i++;
@@ -1391,11 +1442,22 @@ namespace Farmio
 
         private bool IsStorageFull(int n, int i)
         {
-            if (BuildingToAddIn.NumOfItemsInStorage < 10)
+            if (CurrentBuilding.NumOfItemsInStorage < 10)
                 return false; 
 
-            foreach (Item item in BuildingToAddIn.Storage)
+            foreach (Item item in CurrentBuilding.Storage)
                 if (item.Name == inventoryLabels[n].Text || item.NamePlural == inventoryLabels[n].Text)
+                    if (item.Number < 99 - i)
+                        return false;
+            return true;
+        }
+        private bool IsStorageFullCrafting(int n, int i)
+        {
+            if (CurrentBuilding.NumOfItemsInStorage < 10)
+                return false;
+
+            foreach (Item item in CurrentBuilding.Storage)
+                if (item.Name == CurrentBuilding.CraftingTable[n].Name || item.NamePlural == CurrentBuilding.CraftingTable[n].NamePlural)
                     if (item.Number < 99 - i)
                         return false;
             return true;
@@ -1412,19 +1474,30 @@ namespace Farmio
                         return false;
             return true;
         }
+        private bool IsInventoryFullCrafting(int n, int i)
+        {
+            if (hero.NumOfItemsInInventory < 5)
+                return false;
+
+            foreach (Item item in hero.Inventory)
+                if (item.Name == CraftingLabels[n].Text || item.NamePlural == CraftingLabels[n].Text)
+                    if (item.Number < 99 - i)
+                        return false;
+            return true;
+        }
 
         private Item RemoveItemFromStorage(int n, int i)
         {
             Item itemTmp2 = new Item();
-            foreach (Item item in BuildingToAddIn.Storage)
+            foreach (Item item in CurrentBuilding.Storage)
             {
                 if (item.Name == storageLabels[n].Text || item.NamePlural == storageLabels[n].Text)
                 {
                     item.Number -= i;
                     if (item.Number <= 0)
                     {
-                        BuildingToAddIn.Storage.Remove(item);
-                        BuildingToAddIn.NumOfItemsInStorage--;
+                        CurrentBuilding.Storage.Remove(item);
+                        CurrentBuilding.NumOfItemsInStorage--;
                     }
                     object o = item.Clone();
                     Item itemTmp = (Item)o;
@@ -1633,6 +1706,245 @@ namespace Farmio
                 hero.addToInventory(RemoveItemFromStorage(9, n));
             InventoryLoad();
             StorageLoad();
+        }
+
+        private async void pbCraftSmth_Click(object sender, EventArgs e)
+        {
+            pbGoToSleep.Visible = false;
+            pbStorage.Visible = false;
+            pbCraftSmth.Visible = false;
+            int x = map.mapTab[ClickX, ClickY].X;
+            int y = map.mapTab[ClickX, ClickY].Y;
+            longRunningTask = HeroMoveHere(x + 48, y + 84, 0);
+            int result = await longRunningTask;
+            CurrentBuilding = (Map.MapMainPoint.Building)map.mapTab[x, y];
+            CraftingLoad();
+        }
+
+        private void CraftingLoad()
+        {
+            if (Crafting)
+                CraftingClose();
+            Crafting = true;
+            StorageLoad();
+            pbCraftingTable.Visible = true;
+            pbCraftingArrow.Visible = true;
+            pbCraftingResult.Visible = true;
+            int i = 0;
+            foreach (Item item in CurrentBuilding.CraftingTable)
+            {
+                if (item.Number == 0)
+                    continue;
+                CraftingLabels[i].Text = (item.Number == 1) ? item.Name : item.NamePlural;
+                CraftingLabels[i].Visible = true;
+                CraftingLabels[i].BringToFront();
+                CraftingLabels[i + 4].Text = item.Number.ToString();
+                CraftingLabels[i + 4].Visible = true;
+                CraftingLabels[i + 4].BringToFront();
+                CraftingIcons[i].Visible = true;
+                CraftingIcons[i].BringToFront();
+                i++;
+            }
+        }
+
+        private void CraftingClose()
+        {
+            Crafting = false;
+            pbCraftingTable.Visible = false;
+            pbCraftingArrow.Visible = false;
+            pbCraftingResult.Visible = false;
+            int i = 0;
+            foreach (PictureBox picture in CraftingIcons)
+            {
+                picture.Visible = false;
+                CraftingLabels[i].Visible = false;
+                CraftingLabels[i + 4].Visible = false;
+                i++;
+            }
+            StorageClose();
+        }
+        private void AddOnCraftingTable(Item ItemToAdd)
+        {
+            if (ItemToAdd.Number != 0)
+                CurrentBuilding.AddOnCraftingTable(ItemToAdd);
+            int i = 0;
+            foreach (Item item in CurrentBuilding.CraftingTable)
+            {
+                CraftingLabels[i].Text = (item.Number == 1) ? item.Name : item.NamePlural;
+                i++;
+            }
+            CraftingLoad();
+        }
+        private bool IsCraftingTableFullInventory(int n, int i)
+        {
+            if (CurrentBuilding.NumOfItemsOnTable < 4)
+                return false;
+
+            foreach (Item item in CurrentBuilding.CraftingTable)
+                if (item.Name == inventoryLabels[n].Text || item.NamePlural == inventoryLabels[n].Text)
+                    if (item.Number < 99 - i)
+                        return false;
+            return true;
+        }
+        private bool IsCraftingTableFullStorage(int n, int i)
+        {
+            if (CurrentBuilding.NumOfItemsOnTable < 4)
+                return false;
+
+            foreach (Item item in CurrentBuilding.CraftingTable)
+                if (item.Name == storageLabels[n].Text || item.NamePlural == storageLabels[n].Text)
+                    if (item.Number < 99 - i)
+                        return false;
+            return true;
+        }
+
+        private void pbInventoryAnvil1_Click(object sender, EventArgs e)
+        {
+            if (!IsCraftingTableFullInventory(0, 1))
+                AddOnCraftingTable(RemoveItemFromInventory(0, 1));
+        }
+
+        private void pbInventoryAnvil2_Click(object sender, EventArgs e)
+        {
+            if (!IsCraftingTableFullInventory(1, 1))
+                AddOnCraftingTable(RemoveItemFromInventory(1, 1));
+        }
+
+        private void pbInventoryAnvil3_Click(object sender, EventArgs e)
+        {
+            if (!IsCraftingTableFullInventory(2, 1))
+                AddOnCraftingTable(RemoveItemFromInventory(2, 1));
+        }
+
+        private void pbInventoryAnvil4_Click(object sender, EventArgs e)
+        {
+            if (!IsCraftingTableFullInventory(3, 1))
+                AddOnCraftingTable(RemoveItemFromInventory(3, 1));
+        }
+
+        private void pbInventoryAnvil5_Click(object sender, EventArgs e)
+        {
+            if (!IsCraftingTableFullInventory(4, 1))
+                AddOnCraftingTable(RemoveItemFromInventory(4, 1));
+        }
+
+        private void pbStorageAnvil1_Click(object sender, EventArgs e)
+        {
+            if (!IsCraftingTableFullStorage(0, 1))
+                AddOnCraftingTable(RemoveItemFromStorage(0, 1));
+        }
+
+        private void pbStorageAnvil2_Click(object sender, EventArgs e)
+        {
+            if (!IsCraftingTableFullStorage(1, 1))
+                AddOnCraftingTable(RemoveItemFromStorage(1, 1));
+        }
+
+        private void pbStorageAnvil3_Click(object sender, EventArgs e)
+        {
+            if (!IsCraftingTableFullStorage(2, 1))
+                AddOnCraftingTable(RemoveItemFromStorage(2, 1));
+        }
+
+        private void pbStorageAnvil4_Click(object sender, EventArgs e)
+        {
+            if (!IsCraftingTableFullStorage(3, 1))
+                AddOnCraftingTable(RemoveItemFromStorage(3, 1));
+        }
+
+        private void pbStorageAnvil5_Click(object sender, EventArgs e)
+        {
+            if (!IsCraftingTableFullStorage(4, 1))
+                AddOnCraftingTable(RemoveItemFromStorage(4, 1));
+        }
+
+        private void pbStorageAnvil6_Click(object sender, EventArgs e)
+        {
+            if (!IsCraftingTableFullStorage(5, 1))
+                AddOnCraftingTable(RemoveItemFromStorage(5, 1));
+        }
+
+        private void pbStorageAnvil7_Click(object sender, EventArgs e)
+        {
+            if (!IsCraftingTableFullStorage(6, 1))
+                AddOnCraftingTable(RemoveItemFromStorage(6, 1));
+        }
+
+        private void pbStorageAnvil8_Click(object sender, EventArgs e)
+        {
+            if (!IsCraftingTableFullStorage(7, 1))
+                AddOnCraftingTable(RemoveItemFromStorage(7, 1));
+        }
+
+        private void pbStorageAnvil9_Click(object sender, EventArgs e)
+        {
+            if (!IsCraftingTableFullStorage(8, 1))
+                AddOnCraftingTable(RemoveItemFromStorage(8, 1));
+        }
+
+        private void pbStorageAnvil10_Click(object sender, EventArgs e)
+        {
+            if (!IsCraftingTableFullStorage(9, 1))
+                AddOnCraftingTable(RemoveItemFromStorage(9, 1));
+        }
+        private Item RemoveItemFromCraftingTable(int n)
+        {
+            Item itemTmp2 = new Item();
+            foreach (Item item in CurrentBuilding.CraftingTable)
+            {
+                if (item.Name == CraftingLabels[n].Text || item.NamePlural == CraftingLabels[n].Text)
+                {
+                    int i = item.Number;
+                    CurrentBuilding.CraftingTable.Remove(item);
+                    CurrentBuilding.NumOfItemsOnTable--;
+                    object o = item.Clone();
+                    Item itemTmp = (Item)o;
+                    itemTmp.Number = i;
+                    return itemTmp;
+                }
+            }
+            return itemTmp2;
+        }
+
+        private void pbCraftingItem1_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(CraftingNumOfItem1.Text);
+            if (!IsStorageFullCrafting(0, n))
+                AddToStorage(RemoveItemFromCraftingTable(0));
+            else if (!IsInventoryFullCrafting(0, n))
+                hero.addToInventory(RemoveItemFromCraftingTable(0));
+            CraftingLoad();
+        }
+
+        private void pbCraftingItem2_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(CraftingNumOfItem2.Text);
+
+            if (!IsStorageFullCrafting(1, n))
+                AddToStorage(RemoveItemFromCraftingTable(1));
+            else if (!IsInventoryFullCrafting(1, n))
+                hero.addToInventory(RemoveItemFromCraftingTable(1));
+            CraftingLoad();
+        }
+
+        private void pbCraftingItem3_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(CraftingNumOfItem3.Text);
+            if (!IsStorageFullCrafting(2, n))
+                AddToStorage(RemoveItemFromCraftingTable(2));
+            else if (!IsInventoryFullCrafting(2, n))
+                hero.addToInventory(RemoveItemFromCraftingTable(2));
+            CraftingLoad();
+        }
+
+        private void pbCraftingItem4_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(CraftingNumOfItem4.Text);
+            if (!IsStorageFullCrafting(3, n))
+                AddToStorage(RemoveItemFromCraftingTable(3));
+            else if (!IsInventoryFullCrafting(3, n))
+                hero.addToInventory(RemoveItemFromCraftingTable(3));
+            CraftingLoad();
         }
     }
 }

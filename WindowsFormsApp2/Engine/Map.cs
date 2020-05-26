@@ -257,7 +257,9 @@ namespace Engine
             public class Building : MapMainPoint   // 'p'
             {
                 public List<Item> Storage = new List<Item>();
+                public List<Item> CraftingTable = new List<Item>();
                 public int NumOfItemsInStorage;
+                public int NumOfItemsOnTable;
                 public Building(int x, int y, string name, int Width, int Height, Bitmap bm, Map map)
                     : base(x, y, name, Width, Height, bm)
                 {
@@ -290,6 +292,32 @@ namespace Engine
                         {
                             NumOfItemsInStorage++;
                             Storage.Add(item);
+                        }
+                        else return 1000;
+                    }
+
+                    return 0;
+                }
+
+                public int AddOnCraftingTable(Item item)
+                {
+                    bool isOnTable = false;
+                    foreach (Item it in this.CraftingTable)
+                    {
+                        if (it.GetType() == item.GetType())
+                        {
+                            isOnTable = true;
+                            it.Number += item.Number;
+                            break;
+                        }
+                    }
+
+                    if (!isOnTable)
+                    {
+                        if (NumOfItemsOnTable < 4)
+                        {
+                            NumOfItemsOnTable++;
+                            CraftingTable.Add(item);
                         }
                         else return 1000;
                     }

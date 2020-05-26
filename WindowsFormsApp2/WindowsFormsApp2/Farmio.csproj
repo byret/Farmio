@@ -482,6 +482,24 @@
   <ItemGroup>
     <None Include="Resources\inventoryArrowRevLight.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Craft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CraftingArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CraftingResult.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CraftSomething.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CraftingAnvil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CraftingAnvil2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MonoGame.Framework.WindowsDX.3.7.1.189\build\MonoGame.Framework.WindowsDX.targets" Condition="Exists('..\packages\MonoGame.Framework.WindowsDX.3.7.1.189\build\MonoGame.Framework.WindowsDX.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
