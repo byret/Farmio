@@ -2030,7 +2030,7 @@ namespace Farmio
                 if ((CurrentBuilding.CraftingTable.Count == craftableItem.ItemsNeededForCraft.Count))
                 {
                     bool isThatItem = true;
-                    int n = 0;
+                    int j = 0;
                     foreach (Item itemOnTable in CurrentBuilding.CraftingTable)
                     {
                         foreach (Item itemNeeded in craftableItem.ItemsNeededForCraft)
@@ -2038,7 +2038,7 @@ namespace Farmio
                             isThatItem = true;
                             if (itemOnTable.GetType() == itemNeeded.GetType())
                             {
-                                n++;
+                                j++;
                                 if (itemOnTable.Number != itemNeeded.Number)
                                 {
                                     isThatItem = false;
