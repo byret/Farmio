@@ -25,6 +25,8 @@ namespace Engine
         public List<Item> Inventory = new List<Item>();
         public int NumOfItemsInInventory;
 
+        public List<Item.CraftableItem> ListOfCraftableItems = new List<Item.CraftableItem>();
+
 
 
         public Hero()
@@ -36,6 +38,15 @@ namespace Engine
             y = 300;
             Saturation = 50;
             NumOfItemsInInventory = 0;
+
+            Item.CraftableItem.Shovel Shovel = new Item.Shovel(1);
+            ListOfCraftableItems.Add(Shovel);
+
+            Item.CraftableItem.Bucket Bucket = new Item.Bucket(1);
+            ListOfCraftableItems.Add(Bucket);
+
+            Item.CraftableItem.FishingRod FishingRod = new Item.FishingRod(1);
+            ListOfCraftableItems.Add(FishingRod);
         }
         public void SetSprite (int i)
         {
@@ -87,22 +98,5 @@ namespace Engine
             else if (c == 'd')
                 this.x++;
         }
-
-
-
-        public void ListOfCraftableItems()
-        {
-            List<Item.CraftableItem> ListOfCraftableItems = new List<Item.CraftableItem>();
-
-            Item.CraftableItem.Shovel Shovel = new Item.Shovel(1);
-            ListOfCraftableItems.Add(Shovel);
-
-            Item.CraftableItem.Bucket Bucket = new Item.Bucket(1);
-            ListOfCraftableItems.Add(Bucket);
-
-            Item.CraftableItem.FishingRod FishingRod = new Item.FishingRod(1);
-            ListOfCraftableItems.Add(FishingRod);
-        }
-
     }
 }
