@@ -56,6 +56,30 @@ namespace Engine
             }
         }
 
+        public class Bucket : CraftableItem
+        {
+            public Bucket(int number)
+                : base(number)
+            {
+                Name = "Wiadro";
+                NamePlural = "Wiadra";
+                Item.Wood Wood = new Item.Wood(4);
+                ItemsNeededForCraft.Add(Wood);
+            }
+        }
+
+        public class FishingRod : CraftableItem
+        {
+            public FishingRod(int number)
+                :base(number)
+            {
+                Name = "Wędka";
+                NamePlural = "Wędki";
+                Item.Wood Wood = new Item.Wood(2);
+                ItemsNeededForCraft.Add(Wood);
+            }
+        }
+
         public class Wood : Item
         {
             public Wood(int number)
