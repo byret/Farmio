@@ -1863,7 +1863,38 @@ namespace Farmio
                 CraftingLabels[i].Text = (item.Number == 1) ? item.Name : item.NamePlural;
                 i++;
             }
-            
+            foreach (Item.CraftableItem craftableItem in hero.ListOfCraftableItems)
+            {
+                if ((CurrentBuilding.CraftingTable.Count == craftableItem.ItemsNeededForCraft.Count))
+                {
+                    bool isThatItem = true;
+                    int n = 0;
+                    foreach (Item itemOnTable in CurrentBuilding.CraftingTable)
+                    {
+                        foreach (Item itemNeeded in craftableItem.ItemsNeededForCraft)
+                        {
+                            isThatItem = true;
+                            if (itemOnTable.GetType() == itemNeeded.GetType())
+                            {
+                                n++;
+                                if (itemOnTable.Number != itemNeeded.Number)
+                                {
+                                    isThatItem = false;
+                                    break;
+                                }
+                            }
+                        }
+
+                    }
+                    if (isThatItem && n == craftableItem.ItemsNeededForCraft.Count)
+                    {
+                        lblItemToCraft.Text = craftableItem.Name;
+                        break;
+                    }
+                    else
+                        lblItemToCraft.Text = "";
+                }
+            }
             CraftingLoad();
         }
         private bool IsCraftingTableFullInventory(int n, int i)
@@ -1992,6 +2023,38 @@ namespace Farmio
                     Item itemTmp = (Item)o;
                     itemTmp.Number = i;
                     return itemTmp;
+                }
+            }
+            foreach (Item.CraftableItem craftableItem in hero.ListOfCraftableItems)
+            {
+                if ((CurrentBuilding.CraftingTable.Count == craftableItem.ItemsNeededForCraft.Count))
+                {
+                    bool isThatItem = true;
+                    int n = 0;
+                    foreach (Item itemOnTable in CurrentBuilding.CraftingTable)
+                    {
+                        foreach (Item itemNeeded in craftableItem.ItemsNeededForCraft)
+                        {
+                            isThatItem = true;
+                            if (itemOnTable.GetType() == itemNeeded.GetType())
+                            {
+                                n++;
+                                if (itemOnTable.Number != itemNeeded.Number)
+                                {
+                                    isThatItem = false;
+                                    break;
+                                }
+                            }
+                        }
+
+                    }
+                    if (isThatItem && n == craftableItem.ItemsNeededForCraft.Count)
+                    {
+                        lblItemToCraft.Text = craftableItem.Name;
+                        break;
+                    }
+                    else
+                        lblItemToCraft.Text = "";
                 }
             }
             return itemTmp2;
