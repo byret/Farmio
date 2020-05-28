@@ -88,6 +88,12 @@
             this.CraftingNumOfItem3 = new System.Windows.Forms.Label();
             this.CraftingNumOfItem4 = new System.Windows.Forms.Label();
             this.lblCraftableItem = new System.Windows.Forms.Label();
+            this.pbGetWater = new System.Windows.Forms.PictureBox();
+            this.pbInventorySeed5 = new System.Windows.Forms.PictureBox();
+            this.pbInventorySeed4 = new System.Windows.Forms.PictureBox();
+            this.pbInventorySeed3 = new System.Windows.Forms.PictureBox();
+            this.pbInventorySeed2 = new System.Windows.Forms.PictureBox();
+            this.pbInventorySeed1 = new System.Windows.Forms.PictureBox();
             this.pbSowSeeds = new System.Windows.Forms.PictureBox();
             this.pbToWater = new System.Windows.Forms.PictureBox();
             this.pbToPlow = new System.Windows.Forms.PictureBox();
@@ -176,11 +182,14 @@
             this.pbNameFon = new System.Windows.Forms.PictureBox();
             this.pbFon = new System.Windows.Forms.PictureBox();
             this.pbHero = new System.Windows.Forms.PictureBox();
-            this.pbInventorySeed1 = new System.Windows.Forms.PictureBox();
-            this.pbInventorySeed2 = new System.Windows.Forms.PictureBox();
-            this.pbInventorySeed3 = new System.Windows.Forms.PictureBox();
-            this.pbInventorySeed4 = new System.Windows.Forms.PictureBox();
-            this.pbInventorySeed5 = new System.Windows.Forms.PictureBox();
+            this.lblWarningMessage = new System.Windows.Forms.Label();
+            this.lblItemToCraft = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGetWater)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSowSeeds)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbToWater)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbToPlow)).BeginInit();
@@ -269,11 +278,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbNameFon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHero)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed5)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -951,6 +955,78 @@
             this.lblCraftableItem.TabIndex = 141;
             this.lblCraftableItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblCraftableItem.Visible = false;
+            // 
+            // pbGetWater
+            // 
+            this.pbGetWater.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbGetWater.Image = global::WindowsFormsApp2.Properties.Resources.getWater;
+            this.pbGetWater.Location = new System.Drawing.Point(906, 241);
+            this.pbGetWater.Name = "pbGetWater";
+            this.pbGetWater.Size = new System.Drawing.Size(88, 18);
+            this.pbGetWater.TabIndex = 150;
+            this.pbGetWater.TabStop = false;
+            this.pbGetWater.Visible = false;
+            this.pbGetWater.Click += new System.EventHandler(this.pbGetWater_Click);
+            // 
+            // pbInventorySeed5
+            // 
+            this.pbInventorySeed5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventorySeed5.Image = global::WindowsFormsApp2.Properties.Resources.seed;
+            this.pbInventorySeed5.Location = new System.Drawing.Point(157, 387);
+            this.pbInventorySeed5.Name = "pbInventorySeed5";
+            this.pbInventorySeed5.Size = new System.Drawing.Size(14, 14);
+            this.pbInventorySeed5.TabIndex = 149;
+            this.pbInventorySeed5.TabStop = false;
+            this.pbInventorySeed5.Visible = false;
+            this.pbInventorySeed5.Click += new System.EventHandler(this.pbInventorySeed5_Click);
+            // 
+            // pbInventorySeed4
+            // 
+            this.pbInventorySeed4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventorySeed4.Image = global::WindowsFormsApp2.Properties.Resources.seed;
+            this.pbInventorySeed4.Location = new System.Drawing.Point(157, 339);
+            this.pbInventorySeed4.Name = "pbInventorySeed4";
+            this.pbInventorySeed4.Size = new System.Drawing.Size(14, 14);
+            this.pbInventorySeed4.TabIndex = 148;
+            this.pbInventorySeed4.TabStop = false;
+            this.pbInventorySeed4.Visible = false;
+            this.pbInventorySeed4.Click += new System.EventHandler(this.pbInventorySeed4_Click);
+            // 
+            // pbInventorySeed3
+            // 
+            this.pbInventorySeed3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventorySeed3.Image = global::WindowsFormsApp2.Properties.Resources.seed;
+            this.pbInventorySeed3.Location = new System.Drawing.Point(157, 286);
+            this.pbInventorySeed3.Name = "pbInventorySeed3";
+            this.pbInventorySeed3.Size = new System.Drawing.Size(14, 14);
+            this.pbInventorySeed3.TabIndex = 147;
+            this.pbInventorySeed3.TabStop = false;
+            this.pbInventorySeed3.Visible = false;
+            this.pbInventorySeed3.Click += new System.EventHandler(this.pbInventorySeed3_Click);
+            // 
+            // pbInventorySeed2
+            // 
+            this.pbInventorySeed2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventorySeed2.Image = global::WindowsFormsApp2.Properties.Resources.seed;
+            this.pbInventorySeed2.Location = new System.Drawing.Point(157, 240);
+            this.pbInventorySeed2.Name = "pbInventorySeed2";
+            this.pbInventorySeed2.Size = new System.Drawing.Size(14, 14);
+            this.pbInventorySeed2.TabIndex = 146;
+            this.pbInventorySeed2.TabStop = false;
+            this.pbInventorySeed2.Visible = false;
+            this.pbInventorySeed2.Click += new System.EventHandler(this.pbInventorySeed2_Click);
+            // 
+            // pbInventorySeed1
+            // 
+            this.pbInventorySeed1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventorySeed1.Image = global::WindowsFormsApp2.Properties.Resources.seed;
+            this.pbInventorySeed1.Location = new System.Drawing.Point(157, 195);
+            this.pbInventorySeed1.Name = "pbInventorySeed1";
+            this.pbInventorySeed1.Size = new System.Drawing.Size(14, 14);
+            this.pbInventorySeed1.TabIndex = 145;
+            this.pbInventorySeed1.TabStop = false;
+            this.pbInventorySeed1.Visible = false;
+            this.pbInventorySeed1.Click += new System.EventHandler(this.pbInventorySeed1_Click);
             // 
             // pbSowSeeds
             // 
@@ -2034,71 +2110,36 @@
             this.pbHero.TabIndex = 25;
             this.pbHero.TabStop = false;
             // 
-            // pbInventorySeed1
+            // lblWarningMessage
             // 
-            this.pbInventorySeed1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbInventorySeed1.Image = global::WindowsFormsApp2.Properties.Resources.seed;
-            this.pbInventorySeed1.Location = new System.Drawing.Point(157, 195);
-            this.pbInventorySeed1.Name = "pbInventorySeed1";
-            this.pbInventorySeed1.Size = new System.Drawing.Size(14, 14);
-            this.pbInventorySeed1.TabIndex = 145;
-            this.pbInventorySeed1.TabStop = false;
-            this.pbInventorySeed1.Visible = false;
-            this.pbInventorySeed1.Click += new System.EventHandler(this.pbInventorySeed1_Click);
+            this.lblWarningMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.lblWarningMessage.Location = new System.Drawing.Point(15, 430);
+            this.lblWarningMessage.Name = "lblWarningMessage";
+            this.lblWarningMessage.Size = new System.Drawing.Size(173, 41);
+            this.lblWarningMessage.TabIndex = 151;
+            this.lblWarningMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblWarningMessage.Visible = false;
             // 
-            // pbInventorySeed2
+            // lblItemToCraft
             // 
-            this.pbInventorySeed2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbInventorySeed2.Image = global::WindowsFormsApp2.Properties.Resources.seed;
-            this.pbInventorySeed2.Location = new System.Drawing.Point(157, 240);
-            this.pbInventorySeed2.Name = "pbInventorySeed2";
-            this.pbInventorySeed2.Size = new System.Drawing.Size(14, 14);
-            this.pbInventorySeed2.TabIndex = 146;
-            this.pbInventorySeed2.TabStop = false;
-            this.pbInventorySeed2.Visible = false;
-            this.pbInventorySeed2.Click += new System.EventHandler(this.pbInventorySeed2_Click);
-            // 
-            // pbInventorySeed3
-            // 
-            this.pbInventorySeed3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbInventorySeed3.Image = global::WindowsFormsApp2.Properties.Resources.seed;
-            this.pbInventorySeed3.Location = new System.Drawing.Point(157, 286);
-            this.pbInventorySeed3.Name = "pbInventorySeed3";
-            this.pbInventorySeed3.Size = new System.Drawing.Size(14, 14);
-            this.pbInventorySeed3.TabIndex = 147;
-            this.pbInventorySeed3.TabStop = false;
-            this.pbInventorySeed3.Visible = false;
-            this.pbInventorySeed3.Click += new System.EventHandler(this.pbInventorySeed3_Click);
-            // 
-            // pbInventorySeed4
-            // 
-            this.pbInventorySeed4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbInventorySeed4.Image = global::WindowsFormsApp2.Properties.Resources.seed;
-            this.pbInventorySeed4.Location = new System.Drawing.Point(157, 339);
-            this.pbInventorySeed4.Name = "pbInventorySeed4";
-            this.pbInventorySeed4.Size = new System.Drawing.Size(14, 14);
-            this.pbInventorySeed4.TabIndex = 148;
-            this.pbInventorySeed4.TabStop = false;
-            this.pbInventorySeed4.Visible = false;
-            this.pbInventorySeed4.Click += new System.EventHandler(this.pbInventorySeed4_Click);
-            // 
-            // pbInventorySeed5
-            // 
-            this.pbInventorySeed5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbInventorySeed5.Image = global::WindowsFormsApp2.Properties.Resources.seed;
-            this.pbInventorySeed5.Location = new System.Drawing.Point(157, 387);
-            this.pbInventorySeed5.Name = "pbInventorySeed5";
-            this.pbInventorySeed5.Size = new System.Drawing.Size(14, 14);
-            this.pbInventorySeed5.TabIndex = 149;
-            this.pbInventorySeed5.TabStop = false;
-            this.pbInventorySeed5.Visible = false;
-            this.pbInventorySeed5.Click += new System.EventHandler(this.pbInventorySeed5_Click);
+            this.lblItemToCraft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.lblItemToCraft.Font = new System.Drawing.Font("Pixellari", 11F);
+            this.lblItemToCraft.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.lblItemToCraft.Location = new System.Drawing.Point(574, 596);
+            this.lblItemToCraft.Name = "lblItemToCraft";
+            this.lblItemToCraft.Size = new System.Drawing.Size(100, 42);
+            this.lblItemToCraft.TabIndex = 152;
+            this.lblItemToCraft.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblItemToCraft.Visible = false;
             // 
             // Farmio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1300, 800);
+            this.Controls.Add(this.lblItemToCraft);
+            this.Controls.Add(this.lblWarningMessage);
+            this.Controls.Add(this.pbGetWater);
             this.Controls.Add(this.pbInventorySeed5);
             this.Controls.Add(this.pbInventorySeed4);
             this.Controls.Add(this.pbInventorySeed3);
@@ -2251,6 +2292,12 @@
             this.Controls.Add(this.lblNumOfItem5);
             this.Name = "Farmio";
             this.Text = "Farmio";
+            ((System.ComponentModel.ISupportInitialize)(this.pbGetWater)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSowSeeds)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbToWater)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbToPlow)).EndInit();
@@ -2339,11 +2386,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbNameFon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHero)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2501,6 +2543,9 @@
         private System.Windows.Forms.PictureBox pbInventorySeed3;
         private System.Windows.Forms.PictureBox pbInventorySeed4;
         private System.Windows.Forms.PictureBox pbInventorySeed5;
+        private System.Windows.Forms.PictureBox pbGetWater;
+        private System.Windows.Forms.Label lblWarningMessage;
+        private System.Windows.Forms.Label lblItemToCraft;
     }
 }
 

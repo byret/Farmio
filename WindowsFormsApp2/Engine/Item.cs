@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -58,6 +60,20 @@ namespace Engine
 
         public class Bucket : CraftableItem
         {
+            public bool hasWater
+            {
+                get { return _hasWater;  }
+                set
+                {
+                    _hasWater = value;
+                    if (_hasWater)
+                    {
+                        Name = "Wiadro z wodą";
+                        NamePlural = "Wiadra z wodą";
+                    }
+                }
+            }
+            private bool _hasWater;
             public Bucket(int number)
                 : base(number)
             {
@@ -65,6 +81,7 @@ namespace Engine
                 NamePlural = "Wiadra";
                 Item.Wood Wood = new Item.Wood(4);
                 ItemsNeededForCraft.Add(Wood);
+                _hasWater = false;
             }
         }
 
