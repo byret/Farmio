@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.ComponentModel;
+using System.Timers;
 
 namespace Engine
 {
@@ -330,22 +331,62 @@ namespace Engine
 
             public class PlowedSoil : MapMainPoint
             {
+                private double UpdateInterval = 3000;
                 public Item.Food.Seed seed;
-                public bool isWatered
+                private System.Timers.Timer timerOfWatering;
+                private System.Timers.Timer timerOfGrowth;
+                public int stageOfGrowth
                 {
-                    get { return _isWatered; }
+                    get { return _stageOfGrowth; }
                     set
                     {
-                        _isWatered = value;
+                        _stageOfGrowth = value;
+                        string iswatered;
+                        if (_stageOfWatering == 0)
+                            iswatered = "Unwatered";
+                        else if (_stageOfWatering == 1)
+                            iswatered = "NRWatered";
+                        else iswatered = "Watered";
+                        if (_stageOfGrowth == 0)
+                            this.Bitmap = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\PlowedSoil" + iswatered + ".png"));
+                        else if (_stageOfGrowth == 1 || _stageOfGrowth == 2 || (_stageOfGrowth == 3 && seed.id != 2))
+                            this.Bitmap = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\SowedSoil" + iswatered + seed.Number.ToString() + '-' + seed.id.ToString() + '-' + _stageOfGrowth.ToString() + ".png"));
+                        else if (_stageOfGrowth == 4 && seed.id != 2)
+                            this.Bitmap = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\SowedSoil" + iswatered + seed.Number.ToString() + '-' + seed.id.ToString() + '-' + _stageOfGrowth.ToString() + '-' + seed.id2.ToString() + ".png"));
+                        else if (_stageOfGrowth == 4)
+                            this.Bitmap = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\SowedSoil" + iswatered + seed.Number.ToString() + '-' + seed.id.ToString() + '-' + _stageOfGrowth.ToString() + ".png"));
+                    }
+                }
+                public int stageOfWatering
+                {
+                    get { return _stageOfWatering; }
+                    set
+                    {
+                        _stageOfWatering = value;
+
+                        string iswatered;
+                        if (_stageOfWatering == 0)
+                            iswatered = "Unwatered";
+                        else if (_stageOfWatering == 1)
+                            iswatered = "NRWatered";
+                        else iswatered = "Watered";
+                        timerOfWatering.Start();
+
                         if (_isSowed)
                         {
-                            string iswatered = isWatered ? "Watered" : "Unwatered";
+                            timerOfGrowth.Start();
                             string numOfSeeds = seed.Number.ToString();
-                            this.Bitmap = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\SowedSoil" + iswatered + numOfSeeds + ".png"));
+                            if (_stageOfGrowth == 1 || _stageOfGrowth == 2 || (_stageOfGrowth == 3 && seed.id != 2))
+                                this.Bitmap = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\SowedSoil" + iswatered + seed.Number.ToString() + '-' + seed.id.ToString() + '-' + _stageOfGrowth.ToString() + ".png"));
+                            else if (_stageOfGrowth == 4 && seed.id != 2)
+                                this.Bitmap = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\SowedSoil" + iswatered + seed.Number.ToString() + '-' + seed.id.ToString() + '-' + _stageOfGrowth.ToString() + '-' + seed.id2.ToString() + ".png"));
+                            else if (_stageOfGrowth == 4)
+                                this.Bitmap = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\SowedSoil" + iswatered + seed.Number.ToString() + '-' + seed.id.ToString() + '-' + _stageOfGrowth.ToString() + ".png"));
+                            else if (_stageOfGrowth == 0)
+                                this.Bitmap = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\PlowedSoil" + iswatered + ".png"));
                         }
                         else
                         {
-                            string iswatered = isWatered ? "Watered" : "Unwatered";
                             this.Bitmap = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\PlowedSoil" + iswatered + ".png"));
                         }
                     }
@@ -358,21 +399,61 @@ namespace Engine
                         _isSowed = value;
                         if (_isSowed)
                         {
-                            string iswatered = isWatered ? "Watered" : "Unwatered";
+                            string iswatered;
                             string numOfSeeds = seed.Number.ToString();
-                            this.Bitmap = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\SowedSoil" + iswatered + numOfSeeds + ".png"));
                         }
                     }
                 }
                 private bool _isWatered;
                 private bool _isSowed;
+                private int _stageOfGrowth;
+                private int _stageOfWatering;
 
                 public PlowedSoil(int x, int y, string name, int Width, int Height, Bitmap bm, Map map)
                     : base(x, y, name, Width, Height, bm)
                 {
-                    map.Fill(x, y, Width, Height, 0, 0, 0, 0);
+                    timerOfWatering =  new System.Timers.Timer(UpdateInterval);
+                    timerOfWatering.Elapsed += timerOfWateringTimer_Elapsed;
+                    timerOfGrowth = new System.Timers.Timer(UpdateInterval*2);
+                    timerOfGrowth.Elapsed += timerOfGrowthTimer_Elapsed;
+                    map.Fill(x, y, Width, Height, 1, 53, 1, 40);
                     isSowed = false;
-                    isWatered = false;
+                    stageOfGrowth = 0;
+                    stageOfWatering = 0;
+                }
+
+                private void timerOfWateringTimer_Elapsed(object sender, ElapsedEventArgs e)
+                {
+                    if (stageOfWatering > 0)
+                        stageOfWatering--;
+                }
+
+                private void timerOfGrowthTimer_Elapsed(object sender, ElapsedEventArgs e)
+                {
+                    if (stageOfGrowth < 4)
+                        stageOfGrowth++;
+                }
+
+                public Item Harvesting ()
+                {
+                    Item.Food result = new Item.Food(1);
+                    if (seed is Item.Food.Seed.CarrotSeed)
+                        result = new Item.Food.Carrot(seed.Number);
+                    else if (seed is Item.Food.Seed.TurnipSeed)
+                        result = new Item.Food.Turnip(seed.Number);
+                    else if (seed is Item.Food.Seed.BeetSeed)
+                        result = new Item.Food.Beet(seed.Number);
+                    else if (seed is Item.Food.Seed.WheatSeed)
+                        result = new Item.Food.Wheat(seed.Number*2);
+                    else if (seed is Item.Food.Seed.Potato)
+                        result = new Item.Food.Potato(seed.Number*3);
+                    else if (seed is Item.Food.Seed.CabbageSeed)
+                        result = new Item.Food.Cabbage(seed.Number);
+                    seed = null;
+                    timerOfGrowth.Stop();
+                    isSowed = false;
+                    stageOfGrowth = 0;
+                    return result;
                 }
             }
 
@@ -381,7 +462,7 @@ namespace Engine
                 public Pond(int x, int y, string name, int Width, int Height, Bitmap bm, Map map)
                     : base(x, y, name, Width, Height, bm)
                 {
-                    map.Fill(x, y, Width, Height, 0, 0, 0, 0);
+                    map.Fill(x, y, Width, Height, 0, 62, 0, 52);
                 }
             }
 

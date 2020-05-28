@@ -41,6 +41,7 @@ namespace Farmio
         int minutes;
         System.Windows.Forms.Timer TimeOfDayTimer = new System.Windows.Forms.Timer();
         System.Windows.Forms.Timer InventoryPlusTimer = new System.Windows.Forms.Timer();
+        System.Windows.Forms.Timer OneSecondTimer = new System.Windows.Forms.Timer();
         int windowFrame = 0;
         bool StorageIsOpen = false;
         bool Crafting = false;
@@ -63,6 +64,10 @@ namespace Farmio
             ///
             Item.CraftableItem.Bucket bucket = new Item.CraftableItem.Bucket(1);
             hero.Inventory.Add(bucket);
+            Item.Food.Seed.Potato Potato = new Item.Food.Seed.Potato(3);
+            hero.Inventory.Add(Potato);
+            Item.Food.Seed.CabbageSeed CabbageSeed = new Item.Food.Seed.CabbageSeed(1);
+            hero.Inventory.Add(CabbageSeed);
 
             InitializeComponent();
             longRunningTask = HeroMoveHere(hero.x, hero.y, 0);
@@ -70,8 +75,11 @@ namespace Farmio
             musicTimer.Interval = 300000;
             musicTimer.Tick += new EventHandler(musicTimer_Tick);
             musicTimer.Start();
+            OneSecondTimer.Interval = 1000;
+            OneSecondTimer.Tick += new EventHandler(OneSecondTimer_Tick);
             InventoryPlusTimer.Interval = 1000;
             InventoryPlusTimer.Tick += new EventHandler(InventoryPlusTimer_Tick);
+            OneSecondTimer.Start();
             TimeOfDayTimer.Interval = 7500;
             TimeOfDayTimer.Tick += new EventHandler(TimeOfDayTimer_Tick);
 
@@ -208,7 +216,7 @@ namespace Farmio
         private void Parentize()
         {
             pbFarmio.Parent = pbStart.Parent = pbLoad.Parent = pbExit.Parent = pbStart.Parent = pictureBox1;
-            pbGetWater.Parent = pbName.Parent = pbCDTree.Parent = pbGetStone.Parent = pbCutGrass.Parent = pbCDStump.Parent = pbGetMushroom.Parent = pbGetMushrooms.Parent = pbStorage.Parent = pbGoToSleep.Parent = pbCraftSmth.Parent = pbNameOk.Parent = pbGLEF.Parent = pbInventoryOpen.Parent = pbCraftingArrow.Parent = pbToPlow.Parent = pbSowSeeds.Parent = pbToWater.Parent = pbFon;
+            pbToHarvest.Parent = pbGetWater.Parent = pbName.Parent = pbCDTree.Parent = pbGetStone.Parent = pbCutGrass.Parent = pbCDStump.Parent = pbGetMushroom.Parent = pbGetMushrooms.Parent = pbStorage.Parent = pbGoToSleep.Parent = pbCraftSmth.Parent = pbNameOk.Parent = pbGLEF.Parent = pbInventoryOpen.Parent = pbCraftingArrow.Parent = pbToPlow.Parent = pbSowSeeds.Parent = pbToWater.Parent = pbFon;
             lblInventory.Parent = lblGold.Parent = lblEpoch.Parent = lblEnergy.Parent = lblSaturation.Parent = lblHour.Parent = label1.Parent = label2.Parent = label3.Parent = label4.Parent = label5.Parent = lblInventoryPlus.Parent = pbGLEF;
             Window.Parent = pbFon;
             pbHero.Parent = Window;
@@ -560,35 +568,35 @@ namespace Farmio
                         pbGoToSleep.Visible = true;
                         pbCraftSmth.Visible = true;
                         pbCraftSmth.Location = new Point(ClickX + 5, ClickY + 5 + 38);
-                        pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCDTree.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
+                        pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCDTree.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
                     }
 
                     else if (tmp is Map.MapMainPoint.Grass)
                     {
                         pbCutGrass.Location = new Point(ClickX + 5, ClickY + 5);
                         pbCutGrass.Visible = true;
-                        pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCDTree.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
+                        pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCDTree.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
                     }
 
                     else if (tmp is Map.MapMainPoint.Stone)
                     {
                         pbGetStone.Location = new Point(ClickX + 5, ClickY + 5);
                         pbGetStone.Visible = true;
-                        pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
+                        pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
                     }
 
                     else if (tmp is Map.MapMainPoint.Tree)
                     {
                         pbCDTree.Location = new Point(ClickX + 5, ClickY + 5);
                         pbCDTree.Visible = true;
-                        pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
+                        pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
                     }
 
                     else if (tmp is Map.MapMainPoint.Stump)
                     {
                         pbCDStump.Location = new Point(ClickX + 5, ClickY + 5);
                         pbCDStump.Visible = true;
-                        pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
+                        pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
                     }
 
                     else if (tmp is Map.MapMainPoint.Mushroom)
@@ -597,14 +605,14 @@ namespace Farmio
                         {
                             pbGetMushroom.Location = new Point(ClickX + 5, ClickY + 5);
                             pbGetMushroom.Visible = true;
-                            pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushrooms.Visible = pbCDStump.Visible = false;
+                            pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushrooms.Visible = pbCDStump.Visible = false;
                         }
 
                         else
                         {
                             pbGetMushrooms.Location = new Point(ClickX + 5, ClickY + 5);
                             pbGetMushrooms.Visible = true;
-                            pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushroom.Visible = pbCDStump.Visible = false;
+                            pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushroom.Visible = pbCDStump.Visible = false;
                         }
                     }
 
@@ -612,15 +620,29 @@ namespace Farmio
                     {
                         if (!((Map.MapMainPoint.PlowedSoil)tmp).isSowed)
                         {
-                            pbSowSeeds.Location = new Point(ClickX + 5, ClickY + 5 + 19);
+                            pbSowSeeds.Location = new Point(ClickX + 5, ClickY + 5);
                             pbSowSeeds.Visible = true;
-                            pbGetWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushroom.Visible = pbCDStump.Visible = false;
+                            pbToHarvest.Visible = pbGetWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushroom.Visible = pbCDStump.Visible = false;
                         }
-                        else
-                            pbGetWater.Visible = pbSowSeeds.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushroom.Visible = pbCDStump.Visible = false;
-                        pbToWater.Location = new Point(ClickX + 5, ClickY + 5);
-                        pbToWater.Visible = true;
-                        
+                        else if (((Map.MapMainPoint.PlowedSoil)tmp).stageOfGrowth == 4)
+                        {
+                            pbToHarvest.Location = new Point(ClickX + 5, ClickY + 5);
+                            pbToHarvest.Visible = true;
+                            pbSowSeeds.Visible = pbGetWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushroom.Visible = pbCDStump.Visible = false;
+                        }
+                        else if(((Map.MapMainPoint.PlowedSoil)tmp).stageOfWatering < 2)
+                        {
+                            foreach (Item item in hero.Inventory)
+                            {
+                                if (item is Item.CraftableItem.Bucket && ((Item.CraftableItem.Bucket)item).hasWater)
+                                {
+                                    pbToWater.Location = new Point(ClickX + 5, ClickY + 5);
+                                    pbToWater.Visible = true;
+                                    break;
+                                }
+                            }
+                            pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushroom.Visible = pbCDStump.Visible = false;
+                        }                  
                     }
 
                     else if (tmp is Map.MapMainPoint.Pond)
@@ -629,11 +651,12 @@ namespace Farmio
                         {
                             if (item is Item.CraftableItem.Bucket)
                             {
-                                pbGetWater.Location = new Point(ClickX + 5, ClickY + 5 + 19);
+                                pbGetWater.Location = new Point(ClickX + 5, ClickY + 5);
                                 pbGetWater.Visible = true;
-                                pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
+                                break;
                             }
                         }
+                        pbToHarvest.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
                     }
                 }
 
@@ -1073,12 +1096,13 @@ namespace Farmio
 
         private void lblInventory_Click(object sender, EventArgs e)
         {
-            SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\inventory.wav"));
             InventoryLoad();
         }
 
         private void InventoryLoad()
         {
+
+            SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\inventory.wav"));
             InventoryClose();
             pbInventoryOpen.Visible = true;
             int i = 0;
@@ -1337,6 +1361,11 @@ namespace Farmio
                 lblInventoryPlus.Visible = false;
 
             InventoryPlusTimer.Stop();
+        }
+
+        void OneSecondTimer_Tick(object sender, EventArgs e)
+        {
+            pbFon.Image = map.DrawMap();
         }
 
         private async void pbStorage_Click(object sender, EventArgs e)
@@ -2026,8 +2055,8 @@ namespace Farmio
                     {
                         longRunningTask = HeroMoveHere(ClickX, ClickY, 30);
                         int result = await longRunningTask;
-                        SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\chopping-wood.wav"));
                         await Task.Delay(300);
+                        SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\digging.wav"));
                         hero.Energy = EnergyTmp;
                         map.MakeObjectRightHere(ClickX, ClickY, "ps1", map, false);
                         pbFon.Image = map.DrawMap();
@@ -2043,7 +2072,7 @@ namespace Farmio
             Seeding = true;
             int x = map.mapTab[ClickX, ClickY].X;
             int y = map.mapTab[ClickX, ClickY].Y;
-            longRunningTask = HeroMoveHere(x + 48, y + 84, 0);
+            longRunningTask = HeroMoveHere(x + 27, y + 21, 0);
             int result = await longRunningTask;
             CurrentPlowedSoil = (Map.MapMainPoint.PlowedSoil)map.mapTab[x, y];
             InventoryLoad();
@@ -2085,6 +2114,7 @@ namespace Farmio
 
             Seeding = false;
             CurrentPlowedSoil.isSowed = true;
+            InventoryClose();
             pbFon.Image = map.DrawMap();
         }
 
@@ -2093,19 +2123,30 @@ namespace Farmio
             pbSowSeeds.Visible = pbToWater.Visible = false;
             int x = map.mapTab[ClickX, ClickY].X;
             int y = map.mapTab[ClickX, ClickY].Y;
-            longRunningTask = HeroMoveHere(x + 48, y + 84, 0);
+            longRunningTask = HeroMoveHere(x + 31, y + 26, 0);
             int result = await longRunningTask;
-            ((Map.MapMainPoint.PlowedSoil)map.mapTab[x, y]).isWatered = true;
+            SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\watering.wav"));
+            ((Map.MapMainPoint.PlowedSoil)map.mapTab[x, y]).stageOfWatering = 2;
+            foreach (Item item in hero.Inventory)
+            {
+                if (item is Item.CraftableItem.Bucket)
+                {
+                    ((Item.CraftableItem.Bucket)item).hasWater = false;
+                    ((Item.CraftableItem.Bucket)item).Name = "Wiadro";
+                    break;
+                }
+            }
             pbFon.Image = map.DrawMap();
         }
 
         private async void pbGetWater_Click(object sender, EventArgs e)
         {
+            pbGetWater.Visible = false;
             int x = map.mapTab[ClickX, ClickY].X;
             int y = map.mapTab[ClickX, ClickY].Y;
-            longRunningTask = HeroMoveHere(x + 48, y + 84, 0);
+            longRunningTask = HeroMoveHere(x + 31, y + 26, 0);
             int result = await longRunningTask;
-            pbGetWater.Visible = false;
+            SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\getWater.wav"));
             foreach (Item item in hero.Inventory)
             {
                 if (item is Item.CraftableItem.Bucket)
@@ -2113,6 +2154,23 @@ namespace Farmio
                     ((Item.CraftableItem.Bucket)item).hasWater = true;
                 }
             }
+        }
+
+        private void lblItemToCraft_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void pbToHarvest_Click(object sender, EventArgs e)
+        {
+            pbToHarvest.Visible = false;
+            int x = map.mapTab[ClickX, ClickY].X;
+            int y = map.mapTab[ClickX, ClickY].Y;
+            longRunningTask = HeroMoveHere(x + 27, y + 21, 0);
+            int result = await longRunningTask;
+            CurrentPlowedSoil = (Map.MapMainPoint.PlowedSoil)map.mapTab[x, y];
+            hero.addToInventory(CurrentPlowedSoil.Harvesting());
+            pbFon.Image = map.DrawMap();
         }
     }
 }

@@ -388,6 +388,15 @@ namespace WindowsFormsApp2.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream digging {
+            get {
+                return ResourceManager.GetStream("digging", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap exit {
@@ -490,6 +499,15 @@ namespace WindowsFormsApp2.Properties {
             get {
                 object obj = ResourceManager.GetObject("getWater", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream getWater1 {
+            get {
+                return ResourceManager.GetStream("getWater1", resourceCulture);
             }
         }
         
@@ -945,6 +963,16 @@ namespace WindowsFormsApp2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap plowedSoilNRWatered {
+            get {
+                object obj = ResourceManager.GetObject("plowedSoilNRWatered", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap plowedSoilUnwatered {
             get {
                 object obj = ResourceManager.GetObject("plowedSoilUnwatered", resourceCulture);
@@ -955,9 +983,29 @@ namespace WindowsFormsApp2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap plowedSoilUnwatered1 {
+            get {
+                object obj = ResourceManager.GetObject("plowedSoilUnwatered1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap plowedSoilWatered {
             get {
                 object obj = ResourceManager.GetObject("plowedSoilWatered", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plowedSoilWatered1 {
+            get {
+                object obj = ResourceManager.GetObject("plowedSoilWatered1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1040,9 +1088,9 @@ namespace WindowsFormsApp2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap SowedSoilUnwatered1 {
+        internal static System.Drawing.Bitmap SowedSoilNRWatered1_1_1 {
             get {
-                object obj = ResourceManager.GetObject("SowedSoilUnwatered1", resourceCulture);
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered1_1_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1050,9 +1098,9 @@ namespace WindowsFormsApp2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap SowedSoilUnwatered2 {
+        internal static System.Drawing.Bitmap SowedSoilNRWatered1_1_2 {
             get {
-                object obj = ResourceManager.GetObject("SowedSoilUnwatered2", resourceCulture);
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered1_1_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1060,9 +1108,9 @@ namespace WindowsFormsApp2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap SowedSoilUnwatered3 {
+        internal static System.Drawing.Bitmap SowedSoilNRWatered1_1_3 {
             get {
-                object obj = ResourceManager.GetObject("SowedSoilUnwatered3", resourceCulture);
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered1_1_3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1070,9 +1118,9 @@ namespace WindowsFormsApp2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap SowedSoilUnwatered4 {
+        internal static System.Drawing.Bitmap SowedSoilNRWatered1_1_4_1 {
             get {
-                object obj = ResourceManager.GetObject("SowedSoilUnwatered4", resourceCulture);
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered1_1_4_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1080,9 +1128,9 @@ namespace WindowsFormsApp2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap SowedSoilWatered1 {
+        internal static System.Drawing.Bitmap SowedSoilNRWatered1_1_4_2 {
             get {
-                object obj = ResourceManager.GetObject("SowedSoilWatered1", resourceCulture);
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered1_1_4_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1090,9 +1138,9 @@ namespace WindowsFormsApp2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap SowedSoilWatered2 {
+        internal static System.Drawing.Bitmap SowedSoilNRWatered1_1_4_3 {
             get {
-                object obj = ResourceManager.GetObject("SowedSoilWatered2", resourceCulture);
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered1_1_4_3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1100,9 +1148,9 @@ namespace WindowsFormsApp2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap SowedSoilWatered3 {
+        internal static System.Drawing.Bitmap SowedSoilNRWatered1_2_1 {
             get {
-                object obj = ResourceManager.GetObject("SowedSoilWatered3", resourceCulture);
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered1_2_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1110,9 +1158,1609 @@ namespace WindowsFormsApp2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap SowedSoilWatered4 {
+        internal static System.Drawing.Bitmap SowedSoilNRWatered1_2_2 {
             get {
-                object obj = ResourceManager.GetObject("SowedSoilWatered4", resourceCulture);
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered1_2_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered1_2_4 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered1_2_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered1_3_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered1_3_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered1_3_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered1_3_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered1_3_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered1_3_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered1_3_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered1_3_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered1_3_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered1_3_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered2_1_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered2_1_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered2_1_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered2_1_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered2_1_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered2_1_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered2_1_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered2_1_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered2_1_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered2_1_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered2_1_4_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered2_1_4_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered2_2_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered2_2_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered2_2_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered2_2_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered2_2_4 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered2_2_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered2_3_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered2_3_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered2_3_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered2_3_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered2_3_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered2_3_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered2_3_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered2_3_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered2_3_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered2_3_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered3_1_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered3_1_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered3_1_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered3_1_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered3_1_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered3_1_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered3_1_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered3_1_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered3_1_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered3_1_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered3_1_4_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered3_1_4_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered3_2_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered3_2_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered3_2_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered3_2_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered3_2_4 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered3_2_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered3_3_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered3_3_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered3_3_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered3_3_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered3_3_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered3_3_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered3_3_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered3_3_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered3_3_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered3_3_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered4_1_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered4_1_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered4_1_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered4_1_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered4_1_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered4_1_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered4_1_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered4_1_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered4_1_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered4_1_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered4_1_4_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered4_1_4_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered4_2_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered4_2_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered4_2_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered4_2_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered4_2_4 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered4_2_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered4_3_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered4_3_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered4_3_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered4_3_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered4_3_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered4_3_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered4_3_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered4_3_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilNRWatered4_3_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilNRWatered4_3_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered1_1_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered1_1_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered1_1_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered1_1_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered1_1_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered1_1_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered1_1_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered1_1_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered1_1_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered1_1_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered1_1_4_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered1_1_4_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered1_2_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered1_2_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered1_2_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered1_2_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered1_2_4 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered1_2_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered1_3_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered1_3_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered1_3_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered1_3_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered1_3_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered1_3_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered1_3_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered1_3_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered1_3_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered1_3_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered2_1_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered2_1_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered2_1_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered2_1_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered2_1_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered2_1_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered2_1_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered2_1_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered2_1_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered2_1_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered2_1_4_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered2_1_4_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered2_2_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered2_2_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered2_2_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered2_2_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered2_2_4 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered2_2_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered2_3_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered2_3_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered2_3_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered2_3_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered2_3_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered2_3_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered2_3_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered2_3_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered2_3_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered2_3_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered3_1_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered3_1_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered3_1_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered3_1_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered3_1_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered3_1_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered3_1_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered3_1_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered3_1_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered3_1_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered3_1_4_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered3_1_4_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered3_2_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered3_2_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered3_2_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered3_2_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered3_2_4 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered3_2_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered3_3_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered3_3_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered3_3_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered3_3_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered3_3_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered3_3_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered3_3_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered3_3_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered3_3_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered3_3_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered4_1_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered4_1_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered4_1_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered4_1_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered4_1_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered4_1_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered4_1_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered4_1_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered4_1_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered4_1_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered4_1_4_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered4_1_4_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered4_2_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered4_2_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered4_2_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered4_2_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered4_2_4 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered4_2_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered4_3_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered4_3_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered4_3_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered4_3_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered4_3_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered4_3_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered4_3_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered4_3_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilUnwatered4_3_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilUnwatered4_3_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered1_1_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered1_1_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered1_1_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered1_1_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered1_1_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered1_1_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered1_1_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered1_1_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered1_1_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered1_1_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered1_1_4_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered1_1_4_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered1_2_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered1_2_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered1_2_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered1_2_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered1_2_4 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered1_2_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered1_3_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered1_3_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered1_3_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered1_3_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered1_3_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered1_3_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered1_3_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered1_3_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered1_3_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered1_3_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered2_1_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered2_1_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered2_1_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered2_1_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered2_1_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered2_1_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered2_1_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered2_1_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered2_1_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered2_1_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered2_1_4_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered2_1_4_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered2_2_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered2_2_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered2_2_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered2_2_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered2_2_4 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered2_2_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered2_3_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered2_3_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered2_3_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered2_3_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered2_3_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered2_3_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered2_3_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered2_3_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered2_3_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered2_3_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered3_1_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered3_1_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered3_1_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered3_1_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered3_1_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered3_1_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered3_1_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered3_1_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered3_1_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered3_1_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered3_1_4_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered3_1_4_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered3_2_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered3_2_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered3_2_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered3_2_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered3_2_4 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered3_2_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered3_3_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered3_3_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered3_3_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered3_3_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered3_3_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered3_3_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered3_3_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered3_3_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered3_3_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered3_3_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered4_1_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered4_1_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered4_1_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered4_1_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered4_1_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered4_1_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered4_1_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered4_1_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered4_1_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered4_1_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered4_1_4_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered4_1_4_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered4_2_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered4_2_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered4_2_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered4_2_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered4_2_4 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered4_2_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered4_3_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered4_3_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered4_3_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered4_3_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered4_3_3 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered4_3_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered4_3_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered4_3_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SowedSoilWatered4_3_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("SowedSoilWatered4_3_4_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1239,6 +2887,16 @@ namespace WindowsFormsApp2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap toHarvest {
+            get {
+                object obj = ResourceManager.GetObject("toHarvest", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap toPlow {
             get {
                 object obj = ResourceManager.GetObject("toPlow", resourceCulture);
@@ -1331,6 +2989,15 @@ namespace WindowsFormsApp2.Properties {
         internal static System.IO.UnmanagedMemoryStream vlad_gluschenko_springtime {
             get {
                 return ResourceManager.GetStream("vlad_gluschenko_springtime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream watering {
+            get {
+                return ResourceManager.GetStream("watering", resourceCulture);
             }
         }
         

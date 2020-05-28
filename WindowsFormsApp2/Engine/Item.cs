@@ -156,6 +156,34 @@ namespace Engine
             }
         }
 
+        public class Carrot : Food
+        {
+            public Carrot(int number)
+                : base(number)
+            {
+                Name = NamePlural = "Marchew";
+            }
+        }
+
+        public class Turnip : Food
+        {
+            public Turnip(int number)
+                : base(number)
+            {
+                Name = NamePlural = "Rzepa";
+            }
+        }
+
+        public class Beet : Food
+        {
+            public Beet(int number)
+                : base(number)
+            {
+                Name = "Burak";
+                NamePlural = "Buraki";
+            }
+        }
+
         public class Apple : Food
         {
             public Apple(int number)
@@ -166,22 +194,13 @@ namespace Engine
             }
         }
 
-        public class Potato : Food
-        {
-            public Potato(int number)
-                : base(number)
-            {
-                Name = "Ziemniak";
-                NamePlural = "Ziemniaki";
-            }
-        }
 
-        public class Rice : Food
+        public class Wheat : Food
         {
-            public Rice(int number)
+            public Wheat(int number)
                 : base(number)
             {
-                Name = NamePlural = "Ryż";
+                Name = NamePlural = "Pszenica";
             }
         }
 
@@ -287,9 +306,12 @@ namespace Engine
 
         public class Seed : Food
         {
+            public int id;
+            public int id2;
             public Seed(int number)
                 : base(number)
             {
+                id = id2 = 0;
                 Energy = 1;
             }
         }
@@ -299,6 +321,8 @@ namespace Engine
             public WheatSeed(int number)
                 : base(number)
             {
+                id = 2;
+                id2 = 1;
                 Name = "Ziarno pszenicy";
                 NamePlural = "Ziarna pszenicy";
             }
@@ -320,8 +344,34 @@ namespace Engine
             public CarrotSeed(int number)
                 : base(number)
             {
+                id = 1;
+                id2 = 1;
                 Name = "Nasienie marchwi";
                 NamePlural = "Nasiona marchwi";
+            }
+        }
+
+        public class TurnipSeed : Seed
+        {
+            public TurnipSeed(int number)
+                : base(number)
+            {
+                id = 1;
+                id2 = 2;
+                Name = "Nasienie rzepy";
+                NamePlural = "Nasiona rzepy";
+            }
+        }
+
+        public class BeetSeed : Seed
+        {
+            public BeetSeed(int number)
+                : base(number)
+            {
+                id = 1;
+                id2 = 3;
+                Name = "Nasienie buraka";
+                NamePlural = "Nasiona buraka";
             }
         }
 
@@ -353,6 +403,32 @@ namespace Engine
             {
                 Name = "Nasienie jabłka";
                 NamePlural = "Nasiona jabłka";
+            }
+        }
+
+        public class CabbageSeed : Seed
+        {
+            public CabbageSeed(int number)
+                : base(number)
+            {
+                id = 3;
+                id2 = 2;
+                Name = "Nasienie kapusty";
+                NamePlural = "Nasiona kapusty";
+            }
+        }
+
+
+        public class Potato : Seed
+        {
+            public Potato(int number)
+                : base(number)
+            {
+                Energy = 10;
+                id = 3;
+                id2 = 1;
+                Name = "Ziemniak";
+                NamePlural = "Ziemniaki";
             }
         }
     }

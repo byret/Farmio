@@ -88,6 +88,9 @@
             this.CraftingNumOfItem3 = new System.Windows.Forms.Label();
             this.CraftingNumOfItem4 = new System.Windows.Forms.Label();
             this.lblCraftableItem = new System.Windows.Forms.Label();
+            this.lblWarningMessage = new System.Windows.Forms.Label();
+            this.lblItemToCraft = new System.Windows.Forms.Label();
+            this.pbToHarvest = new System.Windows.Forms.PictureBox();
             this.pbGetWater = new System.Windows.Forms.PictureBox();
             this.pbInventorySeed5 = new System.Windows.Forms.PictureBox();
             this.pbInventorySeed4 = new System.Windows.Forms.PictureBox();
@@ -182,8 +185,7 @@
             this.pbNameFon = new System.Windows.Forms.PictureBox();
             this.pbFon = new System.Windows.Forms.PictureBox();
             this.pbHero = new System.Windows.Forms.PictureBox();
-            this.lblWarningMessage = new System.Windows.Forms.Label();
-            this.lblItemToCraft = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pbToHarvest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGetWater)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed4)).BeginInit();
@@ -955,6 +957,41 @@
             this.lblCraftableItem.TabIndex = 141;
             this.lblCraftableItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblCraftableItem.Visible = false;
+            // 
+            // lblWarningMessage
+            // 
+            this.lblWarningMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.lblWarningMessage.Location = new System.Drawing.Point(15, 430);
+            this.lblWarningMessage.Name = "lblWarningMessage";
+            this.lblWarningMessage.Size = new System.Drawing.Size(173, 41);
+            this.lblWarningMessage.TabIndex = 151;
+            this.lblWarningMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblWarningMessage.Visible = false;
+            // 
+            // lblItemToCraft
+            // 
+            this.lblItemToCraft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.lblItemToCraft.Font = new System.Drawing.Font("Pixellari", 11F);
+            this.lblItemToCraft.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.lblItemToCraft.Location = new System.Drawing.Point(574, 596);
+            this.lblItemToCraft.Name = "lblItemToCraft";
+            this.lblItemToCraft.Size = new System.Drawing.Size(100, 42);
+            this.lblItemToCraft.TabIndex = 152;
+            this.lblItemToCraft.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblItemToCraft.Visible = false;
+            this.lblItemToCraft.Click += new System.EventHandler(this.lblItemToCraft_Click);
+            // 
+            // pbToHarvest
+            // 
+            this.pbToHarvest.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbToHarvest.Image = global::WindowsFormsApp2.Properties.Resources.toHarvest;
+            this.pbToHarvest.Location = new System.Drawing.Point(906, 265);
+            this.pbToHarvest.Name = "pbToHarvest";
+            this.pbToHarvest.Size = new System.Drawing.Size(81, 18);
+            this.pbToHarvest.TabIndex = 153;
+            this.pbToHarvest.TabStop = false;
+            this.pbToHarvest.Visible = false;
+            this.pbToHarvest.Click += new System.EventHandler(this.pbToHarvest_Click);
             // 
             // pbGetWater
             // 
@@ -2110,33 +2147,12 @@
             this.pbHero.TabIndex = 25;
             this.pbHero.TabStop = false;
             // 
-            // lblWarningMessage
-            // 
-            this.lblWarningMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
-            this.lblWarningMessage.Location = new System.Drawing.Point(15, 430);
-            this.lblWarningMessage.Name = "lblWarningMessage";
-            this.lblWarningMessage.Size = new System.Drawing.Size(173, 41);
-            this.lblWarningMessage.TabIndex = 151;
-            this.lblWarningMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblWarningMessage.Visible = false;
-            // 
-            // lblItemToCraft
-            // 
-            this.lblItemToCraft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
-            this.lblItemToCraft.Font = new System.Drawing.Font("Pixellari", 11F);
-            this.lblItemToCraft.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
-            this.lblItemToCraft.Location = new System.Drawing.Point(574, 596);
-            this.lblItemToCraft.Name = "lblItemToCraft";
-            this.lblItemToCraft.Size = new System.Drawing.Size(100, 42);
-            this.lblItemToCraft.TabIndex = 152;
-            this.lblItemToCraft.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblItemToCraft.Visible = false;
-            // 
             // Farmio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1300, 800);
+            this.Controls.Add(this.pbToHarvest);
             this.Controls.Add(this.lblItemToCraft);
             this.Controls.Add(this.lblWarningMessage);
             this.Controls.Add(this.pbGetWater);
@@ -2292,6 +2308,7 @@
             this.Controls.Add(this.lblNumOfItem5);
             this.Name = "Farmio";
             this.Text = "Farmio";
+            ((System.ComponentModel.ISupportInitialize)(this.pbToHarvest)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGetWater)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed4)).EndInit();
@@ -2546,6 +2563,7 @@
         private System.Windows.Forms.PictureBox pbGetWater;
         private System.Windows.Forms.Label lblWarningMessage;
         private System.Windows.Forms.Label lblItemToCraft;
+        private System.Windows.Forms.PictureBox pbToHarvest;
     }
 }
 
