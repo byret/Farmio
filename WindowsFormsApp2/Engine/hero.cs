@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Security.Cryptography.X509Certificates;
+using System.ComponentModel;
 
 namespace Engine
 {
@@ -22,6 +24,8 @@ namespace Engine
 
         public List<Item> Inventory = new List<Item>();
         public int NumOfItemsInInventory;
+
+
 
         public Hero()
         {
@@ -84,6 +88,21 @@ namespace Engine
                 this.x++;
         }
 
+
+
+        public void ListOfCraftableItems()
+        {
+            List<Item.CraftableItem> ListOfCraftableItems = new List<Item.CraftableItem>();
+
+            Item.CraftableItem.Shovel Shovel = new Item.Shovel(1);
+            ListOfCraftableItems.Add(Shovel);
+
+            Item.CraftableItem.Bucket Bucket = new Item.Bucket(1);
+            ListOfCraftableItems.Add(Bucket);
+
+            Item.CraftableItem.FishingRod FishingRod = new Item.FishingRod(1);
+            ListOfCraftableItems.Add(FishingRod);
+        }
 
     }
 }
