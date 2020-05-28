@@ -500,6 +500,57 @@
   <ItemGroup>
     <None Include="Resources\CraftingAnvil2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toPlow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plowedSoil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toSowSeeds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toWater.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pond1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pond2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plowedSoilWatered.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SowedSoilUnwatered1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SowedSoilUnwatered2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SowedSoilUnwatered3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SowedSoilUnwatered4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SowedSoilWatered1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SowedSoilWatered2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SowedSoilWatered3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SowedSoilWatered4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plowedSoilUnwatered.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MonoGame.Framework.WindowsDX.3.7.1.189\build\MonoGame.Framework.WindowsDX.targets" Condition="Exists('..\packages\MonoGame.Framework.WindowsDX.3.7.1.189\build\MonoGame.Framework.WindowsDX.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
