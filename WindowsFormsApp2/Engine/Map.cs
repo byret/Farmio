@@ -4,14 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.ComponentModel;
+
 namespace Engine
 {
-    
+
     public class Map
     {
 
         public Bitmap Trees = new Bitmap(1300, 805);
-        public MapPoint[,] mapTab = new MapPoint [1700,900];
+        public MapPoint[,] mapTab = new MapPoint[1700, 900];
 
         // każdy "zajęty" punkt na mapie
 
@@ -28,7 +30,7 @@ namespace Engine
                 Collision = collision;
             }
 
-           
+
 
         }
         //przechowuje całą informację o obiekcie
@@ -51,7 +53,7 @@ namespace Engine
                 Y = y;
                 Width = width;
                 Height = height;
-                Bitmap = bm;              
+                Bitmap = bm;
             }
 
             public class Grass : MapMainPoint
@@ -71,7 +73,7 @@ namespace Engine
                 {
                     Bitmap = null;
                     map.reFill(X, Y, Width, Height);
-                    int numOfSeeds = Weight*2;
+                    int numOfSeeds = Weight * 2;
                     Random random = new Random();
                     int caseSwitch = random.Next(1, 15);
                     Item.Seed seed;
@@ -95,10 +97,10 @@ namespace Engine
                             seed = new Item.Seed.CucumberSeed(numOfSeeds);
                             break;
                         case 10:
-                            seed = new Item.Seed.PumpkinSeed(numOfSeeds/2);
+                            seed = new Item.Seed.PumpkinSeed(numOfSeeds / 2);
                             break;
 
-                        default:               
+                        default:
                             seed = new Item.Seed(0);
                             break;
                     }
@@ -108,7 +110,7 @@ namespace Engine
 
             public class Tree : MapMainPoint
             {
-                
+
                 public Tree(int x, int y, string name, int Width, int Height, Bitmap bm, Map map)
                     : base(x, y, name, Width, Height, bm)
                 {
@@ -120,7 +122,7 @@ namespace Engine
                     }
                     else if (name[1] == '2')
                     {
-                        Weight = random.Next(25,30);
+                        Weight = random.Next(25, 30);
                         map.Fill(x, y, Width, Height, 0, 96, 53, 74);
                     }
                     else if (name[1] == '3')
@@ -140,13 +142,13 @@ namespace Engine
                     Bitmap = null;
                     map.reFill(X, Y, Width, Height);
                     if (Name[1] == '1')
-                        map.MakeObjectRightHere(X, Y + 52, "p1", map);
+                        map.MakeObjectRightHere(X, Y + 52, "p1", map, true);
                     else if (Name[1] == '3')
-                        map.MakeObjectRightHere(X, Y + 68, "p2", map);
+                        map.MakeObjectRightHere(X, Y + 68, "p2", map, true);
                     else if (Name[1] == '2')
-                        map.MakeObjectRightHere(X, Y + 52, "p3", map);
+                        map.MakeObjectRightHere(X, Y + 52, "p3", map, true);
                     else if (Name[1] == '4')
-                        map.MakeObjectRightHere(X, Y + 68, "p4", map);
+                        map.MakeObjectRightHere(X, Y + 68, "p4", map, true);
                     int numOfWood = Weight / 2;
                     Item.Wood wood = new Item.Wood(numOfWood);
                     return wood;
@@ -158,7 +160,7 @@ namespace Engine
             {
                 public Stone(int x, int y, string name, int Width, int Height, Bitmap bm, Map map)
                     : base(x, y, name, Width, Height, bm)
-                {                    
+                {
                     Random random = new Random();
                     if (Width == 28)
                     {
@@ -175,7 +177,7 @@ namespace Engine
                         Weight = random.Next(25, 30);
                         map.Fill(x, y, Width, Height, 9, 37, 0, 29);
                     }
-                        
+
                 }
 
                 public Item.Stone DestroyStone(Map map)
@@ -232,7 +234,7 @@ namespace Engine
                     : base(x, y, name, Width, Height, bm)
                 {
                     map.Fill(x, y, Width, Height, 0, 0, 0, 0);
-                    Weight = Name[2] - '0'; 
+                    Weight = Name[2] - '0';
                 }
 
                 public Item.MushroomEdible DestroyMushroom(Map map)
@@ -270,7 +272,7 @@ namespace Engine
                 public void DestroyBuilding(Map map)
                 {
                     Bitmap = null;
-                    map.reFill(X, Y, Width, Height);                   
+                    map.reFill(X, Y, Width, Height);
                 }
 
                 public int AddToStorage(Item item)
@@ -326,7 +328,62 @@ namespace Engine
                 }
             }
 
+            public class PlowedSoil : MapMainPoint
+            {
+                public Item.Food.Seed seed;
+                public bool isWatered
+                {
+                    get { return _isWatered; }
+                    set
+                    {
+                        _isWatered = value;
+                        if (_isSowed)
+                        {
+                            string iswatered = isWatered ? "Watered" : "Unwatered";
+                            string numOfSeeds = seed.Number.ToString();
+                            this.Bitmap = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\SowedSoil" + iswatered + numOfSeeds + ".png"));
+                        }
+                        else
+                        {
+                            string iswatered = isWatered ? "Watered" : "Unwatered";
+                            this.Bitmap = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\PlowedSoil" + iswatered + ".png"));
+                        }
+                    }
+                }
+                public bool isSowed
+                {
+                    get { return _isSowed; }
+                    set
+                    {
+                        _isSowed = value;
+                        if (_isSowed)
+                        {
+                            string iswatered = isWatered ? "Watered" : "Unwatered";
+                            string numOfSeeds = seed.Number.ToString();
+                            this.Bitmap = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\SowedSoil" + iswatered + numOfSeeds + ".png"));
+                        }
+                    }
+                }
+                private bool _isWatered;
+                private bool _isSowed;
 
+                public PlowedSoil(int x, int y, string name, int Width, int Height, Bitmap bm, Map map)
+                    : base(x, y, name, Width, Height, bm)
+                {
+                    map.Fill(x, y, Width, Height, 0, 0, 0, 0);
+                    isSowed = false;
+                    isWatered = false;
+                }
+            }
+
+            public class Pond : MapMainPoint
+            {
+                public Pond(int x, int y, string name, int Width, int Height, Bitmap bm, Map map)
+                    : base(x, y, name, Width, Height, bm)
+                {
+                    map.Fill(x, y, Width, Height, 0, 0, 0, 0);
+                }
+            }
 
         }
 
@@ -342,7 +399,7 @@ namespace Engine
                     }
             for (int i = y + ctop; i < y + cbottom; i++)
                 for (int j = x + cleft; j < x + cright; j++)
-                {              
+                {
                     if (mapTab[j, i] != null)
                         mapTab[j, i].Collision = true;
                 }
@@ -356,7 +413,7 @@ namespace Engine
                         mapTab[j, i] = null;
         }
 
-        public void MakeObjectRightHere(int x, int y, string name, Map map)
+        public void MakeObjectRightHere(int x, int y, string name, Map map, bool n)
         {
             int Width = 0, Height = 0;
             Bitmap bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\justgreen.png"));
@@ -512,6 +569,12 @@ namespace Engine
                     bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\stump4.png"));
                 }
 
+                else if (name == "ps1")
+                {
+                    Width = 54;
+                    Height = 41;
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\plowedSoilUnwatered.png"));
+                }
             }
             else if (name[0] == 'm')
             {
@@ -561,33 +624,75 @@ namespace Engine
                     bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\house1.png"));
                 }
             }
- 
+
+            else if (name[0] == 'w')
+            {
+                if (name == "w1")
+                {
+                    Width = 62;
+                    Height = 62;
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\pond1.png"));
+                }
+                else if (name == "w2")
+                {
+                    Width = 62;
+                    Height = 52;
+                    bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\pond2.png"));
+                }
+            }
 
             bool isFree = true;
-            for (int i = y; i <= y + Height; i++)
-                for (int j = x; j <= x + Width; j++)
-                    if (i != y || j != x)
-                        if (map.mapTab[j, i] != null)
-                        {
-                            isFree = false;
-                            break;
-                        }
+            if (n)
+            {
+                for (int i = y; i <= y + Height; i++)
+                    for (int j = x; j <= x + Width; j++)
+                        if (i != y || j != x)
+                            if (map.mapTab[j, i] != null)
+                            {
+                                isFree = false;
+                                break;
+                            }
+            }
+            else
+            {
+                for (int i = y; i <= y + Height; i++)
+                    for (int j = x; j <= x + Width; j++)
+                        if (i != y || j != x)
+                            if (map.mapTab[j, i] != null)
+                            {
+                                MapMainPoint tmp = (MapMainPoint)map.mapTab[map.mapTab[j, i].X, map.mapTab[j, i].Y];
+                                if (tmp.Name[0] != 'g' && tmp.Name[0]!= 'm')
+                                {
+                                    isFree = false;
+                                    break;
+                                }
+                            }
+            }
+
             if (isFree)
             {
-                    if (name[0] == 't')
-                         map.mapTab[x, y] = new MapMainPoint.Tree(x, y, name, Width, Height, bm, map);
-                    else if (name[0] == 'g')
-                        map.mapTab[x, y] = new MapMainPoint.Grass(x, y, name, Width, Height, bm, map);
-                    else if (name[0] == 's')
-                        map.mapTab[x, y] = new MapMainPoint.Stone(x, y, name, Width, Height, bm, map);
-                    else if (name[0] == 'p')
+                if (name[0] == 't')
+                    map.mapTab[x, y] = new MapMainPoint.Tree(x, y, name, Width, Height, bm, map);
+                else if (name[0] == 'g')
+                    map.mapTab[x, y] = new MapMainPoint.Grass(x, y, name, Width, Height, bm, map);
+                else if (name[0] == 's')
+                    map.mapTab[x, y] = new MapMainPoint.Stone(x, y, name, Width, Height, bm, map);
+                else if (name[0] == 'p')
+                {
+                    if (name[1] == 's')
+                        map.mapTab[x, y] = new MapMainPoint.PlowedSoil(x, y, name, Width, Height, bm, map);
+                    else
                         map.mapTab[x, y] = new MapMainPoint.Stump(x, y, name, Width, Height, bm, map);
-                    else if (name[0] == 'm')
-                        map.mapTab[x, y] = new MapMainPoint.Mushroom(x, y, name, Width, Height, bm, map);
-                    else if (name[0] == 'b')
-                        map.mapTab[x, y] = new MapMainPoint.Building(x, y, name, Width, Height, bm, map);
+                }
+
+                else if (name[0] == 'm')
+                    map.mapTab[x, y] = new MapMainPoint.Mushroom(x, y, name, Width, Height, bm, map);
+                else if (name[0] == 'b')
+                    map.mapTab[x, y] = new MapMainPoint.Building(x, y, name, Width, Height, bm, map);
+                else if (name[0] == 'w')
+                    map.mapTab[x, y] = new MapMainPoint.Pond(x, y, name, Width, Height, bm, map);
             }
-                
+
             else
                 map.mapTab[x, y] = null;
 
@@ -602,7 +707,10 @@ namespace Engine
             int xh = random.Next(400, 900);
             int yh = random.Next(300, 450);
 
-            MakeObjectRightHere(xh, yh, "bh1", map);
+            MakeObjectRightHere(xh, yh, "bh1", map, true);
+            xh = random.Next(300, 1000);
+            yh = random.Next(200, 550);
+            MakeObjectRightHere(xh, yh, "w2", map, true);
             int index = 1;
             bool isFree;
             while (true)
@@ -623,18 +731,30 @@ namespace Engine
                 if (y + yr > 750)
                     break;
 
-                int caseSwitch = random.Next(1, 10);
+                int caseSwitch = random.Next(1, 26);
                 switch (caseSwitch)
                 {
                     case 1:
                     case 2:
                     case 3:
-                        str = "g";
-                        index = random.Next(1, 10);
-                        break;
                     case 4:
                     case 5:
                     case 6:
+                    case 7:
+                    case 8:
+                    case 9:
+                    case 10:
+                        str = "g";
+                        index = random.Next(1, 10);
+                        break;
+                    case 11:
+                    case 12:
+                    case 13:
+                    case 14:
+                    case 15:
+                    case 16:
+                    case 17:
+                    case 18:
                         str = "t";
                         int caseSwitch2 = random.Next(1, 13);
                         switch (caseSwitch2)
@@ -661,12 +781,16 @@ namespace Engine
                                 break;
                         }
                         break;
-                    case 7:
-                    case 8:
+                    case 19:
+                    case 20:
+                    case 21:
+                    case 22:
                         str = "s";
                         index = random.Next(1, 4);
                         break;
-                    case 9:
+                    case 23:
+                    case 24:
+                    case 25:
                         int caseSwitch3 = random.Next(1, 4);
                         switch (caseSwitch3)
                         {
@@ -682,10 +806,11 @@ namespace Engine
                         }
                         break;
 
-                    }
+
+                }
 
                 str += index;
-                MakeObjectRightHere(x, y + yr, str, map);
+                MakeObjectRightHere(x, y + yr, str, map, true);
             }
 
         }
@@ -797,7 +922,7 @@ namespace Engine
                 if (Gen)
                 {
                     str += index;
-                    MakeObjectRightHere(x, y + yr, str, map);
+                    MakeObjectRightHere(x, y + yr, str, map, true);
                 }
             }
 
@@ -805,24 +930,24 @@ namespace Engine
 
         public Image DrawMap()
         {
-  
+
             Bitmap bm;
             Image files = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\justgreen.png"));
             Bitmap bitmap;
             Bitmap finalImage = new Bitmap(1300, 805);
             Image TreeFiles = (Image)Trees;
 
-            foreach(MapPoint obj in this.mapTab)
+            foreach (MapPoint obj in this.mapTab)
             {
-                               
+
                 if (obj != null && (obj is MapMainPoint))
                 {
-                        MapMainPoint tmp = (MapMainPoint)obj;
-                        files = new Bitmap(tmp.Bitmap, tmp.Width, tmp.Height);
-                        using (Graphics g = Graphics.FromImage(finalImage))
-                        {
-                            g.DrawImage(files, new Point(tmp.X, tmp.Y));
-                        }
+                    MapMainPoint tmp = (MapMainPoint)obj;
+                    files = new Bitmap(tmp.Bitmap, tmp.Width, tmp.Height);
+                    using (Graphics g = Graphics.FromImage(finalImage))
+                    {
+                        g.DrawImage(files, new Point(tmp.X, tmp.Y));
+                    }
                     if (tmp is MapMainPoint.Tree)
                     {
                         using (Graphics g = Graphics.FromImage(TreeFiles))
@@ -838,17 +963,17 @@ namespace Engine
             return finalImage;
         }
 
-        public bool isFree (int x, int y, char dir)
+        public bool isFree(int x, int y, char dir)
         {
             int step = 5;
             if (dir == 's')
             {
                 for (int j = x; j < x + 18; j++)
-                    for (int i = y + 25; i <= y + step+ 25; i++)
+                    for (int i = y + 25; i <= y + step + 25; i++)
                         if (this.mapTab[j, i] != null)
                             if (this.mapTab[j, i].Collision == true)
                                 return false;
-                    
+
                 return true;
             }
 

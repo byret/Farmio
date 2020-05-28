@@ -79,6 +79,36 @@
             this.StorageNumOfItem6 = new System.Windows.Forms.Label();
             this.StorageNumOfItem4 = new System.Windows.Forms.Label();
             this.StorageNumOfItem2 = new System.Windows.Forms.Label();
+            this.lblCraftingItem1 = new System.Windows.Forms.Label();
+            this.lblCraftingItem4 = new System.Windows.Forms.Label();
+            this.lblCraftingItem2 = new System.Windows.Forms.Label();
+            this.lblCraftingItem3 = new System.Windows.Forms.Label();
+            this.CraftingNumOfItem1 = new System.Windows.Forms.Label();
+            this.CraftingNumOfItem2 = new System.Windows.Forms.Label();
+            this.CraftingNumOfItem3 = new System.Windows.Forms.Label();
+            this.CraftingNumOfItem4 = new System.Windows.Forms.Label();
+            this.lblCraftableItem = new System.Windows.Forms.Label();
+            this.pbSowSeeds = new System.Windows.Forms.PictureBox();
+            this.pbToWater = new System.Windows.Forms.PictureBox();
+            this.pbToPlow = new System.Windows.Forms.PictureBox();
+            this.pbCraftingItem4 = new System.Windows.Forms.PictureBox();
+            this.pbCraftingItem2 = new System.Windows.Forms.PictureBox();
+            this.pbCraftingItem3 = new System.Windows.Forms.PictureBox();
+            this.pbCraftingItem1 = new System.Windows.Forms.PictureBox();
+            this.pbStorageAnvil9 = new System.Windows.Forms.PictureBox();
+            this.pbStorageAnvil8 = new System.Windows.Forms.PictureBox();
+            this.pbStorageAnvil5 = new System.Windows.Forms.PictureBox();
+            this.pbStorageAnvil4 = new System.Windows.Forms.PictureBox();
+            this.pbStorageAnvil1 = new System.Windows.Forms.PictureBox();
+            this.pbStorageAnvil10 = new System.Windows.Forms.PictureBox();
+            this.pbStorageAnvil7 = new System.Windows.Forms.PictureBox();
+            this.pbStorageAnvil6 = new System.Windows.Forms.PictureBox();
+            this.pbStorageAnvil3 = new System.Windows.Forms.PictureBox();
+            this.pbStorageAnvil2 = new System.Windows.Forms.PictureBox();
+            this.pbInventoryAnvil5 = new System.Windows.Forms.PictureBox();
+            this.pbInventoryAnvil4 = new System.Windows.Forms.PictureBox();
+            this.pbInventoryAnvil3 = new System.Windows.Forms.PictureBox();
+            this.pbInventoryAnvil2 = new System.Windows.Forms.PictureBox();
             this.pbInventoryAnvil1 = new System.Windows.Forms.PictureBox();
             this.pbCraftingResult = new System.Windows.Forms.PictureBox();
             this.pbCraftingArrow = new System.Windows.Forms.PictureBox();
@@ -146,33 +176,32 @@
             this.pbNameFon = new System.Windows.Forms.PictureBox();
             this.pbFon = new System.Windows.Forms.PictureBox();
             this.pbHero = new System.Windows.Forms.PictureBox();
-            this.pbInventoryAnvil2 = new System.Windows.Forms.PictureBox();
-            this.pbInventoryAnvil3 = new System.Windows.Forms.PictureBox();
-            this.pbInventoryAnvil4 = new System.Windows.Forms.PictureBox();
-            this.pbInventoryAnvil5 = new System.Windows.Forms.PictureBox();
-            this.pbStorageAnvil2 = new System.Windows.Forms.PictureBox();
-            this.pbStorageAnvil3 = new System.Windows.Forms.PictureBox();
-            this.pbStorageAnvil6 = new System.Windows.Forms.PictureBox();
-            this.pbStorageAnvil7 = new System.Windows.Forms.PictureBox();
-            this.pbStorageAnvil10 = new System.Windows.Forms.PictureBox();
-            this.pbStorageAnvil1 = new System.Windows.Forms.PictureBox();
-            this.pbStorageAnvil4 = new System.Windows.Forms.PictureBox();
-            this.pbStorageAnvil5 = new System.Windows.Forms.PictureBox();
-            this.pbStorageAnvil8 = new System.Windows.Forms.PictureBox();
-            this.pbStorageAnvil9 = new System.Windows.Forms.PictureBox();
-            this.lblCraftingItem1 = new System.Windows.Forms.Label();
-            this.lblCraftingItem4 = new System.Windows.Forms.Label();
-            this.lblCraftingItem2 = new System.Windows.Forms.Label();
-            this.lblCraftingItem3 = new System.Windows.Forms.Label();
-            this.pbCraftingItem1 = new System.Windows.Forms.PictureBox();
-            this.pbCraftingItem3 = new System.Windows.Forms.PictureBox();
-            this.pbCraftingItem2 = new System.Windows.Forms.PictureBox();
-            this.pbCraftingItem4 = new System.Windows.Forms.PictureBox();
-            this.CraftingNumOfItem1 = new System.Windows.Forms.Label();
-            this.CraftingNumOfItem2 = new System.Windows.Forms.Label();
-            this.CraftingNumOfItem3 = new System.Windows.Forms.Label();
-            this.CraftingNumOfItem4 = new System.Windows.Forms.Label();
-            this.lblCraftableItem = new System.Windows.Forms.Label();
+            this.pbInventorySeed1 = new System.Windows.Forms.PictureBox();
+            this.pbInventorySeed2 = new System.Windows.Forms.PictureBox();
+            this.pbInventorySeed3 = new System.Windows.Forms.PictureBox();
+            this.pbInventorySeed4 = new System.Windows.Forms.PictureBox();
+            this.pbInventorySeed5 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSowSeeds)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbToWater)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbToPlow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCraftingResult)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCraftingArrow)).BeginInit();
@@ -240,24 +269,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbNameFon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHero)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed5)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -827,6 +843,370 @@
             this.StorageNumOfItem2.TabIndex = 89;
             this.StorageNumOfItem2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.StorageNumOfItem2.Visible = false;
+            // 
+            // lblCraftingItem1
+            // 
+            this.lblCraftingItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(70)))), ((int)(((byte)(27)))));
+            this.lblCraftingItem1.Font = new System.Drawing.Font("Pixellari", 10F);
+            this.lblCraftingItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.lblCraftingItem1.Location = new System.Drawing.Point(492, 436);
+            this.lblCraftingItem1.Name = "lblCraftingItem1";
+            this.lblCraftingItem1.Size = new System.Drawing.Size(100, 42);
+            this.lblCraftingItem1.TabIndex = 129;
+            this.lblCraftingItem1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCraftingItem1.Visible = false;
+            // 
+            // lblCraftingItem4
+            // 
+            this.lblCraftingItem4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(70)))), ((int)(((byte)(27)))));
+            this.lblCraftingItem4.Font = new System.Drawing.Font("Pixellari", 10F);
+            this.lblCraftingItem4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.lblCraftingItem4.Location = new System.Drawing.Point(657, 482);
+            this.lblCraftingItem4.Name = "lblCraftingItem4";
+            this.lblCraftingItem4.Size = new System.Drawing.Size(100, 42);
+            this.lblCraftingItem4.TabIndex = 130;
+            this.lblCraftingItem4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCraftingItem4.Visible = false;
+            // 
+            // lblCraftingItem2
+            // 
+            this.lblCraftingItem2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.lblCraftingItem2.Font = new System.Drawing.Font("Pixellari", 11F);
+            this.lblCraftingItem2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.lblCraftingItem2.Location = new System.Drawing.Point(657, 436);
+            this.lblCraftingItem2.Name = "lblCraftingItem2";
+            this.lblCraftingItem2.Size = new System.Drawing.Size(100, 42);
+            this.lblCraftingItem2.TabIndex = 131;
+            this.lblCraftingItem2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCraftingItem2.Visible = false;
+            // 
+            // lblCraftingItem3
+            // 
+            this.lblCraftingItem3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.lblCraftingItem3.Font = new System.Drawing.Font("Pixellari", 11F);
+            this.lblCraftingItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.lblCraftingItem3.Location = new System.Drawing.Point(492, 482);
+            this.lblCraftingItem3.Name = "lblCraftingItem3";
+            this.lblCraftingItem3.Size = new System.Drawing.Size(100, 42);
+            this.lblCraftingItem3.TabIndex = 132;
+            this.lblCraftingItem3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCraftingItem3.Visible = false;
+            // 
+            // CraftingNumOfItem1
+            // 
+            this.CraftingNumOfItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(70)))), ((int)(((byte)(27)))));
+            this.CraftingNumOfItem1.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.CraftingNumOfItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.CraftingNumOfItem1.Location = new System.Drawing.Point(588, 446);
+            this.CraftingNumOfItem1.Name = "CraftingNumOfItem1";
+            this.CraftingNumOfItem1.Size = new System.Drawing.Size(32, 22);
+            this.CraftingNumOfItem1.TabIndex = 137;
+            this.CraftingNumOfItem1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CraftingNumOfItem1.Visible = false;
+            // 
+            // CraftingNumOfItem2
+            // 
+            this.CraftingNumOfItem2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.CraftingNumOfItem2.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.CraftingNumOfItem2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.CraftingNumOfItem2.Location = new System.Drawing.Point(626, 446);
+            this.CraftingNumOfItem2.Name = "CraftingNumOfItem2";
+            this.CraftingNumOfItem2.Size = new System.Drawing.Size(32, 22);
+            this.CraftingNumOfItem2.TabIndex = 138;
+            this.CraftingNumOfItem2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CraftingNumOfItem2.Visible = false;
+            // 
+            // CraftingNumOfItem3
+            // 
+            this.CraftingNumOfItem3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.CraftingNumOfItem3.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.CraftingNumOfItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.CraftingNumOfItem3.Location = new System.Drawing.Point(588, 492);
+            this.CraftingNumOfItem3.Name = "CraftingNumOfItem3";
+            this.CraftingNumOfItem3.Size = new System.Drawing.Size(32, 22);
+            this.CraftingNumOfItem3.TabIndex = 139;
+            this.CraftingNumOfItem3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CraftingNumOfItem3.Visible = false;
+            // 
+            // CraftingNumOfItem4
+            // 
+            this.CraftingNumOfItem4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(70)))), ((int)(((byte)(27)))));
+            this.CraftingNumOfItem4.Font = new System.Drawing.Font("Pixellari", 12F);
+            this.CraftingNumOfItem4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.CraftingNumOfItem4.Location = new System.Drawing.Point(626, 492);
+            this.CraftingNumOfItem4.Name = "CraftingNumOfItem4";
+            this.CraftingNumOfItem4.Size = new System.Drawing.Size(32, 22);
+            this.CraftingNumOfItem4.TabIndex = 140;
+            this.CraftingNumOfItem4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CraftingNumOfItem4.Visible = false;
+            // 
+            // lblCraftableItem
+            // 
+            this.lblCraftableItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
+            this.lblCraftableItem.Font = new System.Drawing.Font("Pixellari", 11F);
+            this.lblCraftableItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
+            this.lblCraftableItem.Location = new System.Drawing.Point(574, 596);
+            this.lblCraftableItem.Name = "lblCraftableItem";
+            this.lblCraftableItem.Size = new System.Drawing.Size(100, 42);
+            this.lblCraftableItem.TabIndex = 141;
+            this.lblCraftableItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCraftableItem.Visible = false;
+            // 
+            // pbSowSeeds
+            // 
+            this.pbSowSeeds.BackColor = System.Drawing.Color.Transparent;
+            this.pbSowSeeds.Image = global::WindowsFormsApp2.Properties.Resources.toSowSeeds;
+            this.pbSowSeeds.Location = new System.Drawing.Point(906, 216);
+            this.pbSowSeeds.Name = "pbSowSeeds";
+            this.pbSowSeeds.Size = new System.Drawing.Size(102, 18);
+            this.pbSowSeeds.TabIndex = 144;
+            this.pbSowSeeds.TabStop = false;
+            this.pbSowSeeds.Visible = false;
+            this.pbSowSeeds.Click += new System.EventHandler(this.pbSowSeeds_Click);
+            // 
+            // pbToWater
+            // 
+            this.pbToWater.BackColor = System.Drawing.Color.Transparent;
+            this.pbToWater.Image = global::WindowsFormsApp2.Properties.Resources.toWater;
+            this.pbToWater.Location = new System.Drawing.Point(906, 192);
+            this.pbToWater.Name = "pbToWater";
+            this.pbToWater.Size = new System.Drawing.Size(89, 18);
+            this.pbToWater.TabIndex = 143;
+            this.pbToWater.TabStop = false;
+            this.pbToWater.Visible = false;
+            this.pbToWater.Click += new System.EventHandler(this.pbToWater_Click);
+            // 
+            // pbToPlow
+            // 
+            this.pbToPlow.BackColor = System.Drawing.Color.Transparent;
+            this.pbToPlow.Image = global::WindowsFormsApp2.Properties.Resources.toPlow;
+            this.pbToPlow.Location = new System.Drawing.Point(906, 168);
+            this.pbToPlow.Name = "pbToPlow";
+            this.pbToPlow.Size = new System.Drawing.Size(95, 18);
+            this.pbToPlow.TabIndex = 142;
+            this.pbToPlow.TabStop = false;
+            this.pbToPlow.Visible = false;
+            this.pbToPlow.Click += new System.EventHandler(this.pbToPlow_Click);
+            // 
+            // pbCraftingItem4
+            // 
+            this.pbCraftingItem4.BackColor = System.Drawing.Color.Transparent;
+            this.pbCraftingItem4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbCraftingItem4.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow;
+            this.pbCraftingItem4.Location = new System.Drawing.Point(772, 495);
+            this.pbCraftingItem4.Name = "pbCraftingItem4";
+            this.pbCraftingItem4.Size = new System.Drawing.Size(14, 14);
+            this.pbCraftingItem4.TabIndex = 136;
+            this.pbCraftingItem4.TabStop = false;
+            this.pbCraftingItem4.Visible = false;
+            this.pbCraftingItem4.Click += new System.EventHandler(this.pbCraftingItem4_Click);
+            // 
+            // pbCraftingItem2
+            // 
+            this.pbCraftingItem2.BackColor = System.Drawing.Color.Transparent;
+            this.pbCraftingItem2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbCraftingItem2.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow;
+            this.pbCraftingItem2.Location = new System.Drawing.Point(772, 449);
+            this.pbCraftingItem2.Name = "pbCraftingItem2";
+            this.pbCraftingItem2.Size = new System.Drawing.Size(14, 14);
+            this.pbCraftingItem2.TabIndex = 135;
+            this.pbCraftingItem2.TabStop = false;
+            this.pbCraftingItem2.Visible = false;
+            this.pbCraftingItem2.Click += new System.EventHandler(this.pbCraftingItem2_Click);
+            // 
+            // pbCraftingItem3
+            // 
+            this.pbCraftingItem3.BackColor = System.Drawing.Color.Transparent;
+            this.pbCraftingItem3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbCraftingItem3.Image = ((System.Drawing.Image)(resources.GetObject("pbCraftingItem3.Image")));
+            this.pbCraftingItem3.Location = new System.Drawing.Point(460, 495);
+            this.pbCraftingItem3.Name = "pbCraftingItem3";
+            this.pbCraftingItem3.Size = new System.Drawing.Size(14, 14);
+            this.pbCraftingItem3.TabIndex = 134;
+            this.pbCraftingItem3.TabStop = false;
+            this.pbCraftingItem3.Visible = false;
+            this.pbCraftingItem3.Click += new System.EventHandler(this.pbCraftingItem3_Click);
+            // 
+            // pbCraftingItem1
+            // 
+            this.pbCraftingItem1.BackColor = System.Drawing.Color.Transparent;
+            this.pbCraftingItem1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbCraftingItem1.Image = ((System.Drawing.Image)(resources.GetObject("pbCraftingItem1.Image")));
+            this.pbCraftingItem1.Location = new System.Drawing.Point(460, 449);
+            this.pbCraftingItem1.Name = "pbCraftingItem1";
+            this.pbCraftingItem1.Size = new System.Drawing.Size(14, 14);
+            this.pbCraftingItem1.TabIndex = 133;
+            this.pbCraftingItem1.TabStop = false;
+            this.pbCraftingItem1.Visible = false;
+            this.pbCraftingItem1.Click += new System.EventHandler(this.pbCraftingItem1_Click);
+            // 
+            // pbStorageAnvil9
+            // 
+            this.pbStorageAnvil9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageAnvil9.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil;
+            this.pbStorageAnvil9.Location = new System.Drawing.Point(470, 385);
+            this.pbStorageAnvil9.Name = "pbStorageAnvil9";
+            this.pbStorageAnvil9.Size = new System.Drawing.Size(21, 14);
+            this.pbStorageAnvil9.TabIndex = 128;
+            this.pbStorageAnvil9.TabStop = false;
+            this.pbStorageAnvil9.Visible = false;
+            this.pbStorageAnvil9.Click += new System.EventHandler(this.pbStorageAnvil9_Click);
+            // 
+            // pbStorageAnvil8
+            // 
+            this.pbStorageAnvil8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageAnvil8.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil;
+            this.pbStorageAnvil8.Location = new System.Drawing.Point(755, 337);
+            this.pbStorageAnvil8.Name = "pbStorageAnvil8";
+            this.pbStorageAnvil8.Size = new System.Drawing.Size(21, 14);
+            this.pbStorageAnvil8.TabIndex = 127;
+            this.pbStorageAnvil8.TabStop = false;
+            this.pbStorageAnvil8.Visible = false;
+            this.pbStorageAnvil8.Click += new System.EventHandler(this.pbStorageAnvil8_Click);
+            // 
+            // pbStorageAnvil5
+            // 
+            this.pbStorageAnvil5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageAnvil5.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil;
+            this.pbStorageAnvil5.Location = new System.Drawing.Point(470, 293);
+            this.pbStorageAnvil5.Name = "pbStorageAnvil5";
+            this.pbStorageAnvil5.Size = new System.Drawing.Size(21, 14);
+            this.pbStorageAnvil5.TabIndex = 126;
+            this.pbStorageAnvil5.TabStop = false;
+            this.pbStorageAnvil5.Visible = false;
+            this.pbStorageAnvil5.Click += new System.EventHandler(this.pbStorageAnvil5_Click);
+            // 
+            // pbStorageAnvil4
+            // 
+            this.pbStorageAnvil4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageAnvil4.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil;
+            this.pbStorageAnvil4.Location = new System.Drawing.Point(755, 247);
+            this.pbStorageAnvil4.Name = "pbStorageAnvil4";
+            this.pbStorageAnvil4.Size = new System.Drawing.Size(21, 14);
+            this.pbStorageAnvil4.TabIndex = 125;
+            this.pbStorageAnvil4.TabStop = false;
+            this.pbStorageAnvil4.Visible = false;
+            this.pbStorageAnvil4.Click += new System.EventHandler(this.pbStorageAnvil4_Click);
+            // 
+            // pbStorageAnvil1
+            // 
+            this.pbStorageAnvil1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageAnvil1.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil;
+            this.pbStorageAnvil1.Location = new System.Drawing.Point(470, 201);
+            this.pbStorageAnvil1.Name = "pbStorageAnvil1";
+            this.pbStorageAnvil1.Size = new System.Drawing.Size(21, 14);
+            this.pbStorageAnvil1.TabIndex = 124;
+            this.pbStorageAnvil1.TabStop = false;
+            this.pbStorageAnvil1.Visible = false;
+            this.pbStorageAnvil1.Click += new System.EventHandler(this.pbStorageAnvil1_Click);
+            // 
+            // pbStorageAnvil10
+            // 
+            this.pbStorageAnvil10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageAnvil10.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
+            this.pbStorageAnvil10.Location = new System.Drawing.Point(755, 385);
+            this.pbStorageAnvil10.Name = "pbStorageAnvil10";
+            this.pbStorageAnvil10.Size = new System.Drawing.Size(21, 14);
+            this.pbStorageAnvil10.TabIndex = 123;
+            this.pbStorageAnvil10.TabStop = false;
+            this.pbStorageAnvil10.Visible = false;
+            this.pbStorageAnvil10.Click += new System.EventHandler(this.pbStorageAnvil10_Click);
+            // 
+            // pbStorageAnvil7
+            // 
+            this.pbStorageAnvil7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageAnvil7.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
+            this.pbStorageAnvil7.Location = new System.Drawing.Point(470, 339);
+            this.pbStorageAnvil7.Name = "pbStorageAnvil7";
+            this.pbStorageAnvil7.Size = new System.Drawing.Size(21, 14);
+            this.pbStorageAnvil7.TabIndex = 122;
+            this.pbStorageAnvil7.TabStop = false;
+            this.pbStorageAnvil7.Visible = false;
+            this.pbStorageAnvil7.Click += new System.EventHandler(this.pbStorageAnvil7_Click);
+            // 
+            // pbStorageAnvil6
+            // 
+            this.pbStorageAnvil6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageAnvil6.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
+            this.pbStorageAnvil6.Location = new System.Drawing.Point(755, 293);
+            this.pbStorageAnvil6.Name = "pbStorageAnvil6";
+            this.pbStorageAnvil6.Size = new System.Drawing.Size(21, 14);
+            this.pbStorageAnvil6.TabIndex = 121;
+            this.pbStorageAnvil6.TabStop = false;
+            this.pbStorageAnvil6.Visible = false;
+            this.pbStorageAnvil6.Click += new System.EventHandler(this.pbStorageAnvil6_Click);
+            // 
+            // pbStorageAnvil3
+            // 
+            this.pbStorageAnvil3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageAnvil3.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
+            this.pbStorageAnvil3.Location = new System.Drawing.Point(470, 247);
+            this.pbStorageAnvil3.Name = "pbStorageAnvil3";
+            this.pbStorageAnvil3.Size = new System.Drawing.Size(21, 14);
+            this.pbStorageAnvil3.TabIndex = 120;
+            this.pbStorageAnvil3.TabStop = false;
+            this.pbStorageAnvil3.Visible = false;
+            this.pbStorageAnvil3.Click += new System.EventHandler(this.pbStorageAnvil3_Click);
+            // 
+            // pbStorageAnvil2
+            // 
+            this.pbStorageAnvil2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStorageAnvil2.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
+            this.pbStorageAnvil2.Location = new System.Drawing.Point(755, 201);
+            this.pbStorageAnvil2.Name = "pbStorageAnvil2";
+            this.pbStorageAnvil2.Size = new System.Drawing.Size(21, 14);
+            this.pbStorageAnvil2.TabIndex = 119;
+            this.pbStorageAnvil2.TabStop = false;
+            this.pbStorageAnvil2.Visible = false;
+            this.pbStorageAnvil2.Click += new System.EventHandler(this.pbStorageAnvil2_Click);
+            // 
+            // pbInventoryAnvil5
+            // 
+            this.pbInventoryAnvil5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventoryAnvil5.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
+            this.pbInventoryAnvil5.Location = new System.Drawing.Point(150, 387);
+            this.pbInventoryAnvil5.Name = "pbInventoryAnvil5";
+            this.pbInventoryAnvil5.Size = new System.Drawing.Size(21, 14);
+            this.pbInventoryAnvil5.TabIndex = 118;
+            this.pbInventoryAnvil5.TabStop = false;
+            this.pbInventoryAnvil5.Visible = false;
+            this.pbInventoryAnvil5.Click += new System.EventHandler(this.pbInventoryAnvil5_Click);
+            // 
+            // pbInventoryAnvil4
+            // 
+            this.pbInventoryAnvil4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventoryAnvil4.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
+            this.pbInventoryAnvil4.Location = new System.Drawing.Point(150, 339);
+            this.pbInventoryAnvil4.Name = "pbInventoryAnvil4";
+            this.pbInventoryAnvil4.Size = new System.Drawing.Size(21, 14);
+            this.pbInventoryAnvil4.TabIndex = 117;
+            this.pbInventoryAnvil4.TabStop = false;
+            this.pbInventoryAnvil4.Visible = false;
+            this.pbInventoryAnvil4.Click += new System.EventHandler(this.pbInventoryAnvil4_Click);
+            // 
+            // pbInventoryAnvil3
+            // 
+            this.pbInventoryAnvil3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventoryAnvil3.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
+            this.pbInventoryAnvil3.Location = new System.Drawing.Point(150, 286);
+            this.pbInventoryAnvil3.Name = "pbInventoryAnvil3";
+            this.pbInventoryAnvil3.Size = new System.Drawing.Size(21, 14);
+            this.pbInventoryAnvil3.TabIndex = 116;
+            this.pbInventoryAnvil3.TabStop = false;
+            this.pbInventoryAnvil3.Visible = false;
+            this.pbInventoryAnvil3.Click += new System.EventHandler(this.pbInventoryAnvil3_Click);
+            // 
+            // pbInventoryAnvil2
+            // 
+            this.pbInventoryAnvil2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventoryAnvil2.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
+            this.pbInventoryAnvil2.Location = new System.Drawing.Point(150, 240);
+            this.pbInventoryAnvil2.Name = "pbInventoryAnvil2";
+            this.pbInventoryAnvil2.Size = new System.Drawing.Size(21, 14);
+            this.pbInventoryAnvil2.TabIndex = 115;
+            this.pbInventoryAnvil2.TabStop = false;
+            this.pbInventoryAnvil2.Visible = false;
+            this.pbInventoryAnvil2.Click += new System.EventHandler(this.pbInventoryAnvil2_Click);
             // 
             // pbInventoryAnvil1
             // 
@@ -1654,339 +2034,79 @@
             this.pbHero.TabIndex = 25;
             this.pbHero.TabStop = false;
             // 
-            // pbInventoryAnvil2
+            // pbInventorySeed1
             // 
-            this.pbInventoryAnvil2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbInventoryAnvil2.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
-            this.pbInventoryAnvil2.Location = new System.Drawing.Point(150, 240);
-            this.pbInventoryAnvil2.Name = "pbInventoryAnvil2";
-            this.pbInventoryAnvil2.Size = new System.Drawing.Size(21, 14);
-            this.pbInventoryAnvil2.TabIndex = 115;
-            this.pbInventoryAnvil2.TabStop = false;
-            this.pbInventoryAnvil2.Visible = false;
-            this.pbInventoryAnvil2.Click += new System.EventHandler(this.pbInventoryAnvil2_Click);
+            this.pbInventorySeed1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventorySeed1.Image = global::WindowsFormsApp2.Properties.Resources.seed;
+            this.pbInventorySeed1.Location = new System.Drawing.Point(157, 195);
+            this.pbInventorySeed1.Name = "pbInventorySeed1";
+            this.pbInventorySeed1.Size = new System.Drawing.Size(14, 14);
+            this.pbInventorySeed1.TabIndex = 145;
+            this.pbInventorySeed1.TabStop = false;
+            this.pbInventorySeed1.Visible = false;
+            this.pbInventorySeed1.Click += new System.EventHandler(this.pbInventorySeed1_Click);
             // 
-            // pbInventoryAnvil3
+            // pbInventorySeed2
             // 
-            this.pbInventoryAnvil3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbInventoryAnvil3.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
-            this.pbInventoryAnvil3.Location = new System.Drawing.Point(150, 286);
-            this.pbInventoryAnvil3.Name = "pbInventoryAnvil3";
-            this.pbInventoryAnvil3.Size = new System.Drawing.Size(21, 14);
-            this.pbInventoryAnvil3.TabIndex = 116;
-            this.pbInventoryAnvil3.TabStop = false;
-            this.pbInventoryAnvil3.Visible = false;
-            this.pbInventoryAnvil3.Click += new System.EventHandler(this.pbInventoryAnvil3_Click);
+            this.pbInventorySeed2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventorySeed2.Image = global::WindowsFormsApp2.Properties.Resources.seed;
+            this.pbInventorySeed2.Location = new System.Drawing.Point(157, 240);
+            this.pbInventorySeed2.Name = "pbInventorySeed2";
+            this.pbInventorySeed2.Size = new System.Drawing.Size(14, 14);
+            this.pbInventorySeed2.TabIndex = 146;
+            this.pbInventorySeed2.TabStop = false;
+            this.pbInventorySeed2.Visible = false;
+            this.pbInventorySeed2.Click += new System.EventHandler(this.pbInventorySeed2_Click);
             // 
-            // pbInventoryAnvil4
+            // pbInventorySeed3
             // 
-            this.pbInventoryAnvil4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbInventoryAnvil4.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
-            this.pbInventoryAnvil4.Location = new System.Drawing.Point(150, 339);
-            this.pbInventoryAnvil4.Name = "pbInventoryAnvil4";
-            this.pbInventoryAnvil4.Size = new System.Drawing.Size(21, 14);
-            this.pbInventoryAnvil4.TabIndex = 117;
-            this.pbInventoryAnvil4.TabStop = false;
-            this.pbInventoryAnvil4.Visible = false;
-            this.pbInventoryAnvil4.Click += new System.EventHandler(this.pbInventoryAnvil4_Click);
+            this.pbInventorySeed3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventorySeed3.Image = global::WindowsFormsApp2.Properties.Resources.seed;
+            this.pbInventorySeed3.Location = new System.Drawing.Point(157, 286);
+            this.pbInventorySeed3.Name = "pbInventorySeed3";
+            this.pbInventorySeed3.Size = new System.Drawing.Size(14, 14);
+            this.pbInventorySeed3.TabIndex = 147;
+            this.pbInventorySeed3.TabStop = false;
+            this.pbInventorySeed3.Visible = false;
+            this.pbInventorySeed3.Click += new System.EventHandler(this.pbInventorySeed3_Click);
             // 
-            // pbInventoryAnvil5
+            // pbInventorySeed4
             // 
-            this.pbInventoryAnvil5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbInventoryAnvil5.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
-            this.pbInventoryAnvil5.Location = new System.Drawing.Point(150, 387);
-            this.pbInventoryAnvil5.Name = "pbInventoryAnvil5";
-            this.pbInventoryAnvil5.Size = new System.Drawing.Size(21, 14);
-            this.pbInventoryAnvil5.TabIndex = 118;
-            this.pbInventoryAnvil5.TabStop = false;
-            this.pbInventoryAnvil5.Visible = false;
-            this.pbInventoryAnvil5.Click += new System.EventHandler(this.pbInventoryAnvil5_Click);
+            this.pbInventorySeed4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventorySeed4.Image = global::WindowsFormsApp2.Properties.Resources.seed;
+            this.pbInventorySeed4.Location = new System.Drawing.Point(157, 339);
+            this.pbInventorySeed4.Name = "pbInventorySeed4";
+            this.pbInventorySeed4.Size = new System.Drawing.Size(14, 14);
+            this.pbInventorySeed4.TabIndex = 148;
+            this.pbInventorySeed4.TabStop = false;
+            this.pbInventorySeed4.Visible = false;
+            this.pbInventorySeed4.Click += new System.EventHandler(this.pbInventorySeed4_Click);
             // 
-            // pbStorageAnvil2
+            // pbInventorySeed5
             // 
-            this.pbStorageAnvil2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbStorageAnvil2.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
-            this.pbStorageAnvil2.Location = new System.Drawing.Point(755, 201);
-            this.pbStorageAnvil2.Name = "pbStorageAnvil2";
-            this.pbStorageAnvil2.Size = new System.Drawing.Size(21, 14);
-            this.pbStorageAnvil2.TabIndex = 119;
-            this.pbStorageAnvil2.TabStop = false;
-            this.pbStorageAnvil2.Visible = false;
-            this.pbStorageAnvil2.Click += new System.EventHandler(this.pbStorageAnvil2_Click);
-            // 
-            // pbStorageAnvil3
-            // 
-            this.pbStorageAnvil3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbStorageAnvil3.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
-            this.pbStorageAnvil3.Location = new System.Drawing.Point(470, 247);
-            this.pbStorageAnvil3.Name = "pbStorageAnvil3";
-            this.pbStorageAnvil3.Size = new System.Drawing.Size(21, 14);
-            this.pbStorageAnvil3.TabIndex = 120;
-            this.pbStorageAnvil3.TabStop = false;
-            this.pbStorageAnvil3.Visible = false;
-            this.pbStorageAnvil3.Click += new System.EventHandler(this.pbStorageAnvil3_Click);
-            // 
-            // pbStorageAnvil6
-            // 
-            this.pbStorageAnvil6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbStorageAnvil6.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
-            this.pbStorageAnvil6.Location = new System.Drawing.Point(755, 293);
-            this.pbStorageAnvil6.Name = "pbStorageAnvil6";
-            this.pbStorageAnvil6.Size = new System.Drawing.Size(21, 14);
-            this.pbStorageAnvil6.TabIndex = 121;
-            this.pbStorageAnvil6.TabStop = false;
-            this.pbStorageAnvil6.Visible = false;
-            this.pbStorageAnvil6.Click += new System.EventHandler(this.pbStorageAnvil6_Click);
-            // 
-            // pbStorageAnvil7
-            // 
-            this.pbStorageAnvil7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbStorageAnvil7.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
-            this.pbStorageAnvil7.Location = new System.Drawing.Point(470, 339);
-            this.pbStorageAnvil7.Name = "pbStorageAnvil7";
-            this.pbStorageAnvil7.Size = new System.Drawing.Size(21, 14);
-            this.pbStorageAnvil7.TabIndex = 122;
-            this.pbStorageAnvil7.TabStop = false;
-            this.pbStorageAnvil7.Visible = false;
-            this.pbStorageAnvil7.Click += new System.EventHandler(this.pbStorageAnvil7_Click);
-            // 
-            // pbStorageAnvil10
-            // 
-            this.pbStorageAnvil10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbStorageAnvil10.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil2;
-            this.pbStorageAnvil10.Location = new System.Drawing.Point(755, 385);
-            this.pbStorageAnvil10.Name = "pbStorageAnvil10";
-            this.pbStorageAnvil10.Size = new System.Drawing.Size(21, 14);
-            this.pbStorageAnvil10.TabIndex = 123;
-            this.pbStorageAnvil10.TabStop = false;
-            this.pbStorageAnvil10.Visible = false;
-            this.pbStorageAnvil10.Click += new System.EventHandler(this.pbStorageAnvil10_Click);
-            // 
-            // pbStorageAnvil1
-            // 
-            this.pbStorageAnvil1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbStorageAnvil1.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil;
-            this.pbStorageAnvil1.Location = new System.Drawing.Point(470, 201);
-            this.pbStorageAnvil1.Name = "pbStorageAnvil1";
-            this.pbStorageAnvil1.Size = new System.Drawing.Size(21, 14);
-            this.pbStorageAnvil1.TabIndex = 124;
-            this.pbStorageAnvil1.TabStop = false;
-            this.pbStorageAnvil1.Visible = false;
-            this.pbStorageAnvil1.Click += new System.EventHandler(this.pbStorageAnvil1_Click);
-            // 
-            // pbStorageAnvil4
-            // 
-            this.pbStorageAnvil4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbStorageAnvil4.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil;
-            this.pbStorageAnvil4.Location = new System.Drawing.Point(755, 247);
-            this.pbStorageAnvil4.Name = "pbStorageAnvil4";
-            this.pbStorageAnvil4.Size = new System.Drawing.Size(21, 14);
-            this.pbStorageAnvil4.TabIndex = 125;
-            this.pbStorageAnvil4.TabStop = false;
-            this.pbStorageAnvil4.Visible = false;
-            this.pbStorageAnvil4.Click += new System.EventHandler(this.pbStorageAnvil4_Click);
-            // 
-            // pbStorageAnvil5
-            // 
-            this.pbStorageAnvil5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbStorageAnvil5.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil;
-            this.pbStorageAnvil5.Location = new System.Drawing.Point(470, 293);
-            this.pbStorageAnvil5.Name = "pbStorageAnvil5";
-            this.pbStorageAnvil5.Size = new System.Drawing.Size(21, 14);
-            this.pbStorageAnvil5.TabIndex = 126;
-            this.pbStorageAnvil5.TabStop = false;
-            this.pbStorageAnvil5.Visible = false;
-            this.pbStorageAnvil5.Click += new System.EventHandler(this.pbStorageAnvil5_Click);
-            // 
-            // pbStorageAnvil8
-            // 
-            this.pbStorageAnvil8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbStorageAnvil8.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil;
-            this.pbStorageAnvil8.Location = new System.Drawing.Point(755, 337);
-            this.pbStorageAnvil8.Name = "pbStorageAnvil8";
-            this.pbStorageAnvil8.Size = new System.Drawing.Size(21, 14);
-            this.pbStorageAnvil8.TabIndex = 127;
-            this.pbStorageAnvil8.TabStop = false;
-            this.pbStorageAnvil8.Visible = false;
-            this.pbStorageAnvil8.Click += new System.EventHandler(this.pbStorageAnvil8_Click);
-            // 
-            // pbStorageAnvil9
-            // 
-            this.pbStorageAnvil9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbStorageAnvil9.Image = global::WindowsFormsApp2.Properties.Resources.CraftingAnvil;
-            this.pbStorageAnvil9.Location = new System.Drawing.Point(470, 385);
-            this.pbStorageAnvil9.Name = "pbStorageAnvil9";
-            this.pbStorageAnvil9.Size = new System.Drawing.Size(21, 14);
-            this.pbStorageAnvil9.TabIndex = 128;
-            this.pbStorageAnvil9.TabStop = false;
-            this.pbStorageAnvil9.Visible = false;
-            this.pbStorageAnvil9.Click += new System.EventHandler(this.pbStorageAnvil9_Click);
-            // 
-            // lblCraftingItem1
-            // 
-            this.lblCraftingItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(70)))), ((int)(((byte)(27)))));
-            this.lblCraftingItem1.Font = new System.Drawing.Font("Pixellari", 10F);
-            this.lblCraftingItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
-            this.lblCraftingItem1.Location = new System.Drawing.Point(492, 436);
-            this.lblCraftingItem1.Name = "lblCraftingItem1";
-            this.lblCraftingItem1.Size = new System.Drawing.Size(100, 42);
-            this.lblCraftingItem1.TabIndex = 129;
-            this.lblCraftingItem1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblCraftingItem1.Visible = false;
-            // 
-            // lblCraftingItem4
-            // 
-            this.lblCraftingItem4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(70)))), ((int)(((byte)(27)))));
-            this.lblCraftingItem4.Font = new System.Drawing.Font("Pixellari", 10F);
-            this.lblCraftingItem4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
-            this.lblCraftingItem4.Location = new System.Drawing.Point(657, 482);
-            this.lblCraftingItem4.Name = "lblCraftingItem4";
-            this.lblCraftingItem4.Size = new System.Drawing.Size(100, 42);
-            this.lblCraftingItem4.TabIndex = 130;
-            this.lblCraftingItem4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblCraftingItem4.Visible = false;
-            // 
-            // lblCraftingItem2
-            // 
-            this.lblCraftingItem2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
-            this.lblCraftingItem2.Font = new System.Drawing.Font("Pixellari", 11F);
-            this.lblCraftingItem2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
-            this.lblCraftingItem2.Location = new System.Drawing.Point(657, 436);
-            this.lblCraftingItem2.Name = "lblCraftingItem2";
-            this.lblCraftingItem2.Size = new System.Drawing.Size(100, 42);
-            this.lblCraftingItem2.TabIndex = 131;
-            this.lblCraftingItem2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblCraftingItem2.Visible = false;
-            // 
-            // lblCraftingItem3
-            // 
-            this.lblCraftingItem3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
-            this.lblCraftingItem3.Font = new System.Drawing.Font("Pixellari", 11F);
-            this.lblCraftingItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
-            this.lblCraftingItem3.Location = new System.Drawing.Point(492, 482);
-            this.lblCraftingItem3.Name = "lblCraftingItem3";
-            this.lblCraftingItem3.Size = new System.Drawing.Size(100, 42);
-            this.lblCraftingItem3.TabIndex = 132;
-            this.lblCraftingItem3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblCraftingItem3.Visible = false;
-            // 
-            // pbCraftingItem1
-            // 
-            this.pbCraftingItem1.BackColor = System.Drawing.Color.Transparent;
-            this.pbCraftingItem1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbCraftingItem1.Image = ((System.Drawing.Image)(resources.GetObject("pbCraftingItem1.Image")));
-            this.pbCraftingItem1.Location = new System.Drawing.Point(460, 449);
-            this.pbCraftingItem1.Name = "pbCraftingItem1";
-            this.pbCraftingItem1.Size = new System.Drawing.Size(14, 14);
-            this.pbCraftingItem1.TabIndex = 133;
-            this.pbCraftingItem1.TabStop = false;
-            this.pbCraftingItem1.Visible = false;
-            this.pbCraftingItem1.Click += new System.EventHandler(this.pbCraftingItem1_Click);
-            // 
-            // pbCraftingItem3
-            // 
-            this.pbCraftingItem3.BackColor = System.Drawing.Color.Transparent;
-            this.pbCraftingItem3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbCraftingItem3.Image = ((System.Drawing.Image)(resources.GetObject("pbCraftingItem3.Image")));
-            this.pbCraftingItem3.Location = new System.Drawing.Point(460, 495);
-            this.pbCraftingItem3.Name = "pbCraftingItem3";
-            this.pbCraftingItem3.Size = new System.Drawing.Size(14, 14);
-            this.pbCraftingItem3.TabIndex = 134;
-            this.pbCraftingItem3.TabStop = false;
-            this.pbCraftingItem3.Visible = false;
-            this.pbCraftingItem3.Click += new System.EventHandler(this.pbCraftingItem3_Click);
-            // 
-            // pbCraftingItem2
-            // 
-            this.pbCraftingItem2.BackColor = System.Drawing.Color.Transparent;
-            this.pbCraftingItem2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbCraftingItem2.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow;
-            this.pbCraftingItem2.Location = new System.Drawing.Point(772, 449);
-            this.pbCraftingItem2.Name = "pbCraftingItem2";
-            this.pbCraftingItem2.Size = new System.Drawing.Size(14, 14);
-            this.pbCraftingItem2.TabIndex = 135;
-            this.pbCraftingItem2.TabStop = false;
-            this.pbCraftingItem2.Visible = false;
-            this.pbCraftingItem2.Click += new System.EventHandler(this.pbCraftingItem2_Click);
-            // 
-            // pbCraftingItem4
-            // 
-            this.pbCraftingItem4.BackColor = System.Drawing.Color.Transparent;
-            this.pbCraftingItem4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbCraftingItem4.Image = global::WindowsFormsApp2.Properties.Resources.inventoryArrow;
-            this.pbCraftingItem4.Location = new System.Drawing.Point(772, 495);
-            this.pbCraftingItem4.Name = "pbCraftingItem4";
-            this.pbCraftingItem4.Size = new System.Drawing.Size(14, 14);
-            this.pbCraftingItem4.TabIndex = 136;
-            this.pbCraftingItem4.TabStop = false;
-            this.pbCraftingItem4.Visible = false;
-            this.pbCraftingItem4.Click += new System.EventHandler(this.pbCraftingItem4_Click);
-            // 
-            // CraftingNumOfItem1
-            // 
-            this.CraftingNumOfItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(70)))), ((int)(((byte)(27)))));
-            this.CraftingNumOfItem1.Font = new System.Drawing.Font("Pixellari", 12F);
-            this.CraftingNumOfItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
-            this.CraftingNumOfItem1.Location = new System.Drawing.Point(588, 446);
-            this.CraftingNumOfItem1.Name = "CraftingNumOfItem1";
-            this.CraftingNumOfItem1.Size = new System.Drawing.Size(32, 22);
-            this.CraftingNumOfItem1.TabIndex = 137;
-            this.CraftingNumOfItem1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CraftingNumOfItem1.Visible = false;
-            // 
-            // CraftingNumOfItem2
-            // 
-            this.CraftingNumOfItem2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
-            this.CraftingNumOfItem2.Font = new System.Drawing.Font("Pixellari", 12F);
-            this.CraftingNumOfItem2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
-            this.CraftingNumOfItem2.Location = new System.Drawing.Point(626, 446);
-            this.CraftingNumOfItem2.Name = "CraftingNumOfItem2";
-            this.CraftingNumOfItem2.Size = new System.Drawing.Size(32, 22);
-            this.CraftingNumOfItem2.TabIndex = 138;
-            this.CraftingNumOfItem2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CraftingNumOfItem2.Visible = false;
-            // 
-            // CraftingNumOfItem3
-            // 
-            this.CraftingNumOfItem3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
-            this.CraftingNumOfItem3.Font = new System.Drawing.Font("Pixellari", 12F);
-            this.CraftingNumOfItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
-            this.CraftingNumOfItem3.Location = new System.Drawing.Point(588, 492);
-            this.CraftingNumOfItem3.Name = "CraftingNumOfItem3";
-            this.CraftingNumOfItem3.Size = new System.Drawing.Size(32, 22);
-            this.CraftingNumOfItem3.TabIndex = 139;
-            this.CraftingNumOfItem3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CraftingNumOfItem3.Visible = false;
-            // 
-            // CraftingNumOfItem4
-            // 
-            this.CraftingNumOfItem4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(70)))), ((int)(((byte)(27)))));
-            this.CraftingNumOfItem4.Font = new System.Drawing.Font("Pixellari", 12F);
-            this.CraftingNumOfItem4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
-            this.CraftingNumOfItem4.Location = new System.Drawing.Point(626, 492);
-            this.CraftingNumOfItem4.Name = "CraftingNumOfItem4";
-            this.CraftingNumOfItem4.Size = new System.Drawing.Size(32, 22);
-            this.CraftingNumOfItem4.TabIndex = 140;
-            this.CraftingNumOfItem4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CraftingNumOfItem4.Visible = false;
-            // 
-            // lblCraftableItem
-            // 
-            this.lblCraftableItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(61)))), ((int)(((byte)(20)))));
-            this.lblCraftableItem.Font = new System.Drawing.Font("Pixellari", 11F);
-            this.lblCraftableItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(189)))), ((int)(((byte)(52)))));
-            this.lblCraftableItem.Location = new System.Drawing.Point(574, 596);
-            this.lblCraftableItem.Name = "lblCraftableItem";
-            this.lblCraftableItem.Size = new System.Drawing.Size(100, 42);
-            this.lblCraftableItem.TabIndex = 141;
-            this.lblCraftableItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblCraftableItem.Visible = false;
+            this.pbInventorySeed5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbInventorySeed5.Image = global::WindowsFormsApp2.Properties.Resources.seed;
+            this.pbInventorySeed5.Location = new System.Drawing.Point(157, 387);
+            this.pbInventorySeed5.Name = "pbInventorySeed5";
+            this.pbInventorySeed5.Size = new System.Drawing.Size(14, 14);
+            this.pbInventorySeed5.TabIndex = 149;
+            this.pbInventorySeed5.TabStop = false;
+            this.pbInventorySeed5.Visible = false;
+            this.pbInventorySeed5.Click += new System.EventHandler(this.pbInventorySeed5_Click);
             // 
             // Farmio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1300, 800);
+            this.Controls.Add(this.pbInventorySeed5);
+            this.Controls.Add(this.pbInventorySeed4);
+            this.Controls.Add(this.pbInventorySeed3);
+            this.Controls.Add(this.pbInventorySeed2);
+            this.Controls.Add(this.pbInventorySeed1);
+            this.Controls.Add(this.pbSowSeeds);
+            this.Controls.Add(this.pbToWater);
+            this.Controls.Add(this.pbToPlow);
             this.Controls.Add(this.lblCraftableItem);
             this.Controls.Add(this.CraftingNumOfItem4);
             this.Controls.Add(this.CraftingNumOfItem3);
@@ -2131,7 +2251,27 @@
             this.Controls.Add(this.lblNumOfItem5);
             this.Name = "Farmio";
             this.Text = "Farmio";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSowSeeds)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbToWater)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbToPlow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCraftingResult)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCraftingArrow)).EndInit();
@@ -2199,24 +2339,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbNameFon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHero)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInventoryAnvil5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStorageAnvil9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCraftingItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInventorySeed5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2366,6 +2493,14 @@
         private System.Windows.Forms.Label CraftingNumOfItem3;
         private System.Windows.Forms.Label CraftingNumOfItem4;
         private System.Windows.Forms.Label lblCraftableItem;
+        private System.Windows.Forms.PictureBox pbToPlow;
+        private System.Windows.Forms.PictureBox pbToWater;
+        private System.Windows.Forms.PictureBox pbSowSeeds;
+        private System.Windows.Forms.PictureBox pbInventorySeed1;
+        private System.Windows.Forms.PictureBox pbInventorySeed2;
+        private System.Windows.Forms.PictureBox pbInventorySeed3;
+        private System.Windows.Forms.PictureBox pbInventorySeed4;
+        private System.Windows.Forms.PictureBox pbInventorySeed5;
     }
 }
 
