@@ -268,7 +268,8 @@ namespace Engine
                 {
                     map.Fill(x, y, Width, Height, 0, 94, 0, 84);
                     NumOfItemsInStorage = 0;
-                }
+
+            }
 
                 public void DestroyBuilding(Map map)
                 {
@@ -279,13 +280,16 @@ namespace Engine
                 public int AddToStorage(Item item)
                 {
                     bool isInStorage = false;
-                    foreach (Item it in this.Storage)
+                    if (item.IsStacking)
                     {
-                        if (it.GetType() == item.GetType())
+                        foreach (Item it in this.Storage)
                         {
-                            isInStorage = true;
-                            it.Number += item.Number;
-                            break;
+                            if (it.GetType() == item.GetType())
+                            {
+                                isInStorage = true;
+                                it.Number += item.Number;
+                                break;
+                            }
                         }
                     }
 
@@ -327,11 +331,12 @@ namespace Engine
 
                     return 0;
                 }
+
             }
 
             public class PlowedSoil : MapMainPoint
             {
-                private double UpdateInterval = 3000;
+                private double UpdateInterval = 30000;
                 public Item.Food.Seed seed;
                 private System.Timers.Timer timerOfWatering;
                 private System.Timers.Timer timerOfGrowth;
@@ -377,7 +382,11 @@ namespace Engine
                             timerOfGrowth.Start();
                             string numOfSeeds = seed.Number.ToString();
                             if (_stageOfGrowth == 1 || _stageOfGrowth == 2 || (_stageOfGrowth == 3 && seed.id != 2))
+                            {
                                 this.Bitmap = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\SowedSoil" + iswatered + seed.Number.ToString() + '-' + seed.id.ToString() + '-' + _stageOfGrowth.ToString() + ".png"));
+                                Console.WriteLine("WindowsFormsApp2\\Resources\\SowedSoil" + iswatered + seed.Number.ToString() + '-' + seed.id.ToString() + '-' + _stageOfGrowth.ToString() + ".png");
+                            }
+                                
                             else if (_stageOfGrowth == 4 && seed.id != 2)
                                 this.Bitmap = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\SowedSoil" + iswatered + seed.Number.ToString() + '-' + seed.id.ToString() + '-' + _stageOfGrowth.ToString() + '-' + seed.id2.ToString() + ".png"));
                             else if (_stageOfGrowth == 4)
@@ -412,9 +421,9 @@ namespace Engine
                 public PlowedSoil(int x, int y, string name, int Width, int Height, Bitmap bm, Map map)
                     : base(x, y, name, Width, Height, bm)
                 {
-                    timerOfWatering =  new System.Timers.Timer(UpdateInterval);
+                    timerOfWatering =  new System.Timers.Timer(UpdateInterval * 2);
                     timerOfWatering.Elapsed += timerOfWateringTimer_Elapsed;
-                    timerOfGrowth = new System.Timers.Timer(UpdateInterval*2);
+                    timerOfGrowth = new System.Timers.Timer(UpdateInterval);
                     timerOfGrowth.Elapsed += timerOfGrowthTimer_Elapsed;
                     map.Fill(x, y, Width, Height, 1, 53, 1, 40);
                     isSowed = false;
@@ -430,7 +439,7 @@ namespace Engine
 
                 private void timerOfGrowthTimer_Elapsed(object sender, ElapsedEventArgs e)
                 {
-                    if (stageOfGrowth < 4)
+                    if (stageOfWatering > 0 && stageOfGrowth < 4)
                         stageOfGrowth++;
                 }
 
@@ -498,7 +507,6 @@ namespace Engine
         {
             int Width = 0, Height = 0;
             Bitmap bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\justgreen.png"));
-            //Console.Writeline()
             if (name[0] == 't')
             {
                 if (name == "t1")
@@ -532,7 +540,7 @@ namespace Engine
             else if (name[0] == 'g')
             {
                 if (name == "g1")
-                {
+                { 
                     Width = 11;
                     Height = 8;
                     bm = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\grass1.png"));
@@ -789,9 +797,13 @@ namespace Engine
             int yh = random.Next(300, 450);
 
             MakeObjectRightHere(xh, yh, "bh1", map, true);
-            xh = random.Next(300, 1000);
-            yh = random.Next(200, 550);
-            MakeObjectRightHere(xh, yh, "w2", map, true);
+            int xw = xh;
+            while (Math.Abs(xw - xh) < 100)
+                xw = random.Next(400, 900);
+            int yw = yh;
+            while (Math.Abs(yw - yh) < 100)
+                yw = random.Next(300, 450);
+            MakeObjectRightHere(xw, yw, "w2", map, true);
             int index = 1;
             bool isFree;
             while (true)

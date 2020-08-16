@@ -16,7 +16,7 @@ namespace Engine
 
         public static string MainPictureRandomize()
         {
-            int caseSwitch = RandomNumber(1, 8);
+            int caseSwitch = RandomNumber(7, 8);
 
             switch (caseSwitch)
             {

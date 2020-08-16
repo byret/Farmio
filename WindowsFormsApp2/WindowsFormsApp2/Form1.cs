@@ -15,6 +15,7 @@ using System.Runtime.CompilerServices;
 using System.Security.AccessControl;
 using SharpDX.Direct3D11;
 using Microsoft.Xna.Framework.Input;
+using MonoGame.Utilities.Png;
 
 namespace Farmio
 
@@ -25,7 +26,6 @@ namespace Farmio
         private Hero hero;
         private int ClickX;
         private int ClickY;
-        //    GameMap map = new GameMap();
         Map map = new Map();
         bool start = false;
         string str;
@@ -36,19 +36,30 @@ namespace Farmio
         List<PictureBox> StorageIcons = new List<PictureBox>();
         List<PictureBox> CraftingIcons = new List<PictureBox>();
         List<Label> CraftingLabels = new List<Label>();
+        List<Label> FurnaceLabels = new List<Label>();
+        List<PictureBox> FurnaceIcons = new List<PictureBox>();
         List<Image> windows = new List<Image>();
         int hour;
         int minutes;
         System.Windows.Forms.Timer TimeOfDayTimer = new System.Windows.Forms.Timer();
         System.Windows.Forms.Timer InventoryPlusTimer = new System.Windows.Forms.Timer();
         System.Windows.Forms.Timer OneSecondTimer = new System.Windows.Forms.Timer();
+        System.Windows.Forms.Timer fishingTimer = new System.Windows.Forms.Timer();
         int windowFrame = 0;
         bool StorageIsOpen = false;
         bool Crafting = false;
         Map.MapMainPoint.Building CurrentBuilding;
         Map.MapMainPoint.PlowedSoil CurrentPlowedSoil;
+        Item.CraftableItem.Furnace CurrentFurnace;
         bool heroHasShovel = true; // tmp
         bool Seeding = false;
+        bool Fishing = false;
+        bool Baking = false;
+        bool FurnaceIsOpen;
+        Item.CraftableItem craftedItem = new Item.CraftableItem(1);
+        Item.BakedItem itemToBake = new Item.BakedItem(1);
+        List<Item.CraftableItem.Furnace> Furnaces = new List<Item.CraftableItem.Furnace>();
+
 
         public Farmio()
         {
@@ -58,23 +69,14 @@ namespace Farmio
             hour = 8;
             minutes = 30;
 
-
-
-            //////////////////// TO REMOVE
-            ///
-            Item.CraftableItem.Bucket bucket = new Item.CraftableItem.Bucket(1);
-            hero.Inventory.Add(bucket);
-            Item.Food.Seed.Potato Potato = new Item.Food.Seed.Potato(3);
-            hero.Inventory.Add(Potato);
-            Item.Food.Seed.CabbageSeed CabbageSeed = new Item.Food.Seed.CabbageSeed(1);
-            hero.Inventory.Add(CabbageSeed);
-
             InitializeComponent();
             longRunningTask = HeroMoveHere(hero.x, hero.y, 0);
             System.Windows.Forms.Timer musicTimer = new System.Windows.Forms.Timer();
             musicTimer.Interval = 300000;
             musicTimer.Tick += new EventHandler(musicTimer_Tick);
             musicTimer.Start();
+            fishingTimer.Interval = 5000;
+            fishingTimer.Tick += new EventHandler(fishingTimer_Tick);
             OneSecondTimer.Interval = 1000;
             OneSecondTimer.Tick += new EventHandler(OneSecondTimer_Tick);
             InventoryPlusTimer.Interval = 1000;
@@ -103,7 +105,7 @@ namespace Farmio
             inventoryIcons.Add(useIcon3);
             inventoryIcons.Add(useIcon4);
             inventoryIcons.Add(useIcon5);
-            inventoryIcons.Add(pbInventoryArrow1);
+            inventoryIcons.Add(v);
             inventoryIcons.Add(pbInventoryArrow2);
             inventoryIcons.Add(pbInventoryArrow3);
             inventoryIcons.Add(pbInventoryArrow4);
@@ -186,6 +188,22 @@ namespace Farmio
             CraftingLabels.Add(CraftingNumOfItem2);
             CraftingLabels.Add(CraftingNumOfItem3);
             CraftingLabels.Add(CraftingNumOfItem4);
+            FurnaceLabels.Add(lblFurnace1);
+            FurnaceLabels.Add(lblFurnace2);
+            FurnaceLabels.Add(lblFurnace3);
+            FurnaceLabels.Add(lblFurnace4);
+            FurnaceLabels.Add(lblFurnace1Num);
+            FurnaceLabels.Add(lblFurnace2Num);
+            FurnaceLabels.Add(lblFurnace3Num);
+            FurnaceLabels.Add(lblFurnace4Num);
+            FurnaceIcons.Add(pbFurnace01Arrow);
+            FurnaceIcons.Add(pbFurnace02Arrow);
+            FurnaceIcons.Add(pbFurnace03Arrow);
+            FurnaceIcons.Add(pbFurnace04Arrow);
+            FurnaceIcons.Add(pbFurnace1Arrow);
+            FurnaceIcons.Add(pbFurnace2Arrow);
+            FurnaceIcons.Add(pbFurnace3Arrow);
+            FurnaceIcons.Add(pbFurnace4Arrow);
             pbFon.Image = map.DrawMap();
 
             for (int i = 1; i <= 20; i++)
@@ -200,7 +218,7 @@ namespace Farmio
            // string startupPath = System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\", SomeFunctions.MusicRandomize());
             //SoundPlay(startupPath);
             lblGold.Text = hero.Gold.ToString();
-            lblEpoch.Text = hero.Level.ToString();
+            lblDay.Text = hero.Day.ToString();
             lblEnergy.Text = hero.Energy.ToString() + "/200";
             lblSaturation.Text = hero.Saturation.ToString() + "/100";
             lblHour.Text = hour + ":" + minutes;
@@ -216,8 +234,8 @@ namespace Farmio
         private void Parentize()
         {
             pbFarmio.Parent = pbStart.Parent = pbLoad.Parent = pbExit.Parent = pbStart.Parent = pictureBox1;
-            pbToHarvest.Parent = pbGetWater.Parent = pbName.Parent = pbCDTree.Parent = pbGetStone.Parent = pbCutGrass.Parent = pbCDStump.Parent = pbGetMushroom.Parent = pbGetMushrooms.Parent = pbStorage.Parent = pbGoToSleep.Parent = pbCraftSmth.Parent = pbNameOk.Parent = pbGLEF.Parent = pbInventoryOpen.Parent = pbCraftingArrow.Parent = pbToPlow.Parent = pbSowSeeds.Parent = pbToWater.Parent = pbFon;
-            lblInventory.Parent = lblGold.Parent = lblEpoch.Parent = lblEnergy.Parent = lblSaturation.Parent = lblHour.Parent = label1.Parent = label2.Parent = label3.Parent = label4.Parent = label5.Parent = lblInventoryPlus.Parent = pbGLEF;
+            pbFurnaceArrow.Parent = pbGoFishing.Parent = pbToHarvest.Parent = pbGetWater.Parent = pbName.Parent = pbCDTree.Parent = pbGetStone.Parent = pbCutGrass.Parent = pbCDStump.Parent = pbGetMushroom.Parent = pbGetMushrooms.Parent = pbStorage.Parent = pbGoToSleep.Parent = pbCraftSmth.Parent = pbNameOk.Parent = pbGLEF.Parent = pbInventoryOpen.Parent = pbCraftingArrow.Parent = pbToPlow.Parent = pbSowSeeds.Parent = pbToWater.Parent = pbFon;
+            lblInventory.Parent = lblGold.Parent = lblDay.Parent = lblEnergy.Parent = lblSaturation.Parent = lblHour.Parent = label1.Parent = label2.Parent = label3.Parent = label4.Parent = label5.Parent = lblInventoryPlus.Parent = pbGLEF;
             Window.Parent = pbFon;
             pbHero.Parent = Window;
         }
@@ -470,7 +488,33 @@ namespace Farmio
                 {
                     windowFrame = 0;
                     Window.Image = windows[0];
+                    hero.Day++;
+                    lblDay.Text = hero.Day.ToString();
                 }
+            }
+        }
+
+        private void lblDay_TextChanged(object sender, EventArgs e)
+        {
+            if (hero.Day == 1)
+            {
+                NPC Elodie = new NPC();
+                Elodie.Name = "Elodie";
+                Elodie.Gender = true;
+                Elodie.Gold = 50;
+                Elodie.x = 0;
+                Elodie.y = 200;
+                Elodie.SetSprite(2);
+                PictureBox pbElodie = new PictureBox();
+                pbElodie.Image = (Image)Elodie.Sprite[4];
+                pbElodie.Location = new Point(Elodie.x, Elodie.y);
+                pbElodie.BackColor = System.Drawing.Color.Transparent;
+                pbElodie.Size = new System.Drawing.Size(100, 50);
+                pbElodie.TabStop = false;
+                pbElodie.BringToFront();
+                pbElodie.Parent = Window;
+                pbElodie.Visible = true;
+                NPCMoveHere(Elodie, pbElodie, hero.x, hero.y, 30);
             }
         }
 
@@ -543,16 +587,27 @@ namespace Farmio
 
         private void Window_MouseDown(object sender, MouseEventArgs e)
         {
-            if (Crafting)
-                CraftingClose();
-            else if (pbStorageIsOpen.Visible)
-                StorageClose(); 
+            if (pbStorageIsOpen.Visible)
+            {
+                if (FurnaceIsOpen)
+                    FurnaceClose();
+                if (Crafting)
+                    CraftingClose();
+                StorageClose();
+            }
             else if (pbInventoryOpen.Visible)
                 InventoryClose();
+            else if (Fishing)
+            {
+                Fishing = false;
+                fishingTimer.Stop();
+            }
+            else if (Seeding)
+                Seeding = false;
 
             else if (start && longRunningTask.IsCompleted)
             {
-                    
+
                 ClickX = e.X;
                 ClickY = e.Y;
                 if (map.mapTab[ClickX, ClickY] != null)
@@ -568,35 +623,35 @@ namespace Farmio
                         pbGoToSleep.Visible = true;
                         pbCraftSmth.Visible = true;
                         pbCraftSmth.Location = new Point(ClickX + 5, ClickY + 5 + 38);
-                        pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCDTree.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
+                        pbGoFishing.Visible = pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCDTree.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
                     }
 
                     else if (tmp is Map.MapMainPoint.Grass)
                     {
                         pbCutGrass.Location = new Point(ClickX + 5, ClickY + 5);
                         pbCutGrass.Visible = true;
-                        pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCDTree.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
+                        pbGoFishing.Visible = pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCDTree.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
                     }
 
                     else if (tmp is Map.MapMainPoint.Stone)
                     {
                         pbGetStone.Location = new Point(ClickX + 5, ClickY + 5);
                         pbGetStone.Visible = true;
-                        pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
+                        pbGoFishing.Visible = pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
                     }
 
                     else if (tmp is Map.MapMainPoint.Tree)
                     {
                         pbCDTree.Location = new Point(ClickX + 5, ClickY + 5);
                         pbCDTree.Visible = true;
-                        pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
+                        pbGoFishing.Visible = pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
                     }
 
                     else if (tmp is Map.MapMainPoint.Stump)
                     {
                         pbCDStump.Location = new Point(ClickX + 5, ClickY + 5);
                         pbCDStump.Visible = true;
-                        pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
+                        pbGoFishing.Visible = pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
                     }
 
                     else if (tmp is Map.MapMainPoint.Mushroom)
@@ -605,14 +660,14 @@ namespace Farmio
                         {
                             pbGetMushroom.Location = new Point(ClickX + 5, ClickY + 5);
                             pbGetMushroom.Visible = true;
-                            pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushrooms.Visible = pbCDStump.Visible = false;
+                            pbGoFishing.Visible = pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushrooms.Visible = pbCDStump.Visible = false;
                         }
 
                         else
                         {
                             pbGetMushrooms.Location = new Point(ClickX + 5, ClickY + 5);
                             pbGetMushrooms.Visible = true;
-                            pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushroom.Visible = pbCDStump.Visible = false;
+                            pbGoFishing.Visible = pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushroom.Visible = pbCDStump.Visible = false;
                         }
                     }
 
@@ -622,15 +677,15 @@ namespace Farmio
                         {
                             pbSowSeeds.Location = new Point(ClickX + 5, ClickY + 5);
                             pbSowSeeds.Visible = true;
-                            pbToHarvest.Visible = pbGetWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushroom.Visible = pbCDStump.Visible = false;
+                            pbGoFishing.Visible = pbToHarvest.Visible = pbGetWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushroom.Visible = pbCDStump.Visible = false;
                         }
                         else if (((Map.MapMainPoint.PlowedSoil)tmp).stageOfGrowth == 4)
                         {
                             pbToHarvest.Location = new Point(ClickX + 5, ClickY + 5);
                             pbToHarvest.Visible = true;
-                            pbSowSeeds.Visible = pbGetWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushroom.Visible = pbCDStump.Visible = false;
+                            pbGoFishing.Visible = pbSowSeeds.Visible = pbGetWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushroom.Visible = pbCDStump.Visible = false;
                         }
-                        else if(((Map.MapMainPoint.PlowedSoil)tmp).stageOfWatering < 2)
+                        else if (((Map.MapMainPoint.PlowedSoil)tmp).stageOfWatering < 2)
                         {
                             foreach (Item item in hero.Inventory)
                             {
@@ -641,42 +696,53 @@ namespace Farmio
                                     break;
                                 }
                             }
-                            pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushroom.Visible = pbCDStump.Visible = false;
-                        }                  
+                            pbGoFishing.Visible = pbToHarvest.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbGetMushroom.Visible = pbCDStump.Visible = false;
+                        }
                     }
 
                     else if (tmp is Map.MapMainPoint.Pond)
                     {
+                        int i = 0;
                         foreach (Item item in hero.Inventory)
                         {
                             if (item is Item.CraftableItem.Bucket)
                             {
-                                pbGetWater.Location = new Point(ClickX + 5, ClickY + 5);
+                                pbGetWater.Location = new Point(ClickX + 5, ClickY + i + 5);
                                 pbGetWater.Visible = true;
-                                break;
+                                i += 18;
+                            }
+
+                            if (item is Item.CraftableItem.FishingRod)
+                            {
+                                pbGoFishing.Location = new Point(ClickX + 5, ClickY + i + 5);
+                                pbGoFishing.Visible = true;
+                                i += 18;
                             }
                         }
                         pbToHarvest.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
                     }
                 }
 
-                else if  (e.Button == MouseButtons.Left)
+                else if (e.Button == MouseButtons.Left)
                 {
-                    pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
+                    pbGoFishing.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbToPlow.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
                     longRunningTask = HeroMoveHere(ClickX, ClickY, 0);
                 }
                 else if (e.Button == MouseButtons.Right)
                 {
-                    pbToPlow.Location = new Point(ClickX + 5, ClickY + 5);
-                    pbToPlow.Visible = true;
-                    pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
+                    foreach (Item item in hero.Inventory)
+                    {
+                        if (item is Item.CraftableItem.Shovel)
+                        {
+                            pbToPlow.Location = new Point(ClickX + 5, ClickY + 5);
+                            pbToPlow.Visible = true;
+                            break;
+                        }
+                    }
+                     pbGoFishing.Visible = pbGetWater.Visible = pbSowSeeds.Visible = pbToWater.Visible = pbCraftSmth.Visible = pbGoToSleep.Visible = pbStorage.Visible = pbCutGrass.Visible = pbCDTree.Visible = pbGetStone.Visible = pbCDStump.Visible = pbGetMushrooms.Visible = pbGetMushroom.Visible = false;
                 }
-
             }
-            
         }
-
-
 
         private async void pbCDTree_Click(object sender, EventArgs e)
         {
@@ -698,7 +764,7 @@ namespace Farmio
                     SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\chopping-wood.wav"));
                     await Task.Delay(300);
                     hero.Energy = EnergyTmp;
-                    lblInventoryPlus.Text = '+' + hero.addToInventory(tmp.DestroyTree(map)).ToString();
+                    lblInventoryPlus.Text = '+' + hero.AddToInventory(tmp.DestroyTree(map)).ToString();
                     pbFon.Image = map.DrawMap();
                     lblEnergy.Text = hero.Energy.ToString() + "/200";
                 }
@@ -725,7 +791,7 @@ namespace Farmio
                     SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\stone-hit.wav"));
                     await Task.Delay(400);
                     hero.Energy = EnergyTmp;
-                    lblInventoryPlus.Text = '+' + hero.addToInventory(tmp.DestroyStone(map)).ToString();
+                    lblInventoryPlus.Text = '+' + hero.AddToInventory(tmp.DestroyStone(map)).ToString();
                     pbFon.Image = map.DrawMap();
                     lblEnergy.Text = hero.Energy.ToString() + "/200";
                 }
@@ -752,7 +818,7 @@ namespace Farmio
                     SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\cutting-grass.wav"));
                     await Task.Delay(200);
                     hero.Energy = EnergyTmp;
-                    lblInventoryPlus.Text = '+' + hero.addToInventory(tmp.DestroyGrass(map)).ToString();
+                    lblInventoryPlus.Text = '+' + hero.AddToInventory(tmp.DestroyGrass(map)).ToString();
                     pbFon.Image = map.DrawMap();
                     lblEnergy.Text = hero.Energy.ToString() + "/200";
                 }
@@ -777,7 +843,7 @@ namespace Farmio
                     longRunningTask = HeroMoveHere(x, y, 0);
                     int result = await longRunningTask;
                     hero.Energy = EnergyTmp;
-                    lblInventoryPlus.Text = '+' + hero.addToInventory(tmp.DestroyStump(map)).ToString();
+                    lblInventoryPlus.Text = '+' + hero.AddToInventory(tmp.DestroyStump(map)).ToString();
                     pbFon.Image = map.DrawMap();
                     lblEnergy.Text = hero.Energy.ToString() + "/200";
                 }
@@ -804,9 +870,9 @@ namespace Farmio
 
                     hero.Energy = EnergyTmp;
                     if (tmp.Name[1] == 'n')
-                        lblInventoryPlus.Text = '+' + hero.addToInventory(tmp.DestroyMushroomNE(map)).ToString();
+                        lblInventoryPlus.Text = '+' + hero.AddToInventory(tmp.DestroyMushroomNE(map)).ToString();
                     else
-                        lblInventoryPlus.Text = '+' + hero.addToInventory(tmp.DestroyMushroom(map)).ToString();
+                        lblInventoryPlus.Text = '+' + hero.AddToInventory(tmp.DestroyMushroom(map)).ToString();
                     pbFon.Image = map.DrawMap();
                     lblEnergy.Text = hero.Energy.ToString() + "/200";
                 }
@@ -832,9 +898,9 @@ namespace Farmio
                     int result = await longRunningTask;
                     hero.Energy = EnergyTmp;
                     if (tmp.Name[1] == 'n')
-                        lblInventoryPlus.Text = '+' + hero.addToInventory(tmp.DestroyMushroomNE(map)).ToString();
+                        lblInventoryPlus.Text = '+' + hero.AddToInventory(tmp.DestroyMushroomNE(map)).ToString();
                     else
-                        lblInventoryPlus.Text = '+' + hero.addToInventory(tmp.DestroyMushroom(map)).ToString();
+                        lblInventoryPlus.Text = '+' + hero.AddToInventory(tmp.DestroyMushroom(map)).ToString();
                     pbFon.Image = map.DrawMap();
                     lblEnergy.Text = hero.Energy.ToString() + "/200";
                 }
@@ -861,7 +927,6 @@ namespace Farmio
 
         public async Task<int> HeroMoveHere(int x, int y, int xyplus)
         {
-            //Console.Clear();
             char c = ' ';
             SoundPlayer player = new SoundPlayer(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\footsteps1.wav"));
             if (xyplus == 0)
@@ -1065,9 +1130,197 @@ namespace Farmio
                 pbHero.Image = hero.Sprite[9];
             player.Stop();
             return 0;
-
         }
 
+        public async Task<int> NPCMoveHere(NPC npc, PictureBox pb, int x, int y, int xyplus)
+        {
+            char c = ' ';
+            SoundPlayer player = new SoundPlayer(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\footsteps1.wav"));
+            if (xyplus == 0)
+                xyplus = 5;
+            int i = 0;
+            int n = 0;
+            
+            player.PlayLooping();
+            while (npc.x - x > xyplus)
+            {
+                c = 'a';
+                while (!map.isFree(npc.x, npc.y, c))
+                {
+                    int min1 = 0, min2 = 0;
+                    while (!map.isFree(npc.x, npc.y - min1, c))
+                        min1++;
+                    while (!map.isFree(npc.x, npc.y + min2, c))
+                        min2++;
+                    int posY = npc.y;
+                    if (min1 > min2)
+                        while (npc.y < posY + min2)
+                        {
+                            if (i > 5 || i < 2)
+                                i = 3;
+                            pb.Image = npc.Sprite[i];
+                            i++;
+                            npc.y += 5;
+                            pb.Top = npc.y;
+                            await Task.Delay(35 + n);
+                        }
+                    else
+                        while (npc.y > posY - min2)
+                        {
+                            if (i > 2)
+                                i = 0;
+                            pb.Image = npc.Sprite[i];
+                            i++;
+                            npc.y -= 5;
+                            pb.Top = npc.y;
+                            await Task.Delay(35 + n);
+                        }
+                }
+                if (i > 8 || i < 6)
+                    i = 6;
+                pb.Image = npc.Sprite[i];
+                i++;
+                npc.x -= 5;
+                pb.Left = npc.x;
+                await Task.Delay(35 + n);
+            }
+            while (x - npc.x > xyplus)
+            {
+                c = 'd';
+                while (!map.isFree(npc.x, npc.y, c))
+                {
+                    int min1 = 0, min2 = 0;
+                    while (!map.isFree(npc.x, npc.y - min1, c))
+                        min1++;
+                    while (!map.isFree(npc.x, npc.y + min2, c))
+                        min2++;
+                    int posY = npc.y;
+                    if (min1 > min2)
+                        while (npc.y < posY + min2)
+                        {
+                            if (i > 5 || i < 2)
+                                i = 3;
+                            pb.Image = npc.Sprite[i];
+                            i++;
+                            npc.y += 5;
+                            pb.Top = npc.y;
+                            await Task.Delay(35 + n);
+                        }
+                    else
+                        while (npc.y > posY - min2)
+                        {
+                            if (i > 2)
+                                i = 0;
+                            pb.Image = npc.Sprite[i];
+                            i++;
+                            npc.y -= 5;
+                            pb.Top = npc.y;
+                            await Task.Delay(35 + n);
+                        }
+                }
+                if (i > 11 || i < 9)
+                    i = 9;
+                pb.Image = npc.Sprite[i];
+                i++;
+                npc.x += 5;
+                pb.Left = npc.x;
+                await Task.Delay(35 + n);
+            }
+            while (npc.y - y > xyplus)
+            {
+                c = 'w';
+                while (!map.isFree(npc.x, npc.y, c))
+                {
+                    int min1 = 0, min2 = 0;
+                    while (!map.isFree(npc.x - min1, npc.y, c))
+                        min1++;
+                    while (!map.isFree(npc.x + min2, npc.y, c))
+                        min2++;
+                    int posX = npc.x;
+                    if (min1 > min2)
+                        while (npc.x < posX + min2)
+                        {
+                            if (i > 11 || i < 9)
+                                i = 9;
+                            pb.Image = npc.Sprite[i];
+                            i++;
+                            npc.x += 5;
+                            pb.Left = npc.x;
+                            await Task.Delay(35 + n);
+                        }
+                    else
+                        while (npc.x > posX - min2)
+                        {
+                            if (i > 8 || i < 6)
+                                i = 6;
+                            pb.Image = npc.Sprite[i];
+                            i++;
+                            npc.x -= 5;
+                            pb.Left = npc.x;
+                            await Task.Delay(35 + n);
+                        }
+                }
+                if (i > 2)
+                    i = 0;
+                pb.Image = npc.Sprite[i];
+                i++;
+                npc.y -= 5;
+                pb.Top = npc.y;
+                await Task.Delay(35 + n);
+            }
+            while (y - npc.y > xyplus)
+            {
+                c = 's';
+                while (!map.isFree(npc.x, npc.y, c))
+                {
+                    int min1 = 0, min2 = 0;
+                    while (!map.isFree(npc.x - min1, npc.y, c))
+                        min1++;
+                    while (!map.isFree(npc.x + min2, npc.y, c))
+                        min2++;
+                    int posX = npc.x;
+                    if (min1 > min2)
+                        while (npc.x < posX + min2)
+                        {
+                            if (i > 11 || i < 9)
+                                i = 9;
+                            pb.Image = npc.Sprite[i];
+                            i++;
+                            npc.x += 5;
+                            pb.Left = npc.x;
+                            await Task.Delay(35 + n);
+                        }
+                    else
+                        while (npc.x > posX - min2)
+                        {
+                            if (i > 8 || i < 6)
+                                i = 6;
+                            pb.Image = npc.Sprite[i];
+                            i++;
+                            npc.x -= 5;
+                            pb.Left = npc.x;
+                            await Task.Delay(35 + n);
+                        }
+                }
+                if (i > 5 || i < 2)
+                    i = 3;
+                pb.Image = npc.Sprite[i];
+                i++;
+                npc.y += 5;
+                pb.Top = npc.y;
+                await Task.Delay(35 + n);
+            }
+            if (c == 'w')
+                pb.Image = npc.Sprite[0];
+            else if (c == 's')
+                pb.Image = npc.Sprite[3];
+            else if (c == 'a')
+                pb.Image = npc.Sprite[6];
+            else if (c == 'd')
+                pb.Image = npc.Sprite[9];
+            player.Stop();
+            return 0;
+        }
         //private void Form1_KeyDown(object sender, KeyEventArgs e)
         //{
         //    if (e.KeyCode == Keys.W)
@@ -1096,20 +1349,18 @@ namespace Farmio
 
         private void lblInventory_Click(object sender, EventArgs e)
         {
-            InventoryLoad();
+            InventoryLoad(true);
         }
 
-        private void InventoryLoad()
+        private void InventoryLoad(bool sound)
         {
-
-            SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\inventory.wav"));
+            if (sound)
+                SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\inventory.wav"));
             InventoryClose();
             pbInventoryOpen.Visible = true;
             int i = 0;
             foreach (Item item in hero.Inventory)
             {
-                if (item.Number == 0)
-                    continue;
                 if (item.Number == 1)
                     inventoryLabels[i].Text = item.Name;
                 else
@@ -1185,16 +1436,40 @@ namespace Farmio
             {
                 if (item.Name == inventoryLabels[n].Text || item.NamePlural == inventoryLabels[n].Text)
                 {
-                    item.Number -= i;
-                    if (item.Number <= 0)
+                    if (!item.IsStacking)
                     {
-                        hero.Inventory.Remove(item);
+                        hero.Inventory.RemoveAt(hero.Inventory.IndexOf(item));
                         hero.NumOfItemsInInventory--;
+                        i = 1;
                     }
-                    InventoryLoad(); 
+                    else
+                    {
+                        item.Number -= i;
+                        if (item.Number <= 0)
+                        {
+                            hero.Inventory.RemoveAt(hero.Inventory.IndexOf(item));
+                            hero.NumOfItemsInInventory--;
+                        }
+                    }
+                    InventoryLoad(false); 
                     object o = item.Clone();
                     Item itemTmp = (Item)o;
                     itemTmp.Number = i;
+                    return itemTmp;
+                }
+            }
+            return itemTmp2;
+        }
+
+        public Item CopyItemFromInventory(int n)
+        {
+            Item itemTmp2 = new Item();
+            foreach (Item item in hero.Inventory)
+            {
+                if (item.Name == inventoryLabels[n].Text || item.NamePlural == inventoryLabels[n].Text)
+                {
+                    object o = item.Clone();
+                    Item itemTmp = (Item)o;
                     return itemTmp;
                 }
             }
@@ -1225,7 +1500,32 @@ namespace Farmio
             lblEnergy.Text = hero.Energy.ToString() + "/200";
             lblSaturation.Text = hero.Saturation.ToString() + "/100";
             RemoveItemFromInventory(n, 1);
+        }
+        public void Eat(Item.BakedItem.BakedFood food, int n)
+        {
+            if (food.Energy < 0)
+            {
+                if (hero.Energy > 5)
+                    hero.Energy = 5;
+                else hero.Energy = 0;
+                SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\crunch.wav"));
+                windowFrame++;
+                Window.Image = windows[windowFrame];
             }
+            else
+            {
+                hero.Saturation += food.Energy;
+                hero.Energy += food.Energy;
+                if (hero.Energy > 200)
+                    hero.Energy = 200;
+                if (hero.Saturation > 100)
+                    hero.Saturation = 100;
+                SoundPlay(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName, "Resources\\crunch.wav"));
+            }
+            lblEnergy.Text = hero.Energy.ToString() + "/200";
+            lblSaturation.Text = hero.Saturation.ToString() + "/100";
+            RemoveItemFromInventory(n, 1);
+        }
 
         private void useIcon1_Click(object sender, EventArgs e)
         {
@@ -1261,6 +1561,8 @@ namespace Farmio
                 {
                     if (item is Item.Food)
                         Eat((Item.Food)item, i);
+                    else if (item is Item.BakedItem.BakedFood)
+                        Eat((Item.BakedItem.BakedFood)item, i);
                     break;
                 }
             }
@@ -1306,7 +1608,8 @@ namespace Farmio
                 hero.Energy = 200;
             lblEnergy.Text = hero.Energy.ToString() + "/200";
             hour = 8;
-            minutes = 15;
+            minutes = 00;
+            TimeOfDayTimer_Tick(null, null);
             TimeOfDayTimer.Start();
         }
 
@@ -1366,6 +1669,51 @@ namespace Farmio
         void OneSecondTimer_Tick(object sender, EventArgs e)
         {
             pbFon.Image = map.DrawMap();
+
+            if (Baking)
+            {
+                foreach (Item.CraftableItem.Furnace furnace in Furnaces)
+                {
+                    if (furnace.Result.TimeForBaking > 0)
+                    {
+                        furnace.TimeForBaking -= 5;
+                        if (furnace.TimeForBaking <= 0)
+                        {
+                            furnace.Result.Number++;
+                            furnace.TimeForBaking = furnace.Result.TimeForBaking;
+                            furnace.Fuel.Number--;
+                            bool stop = false;
+                            if (furnace.Fuel.Number <= 0)
+                            {
+                                furnace.Fuel = null;
+                                stop = true;
+                            }
+                            foreach (Item item in furnace.ItemsInFurnace)
+                            {
+                                item.Number--;
+                                if (item.Number <= 0)
+                                {
+                                    furnace.ItemsInFurnace.Remove(item);
+                                    furnace.NumOfItemsInFurnace--;
+                                    stop = true;
+                                    if (furnace.NumOfItemsInFurnace <= 0)
+                                        break;
+                                }
+                            }
+                            if (FurnaceIsOpen && CurrentFurnace == furnace)
+                                FurnaceOpen(CurrentFurnace);
+                            if (stop)
+                            {
+                                Furnaces.Remove(furnace);
+                                
+                                if (Furnaces.Count() == 0)
+                                    Baking = false;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         private async void pbStorage_Click(object sender, EventArgs e)
@@ -1393,8 +1741,16 @@ namespace Farmio
                     continue;
                 if (!Crafting)
                 {
-                    StorageIcons[i].Visible = true;
-                    StorageIcons[i].BringToFront();
+                    if (item is Item.CraftableItem.Furnace)
+                    {
+                        StorageIcons[i + 20].Visible = true;
+                        StorageIcons[i + 20].BringToFront();
+                    }
+                    else
+                    {
+                        StorageIcons[i].Visible = true;
+                        StorageIcons[i].BringToFront();
+                    }
                     StorageIcons[i + 10].Visible = true;
                     StorageIcons[i + 10].BringToFront();
                 }
@@ -1411,7 +1767,7 @@ namespace Farmio
                 storageLabels[i + 10].BringToFront();
                 i++;
             }
-            InventoryLoad();
+            InventoryLoad(false);
 
         }
         private void StorageClose()
@@ -1420,7 +1776,6 @@ namespace Farmio
             int i = 0;
             foreach (Label label in storageLabels)
             {
-                Console.WriteLine(label.Text.Length);
                 if (label.Text.Length == 0)
                     break;
                 StorageIcons[i].Visible = false;
@@ -1430,6 +1785,7 @@ namespace Farmio
                 storageLabels[i + 10].Visible = false;
                 i++;
             }
+
             InventoryClose();
             pbStorageIsOpen.Visible = false;
         }
@@ -1447,35 +1803,46 @@ namespace Farmio
             StorageLoad();
         }
 
+        private void InventoryArrowClick(int i, int n)
+        {
+            Item item = CopyItemFromInventory(i);
+            bool IsInFurnace = false;
+            if (FurnaceIsOpen && (item.IsFuel || item.IsBakeable))
+            {
+                if (!IsFurnaceFullInventory(i, n))
+                {
+                    AddInFurnace(RemoveItemFromInventory(i, n));
+                    IsInFurnace = true;
+                }
+            }
+            if (!IsStorageFull(inventoryLabels[i].Text, n) && !IsInFurnace)
+                AddToStorage(RemoveItemFromInventory(i, n));
+        }
+
         private void pbInventoryArrow01_Click(object sender, EventArgs e)
         {
-            if (!IsStorageFull(0, 1))
-                AddToStorage (RemoveItemFromInventory(0, 1));
+            InventoryArrowClick(0, 1);
         }
 
         private void pbInventoryArrow02_Click(object sender, EventArgs e)
         {
-            if (!IsStorageFull(1, 1))
-                AddToStorage(RemoveItemFromInventory(1, 1));
-            }
+            InventoryArrowClick(1, 1);
+        }
 
         private void pbInventoryArrow03_Click(object sender, EventArgs e)
         {
-            if (!IsStorageFull(2, 1))
-                AddToStorage(RemoveItemFromInventory(2, 1));
-            }
+            InventoryArrowClick(2, 1);
+        }
 
         private void pbInventoryArrow04_Click(object sender, EventArgs e)
         {
-            if (!IsStorageFull(3, 1))
-                AddToStorage(RemoveItemFromInventory(3, 1));
-            }
+            InventoryArrowClick(3, 1);
+        }
 
         private void pbInventoryArrow05_Click(object sender, EventArgs e)
         {
-            if (!IsStorageFull(4, 1))
-                AddToStorage(RemoveItemFromInventory(4, 1));
-            }
+            InventoryArrowClick(4, 1);
+        }
 
         private void pbInventoryArrow1_Click(object sender, EventArgs e)
         {
@@ -1483,9 +1850,8 @@ namespace Farmio
             if (n > 10)
                 n = 10;
 
-            if (!IsStorageFull(0, n))
-                AddToStorage(RemoveItemFromInventory(0, n));
-            }
+            InventoryArrowClick(0, n);
+        }
 
         private void pbInventoryArrow2_Click(object sender, EventArgs e)
         {
@@ -1493,9 +1859,8 @@ namespace Farmio
             if (n > 10)
                 n = 10;
 
-            if (!IsStorageFull(1, n))
-                AddToStorage(RemoveItemFromInventory(1, n));
-            }
+            InventoryArrowClick(1, n);
+        }
 
         private void pbInventoryArrow3_Click(object sender, EventArgs e)
         {
@@ -1503,9 +1868,8 @@ namespace Farmio
             if (n > 10)
                 n = 10;
 
-            if (!IsStorageFull(2, n))
-                AddToStorage(RemoveItemFromInventory(2, n));
-            }
+            InventoryArrowClick(2, n);
+        }
 
         private void pbInventoryArrow4_Click(object sender, EventArgs e)
         {
@@ -1513,8 +1877,7 @@ namespace Farmio
             if (n > 10)
                 n = 10;
 
-            if (!IsStorageFull(3, n))
-                AddToStorage(RemoveItemFromInventory(3, n));
+            InventoryArrowClick(3, n);
         }
 
         private void pbInventoryArrow5_Click(object sender, EventArgs e)
@@ -1523,17 +1886,17 @@ namespace Farmio
             if (n > 10)
                 n = 10;
 
-            if (!IsStorageFull(4, n))
-                AddToStorage(RemoveItemFromInventory(4, n));
+            InventoryArrowClick(4, n);
         }
 
-        private bool IsStorageFull(int n, int i)
+        private bool IsStorageFull(string name, int i)
         {
             if (CurrentBuilding.NumOfItemsInStorage < 10)
                 return false; 
 
             foreach (Item item in CurrentBuilding.Storage)
-                if (item.Name == inventoryLabels[n].Text || item.NamePlural == inventoryLabels[n].Text)
+                if (item.Name == name || item.NamePlural == name)
+                    //inventoryLabels[n].Text
                     if (item.Number < 99 - i)
                         return false;
             return true;
@@ -1543,6 +1906,7 @@ namespace Farmio
             if (CurrentBuilding.NumOfItemsInStorage < 10)
                 return false;
 
+
             foreach (Item item in CurrentBuilding.Storage)
                 if (item.Name == CurrentBuilding.CraftingTable[n].Name || item.NamePlural == CurrentBuilding.CraftingTable[n].NamePlural)
                     if (item.Number < 99 - i)
@@ -1550,24 +1914,13 @@ namespace Farmio
             return true;
         }
 
-        private bool IsInventoryFull(int n, int i)
+        private bool IsInventoryFull(string name, int i)
         {
             if (hero.NumOfItemsInInventory < 5)
                 return false;
 
             foreach (Item item in hero.Inventory)
-                if (item.Name == storageLabels[n].Text || item.NamePlural == storageLabels[n].Text)
-                    if (item.Number < 99 - i)
-                        return false;
-            return true;
-        }
-        private bool IsInventoryFullCrafting(int n, int i)
-        {
-            if (hero.NumOfItemsInInventory < 5)
-                return false;
-
-            foreach (Item item in hero.Inventory)
-                if (item.Name == CraftingLabels[n].Text || item.NamePlural == CraftingLabels[n].Text)
+                if (item.Name == name || item.NamePlural == name) 
                     if (item.Number < 99 - i)
                         return false;
             return true;
@@ -1595,84 +1948,102 @@ namespace Farmio
             return itemTmp2;
         }
 
+        private Item CopyItemFromStorage(int n)
+        {
+            Item itemTmp2 = new Item();
+            foreach (Item item in CurrentBuilding.Storage)
+            {
+                if (item.Name == storageLabels[n].Text || item.NamePlural == storageLabels[n].Text)
+                {
+                    object o = item.Clone();
+                    Item itemTmp = (Item)o;
+                    return itemTmp;
+                }
+            }
+            return itemTmp2;
+        }
+
+        private void StorageArrowClick(int i, int n)
+        {
+            Item item = RemoveItemFromStorage(i, n);
+            bool IsInFurnace = false;
+            if (FurnaceIsOpen)
+            {
+                if (item.IsFuel)
+                {
+                    IsInFurnace = true;
+                    if (CurrentFurnace.Fuel != null && CurrentFurnace.Fuel.GetType() == item.GetType())
+                        CurrentFurnace.Fuel.Number += n;
+                    else if (CurrentFurnace.Fuel == null)
+                        CurrentFurnace.Fuel = item;
+                    else
+                        IsInFurnace = false;
+                }
+                else if (item.IsBakeable)
+                {
+                    IsInFurnace = true;
+                    if (CurrentFurnace.Raw != null && CurrentFurnace.Raw.GetType() == item.GetType())
+                        CurrentFurnace.Raw.Number += n;
+                    else if (CurrentFurnace.Raw == null)
+                        CurrentFurnace.Raw = item;
+                    else
+                        IsInFurnace = false;
+                }
+                FurnaceOpen(CurrentFurnace);
+            }
+            if (!IsInventoryFull(storageLabels[i].Text, n) && !IsInFurnace)
+                hero.AddToInventory(item);
+            StorageLoad();
+        }
+
         private void pbStorageArrow01_Click(object sender, EventArgs e)
         {
-            if (!IsInventoryFull(0, 1))
-                hero.addToInventory(RemoveItemFromStorage(0, 1));
-            InventoryLoad();
-            StorageLoad();
+            StorageArrowClick(0, 1);
         }
 
         private void pbStorageArrow02_Click(object sender, EventArgs e)
         {
-            if (!IsInventoryFull(1, 1))
-                hero.addToInventory(RemoveItemFromStorage(1, 1));
-            InventoryLoad();
-            StorageLoad();
+            StorageArrowClick(1, 1);
         }
 
         private void pbStorageArrow03_Click(object sender, EventArgs e)
         {
-            if (!IsInventoryFull(2, 1))
-                hero.addToInventory(RemoveItemFromStorage(2, 1));
-            InventoryLoad();
-            StorageLoad();
+            StorageArrowClick(2, 1);
         }
 
         private void pbStorageArrow04_Click(object sender, EventArgs e)
         {
-            if (!IsInventoryFull(3, 1))
-                hero.addToInventory(RemoveItemFromStorage(1, 1));
-            InventoryLoad();
-            StorageLoad();
+            StorageArrowClick(3, 1);
         }
 
         private void pbStorageArrow05_Click(object sender, EventArgs e)
         {
-            if (!IsInventoryFull(4, 1))
-                hero.addToInventory(RemoveItemFromStorage(4, 1));
-            InventoryLoad();
-            StorageLoad();
+            StorageArrowClick(4, 1);
         }
 
         private void pbStorageArrow06_Click(object sender, EventArgs e)
         {
-            if (!IsInventoryFull(5, 1))
-                hero.addToInventory(RemoveItemFromStorage(5, 1));
-            InventoryLoad();
-            StorageLoad();
+            StorageArrowClick(5, 1);
         }
 
         private void pbStorageArrow07_Click(object sender, EventArgs e)
         {
-            if (!IsInventoryFull(6, 1))
-                hero.addToInventory(RemoveItemFromStorage(6, 1));
-            InventoryLoad();
-            StorageLoad();
+            StorageArrowClick(6, 1);
         }
 
         private void pbStorageArrow08_Click(object sender, EventArgs e)
         {
-            if (!IsInventoryFull(7, 1))
-                hero.addToInventory(RemoveItemFromStorage(7, 1));
-            InventoryLoad();
-            StorageLoad();
+            StorageArrowClick(7, 1);
         }
 
         private void pbStorageArrow09_Click(object sender, EventArgs e)
         {
-            if (!IsInventoryFull(8, 1))
-                hero.addToInventory(RemoveItemFromStorage(8, 1));
-            InventoryLoad();
-            StorageLoad();
+            StorageArrowClick(8, 1);
         }
 
         private void pbStorageArrow010_Click(object sender, EventArgs e)
         {
-            if (!IsInventoryFull(9, 1))
-                hero.addToInventory(RemoveItemFromStorage(9, 1));
-            InventoryLoad();
-            StorageLoad();
+            StorageArrowClick(9, 1);
         }
 
         private void pbStorageArrow1_Click(object sender, EventArgs e)
@@ -1681,10 +2052,7 @@ namespace Farmio
             if (n > 10)
                 n = 10;
 
-            if (!IsInventoryFull(0, n))
-                hero.addToInventory(RemoveItemFromStorage(0, n));
-            InventoryLoad();
-            StorageLoad();
+            StorageArrowClick(0, n);
         }
 
         private void pbStorageArrow2_Click(object sender, EventArgs e)
@@ -1693,10 +2061,7 @@ namespace Farmio
             if (n > 10)
                 n = 10;
 
-            if (!IsInventoryFull(1, n))
-                hero.addToInventory(RemoveItemFromStorage(1, n));
-            InventoryLoad();
-            StorageLoad();
+            StorageArrowClick(1, n);
         }
 
         private void pbStorageArrow3_Click(object sender, EventArgs e)
@@ -1705,10 +2070,7 @@ namespace Farmio
             if (n > 10)
                 n = 10;
 
-            if (!IsInventoryFull(2, n))
-                hero.addToInventory(RemoveItemFromStorage(2, n));
-            InventoryLoad();
-            StorageLoad();
+            StorageArrowClick(2, n);
         }
 
         private void pbStorageArrow4_Click(object sender, EventArgs e)
@@ -1717,10 +2079,7 @@ namespace Farmio
             if (n > 10)
                 n = 10;
 
-            if (!IsInventoryFull(3, n))
-                hero.addToInventory(RemoveItemFromStorage(3, n));
-            InventoryLoad();
-            StorageLoad();
+            StorageArrowClick(3, n);
         }
 
         private void pbStorageArrow5_Click(object sender, EventArgs e)
@@ -1729,10 +2088,7 @@ namespace Farmio
             if (n > 10)
                 n = 10;
 
-            if (!IsInventoryFull(4, n))
-                hero.addToInventory(RemoveItemFromStorage(4, n));
-            InventoryLoad();
-            StorageLoad();
+            StorageArrowClick(4, n);
         }
 
         private void pbStorageArrow6_Click(object sender, EventArgs e)
@@ -1741,10 +2097,7 @@ namespace Farmio
             if (n > 10)
                 n = 10;
 
-            if (!IsInventoryFull(5, n))
-                hero.addToInventory(RemoveItemFromStorage(5, n));
-            InventoryLoad();
-            StorageLoad();
+            StorageArrowClick(5, n);
         }
 
         private void pbStorageArrow7_Click(object sender, EventArgs e)
@@ -1753,10 +2106,7 @@ namespace Farmio
             if (n > 10)
                 n = 10;
 
-            if (!IsInventoryFull(6, n))
-                hero.addToInventory(RemoveItemFromStorage(6, n));
-            InventoryLoad();
-            StorageLoad();
+            StorageArrowClick(6, n);
         }
 
         private void pbStorageArrow8_Click(object sender, EventArgs e)
@@ -1765,10 +2115,7 @@ namespace Farmio
             if (n > 10)
                 n = 10;
 
-            if (!IsInventoryFull(7, n))
-                hero.addToInventory(RemoveItemFromStorage(7, n));
-            InventoryLoad();
-            StorageLoad();
+            StorageArrowClick(7, n);
         }
 
         private void pbStorageArrow9_Click(object sender, EventArgs e)
@@ -1777,10 +2124,7 @@ namespace Farmio
             if (n > 10)
                 n = 10;
 
-            if (!IsInventoryFull(8, n))
-                hero.addToInventory(RemoveItemFromStorage(8, n));
-            InventoryLoad();
-            StorageLoad();
+            StorageArrowClick(8, n);
         }
 
         private void pbStorageArrow10_Click(object sender, EventArgs e)
@@ -1789,10 +2133,7 @@ namespace Farmio
             if (n > 10)
                 n = 10;
 
-            if (!IsInventoryFull(9, n))
-                hero.addToInventory(RemoveItemFromStorage(9, n));
-            InventoryLoad();
-            StorageLoad();
+            StorageArrowClick(9, n);
         }
 
         private async void pbCraftSmth_Click(object sender, EventArgs e)
@@ -1889,6 +2230,7 @@ namespace Farmio
                     if (isThatItem && n == craftableItem.ItemsNeededForCraft.Count)
                     {
                         lblItemToCraft.Text = craftableItem.Name;
+                        craftedItem = craftableItem;
                         break;
                     }
                     else
@@ -1952,62 +2294,148 @@ namespace Farmio
 
         private void pbStorageAnvil1_Click(object sender, EventArgs e)
         {
-            if (!IsCraftingTableFullStorage(0, 1))
+            if (lblStorageItem1.Text == "Piec")
+                FurnaceOpen((Item.CraftableItem.Furnace)CurrentBuilding.Storage[0]);
+            else if (!IsCraftingTableFullStorage(0, 1))
                 AddOnCraftingTable(RemoveItemFromStorage(0, 1));
         }
 
         private void pbStorageAnvil2_Click(object sender, EventArgs e)
         {
-            if (!IsCraftingTableFullStorage(1, 1))
+            if (lblStorageItem2.Text == "Piec")
+                FurnaceOpen((Item.CraftableItem.Furnace)CurrentBuilding.Storage[1]);
+            else if (!IsCraftingTableFullStorage(1, 1))
                 AddOnCraftingTable(RemoveItemFromStorage(1, 1));
         }
 
         private void pbStorageAnvil3_Click(object sender, EventArgs e)
         {
-            if (!IsCraftingTableFullStorage(2, 1))
+            if (lblStorageItem3.Text == "Piec")
+                FurnaceOpen((Item.CraftableItem.Furnace)CurrentBuilding.Storage[2]);
+            else if (!IsCraftingTableFullStorage(2, 1))
                 AddOnCraftingTable(RemoveItemFromStorage(2, 1));
         }
 
         private void pbStorageAnvil4_Click(object sender, EventArgs e)
         {
-            if (!IsCraftingTableFullStorage(3, 1))
+            if (lblStorageItem4.Text == "Piec")
+                FurnaceOpen((Item.CraftableItem.Furnace)CurrentBuilding.Storage[3]);
+            else if (!IsCraftingTableFullStorage(3, 1))
                 AddOnCraftingTable(RemoveItemFromStorage(3, 1));
         }
 
         private void pbStorageAnvil5_Click(object sender, EventArgs e)
         {
-            if (!IsCraftingTableFullStorage(4, 1))
+            if (lblStorageItem5.Text == "Piec")
+                FurnaceOpen((Item.CraftableItem.Furnace)CurrentBuilding.Storage[4]);
+            else if (!IsCraftingTableFullStorage(4, 1))
                 AddOnCraftingTable(RemoveItemFromStorage(4, 1));
         }
 
         private void pbStorageAnvil6_Click(object sender, EventArgs e)
         {
-            if (!IsCraftingTableFullStorage(5, 1))
+            if (lblStorageItem6.Text == "Piec")
+                FurnaceOpen((Item.CraftableItem.Furnace)CurrentBuilding.Storage[5]);
+            else if (!IsCraftingTableFullStorage(5, 1))
                 AddOnCraftingTable(RemoveItemFromStorage(5, 1));
         }
 
         private void pbStorageAnvil7_Click(object sender, EventArgs e)
         {
-            if (!IsCraftingTableFullStorage(6, 1))
+            if (lblStorageItem7.Text == "Piec")
+                FurnaceOpen((Item.CraftableItem.Furnace)CurrentBuilding.Storage[6]);
+            else if (!IsCraftingTableFullStorage(6, 1))
                 AddOnCraftingTable(RemoveItemFromStorage(6, 1));
         }
 
         private void pbStorageAnvil8_Click(object sender, EventArgs e)
         {
-            if (!IsCraftingTableFullStorage(7, 1))
+            if (lblStorageItem8.Text == "Piec")
+                FurnaceOpen((Item.CraftableItem.Furnace)CurrentBuilding.Storage[7]);
+            else if (!IsCraftingTableFullStorage(7, 1))
                 AddOnCraftingTable(RemoveItemFromStorage(7, 1));
         }
 
         private void pbStorageAnvil9_Click(object sender, EventArgs e)
         {
-            if (!IsCraftingTableFullStorage(8, 1))
+            if (lblStorageItem9.Text == "Piec")
+                FurnaceOpen((Item.CraftableItem.Furnace)CurrentBuilding.Storage[8]);
+            else if (!IsCraftingTableFullStorage(8, 1))
                 AddOnCraftingTable(RemoveItemFromStorage(8, 1));
         }
 
         private void pbStorageAnvil10_Click(object sender, EventArgs e)
         {
-            if (!IsCraftingTableFullStorage(9, 1))
+            if (lblStorageItem1.Text == "Piec")
+                FurnaceOpen((Item.CraftableItem.Furnace)CurrentBuilding.Storage[9]);
+            else if (!IsCraftingTableFullStorage(9, 1))
                 AddOnCraftingTable(RemoveItemFromStorage(9, 1));
+        }
+
+        private void FurnaceOpen(Item.CraftableItem.Furnace furnace)
+        {
+            FurnaceClose();
+            FurnaceIsOpen = true;
+            CurrentFurnace = furnace;
+            pbFurnace.Visible = pbFurnaceFuel.Visible = pbFurnaceArrow.Visible = pbFurnaceResult.Visible = true;
+
+            int i = 0;
+
+            if (CurrentFurnace.Fuel != null)
+            {
+                lblFurnaceFuel.Text = (CurrentFurnace.Fuel.Number == 1) ? CurrentFurnace.Fuel.Name : CurrentFurnace.Fuel.NamePlural;
+                lblFurnaceFuelNum.Text = CurrentFurnace.Fuel.Number.ToString();
+                lblFurnaceFuel.Visible = lblFurnaceFuelNum.Visible = true;
+                pbFurnaceFuelArrow.Visible = pbFurnace0FuelArrow.Visible = true;
+                pbFurnaceFuelArrow.BringToFront();
+                pbFurnace0FuelArrow.BringToFront();
+                lblFurnaceFuel.BringToFront();
+                lblFurnaceFuelNum.BringToFront();
+            }
+            if (CurrentFurnace.Result != null)
+            {
+                furnace.TimeForBaking = furnace.Result.TimeForBaking;
+                lblFurnaceResult.Text = (CurrentFurnace.Result.Number < 2) ? CurrentFurnace.Result.Name : CurrentFurnace.Result.NamePlural;
+                lblFurnaceResNum.Text = CurrentFurnace.Result.Number.ToString();
+                lblFurnaceResult.Visible = lblFurnaceResNum.Visible = true;
+                pbFurnace0ResArrow.Visible = pbFurnaceResArrow.Visible = true;
+                pbFurnaceResArrow.BringToFront();
+                pbFurnace0ResArrow.BringToFront();
+                lblFurnaceResult.BringToFront();
+                lblFurnaceResNum.BringToFront();
+            }
+
+            foreach (Item item in CurrentFurnace.ItemsInFurnace)
+            {
+                if (item.Number == 0)
+                    continue;
+                FurnaceLabels[i].Text = (item.Number == 1) ? item.Name : item.NamePlural;
+                FurnaceLabels[i].Visible = true;
+                FurnaceLabels[i].BringToFront();
+                FurnaceLabels[i + 4].Text = item.Number.ToString();
+                FurnaceLabels[i + 4].Visible = true;
+                FurnaceLabels[i + 4].BringToFront();
+                FurnaceIcons[i].Visible = true;
+                FurnaceIcons[i].BringToFront();
+                FurnaceIcons[i + 4].Visible = true;
+                FurnaceIcons[i + 4].BringToFront();
+                i++;
+            }
+
+        }
+
+        private void FurnaceClose()
+        {
+            FurnaceIsOpen = false;
+            foreach (Label label in FurnaceLabels)
+            {
+                label.Text = "";
+                label.Visible = false;
+            }
+            foreach (PictureBox pictureBox in FurnaceIcons)
+                pictureBox.Visible = false;
+            pbFurnace.Visible = pbFurnaceFuel.Visible = pbFurnaceArrow.Visible = pbFurnaceResult.Visible = lblFurnaceFuel.Visible = lblFurnaceFuelNum.Visible = lblFurnaceResult.Visible = lblFurnaceResNum.Visible = pbFurnace0ResArrow.Visible = pbFurnaceResArrow.Visible = pbFurnaceFuelArrow.Visible = pbFurnace0FuelArrow.Visible = false;
+            lblFurnaceFuel.Text = lblFurnaceFuelNum.Text = lblFurnaceResult.Text = lblFurnaceResNum.Text  = "";
         }
         private Item RemoveItemFromCraftingTable(int n)
         {
@@ -2063,10 +2491,10 @@ namespace Farmio
         private void pbCraftingItem1_Click(object sender, EventArgs e)
         {
             int n = Int32.Parse(CraftingNumOfItem1.Text);
-            if (!IsStorageFullCrafting(0, n))
+            if (!IsStorageFull(lblCraftingItem1.Text, n))
                 AddToStorage(RemoveItemFromCraftingTable(0));
-            else if (!IsInventoryFullCrafting(0, n))
-                hero.addToInventory(RemoveItemFromCraftingTable(0));
+            else if (!IsInventoryFull(CraftingLabels[0].Text, n))
+                hero.AddToInventory(RemoveItemFromCraftingTable(0));
             CraftingLoad();
         }
 
@@ -2074,30 +2502,30 @@ namespace Farmio
         {
             int n = Int32.Parse(CraftingNumOfItem2.Text);
 
-            if (!IsStorageFullCrafting(1, n))
+            if (!IsStorageFull(lblCraftingItem2.Text, n))
                 AddToStorage(RemoveItemFromCraftingTable(1));
-            else if (!IsInventoryFullCrafting(1, n))
-                hero.addToInventory(RemoveItemFromCraftingTable(1));
+            else if (!IsInventoryFull(CraftingLabels[1].Text, n))
+                hero.AddToInventory(RemoveItemFromCraftingTable(1));
             CraftingLoad();
         }
 
         private void pbCraftingItem3_Click(object sender, EventArgs e)
         {
             int n = Int32.Parse(CraftingNumOfItem3.Text);
-            if (!IsStorageFullCrafting(2, n))
+            if (!IsStorageFull(lblCraftingItem3.Text, n))
                 AddToStorage(RemoveItemFromCraftingTable(2));
-            else if (!IsInventoryFullCrafting(2, n))
-                hero.addToInventory(RemoveItemFromCraftingTable(2));
+            else if (!IsInventoryFull(CraftingLabels[2].Text, n))
+                hero.AddToInventory(RemoveItemFromCraftingTable(2));
             CraftingLoad();
         }
 
         private void pbCraftingItem4_Click(object sender, EventArgs e)
         {
             int n = Int32.Parse(CraftingNumOfItem4.Text);
-            if (!IsStorageFullCrafting(3, n))
+            if (!IsStorageFull(lblCraftingItem4.Text, n))
                 AddToStorage(RemoveItemFromCraftingTable(3));
-            else if (!IsInventoryFullCrafting(3, n))
-                hero.addToInventory(RemoveItemFromCraftingTable(3));
+            else if (!IsInventoryFull(CraftingLabels[3].Text, n))
+                hero.AddToInventory(RemoveItemFromCraftingTable(3));
             CraftingLoad();
         }
 
@@ -2138,7 +2566,7 @@ namespace Farmio
             longRunningTask = HeroMoveHere(x + 27, y + 21, 0);
             int result = await longRunningTask;
             CurrentPlowedSoil = (Map.MapMainPoint.PlowedSoil)map.mapTab[x, y];
-            InventoryLoad();
+            InventoryLoad(true);
         }
 
         private void pbInventorySeed1_Click(object sender, EventArgs e)
@@ -2204,7 +2632,7 @@ namespace Farmio
 
         private async void pbGetWater_Click(object sender, EventArgs e)
         {
-            pbGetWater.Visible = false;
+            pbGetWater.Visible = pbGoFishing.Visible = false;
             int x = map.mapTab[ClickX, ClickY].X;
             int y = map.mapTab[ClickX, ClickY].Y;
             longRunningTask = HeroMoveHere(x + 31, y + 26, 0);
@@ -2221,7 +2649,16 @@ namespace Farmio
 
         private void lblItemToCraft_Click(object sender, EventArgs e)
         {
-
+            if (lblItemToCraft.Text != "")
+            {
+                object o = Activator.CreateInstance(craftedItem.GetType(), new object[] { craftedItem.Number });
+                var item = (Item)o;
+                hero.AddToInventory(item);
+                lblItemToCraft.Text = "";
+                for (int i = 0; i < 4; i++)
+                    RemoveItemFromCraftingTable(i);
+                CraftingLoad();
+            }
         }
 
         private async void pbToHarvest_Click(object sender, EventArgs e)
@@ -2232,8 +2669,361 @@ namespace Farmio
             longRunningTask = HeroMoveHere(x + 27, y + 21, 0);
             int result = await longRunningTask;
             CurrentPlowedSoil = (Map.MapMainPoint.PlowedSoil)map.mapTab[x, y];
-            hero.addToInventory(CurrentPlowedSoil.Harvesting());
+            hero.AddToInventory(CurrentPlowedSoil.Harvesting());
             pbFon.Image = map.DrawMap();
+        }
+
+        private void pbGoFishing_Click(object sender, EventArgs e)
+        {
+            pbGetWater.Visible = pbGoFishing.Visible = false; 
+            int x = map.mapTab[ClickX, ClickY].X;
+            int y = map.mapTab[ClickX, ClickY].Y;
+            longRunningTask = HeroMoveHere(x + 31, y + 26, 0);
+            InventoryLoad(true);
+            Fishing = true;
+            fishingTimer.Start();
+        }
+
+        void fishingTimer_Tick(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            int rand = random.Next(1, 500);
+            if (rand < 107)
+            {
+                InventoryLoad(false);
+                if (rand < 10)
+                {
+                    Item.Food.Fish.Carp fish = new Item.Food.Fish.Carp(1);
+                    hero.AddToInventory(fish);
+                }
+                else if (rand < 11)
+                {
+                    Item.Food.Fish.GoldenCarp fish = new Item.Food.Fish.GoldenCarp(1);
+                    hero.AddToInventory(fish);
+                }
+                else if (rand < 24)
+                {
+                    Item.Food.Fish.Pike fish = new Item.Food.Fish.Pike(1);
+                    hero.AddToInventory(fish);
+                }
+                else if (rand < 44)
+                {
+                    Item.Food.Fish.Perch fish = new Item.Food.Fish.Perch(1);
+                    hero.AddToInventory(fish);
+                }
+                else if (rand < 59)
+                {
+                    Item.Food.Fish.Asp fish = new Item.Food.Fish.Asp(1);
+                    hero.AddToInventory(fish);
+                }
+                else if (rand < 67)
+                {
+                    Item.Food.Fish.Catfish fish = new Item.Food.Fish.Catfish(1);
+                    hero.AddToInventory(fish);
+                }
+                else if (rand < 87)
+                {
+                    Item.Food.Fish.Roach fish = new Item.Food.Fish.Roach(1);
+                    hero.AddToInventory(fish);
+                }
+                else
+                {
+                    Item.Food.Fish.Bream fish = new Item.Food.Fish.Bream(1);
+                    hero.AddToInventory(fish);
+                }
+            }
+
+        }
+
+        private void lblItemToCraft_TextChanged(object sender, EventArgs e)
+        {
+            if (lblItemToCraft.Text != "")
+                lblItemToCraft.Cursor = System.Windows.Forms.Cursors.Hand;
+            else
+                lblItemToCraft.Cursor = System.Windows.Forms.Cursors.Arrow;
+        }
+
+        private Item RemoveItemFromFurnace(int n, int i)
+        {
+            Item itemTmp2 = new Item();
+            foreach (Item item in CurrentFurnace.ItemsInFurnace)
+            {
+                if (item.Name == FurnaceLabels[n].Text || item.NamePlural == FurnaceLabels[n].Text)
+                {
+                    item.Number -= i;
+                    if (item.Number <= 0)
+                    {
+                        CurrentFurnace.ItemsInFurnace.Remove(item);
+                        CurrentFurnace.NumOfItemsInFurnace--;
+                    }
+                    object o = item.Clone();
+                    Item itemTmp = (Item)o;
+                    itemTmp.Number = i;
+                    return itemTmp;
+                }
+            }
+            foreach (Item.BakedItem bakeableItems in hero.BakeableItems)
+            {
+                if ((CurrentFurnace.ItemsInFurnace.Count == bakeableItems.ItemsNeededForBaking.Count))
+                {
+                    bool isThatItem = true;
+                    int j = 0;
+                    foreach (Item itemInFurnace in CurrentFurnace.ItemsInFurnace)
+                    {
+                        foreach (Item itemNeeded in bakeableItems.ItemsNeededForBaking)
+                        {
+                            isThatItem = true;
+                            if (itemInFurnace.GetType() == itemNeeded.GetType())
+                            {
+                                j++;
+                                if (itemInFurnace.Number != itemNeeded.Number)
+                                {
+                                    isThatItem = false;
+                                    break;
+                                }
+                            }
+                        }
+
+                    }
+                    if (isThatItem && n == bakeableItems.ItemsNeededForBaking.Count)
+                    {
+                        lblItemToCraft.Text = bakeableItems.Name;
+                        break;
+                    }
+                    else
+                        lblItemToCraft.Text = "";
+                }
+            }
+            return itemTmp2;
+        }
+
+        private void FurnaceArrowClick(int n, int i)
+        {
+            Item item = RemoveItemFromFurnace(n, i);
+            FurnaceOpen(CurrentFurnace);
+            if (!IsStorageFull(FurnaceLabels[n].Text, i))
+                AddToStorage(item);
+            else if (!IsInventoryFull(FurnaceLabels[n].Text, i))
+                hero.AddToInventory(item);
+        }
+        private void pbFurnace01Arrow_Click(object sender, EventArgs e)
+        {
+            FurnaceArrowClick(0, 1);
+        }
+        private void pbFurnace02Arrow_Click(object sender, EventArgs e)
+        {
+            FurnaceArrowClick(1, 1);
+        }
+        private void pbFurnace03Arrow_Click(object sender, EventArgs e)
+        {
+            FurnaceArrowClick(2, 1);
+        }
+        private void pbFurnace04Arrow_Click(object sender, EventArgs e)
+        {
+            FurnaceArrowClick(3, 1);
+        }
+
+        private void pbFurnace1Arrow_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(lblFurnace1Num.Text);
+            if (n > 10)
+                n = 10;
+
+            FurnaceArrowClick(0, n);
+        }
+        private void pbFurnace2Arrow_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(lblFurnace2Num.Text);
+            if (n > 10)
+                n = 10;
+
+            FurnaceArrowClick(1, n);
+        }
+        private void pbFurnace3Arrow_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(lblFurnace3Num.Text);
+            if (n > 10)
+                n = 10;
+
+            FurnaceArrowClick(2, n);
+        }
+        private void pbFurnace4Arrow_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(lblFurnace4Num.Text);
+            if (n > 10)
+                n = 10;
+
+            FurnaceArrowClick(3, n);
+        }
+
+        private bool IsFurnaceFullInventory(int n, int i)
+        {
+            Item item = CopyItemFromInventory(n);
+            if (item.IsBakeable)
+            {
+                if (CurrentFurnace.NumOfItemsInFurnace < 4)
+                    return false;
+                foreach (Item itemIn in CurrentFurnace.ItemsInFurnace)
+                    if (itemIn.Name == inventoryLabels[n].Text || itemIn.NamePlural == inventoryLabels[n].Text)
+                        if (item.Number < 99 - i)
+                            return false;
+            }
+            else if (CurrentFurnace.Raw == null)
+                return false;
+            else if (CurrentFurnace.Number < 99 - i)
+                return false;
+
+            return true;
+        }
+
+        private bool IsFurnaceFullStorage(int n, int i)
+        {
+            Item item = CopyItemFromStorage(n);
+            if (item.IsBakeable)
+            {
+                if (CurrentFurnace.NumOfItemsInFurnace < 4)
+                    return false;
+                foreach (Item itemIn in CurrentFurnace.ItemsInFurnace)
+                    if (itemIn.Name == storageLabels[n].Text || itemIn.NamePlural == storageLabels[n].Text)
+                        if (item.Number < 99 - i)
+                            return false;
+            }
+            else if (CurrentFurnace.Raw == null)
+                return false;
+            else if (CurrentFurnace.Number < 99 - i)
+                return false;
+
+            return true;
+        }
+
+        private void AddInFurnace(Item ItemToAdd)
+        {
+            if (ItemToAdd.Number != 0)
+                CurrentFurnace.AddInFurnace(ItemToAdd);
+            int i = 0;
+            //foreach (Item item in CurrentFurnace.ItemsInFurnace)
+            //{
+            //    FurnaceLabels[i].Text = (item.Number == 1) ? item.Name : item.NamePlural;
+            //    i++;
+            //}
+            if (CurrentFurnace.Fuel != null)
+            {
+                foreach (Item.BakedItem bakedItem in hero.BakeableItems)
+                {
+                    if ((CurrentFurnace.ItemsInFurnace.Count == bakedItem.ItemsNeededForBaking.Count))
+                    {
+                        bool isThatItem = true;
+                        int n = 0;
+                        foreach (Item itemInFurnace in CurrentFurnace.ItemsInFurnace)
+                        {
+                            foreach (Item itemNeeded in bakedItem.ItemsNeededForBaking)
+                            {
+                                isThatItem = true;
+                                if (itemInFurnace.GetType() == itemNeeded.GetType())
+                                    n++;
+                            }
+                        }
+                        if (isThatItem && n == bakedItem.ItemsNeededForBaking.Count)
+                        {
+                            lblFurnaceResult.Text = bakedItem.Name;
+                            CurrentFurnace.Result = bakedItem;
+                            CurrentFurnace.Result.Number = 0;
+                            break;
+                        }
+                        else
+                            lblFurnaceResult.Text = "";
+                    }
+                }
+            }
+            FurnaceOpen(CurrentFurnace);
+        }
+
+        public Item RemoveFuelFromFurnace(int i)
+        {
+            Item item = CurrentFurnace.Fuel;
+            CurrentFurnace.Fuel.Number -= i;
+            if (CurrentFurnace.Fuel.Number <= 0)
+                CurrentFurnace.Fuel = null;
+
+            item.Number = i;
+            return item;
+        }
+
+        public Item RemoveResultFromFurnace(int i)
+        {
+            Item item = CurrentFurnace.Result;
+            CurrentFurnace.Result.Number -= i;
+            if (CurrentFurnace.Result.Number <= 0)
+                CurrentFurnace.Result = null;
+
+            item.Number = i;
+            return item;
+        }
+
+        private void pbFurnace0FuelArrow_Click(object sender, EventArgs e)
+        {
+            Item item = RemoveFuelFromFurnace(1);
+            FurnaceOpen(CurrentFurnace);
+            if (!IsStorageFull(lblFurnaceFuel.Text, 1))
+                AddToStorage(item);
+            else if (!IsInventoryFull(lblFurnaceFuel.Text, 1))
+                hero.AddToInventory(item);
+        }
+
+        private void pbFurnaceFuelArrow_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(lblFurnaceFuelNum.Text);
+            if (n > 10)
+                n = 10;
+
+            Item item = RemoveFuelFromFurnace(n);
+            FurnaceOpen(CurrentFurnace);
+            if (!IsStorageFull(lblFurnaceFuel.Text, n))
+                AddToStorage(item);
+            else if (!IsInventoryFull(lblFurnaceFuel.Text, n))
+                hero.AddToInventory(item);
+        }
+
+        private void lblFurnaceResult_TextChanged(object sender, EventArgs e)
+        {
+            if (this.Text != "")
+                pbFurnaceArrow.Cursor = System.Windows.Forms.Cursors.Hand;
+            else
+                pbFurnaceArrow.Cursor = System.Windows.Forms.Cursors.Arrow;
+        }
+
+        private void pbFurnaceArrow_Click(object sender, EventArgs e)
+        {
+            if (lblFurnaceResult.Text != "")
+            {
+                Baking = true;
+                Furnaces.Add(CurrentFurnace); 
+                FurnaceOpen(CurrentFurnace);
+            }
+        }
+
+        private void pbFurnace0ResArrow_Click(object sender, EventArgs e)
+        {
+            Item item = RemoveResultFromFurnace(1);
+            FurnaceOpen(CurrentFurnace);
+            if (!IsStorageFull(lblFurnaceResult.Text, 1))
+                AddToStorage(item);
+            else if (!IsInventoryFull(lblFurnaceResult.Text, 1))
+                hero.AddToInventory(item);
+        }
+
+        private void pbFurnaceResArrow_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(lblFurnaceResNum.Text);
+            if (n > 10)
+                n = 10;
+
+            Item item = RemoveResultFromFurnace(n);
+            FurnaceOpen(CurrentFurnace);
+            if (!IsStorageFull(lblFurnaceResult.Text, n))
+                AddToStorage(item);
+            else if (!IsInventoryFull(lblFurnaceResult.Text, n))
+                hero.AddToInventory(item);
         }
     }
 }

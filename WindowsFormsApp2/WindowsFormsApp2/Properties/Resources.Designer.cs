@@ -465,6 +465,26 @@ namespace WindowsFormsApp2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FurnaceOpen {
+            get {
+                object obj = ResourceManager.GetObject("FurnaceOpen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FurnaceOpenResult {
+            get {
+                object obj = ResourceManager.GetObject("FurnaceOpenResult", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap getMushroom {
             get {
                 object obj = ResourceManager.GetObject("getMushroom", resourceCulture);
@@ -517,6 +537,16 @@ namespace WindowsFormsApp2.Properties {
         internal static System.Drawing.Bitmap GLEFon {
             get {
                 object obj = ResourceManager.GetObject("GLEFon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap goFishing {
+            get {
+                object obj = ResourceManager.GetObject("goFishing", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
