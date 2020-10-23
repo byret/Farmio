@@ -11,10 +11,8 @@ namespace Engine
 {
     public class Item : ICloneable
     {
-     //   public int ID { get; set; }
         public string Name { get; set; }
         public string NamePlural { get; set; }
-        //public int LevelRequired { get; set; }
         public int Number { get; set; }
         public bool IsUsable;
         public bool IsStacking;
@@ -29,11 +27,10 @@ namespace Engine
         public Item(int number = 0)
         {
             Number = number;
-            IsUsable = false;
+            IsUsable = IsBakeable = IsFuel = false;
             IsStacking = true;
-            IsBakeable = false;
-            IsFuel = false;
         }
+
         public Item()
         {
             Number = 0;
@@ -41,6 +38,7 @@ namespace Engine
             IsStacking = true;
         }
 
+            // przedmioty, które możemy stworzyć za pomocą crafting table
         public class CraftableItem : Item
         {
             public List<Item> ItemsNeededForCraft = new List<Item>();
@@ -168,6 +166,8 @@ namespace Engine
             }
         }
 
+
+
         public class Wood : Item
         {
             public Wood(int number)
@@ -188,14 +188,15 @@ namespace Engine
             }
         }
 
+
+
         public class Food : Item
         {
             public int Energy; 
             public Food(int number)
                 : base(number)
             {
-                IsUsable = true;
-                IsBakeable = true;
+                IsUsable = IsBakeable = true;
             }
         }
 
@@ -267,7 +268,6 @@ namespace Engine
                 NamePlural = "Jabłka";
             }
         }
-
 
         public class Wheat : Food
         {
@@ -478,6 +478,7 @@ namespace Engine
             }
         }
 
+
         public class Seed : Food
         {
             public int id;
@@ -605,6 +606,7 @@ namespace Engine
             }
         }
 
+            // jedzenie, które może być wykorzystane w piecu
         public class BakedItem : Item
         {
             public List<Item> ItemsNeededForBaking = new List<Item>();
@@ -616,6 +618,7 @@ namespace Engine
             }
         }
 
+            // rezultat pieczenia tych czy innych BakedItem, czyli jedzenie, stworzone za pomocą pieca
         public class BakedFood : BakedItem
         {
             public int Energy;

@@ -14,39 +14,7 @@ namespace Engine
             return random.Next(min, max);
         }
 
-        public static string MainPictureRandomize()
-        {
-            int caseSwitch = RandomNumber(7, 8);
-
-            switch (caseSwitch)
-            {
-                case 1:
-                    return "_1";
-                    break;
-                case 2:
-                    return "_2";
-                    break;
-                case3:
-                    return "_3";
-                    break;
-                case4:
-                    return "_4";
-                    break;
-                case5:
-                    return "_5";
-                    break;
-                case6:
-                    return "_6";
-                    break;
-                case7:
-                    return "_7";
-                    break;
-                default:
-                    return "_8";
-                    break;
-            }
-        }
-
+        // zwraca nazwę pliku z muzyką - na razie nie wykorzystujemy
        /* public static string MusicRandomize()
         {
             int caseSwitch = RandomNumber(1, 8);
@@ -74,12 +42,8 @@ namespace Engine
                 default:
                     return "vlad-gluschenko-its-been-a-while.wav";
                     break;
-
             }
         }
        */
-
-
-
     }
 }

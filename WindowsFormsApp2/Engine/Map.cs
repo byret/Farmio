@@ -9,15 +9,12 @@ using System.Timers;
 
 namespace Engine
 {
-
     public class Map
     {
-
         public Bitmap Trees = new Bitmap(1300, 805);
         public MapPoint[,] mapTab = new MapPoint[1700, 900];
 
         // każdy "zajęty" punkt na mapie
-
         public class MapPoint
         {
             public int X;       // wskazują na MainPoint,
@@ -30,11 +27,9 @@ namespace Engine
                 Y = y;
                 Collision = collision;
             }
-
-
-
         }
-        //przechowuje całą informację o obiekcie
+
+        // przechowuje całą informację o obiekcie
         public class MapMainPoint : MapPoint    // najbardziej górny z lewej strony 
         {                                      // czyli punkt o najmniejszych X i Y danego obiektu 
             public string Name { get; set; }
@@ -477,6 +472,7 @@ namespace Engine
 
         }
 
+        // "wypełnia" całą zajętą przez obiekt przestrzeń MapPointami
         public void Fill(int x, int y, int w, int h, int cleft, int cright, int ctop, int cbottom)
         {
             for (int i = y; i <= y + h; i++)
@@ -503,6 +499,7 @@ namespace Engine
                         mapTab[j, i] = null;
         }
 
+        // tworzy odpowiedni obiekt w odpowiednim punkcie na mapie
         public void MakeObjectRightHere(int x, int y, string name, Map map, bool n)
         {
             int Width = 0, Height = 0;
@@ -784,9 +781,9 @@ namespace Engine
 
             else
                 map.mapTab[x, y] = null;
-
         }
 
+        // losowo (mniej-więcej) decyduje, gdzie i jaki przedmiot będzie stworzony
         public void MapGeneration(Map map)
         {
             string str = "";
@@ -901,13 +898,12 @@ namespace Engine
 
 
                 }
-
                 str += index;
                 MakeObjectRightHere(x, y + yr, str, map, true);
             }
-
         }
 
+        // "poprawia" już istniejącą mapę (na przykład generując nowe drzewa, trawę itp, co się dzieje każdego dnia)
         public void MapUpdate(Map map)
         {
             string str = "";
@@ -1018,12 +1014,11 @@ namespace Engine
                     MakeObjectRightHere(x, y + yr, str, map, true);
                 }
             }
-
         }
 
+        // tworzy sam obraz mapy
         public Image DrawMap()
         {
-
             Bitmap bm;
             Image files = new Bitmap(System.IO.Path.Combine(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "WindowsFormsApp2\\Resources\\justgreen.png"));
             Bitmap bitmap;
@@ -1048,7 +1043,6 @@ namespace Engine
                             g.DrawImage(files, new Point(tmp.X, tmp.Y));
                         }
                     }
-
                 }
             }
 
@@ -1056,6 +1050,8 @@ namespace Engine
             return finalImage;
         }
 
+        // sprawdza, czy NPC będzie mógł przejść z odpowiedniego punktu w odpowiednim kierunku 
+        // (czy nie przeszkodzi mu kolizja)
         public bool isFree(int x, int y, char dir)
         {
             int step = 5;

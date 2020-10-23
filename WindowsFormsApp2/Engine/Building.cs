@@ -25,31 +25,5 @@ namespace Engine
             Y = y;
             NumOfItemsInStorage = 0;
         }
-
-        public int addToStorage(Item item)
-        {
-                //bool isInStorage = false;
-                //foreach (Item it in Storage)
-                //{
-                //    if (it.GetType() == item.GetType())
-                //    {
-                //        isInStorage = true;
-                //        it.Number = it.Number + item.Number;
-                //        break;
-                //    }
-                //}
-
-                //if (!isInStorage)
-                //{
-                //    if (NumOfItemsInStorage < 10)
-                //    {
-                //        NumOfItemsInStorage++;
-                //        Storage.Add(item);
-                //    }
-                //    else return 1000;
-                //}
-
-            return 0;
-        }
     }
 }
